@@ -1,6 +1,6 @@
 <template>
     <div class="Home">
-        <Header></Header>
+        <header-app></header-app>
         <router-view></router-view>
         <content-home v-if="$route.name == 'Home'" />
     </div>
@@ -12,13 +12,13 @@ import { State } from 'vuex-class';
 
 import GlobalState from '../vuex/store';
 
-import Header from '@/components/Navigation/Header.vue';
+import HeaderApp from '@/components/Navigation/Header.vue';
 import ContentHome from '@/components/Home/ContentHome.vue';
 
 @Component({
     name: 'Home',
     components: {
-        Header,
+        HeaderApp,
         ContentHome,
     },
 })

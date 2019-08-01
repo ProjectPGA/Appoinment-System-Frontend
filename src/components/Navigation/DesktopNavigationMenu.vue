@@ -3,14 +3,10 @@
         <div id="navbarMenuDesktop" class="navbar-menu">
             <div class="navbar-end">
                 <a class="navbar-item is-active">
-                Home
+                    {{ $t('navigation.index') }}
                 </a>
-                <a class="navbar-item">
-                Examples
-                </a>
-                <a class="navbar-item">
-                Documentation
-                </a>
+                <a class="navbar-item"> {{ $t('navigation.appoinmets') }} </a>
+                <a class="navbar-item"> {{ $t('navigation.contactUs') }} </a>
             </div>
         </div>
     </div>
