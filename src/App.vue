@@ -30,7 +30,7 @@ export default class App extends Vue {
     padding: 0.5em !important;
 }
 .p-3 {
-    padding: !important;
+    padding: 1em !important;
 }
 .p-4 {
     padding: 1.5em !important;
