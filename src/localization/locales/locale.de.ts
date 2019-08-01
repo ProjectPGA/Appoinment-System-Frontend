@@ -1,9 +1,10 @@
 const de = {
-    components: {
-        navigationfoot: {
-            home: 'Home',
-            aboutus: 'About us',
-        },
+    navigation: {
+        title: 'Title',
+        subtitle: 'Subtitle',
+        index: 'Inicio',
+        appoinmets: 'Mis Sitas',
+        contactUs: 'Contacto',
     },
 };
 
