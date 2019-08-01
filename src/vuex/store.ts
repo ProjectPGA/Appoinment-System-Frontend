@@ -4,6 +4,7 @@ import createPersistedState from 'vuex-persistedstate';
 
 import utils from './utils/store';
 import auth, { AuthState } from './auth/store';
+import appointment, { DayState } from './appointment/store';
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     modules: {
         utils,
         auth,
+        appointment
     },
 });
 
