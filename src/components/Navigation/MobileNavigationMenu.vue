@@ -1,10 +1,12 @@
 <template>
     <div>
         <div class="navbar-brand">
-            <span id="navbarMenuMobile" class="navbar-burger burger" data-target="navbarMenuMobile">
-                <span></span>
-                <span></span>
-                <span></span>
+            <span
+                id="navbarMenuMobile"
+                class="navbar-burger burger"
+                data-target="navbarMenuMobile"
+            >
+                <span></span> <span></span> <span></span>
             </span>
         </div>
     </div>

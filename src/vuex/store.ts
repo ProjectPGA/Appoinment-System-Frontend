@@ -15,7 +15,7 @@ export default new Vuex.Store({
     modules: {
         utils,
         auth,
-        appointment
+        appointment,
     },
 });
 
