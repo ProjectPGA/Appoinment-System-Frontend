@@ -29,19 +29,20 @@ const actions: ActionTree<DayState> = {
     async deleteUser(context: ActionContext<DayState>, day: Day): Promise<any> {
         try {
             const response: AxiosResponse = await Vue.axios({
-                method: 'PUT',
+                method:'PUT',
                 url: `/days/${day.id}`,
-                data: day,
+                data: day
             });
-            if (response && response.data) {
+            if (response && response.data){
                 context.dispatch('fetchData');
             }
+
         } catch (e) {
             context.commit('daysError', e.message);
         } finally {
             console.log('EDIT');
         }
-    },
+    }
 };
 
 const mutations: MutationTree<DayState> = {
@@ -56,31 +57,31 @@ const mutations: MutationTree<DayState> = {
     },
 };
 
+
 const getters: GetterTree<DayState> = {
     productsCount(state: DayState): number {
-        const { days } = state;
+        const {days} = state;
         return days.length;
-    },
+    }
+
 };
 
 export const getInitialState = (): DayState => ({
-    days: [
-        {
-            id: 0,
-            date: undefined,
-            appointments: undefined,
-        },
-    ],
+    days: [{
+        id: 0,
+        date: undefined,
+        appointments: undefined
+    }],
     error: false,
     errorMessage: '',
 });
 
-const products = {
+const appointment = {
     namespaced: true,
     state: getInitialState(),
     mutations,
     actions,
-    getters,
+    getters
 };
 
-export default products;
+export default appointment;

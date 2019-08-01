@@ -1,13 +1,7 @@
 {
-  "users": [
+  "days": [
     {
-      "id": 1564130367454,
-      "disabled": false,
-      "username": "user545646",
-      "photo": false,
-      "fullname": "asFASDFqfSWDE",
-      "bioInfo": "",
-      "creationDate": "7/26/2019, 10:39:27 AM"
+      "id": 1
     }
   ]
 }
