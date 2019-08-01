@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="hero is-primary is-medium">
+        <section class="hero is-medium navigation-bar-content">
             <!-- Menú escritorio y Menu movil -->
             <div class="hero-head">
                 <nav class="navbar">
@@ -35,4 +35,8 @@ import TitleNavigationMenu from './TitleNavigationMenu.vue';
 export default class Navigationbar extends Vue {}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.navigation-bar-content{
+    background-color: #000000;
+}
+</style>
