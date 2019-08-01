@@ -1,0 +1,15 @@
+{
+  "name": "AppAndres",
+  "short_name": "Andres",
+  "icons": [
+    {
+      "src": "/img/icons/Icon-App-20x20@1x.png",
+      "sizes": "20x20",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#4DBA87"
+}

@@ -1,0 +1,11 @@
+.p-link {
+    color: black;
+
+    &.is-white {
+        color: white;
+        &:hover,
+        &:active {
+            color: #d4d4d4;
+        }
+    }
+}

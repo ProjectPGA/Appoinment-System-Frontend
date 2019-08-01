@@ -1,0 +1,43 @@
+$family-sans-serif: 'DaimlerCS-Regular', BlinkMacSystemFont, -apple-system,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+// bulma variables
+$primary: rgb(0, 0, 0);
+$navbar-background-color: rgba(255, 255, 255, 0);
+$input-radius: white;
+
+// links
+$link: #026780;
+$link-hover: #024658;
+
+// navbar
+$navbar-item-color: white;
+$navbar-item-hover-color: white;
+$navbar-item-hover-background-color: rgba(255, 255, 255, 0.12);
+$navbar-item-active-color: white;
+$navbar-item-active-background-color: rgba(255, 255, 255, 0.2);
+
+$navbar-dropdown-item-color: black;
+$navbar-dropdown-item-hover-color: black;
+$navbar-dropdown-item-hover-background-color: #024658;
+$navbar-dropdown-item-active-color: black;
+$navbar-dropdown-item-active-background-color: #024658;
+
+$navbar-dropdown-arrow: white;
+
+// input (forms)
+$input-border-color: #c7c7c7;
+
+// labels (forms)
+$label-color: #00566a;
+$label-weight: 400;
+
+// modal
+$modal-card-head-background-color: white;
+$modal-card-head-radius: 0px;
+$modal-card-foot-radius: 0px;
+$modal-card-head-border-bottom: 1px solid #a6cad8;
+
+// themes
+$info: rgb(189, 189, 189);

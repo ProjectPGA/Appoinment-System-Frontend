@@ -1,0 +1,7 @@
+{
+  "pluginsFile": "tests/e2e/plugins/index.js",
+  "baseUrl": "http://localhost:18080",
+  "viewport": "macbook-15",
+  "viewportHeight": 900,
+  "viewportWidth": 1440
+}

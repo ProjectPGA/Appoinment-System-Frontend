@@ -1,0 +1,4 @@
+// fix a bug in buefy's radio button on IE 11
+.b-radio.radio input[type='radio']:checked + .check:before {
+    display: block;
+}

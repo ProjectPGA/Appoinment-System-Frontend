@@ -1,0 +1,22 @@
+.p-button {
+    $p-button-color: #004355;
+    border-radius: 4px;
+    background-color: $p-button-color;
+    color: white;
+
+    &:hover {
+        color: white;
+        opacity: 0.9;
+    }
+
+    &:focus,
+    &:active {
+        color: white;
+    }
+
+    &:disabled,
+    &:disabled:hover {
+        background-color: lighten($p-button-color, 5);
+        opacity: 0.5; // bulma opacity
+    }
+}
