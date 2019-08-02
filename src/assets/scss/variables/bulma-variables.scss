@@ -1,3 +1,4 @@
+@import '../../../../node_modules/bulma/sass/utilities/initial-variables';
 $family-sans-serif: 'DaimlerCS-Regular', BlinkMacSystemFont, -apple-system,
     'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -41,3 +42,17 @@ $modal-card-head-border-bottom: 1px solid #a6cad8;
 
 // themes
 $info: rgb(189, 189, 189);
+
+// responsive media querys 
+
+$gap: 32px !default;
+
+$tablet: 1407px !default;
+
+$desktop: 1407px + (2 * $gap) !default;
+
+$widescreen: 1407px + (2 * $gap) !default;
+$widescreen-enabled: false !default;
+
+$fullhd: 1407px + (2 * $gap) !default;
+$fullhd-enabled: false !default;
