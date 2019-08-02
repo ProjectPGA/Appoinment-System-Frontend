@@ -38,10 +38,10 @@ Vue.use(Buefy, {
 });
 Vue.use(VueMq, {
     breakpoints: {
-        [Device.sm]: 769,
-        [Device.md]: 1088,
-        [Device.lg]: 1216,
-        [Device.xl]: 1408,
+        [Device.sm]: 1390,
+        [Device.md]: 1390,
+        [Device.lg]: 1390,
+        [Device.xl]: 1390,
     },
     defaultBreakpoint: 'sm',
 });
