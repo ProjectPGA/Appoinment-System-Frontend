@@ -5,7 +5,7 @@
             <div class="hero-head">
                 <nav class="navbar">
                     <div class="container">
-                        <mobile-navigation-menu />
+                        <mobile-navigation />
                         <desktop-navigation-menu />
                     </div>
                 </nav>
@@ -20,14 +20,14 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { State } from 'vuex-class';
 
-import MobileNavigationMenu from './MobileNavigationMenu.vue';
+import MobileNavigation from './MobileNavigation.vue';
 import DesktopNavigationMenu from './DesktopNavigationMenu.vue';
 import TitleNavigationMenu from './TitleNavigationMenu.vue';
 
 @Component({
     name: 'Navigationbar',
     components: {
-        MobileNavigationMenu,
+        MobileNavigation,
         DesktopNavigationMenu,
         TitleNavigationMenu,
     },
