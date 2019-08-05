@@ -45,7 +45,9 @@ $navigation-item-spacing-desktop: 24px;
 $family-sans-serif: 'DaimlerCS-Regular', #{$fallback-fonts};
 
 // Import Bulma's core
-@import "~bulma/sass/utilities/_all";
+
+@import "~bulma/sass/utilities/initial-variables"; 
+@import "~bulma/sass/utilities/functions";
 
 // bulma variables
 $primary: #409cb3;
@@ -111,5 +113,5 @@ $variable-columns: false;
 $primary: #8c67ef;
 
 // Import Bulma and Buefy styles
-@import "~bulma";
-@import "~buefy/src/scss/buefy";
+@import '~bulma';
+@import '~buefy/src/scss/buefy';
