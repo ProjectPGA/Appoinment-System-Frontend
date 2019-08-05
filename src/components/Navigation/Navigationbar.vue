@@ -1,11 +1,11 @@
 <template>
     <div>
-        <section class="hero is-primary is-medium">
+        <section class="hero is-medium is-primary navigation-bar-content">
             <!-- Menú escritorio y Menu movil -->
             <div class="hero-head">
                 <nav class="navbar">
                     <div class="container">
-                        <mobile-navigation-menu />
+                        <mobile-navigation />
                         <desktop-navigation-menu />
                     </div>
                 </nav>
@@ -20,14 +20,14 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { State } from 'vuex-class';
 
-import MobileNavigationMenu from './MobileNavigationMenu.vue';
+import MobileNavigation from './MobileNavigation.vue';
 import DesktopNavigationMenu from './DesktopNavigationMenu.vue';
 import TitleNavigationMenu from './TitleNavigationMenu.vue';
 
 @Component({
     name: 'Navigationbar',
     components: {
-        MobileNavigationMenu,
+        MobileNavigation,
         DesktopNavigationMenu,
         TitleNavigationMenu,
     },
@@ -35,4 +35,8 @@ import TitleNavigationMenu from './TitleNavigationMenu.vue';
 export default class Navigationbar extends Vue {}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// .navigation-bar-content{
+//     background-color: #000000;
+// }
+</style>
