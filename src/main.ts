@@ -1,6 +1,5 @@
 import '@babel/polyfill';
 import axios from 'axios';
-import Buefy from 'buefy';
 import VTooltip from 'v-tooltip';
 import vClickOutside from 'v-click-outside';
 import VeeValidate from 'vee-validate';
@@ -17,10 +16,9 @@ import { Autofocus } from '@/directives/AutofocusDirective';
 import { Scroll } from '@/directives/Scroll';
 import { Device } from '@/models/utils/Device';
 
-import './assets/main.scss';
+import './assets/scss/variables/bulma-variables.scss';
 import Router from 'vue-router';
 import { Http } from './namespaces/Http';
-import 'buefy/dist/buefy.css';
 import '@/plugins/axios';
 
 Vue.config.productionTip = false;
@@ -33,9 +31,6 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 Vue.use(Router);
 Vue.use(vClickOutside);
 Vue.use(VTooltip);
-Vue.use(Buefy, {
-    defaultIconPack: 'fas',
-});
 Vue.use(VueMq, {
     breakpoints: {
         [Device.sm]: 1390,
