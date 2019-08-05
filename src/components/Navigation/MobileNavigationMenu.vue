@@ -7,7 +7,6 @@
                         <mobile-navigation-link
                             label="navigation.index"
                             to="/"
-                        
                         ></mobile-navigation-link>
                         <mobile-navigation-link
                             label="navigation.appoinmets"
@@ -47,12 +46,10 @@ export default class MobileNavigationMenu extends Vue {
     private hide() {
         this.$emit('hide');
     }
-
 }
 </script>
 
 <style lang="scss" scoped>
-
 .menu-container {
     position: fixed;
     overflow-y: auto;

@@ -16,7 +16,6 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
-
 @Component({
     name: 'MobileNavigationLink',
 })
@@ -34,7 +33,7 @@ export default class MobileNavigationLink extends Vue {
 }
 .mobile-navigation-link:hover {
     background-color: rgba(255, 255, 255, 0.12);
-    width:100%;
+    width: 100%;
     height: 100%;
     cursor: pointer;
 }
