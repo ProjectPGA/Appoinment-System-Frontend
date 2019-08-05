@@ -1,8 +1,7 @@
 <template>
     <div>
         <div class="container has-text-centered">
-            <h1 class="title">{{ $t('navigation.title') }}</h1>
-            <h2 class="subtitle">{{ $t('navigation.subtitle') }}</h2>
+            <img class="logo" src="../../assets/img/logo.svg" alt="">
         </div>
     </div>
 </template>
@@ -17,4 +16,11 @@ import { State } from 'vuex-class';
 export default class TitleNavigationMenu extends Vue {}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.logo{
+    width: 35%;
+    @include mobile{
+        width: 50%;
+    }
+}
+</style>
