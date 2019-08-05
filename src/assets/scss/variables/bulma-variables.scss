@@ -46,8 +46,8 @@ $family-sans-serif: 'DaimlerCS-Regular', #{$fallback-fonts};
 
 // Import Bulma's core
 
-@import "~bulma/sass/utilities/initial-variables"; 
-@import "~bulma/sass/utilities/functions";
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/functions';
 
 // bulma variables
 $primary: #409cb3;

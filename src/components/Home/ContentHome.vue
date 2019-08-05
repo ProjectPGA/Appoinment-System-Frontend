@@ -1,6 +1,6 @@
 <template>
     <div class="columns custom-padding">
-        <div class="column"><MainScheduleDesktop /> <MainScheduleMobile /></div>
+        <div class="column"><MainSchedule /></div>
     </div>
 </template>
 
@@ -9,14 +9,12 @@ import { Component, Vue } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
 import { GlobalState } from '@/vuex/store';
 
-import MainScheduleMobile from './MainScheduleMobile.vue';
-import MainScheduleDesktop from './MainScheduleDesktop.vue';
+import MainSchedule from './MainSchedule.vue';
 
 @Component({
     name: 'ContentHome',
     components: {
-        MainScheduleMobile,
-        MainScheduleDesktop,
+        MainSchedule,
     },
 })
 export default class ContentHome extends Vue {}

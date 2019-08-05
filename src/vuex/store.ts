@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import createPersistedState from 'vuex-persistedstate';
 
-import utils from './utils/store';
+import utils, { UtilState } from './utils/store';
 import auth, { AuthState } from './auth/store';
 import appointment, { DayState } from './appointment/store';
 
@@ -21,4 +21,6 @@ export default new Vuex.Store({
 
 export interface GlobalState {
     auth: AuthState;
+    utils: UtilState;
+    appointment: DayState;
 }
