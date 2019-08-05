@@ -17,10 +17,10 @@ import { Autofocus } from '@/directives/AutofocusDirective';
 import { Scroll } from '@/directives/Scroll';
 import { Device } from '@/models/utils/Device';
 
+import 'buefy/dist/buefy.css';
 import './assets/main.scss';
 import Router from 'vue-router';
 import { Http } from './namespaces/Http';
-import 'buefy/dist/buefy.css';
 import '@/plugins/axios';
 
 Vue.config.productionTip = false;
