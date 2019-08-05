@@ -33,10 +33,10 @@ Vue.use(vClickOutside);
 Vue.use(VTooltip);
 Vue.use(VueMq, {
     breakpoints: {
-        [Device.sm]: 1390,
-        [Device.md]: 1390,
-        [Device.lg]: 1390,
-        [Device.xl]: 1390,
+        [Device.sm]: 769,
+        [Device.md]: 1024,
+        [Device.lg]: 1216,
+        [Device.xl]: 1408,
     },
     defaultBreakpoint: 'sm',
 });
@@ -44,7 +44,6 @@ Vue.use(VeeValidate, {
     i18n,
     i18nRootKey: 'errors',
 });
-
 Vue.directive('autofocus', Autofocus);
 Vue.directive('scroll', Scroll);
 

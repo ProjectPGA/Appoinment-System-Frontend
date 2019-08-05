@@ -46,8 +46,8 @@ $family-sans-serif: 'DaimlerCS-Regular', #{$fallback-fonts};
 
 // Import Bulma's core
 
-@import "~bulma/sass/utilities/initial-variables"; 
-@import "~bulma/sass/utilities/functions";
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/functions';
 
 // bulma variables
 $primary: #409cb3;
@@ -103,14 +103,11 @@ $tablet: 1407px;
 $desktop: 1407px + (2 * $gap);
 
 $widescreen: 1407px + (2 * $gap);
-$widescreen-enabled: false;
+$widescreen-enabled: true;
 
-$fullhd: 1407px + (2 * $gap);
 $fullhd-enabled: false;
 
 $variable-columns: false;
-
-$primary: #8c67ef;
 
 // Import Bulma and Buefy styles
 @import '~bulma';
