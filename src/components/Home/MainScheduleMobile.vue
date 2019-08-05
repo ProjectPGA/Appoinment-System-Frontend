@@ -1,7 +1,7 @@
 <template>
     <div class="columns box custom-box-padding is-size-4 is-multiline">
         <div
-            class="column is-2-desktop has-text-centered box custom-box-margin"
+            class="column is-auto-desktop has-text-centered box custom-box-margin"
         >
             <div class="columns is-multiline">
                 <div class="column is-12 is-size-5">
@@ -101,7 +101,7 @@
             </div>
         </div>
         <div
-            class="column is-2-desktop has-text-centered box custom-box-margin"
+            class="column is-auto-desktop has-text-centered box custom-box-margin"
         >
             <div class="columns is-multiline">
                 <div class="column title is-12">Martes</div>
@@ -198,7 +198,7 @@
             </div>
         </div>
         <div
-            class="column is-2-desktop has-text-centered box custom-box-margin"
+            class="column is-auto-desktop has-text-centered box custom-box-margin"
         >
             <div class="columns is-multiline">
                 <div class="column title is-12">Miercoles</div>
@@ -295,7 +295,7 @@
             </div>
         </div>
         <div
-            class="column is-2-desktop has-text-centered box custom-box-margin"
+            class="column is-auto-desktop has-text-centered box custom-box-margin"
         >
             <div class="columns is-multiline">
                 <div class="column title is-12">Jueves</div>
@@ -392,7 +392,7 @@
             </div>
         </div>
         <div
-            class="column is-2-desktop has-text-centered box custom-box-margin"
+            class="column is-auto-desktop has-text-centered box custom-box-margin"
         >
             <div class="columns is-multiline">
                 <div class="column title is-12">Viernes</div>
@@ -489,7 +489,7 @@
             </div>
         </div>
         <div
-            class="column is-2-desktop has-text-centered box custom-box-margin"
+            class="column is-auto-desktop has-text-centered box custom-box-margin"
         >
             <div class="columns is-multiline">
                 <div class="column title is-12">Sabado</div>
