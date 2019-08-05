@@ -1,15 +1,20 @@
 import Vue from 'vue';
-import Vuex, { MutationTree, ActionTree } from 'vuex';
+import Vuex, { MutationTree } from 'vuex';
+import { ActionTree, ActionContext, GetterTree } from '@/types';
 
 Vue.use(Vuex);
 
-interface State {
+export interface UtilState {
     currentLocale: string;
+    messageisActive: boolean;
 }
 
-const mutations: MutationTree<State> = {
-    setCurrentLocale(currentState: State, currentLocale: string) {
+const mutations: MutationTree<UtilState> = {
+    setCurrentLocale(currentState: UtilState, currentLocale: string) {
         currentState.currentLocale = currentLocale;
+    },
+    setMessageisActive(currentState: UtilState) {
+        currentState.messageisActive = !currentState.messageisActive;
     },
 
     resetState() {
@@ -21,19 +26,18 @@ const mutations: MutationTree<State> = {
     },
 };
 
-const actions: ActionTree<State, any> = {
-    RESET({ commit }) {
-        commit('account/resetState', null, { root: true });
-        commit('company/resetState', null, { root: true });
-
-        // console.log('RESET FIRED FROM UTILS STORE');
-        // Clear also the local storage
-        localStorage.clear();
-    },
+const actions: ActionTree<UtilState> = {
+    // RESET({ commit }) {
+    //     commit('account/resetState', null, { root: true });
+    //     commit('company/resetState', null, { root: true });
+    //     // console.log('RESET FIRED FROM UTILS STORE');
+    //     // Clear also the local storage
+    //     localStorage.clear();
+    // },
 };
 
 const getters = {
-    currentLocale(currentState: State) {
+    currentLocale(currentState: UtilState) {
         return currentState.currentLocale;
     },
 };
@@ -41,12 +45,13 @@ const getters = {
 function initialState() {
     return {
         currentLocale: 'en',
+        messageisActive: false,
     };
 }
 
-const state: State = initialState();
+const state: UtilState = initialState();
 
-const module = {
+const utils = {
     namespaced: true,
     state,
     getters,
@@ -54,4 +59,4 @@ const module = {
     actions,
 };
 
-export default module;
+export default utils;
