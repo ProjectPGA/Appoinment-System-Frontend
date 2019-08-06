@@ -43,8 +43,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { State, Mutation } from 'vuex-class';
-import { UtilState } from '@/vuex/utils/store';
+
 import MessageText from '@/components/Utils/MessageText.vue';
+
+import { UtilState } from '@/vuex/utils/store';
 import { GlobalState } from '../../vuex/store';
 
 @Component({
@@ -55,7 +57,7 @@ import { GlobalState } from '../../vuex/store';
 })
 export default class MainSchedule extends Vue {
     @Mutation('utils/setMessageisActive') private setMessageActive: () => void;
-        @State((state: GlobalState) => state.utils.messageisActive) private isActive !: boolean;
+    @State((state: GlobalState) => state.utils.messageisActive) private isActive !: boolean;
 
     private TakeAppoint() {
         this.setMessageActive();
