@@ -11,7 +11,7 @@
                 </nav>
             </div>
             <!-- Logo o titulo -->
-            <div class="hero-body"><logo-app/></div>
+            <div class="hero-body"><logo-app /></div>
         </section>
     </div>
 </template>

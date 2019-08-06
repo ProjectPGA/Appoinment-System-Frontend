@@ -1,9 +1,7 @@
 <template>
     <div>
         <div class="columns is-multiline">
-            <div class="column is-12">
-                <logo-app/>
-            </div>
+            <div class="column is-12"><logo-app /></div>
             <div class="column is-12">
                 <p class="title-contact">Contacto</p>
             </div>
@@ -26,7 +24,7 @@ export default class ContactData extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.title-contact{
-font-family: 'Campesina';
+.title-contact {
+    font-family: 'Campesina';
 }
 </style>
