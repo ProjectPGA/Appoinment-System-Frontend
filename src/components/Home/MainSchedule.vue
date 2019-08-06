@@ -2,7 +2,8 @@
     <div>
         <div class="columns box custom-box-padding is-size-4 is-multiline">
             <div
-                class="column is-auto-desktop has-text-centered box custom-box-margin"
+                :class="{ 'is-auto custom-box-margin': isMobile, 'is-12': !isMobile }"
+                class="column has-text-centered box "
             >
                 <div class="columns is-multiline">
                     <div class="column is-12 is-size-5">
@@ -17,9 +18,26 @@
                     </div>
                 </div>
             </div>
+            <div
+            :class="{ 'is-auto custom-box-margin': isMobile, 'is-12': !isMobile }"
+            class="column has-text-centered box"
+        >
+            <div class="columns is-multiline">
+                <div class="column is-12 is-size-5">
+                    <div class="custom-padding title">Lunes</div>
+                    <div class="custom-padding">5 de Agosto</div>
+                </div>
+                <div
+                    class="column is-12 box custom-box-padding is-size-4 bg-free"
+                    @click="TakeAppoint();"
+                >
+                    10:00
+                </div>
+            </div>
         </div>
-
+        </div>
         <MessageText Text="Cita asignada" :isActive="isActive" />
+        </div>
     </div>
 </template>
 <script lang="ts">
@@ -42,6 +60,9 @@ export default class MainSchedule extends Vue {
     private TakeAppoint() {
         this.setMessageActive();
         console.log(this.isActive);
+    }
+    get isMobile(): boolean {
+        return this.$mq === 'xl'
     }
 }
 </script>
