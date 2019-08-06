@@ -11,7 +11,7 @@
                 </nav>
             </div>
             <!-- Logo o titulo -->
-            <div class="hero-body"><title-navigation-menu /></div>
+            <div class="hero-body"><logo-app/></div>
         </section>
     </div>
 </template>
@@ -22,14 +22,14 @@ import { State } from 'vuex-class';
 
 import MobileNavigation from './MobileNavigation.vue';
 import DesktopNavigationMenu from './DesktopNavigationMenu.vue';
-import TitleNavigationMenu from './TitleNavigationMenu.vue';
+import LogoApp from './LogoApp.vue';
 
 @Component({
     name: 'Navigationbar',
     components: {
         MobileNavigation,
         DesktopNavigationMenu,
-        TitleNavigationMenu,
+        LogoApp,
     },
 })
 export default class Navigationbar extends Vue {}
