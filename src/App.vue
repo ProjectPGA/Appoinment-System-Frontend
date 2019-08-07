@@ -38,4 +38,10 @@ export default class App extends Vue {
 .p-5 {
     padding: 3em !important;
 }
+.h-100 {
+    height: 100% !important;
+}
+.w-100 {
+    width: 100% !important;
+}
 </style>
