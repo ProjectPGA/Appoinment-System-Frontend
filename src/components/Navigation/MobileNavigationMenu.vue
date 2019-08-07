@@ -4,6 +4,9 @@
             <template v-if="show">
                 <div class="menu-container" v-click-outside="hide">
                     <div class="mobile-menu">
+                        <button class="close-nav" @click="hide">
+                            <p-icon name="close"></p-icon>
+                        </button>
                         <router-link
                             to="/"
                             class="menu-title"
@@ -20,12 +23,12 @@
                         ></mobile-navigation-link>
                         <mobile-navigation-link
                             label="navigation.appoinmets"
-                            to="/appoinmets"
+                            to="/Appointments"
                             @click.native="hide"
                         ></mobile-navigation-link>
                         <mobile-navigation-link
                             label="navigation.contactUs"
-                            to="/contactus"
+                            to="/Contact"
                             @click.native="hide"
                         ></mobile-navigation-link>
                     </div>
@@ -39,6 +42,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 import MobileNavigationLink from '@/components/Navigation/MobileNavigationLink.vue';
+import PIcon from '@/components/icons/PIcon.vue';
 
 import { GlobalState } from '../../vuex/store';
 
@@ -46,6 +50,7 @@ import { GlobalState } from '../../vuex/store';
     name: 'MobileNavigationMenu',
     components: {
         MobileNavigationLink,
+        PIcon,
     },
 })
 export default class MobileNavigationMenu extends Vue {

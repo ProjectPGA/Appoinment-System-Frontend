@@ -49,7 +49,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { State, Mutation, Action } from 'vuex-class';
 import { UtilState } from '@/vuex/utils/store';
-import MessageText from '@/components/Utils/MessageText.vue';
 import { GlobalState } from '../../vuex/store';
 import { Day } from '../../models/appointment/Appointment';
 

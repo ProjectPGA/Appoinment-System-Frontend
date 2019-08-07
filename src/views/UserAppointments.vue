@@ -1,14 +1,14 @@
 <template>
-    <div>Login</div>
+    <div>UserAppointments</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-    name: 'Login',
+    name: 'UserAppointments',
 })
-export default class Login extends Vue {}
+export default class UserAppointments extends Vue {}
 </script>
 
 <style lang="scss" scoped></style>

@@ -11,9 +11,9 @@ import { Component, Vue } from 'vue-property-decorator';
 import { State } from 'vuex-class';
 
 @Component({
-    name: 'TitleNavigationMenu',
+    name: 'LogoApp',
 })
-export default class TitleNavigationMenu extends Vue {}
+export default class LogoApp extends Vue {}
 </script>
 
 <style lang="scss" scoped>
