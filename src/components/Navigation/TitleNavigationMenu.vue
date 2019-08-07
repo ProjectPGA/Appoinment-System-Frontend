@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container has-text-centered">
-            <img class="logo" src="../../assets/img/logo.svg" alt="">
+            <img class="logo" src="../../assets/img/logo.svg" alt="" />
         </div>
     </div>
 </template>
@@ -17,9 +17,9 @@ export default class TitleNavigationMenu extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.logo{
+.logo {
     width: 35%;
-    @include mobile{
+    @include mobile {
         width: 50%;
     }
 }

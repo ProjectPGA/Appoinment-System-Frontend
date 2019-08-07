@@ -1,7 +1,7 @@
 <template>
-     <b-message class="is-success" v-show="isActive" has-icon>
-        {{Text}}
-    </b-message> 
+    <b-message class="is-success" v-show="isActive" has-icon>
+        {{ Text }}
+    </b-message>
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
@@ -10,8 +10,8 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
     name: 'MessageText',
 })
 export default class MessageText extends Vue {
-  @Prop(String) private Text: string;
-  @Prop(Boolean) private isActive: boolean;
+    @Prop(String) private Text: string;
+    @Prop(Boolean) private isActive: boolean;
 }
 </script>
 

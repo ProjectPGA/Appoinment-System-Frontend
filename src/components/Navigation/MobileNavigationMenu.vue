@@ -10,7 +10,8 @@
                             @click.native="hide"
                         >
                             <img
-                                class=" mobile-logo" src="../../assets/img/logo.svg"
+                                class=" mobile-logo"
+                                src="../../assets/img/logo.svg"
                             />
                         </router-link>
                         <mobile-navigation-link
