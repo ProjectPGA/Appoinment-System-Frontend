@@ -2,12 +2,11 @@ export interface Appointment {
     id: number;
     type: number;
     notes: string;
-    free: boolean;
-    date?: Date;
+    takerid: number;
 }
 
 export interface Day {
     id: number;
-    date?: Date;
-    appointments?: Appointment[];
+    date: string;
+    appointments: Appointment[];
 }
