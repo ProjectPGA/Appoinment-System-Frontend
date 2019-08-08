@@ -4,6 +4,7 @@
             <div class="column is-12"><logo-app /></div>
             <div class="column is-12">
                 <p class="title-contact">Contacto</p>
+                <div></div>
             </div>
         </div>
     </div>
@@ -26,5 +27,7 @@ export default class ContactData extends Vue {}
 <style lang="scss" scoped>
 .title-contact {
     font-family: 'Campesina';
+    text-align: center;
+    font-size: 3em;
 }
 </style>

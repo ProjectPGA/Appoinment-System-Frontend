@@ -22,4 +22,10 @@ import { State } from 'vuex-class';
 export default class DesktopNavigationMenu extends Vue {}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.navbar-end{
+    a{
+        color: black;
+    }
+}
+</style>
