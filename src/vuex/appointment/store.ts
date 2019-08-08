@@ -29,7 +29,7 @@ const actions: ActionTree<DayState> = {
         }
         function emptyAppoint() {
             const appoints: Appointment[] = [];
-            for (let index = 0; index < 22; index++) {
+            for (let index = 0; index < 25; index++) {
                 const appoint = {
                     id: randomId(),
                     takerid: 0,
