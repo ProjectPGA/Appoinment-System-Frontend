@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex, { MutationTree, Computed } from 'vuex';
 import { ActionTree, ActionContext, GetterTree } from '@/types';
 import { AxiosResponse } from 'axios';
-import { Day } from '@/models/appointment/Appointment';
+import { Day, Appointment } from '@/models/appointment/Appointment';
 
 Vue.use(Vuex);
 
@@ -13,6 +13,59 @@ export interface DayState {
 }
 
 const actions: ActionTree<DayState> = {
+    //#region
+    async firstLoad(context: ActionContext<DayState>): Promise<any> {
+        const days: Day[] = [];
+
+        function addDays(d): string {
+            const result = new Date();
+            result.setDate(result.getDate() + d);
+            return result.toDateString();
+        }
+        function randomId(): number {
+            const n = Math.floor(Math.random() * 1000000000) + 5;
+            return n;
+        }
+        function emptyAppoint(): Appointment[] {
+            const appoints: Appointment[] = [];
+            for (let index = 0; index < 25; index++) {
+                const appoint = {
+                    id: randomId(),
+                    takerid: 0,
+                    notes: '',
+                    type: index + 1,
+                };
+                appoints.push(appoint);
+            }
+            return appoints;
+        }
+
+        for (let i = 0; i < 365; i++) {
+            const day: Day = { id: 0, date: '', appointments: [] };
+
+            day.id = randomId();
+            day.date = addDays(i);
+            day.appointments = emptyAppoint();
+            days.push(day);
+        }
+
+        try {
+            const response: AxiosResponse = await Vue.axios({
+                method: 'POST',
+                url: '/days',
+                data: days,
+            });
+            const payload: Day[] = response && response.data;
+
+            context.commit('daysLoaded', payload);
+        } catch (e) {
+            context.commit('daysError', e.message);
+        } finally {
+            console.log('LOAD');
+        }
+    },
+    //#endregion
+
     async fetchData(context: ActionContext<DayState>): Promise<any> {
         try {
             const response: AxiosResponse = await Vue.axios({
@@ -26,7 +79,10 @@ const actions: ActionTree<DayState> = {
             console.log('LOAD');
         }
     },
-    async deleteUser(context: ActionContext<DayState>, day: Day): Promise<any> {
+    async assignAppoint(
+        context: ActionContext<DayState>,
+        day: Day
+    ): Promise<any> {
         try {
             const response: AxiosResponse = await Vue.axios({
                 method: 'PUT',
@@ -49,7 +105,7 @@ const mutations: MutationTree<DayState> = {
         state.days = days;
     },
 
-    productsError(state: DayState, payload: string) {
+    daysError(state: DayState, payload: string) {
         state.error = true;
         state.errorMessage = payload;
         state.days = [];
@@ -57,7 +113,7 @@ const mutations: MutationTree<DayState> = {
 };
 
 const getters: GetterTree<DayState> = {
-    productsCount(state: DayState): number {
+    daysCount(state: DayState): number {
         const { days } = state;
         return days.length;
     },
@@ -67,8 +123,8 @@ export const getInitialState = (): DayState => ({
     days: [
         {
             id: 0,
-            date: undefined,
-            appointments: undefined,
+            date: '',
+            appointments: [],
         },
     ],
     error: false,

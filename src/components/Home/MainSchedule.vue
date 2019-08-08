@@ -2,69 +2,243 @@
     <div>
         <div class="columns box custom-box-padding is-size-4 is-multiline">
             <div
-                :class="{ 'is-auto custom-box-margin': isMobile, 'is-12': !isMobile }"
-                class="column has-text-centered box "
+                v-for="(day, index) in daysFiltered"
+                :key="index"
+                :class="{
+                    'custom-box-margin': isMobile,
+                }"
+                class="column is-auto has-text-centered box"
             >
                 <div class="columns is-multiline">
                     <div class="column is-12 is-size-5">
-                        <div class="custom-padding title">Lunes</div>
-                        <div class="custom-padding">5 de Agosto</div>
+                        <div
+                            v-if="getDay(index, 'Mon')"
+                            class="custom-padding title"
+                        >
+                            Lunes
+                        </div>
+                        <div
+                            v-if="getDay(index, 'Tue')"
+                            class="custom-padding title"
+                        >
+                            Martes
+                        </div>
+                        <div
+                            v-if="getDay(index, 'Wed')"
+                            class="custom-padding title"
+                        >
+                            Miercoles
+                        </div>
+                        <div
+                            v-if="getDay(index, 'Thu')"
+                            class="custom-padding title"
+                        >
+                            Jueves
+                        </div>
+                        <div
+                            v-if="getDay(index, 'Fri')"
+                            class="custom-padding title"
+                        >
+                            Viernes
+                        </div>
+                        <div
+                            v-if="getDay(index, 'Sat')"
+                            class="custom-padding title"
+                        >
+                            Sabado
+                        </div>
+
+                        <div class="custom-padding">
+                            {{ getDayMonth(day.date) }}
+                        </div>
                     </div>
                     <div
-                        class="column is-12 box custom-box-padding is-size-4 bg-free"
-                        @click="TakeAppoint();"
+                        v-for="(appoint, i) in day.appointments"
+                        :key="i"
+                        class="column is-12 box custom-box-padding is-size-4"
+                        :class="{
+                            'bg-free': appoint.takerid === 0,
+                            'bg-taken': appoint.takerid !== 0,
+                        }"
+                        @click="TakeAppoint(day, appoint, i);"
                     >
-                        10:00
+                        {{ getAppointHour(appoint.type) }}
                     </div>
                 </div>
             </div>
-            <div
-            :class="{ 'is-auto custom-box-margin': isMobile, 'is-12': !isMobile }"
-            class="column has-text-centered box"
-        >
-            <div class="columns is-multiline">
-                <div class="column is-12 is-size-5">
-                    <div class="custom-padding title">Lunes</div>
-                    <div class="custom-padding">5 de Agosto</div>
-                </div>
-                <div
-                    class="column is-12 box custom-box-padding is-size-4 bg-free"
-                    @click="TakeAppoint();"
-                >
-                    10:00
-                </div>
-            </div>
-        </div>
-        </div>
-        <MessageText Text="Cita asignada" :isActive="isActive" />
         </div>
     </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { State, Mutation } from 'vuex-class';
-
-import MessageText from '@/components/Utils/MessageText.vue';
+import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
+import { State, Mutation, Action } from 'vuex-class';
 
 import { UtilState } from '@/vuex/utils/store';
-import { GlobalState } from '../../vuex/store';
+import { GlobalState } from '@/vuex/store';
+
+import { Day, Appointment } from '../../models/appointment/Appointment';
+// @ts-ignore
+import { SnackbarProgrammatic as Snackbar } from 'buefy';
 
 @Component({
     name: 'MainSchedule',
-    components: {
-        MessageText,
-    },
+    components: {},
 })
 export default class MainSchedule extends Vue {
-    @Mutation('utils/setMessageisActive') private setMessageActive: () => void;
-    @State((state: GlobalState) => state.utils.messageisActive) private isActive !: boolean;
+    @Action('appointment/assignAppoint') private assignAppoint: (Day) => void;
+    @Prop() private daysFiltered: Day[];
 
-    private TakeAppoint() {
-        this.setMessageActive();
-        console.log(this.isActive);
+    private getDay(key: number, arg: string): boolean {
+        return this.daysFiltered[key].date.includes(arg);
     }
-    get isMobile(): boolean {
-        return this.$mq === 'xl'
+
+    private getDayMonth(date: string): string {
+        const fech: Date = new Date(date);
+        let daymonth: string = '';
+        const dia: number = fech.getDate();
+        const mes: number = fech.getMonth();
+        let mesString: string = '';
+
+        switch (mes) {
+            case 0:
+                mesString = 'Enero';
+                break;
+            case 1:
+                mesString = 'Febrero';
+                break;
+            case 2:
+                mesString = 'Marzo';
+                break;
+            case 3:
+                mesString = 'Abril';
+                break;
+            case 4:
+                mesString = 'Mayo';
+                break;
+            case 5:
+                mesString = 'Junio';
+                break;
+            case 6:
+                mesString = 'Julio';
+                break;
+            case 7:
+                mesString = 'Agosto';
+                break;
+            case 8:
+                mesString = 'Septiembre';
+                break;
+            case 9:
+                mesString = 'Octubre';
+                break;
+            case 10:
+                mesString = 'Noviembre';
+                break;
+            case 11:
+                mesString = 'Diciembre';
+                break;
+            default:
+                break;
+        }
+        daymonth = dia + ' de ' + mesString;
+        return daymonth;
+    }
+    private getAppointHour(type: number): string {
+        let hourString = '';
+        switch (type) {
+            case 1:
+                hourString = '10:00';
+                break;
+            case 1:
+                hourString = '10:20';
+                break;
+            case 2:
+                hourString = '10:40';
+                break;
+            case 3:
+                hourString = '11:00';
+                break;
+            case 4:
+                hourString = '11:20';
+                break;
+            case 5:
+                hourString = '11:40';
+                break;
+            case 6:
+                hourString = '12:00';
+                break;
+            case 7:
+                hourString = '12:20';
+                break;
+            case 8:
+                hourString = '12:40';
+                break;
+            case 9:
+                hourString = '13:00';
+                break;
+            case 10:
+                hourString = '13:20';
+                break;
+            case 11:
+                hourString = '13:40';
+                break;
+            case 12:
+                hourString = '14:00';
+                break;
+            case 13:
+                hourString = '17:00';
+                break;
+            case 14:
+                hourString = '17:20';
+                break;
+            case 15:
+                hourString = '17:40';
+                break;
+            case 16:
+                hourString = '18:00';
+                break;
+            case 17:
+                hourString = '18:20';
+                break;
+            case 18:
+                hourString = '18:40';
+                break;
+            case 19:
+                hourString = '19:00';
+                break;
+            case 20:
+                hourString = '19:20';
+                break;
+            case 21:
+                hourString = '19:40';
+                break;
+            case 22:
+                hourString = '20:00';
+                break;
+            case 23:
+                hourString = '20:20';
+                break;
+            case 24:
+                hourString = '20:40';
+                break;
+            case 25:
+                hourString = '21:00';
+                break;
+            default:
+                break;
+        }
+
+        return hourString;
+    }
+
+    private TakeAppoint(day: Day, appoint: Appointment, appointIndex: number) {
+        day.appointments[appointIndex].takerid = 1;
+        this.assignAppoint(day);
+        Snackbar.open(
+            'Cita asignada el dia ' +
+                this.getDayMonth(day.date) +
+                ' a las ' +
+                this.getAppointHour(appoint.type)
+        );
     }
 }
 </script>
@@ -75,7 +249,7 @@ export default class MainSchedule extends Vue {
 .bg-free {
     background-color: #53ff53;
 }
-.bg-occupied {
+.bg-taken {
     background-color: #ff6969;
 }
 .custom-border {
