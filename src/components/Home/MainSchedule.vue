@@ -4,10 +4,7 @@
             <div
                 v-for="(day, index) in daysFiltered"
                 :key="index"
-                :class="{
-                    'custom-box-margin': isMobile,
-                }"
-                class="column is-auto has-text-centered box"
+                class="column is-auto has-text-centered box custom-box-margin"
             >
                 <div class="columns is-multiline">
                     <div class="column is-12 is-size-5">
