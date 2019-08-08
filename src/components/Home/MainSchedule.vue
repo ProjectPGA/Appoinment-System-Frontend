@@ -1,16 +1,13 @@
 <template>
     <div>
-        <div
-            v-for="(day, index) in daysFiltered"
-            :key="index"
-            class="columns box custom-box-padding is-size-4 is-multiline"
-        >
+        <div class="columns box custom-box-padding is-size-4 is-multiline">
             <div
+                v-for="(day, index) in daysFiltered"
+                :key="index"
                 :class="{
-                    'is-auto custom-box-margin': isMobile,
-                    'is-12': !isMobile,
+                    'custom-box-margin': isMobile,
                 }"
-                class="column has-text-centered box "
+                class="column is-auto has-text-centered box"
             >
                 <div class="columns is-multiline">
                     <div class="column is-12 is-size-5">
@@ -73,7 +70,7 @@
     </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Emit } from 'vue-property-decorator';
+import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
 import { State, Mutation, Action } from 'vuex-class';
 
 import { UtilState } from '@/vuex/utils/store';
@@ -88,44 +85,8 @@ import { SnackbarProgrammatic as Snackbar } from 'buefy';
     components: {},
 })
 export default class MainSchedule extends Vue {
-    @State((state: GlobalState) => state.appointment.days)
-    private days: Day[];
-
-    @Action('appointment/fetchData') private fetchData: () => void;
-    @Action('appointment/firstLoad') private firstLoad: () => void;
     @Action('appointment/assignAppoint') private assignAppoint: (Day) => void;
-
-    private daysFiltered: Day[] = [];
-
-    private created() {
-        this.cargarDatos().then((resp: void) => {
-            const week: string[] = [];
-            let j: number = 5;
-
-            for (let i = 0; i <= j; i++) {
-                const fech = new Date();
-                fech.setDate(fech.getDate() + i);
-                week[i] = fech.toDateString();
-                if (week[i].includes('Sun')) {
-                    week.splice(i);
-                    fech.setDate(fech.getDate() + 1);
-                    week[i] = fech.toDateString();
-                    i++;
-                    j++;
-                }
-            }
-            for (let i = 0; i < this.days.length; i++) {
-                for (let k = 0; k < week.length; k++) {
-                    if (this.days[i].date === week[k]) {
-                        this.daysFiltered.push(this.days[i]);
-                    }
-                }
-            }
-        });
-    }
-    private async cargarDatos(): Promise<any> {
-        return await this.fetchData();
-    }
+    @Prop() private daysFiltered: Day[];
 
     private getDay(key: number, arg: string): boolean {
         return this.daysFiltered[key].date.includes(arg);
@@ -278,9 +239,6 @@ export default class MainSchedule extends Vue {
                 ' a las ' +
                 this.getAppointHour(appoint.type)
         );
-    }
-    get isMobile(): boolean {
-        return this.$mq === 'xl';
     }
 }
 </script>

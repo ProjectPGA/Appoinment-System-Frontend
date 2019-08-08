@@ -79,7 +79,10 @@ const actions: ActionTree<DayState> = {
             console.log('LOAD');
         }
     },
-    async assignAppoint(context: ActionContext<DayState>,day: Day): Promise<any> {
+    async assignAppoint(
+        context: ActionContext<DayState>,
+        day: Day
+    ): Promise<any> {
         try {
             const response: AxiosResponse = await Vue.axios({
                 method: 'PUT',

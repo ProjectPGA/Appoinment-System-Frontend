@@ -1,7 +1,5 @@
 <template>
-    <div class="columns custom-padding">
-        <div class="column"><MainSchedule /></div>
-    </div>
+    <div><MainFilterFrame /></div>
 </template>
 
 <script lang="ts">
@@ -9,12 +7,12 @@ import { Component, Vue } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
 import { GlobalState } from '@/vuex/store';
 
-import MainSchedule from './MainSchedule.vue';
+import MainFilterFrame from './MainFilterFrame.vue';
 
 @Component({
     name: 'ContentHome',
     components: {
-        MainSchedule,
+        MainFilterFrame,
     },
 })
 export default class ContentHome extends Vue {}
