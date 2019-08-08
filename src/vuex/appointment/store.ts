@@ -15,7 +15,6 @@ export interface DayState {
 const actions: ActionTree<DayState> = {
     //#region
     async firstLoad(context: ActionContext<DayState>): Promise<any> {
-        const fecha = new Date();
         const days: Day[] = [];
 
         function addDays(d): string {
@@ -27,7 +26,7 @@ const actions: ActionTree<DayState> = {
             const n = Math.floor(Math.random() * 1000000000) + 5;
             return n;
         }
-        function emptyAppoint() {
+        function emptyAppoint(): Appointment[] {
             const appoints: Appointment[] = [];
             for (let index = 0; index < 25; index++) {
                 const appoint = {
@@ -80,7 +79,7 @@ const actions: ActionTree<DayState> = {
             console.log('LOAD');
         }
     },
-    async deleteUser(context: ActionContext<DayState>, day: Day): Promise<any> {
+    async assignAppoint(context: ActionContext<DayState>,day: Day): Promise<any> {
         try {
             const response: AxiosResponse = await Vue.axios({
                 method: 'PUT',

@@ -6,15 +6,11 @@ Vue.use(Vuex);
 
 export interface UtilState {
     currentLocale: string;
-    messageisActive: boolean;
 }
 
 const mutations: MutationTree<UtilState> = {
     setCurrentLocale(currentState: UtilState, currentLocale: string) {
         currentState.currentLocale = currentLocale;
-    },
-    setMessageisActive(currentState: UtilState) {
-        currentState.messageisActive = !currentState.messageisActive;
     },
 
     resetState() {
@@ -45,7 +41,6 @@ const getters = {
 function initialState() {
     return {
         currentLocale: 'en',
-        messageisActive: false,
     };
 }
 

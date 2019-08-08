@@ -59,43 +59,41 @@
                         v-for="(appoint, i) in day.appointments"
                         :key="i"
                         class="column is-12 box custom-box-padding is-size-4"
-                        :class="{'bg-free': appoint.takerid === 0, 'bg-taken': appoint.takerid !== 0}"
-                        @click="TakeAppoint();"
+                        :class="{
+                            'bg-free': appoint.takerid === 0,
+                            'bg-taken': appoint.takerid !== 0,
+                        }"
+                        @click="TakeAppoint(day, appoint, i);"
                     >
                         {{ getAppointHour(appoint.type) }}
                     </div>
                 </div>
             </div>
         </div>
-        <MessageText Text="Cita asignada" :isActive="isActive" />
     </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Emit } from 'vue-property-decorator';
 import { State, Mutation, Action } from 'vuex-class';
 
 import { UtilState } from '@/vuex/utils/store';
 import { GlobalState } from '@/vuex/store';
 
-import { Day } from '../../models/appointment/Appointment';
-import MessageText from '@/components/Utils/MessageText.vue';
+import { Day, Appointment } from '../../models/appointment/Appointment';
+// @ts-ignore
+import { SnackbarProgrammatic as Snackbar } from 'buefy';
 
 @Component({
     name: 'MainSchedule',
-    components: {
-        MessageText,
-    },
+    components: {},
 })
 export default class MainSchedule extends Vue {
-    @Mutation('utils/setMessageisActive') private setMessageActive: () => void;
-
-    @State((state: GlobalState) => state.utils.messageisActive)
-    private isActive!: boolean;
     @State((state: GlobalState) => state.appointment.days)
     private days: Day[];
 
     @Action('appointment/fetchData') private fetchData: () => void;
     @Action('appointment/firstLoad') private firstLoad: () => void;
+    @Action('appointment/assignAppoint') private assignAppoint: (Day) => void;
 
     private daysFiltered: Day[] = [];
 
@@ -271,8 +269,15 @@ export default class MainSchedule extends Vue {
         return hourString;
     }
 
-    private TakeAppoint() {
-        this.setMessageActive();
+    private TakeAppoint(day: Day, appoint: Appointment, appointIndex: number) {
+        day.appointments[appointIndex].takerid = 1;
+        this.assignAppoint(day);
+        Snackbar.open(
+            'Cita asignada el dia ' +
+                this.getDayMonth(day.date) +
+                ' a las ' +
+                this.getAppointHour(appoint.type)
+        );
     }
     get isMobile(): boolean {
         return this.$mq === 'xl';
