@@ -1,15 +1,16 @@
 {
-    "defaultSeverity": "warning",
-    "extends": [
-      "tslint:recommended",
-      "tslint-config-prettier"
-    ],
-    "linterOptions": {
-      "exclude": [
-        "node_modules/**"
-      ]
-    },
-    "rules": {
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**"
+    ]
+  },
+  "rules": {
+      "prefer-for-of": false,
       "quotemark": false,
       "indent": [true, "spaces", 4],
       "object-literal-key-quotes": false,
