@@ -22,6 +22,7 @@ import 'buefy/dist/buefy.css';
 import Router from 'vue-router';
 import { Http } from './namespaces/Http';
 import '@/plugins/axios';
+import '@/assets/main.scss'
 
 Vue.config.productionTip = false;
 
