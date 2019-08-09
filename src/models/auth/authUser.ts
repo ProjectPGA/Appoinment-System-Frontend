@@ -1,6 +1,6 @@
 export interface AuthUser {
     id: number;
-    username: string;
+    name: string;
     password: string;
     admin: boolean;
 }
