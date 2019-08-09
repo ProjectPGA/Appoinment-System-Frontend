@@ -1,6 +1,7 @@
 import Router, { RouterOptions } from 'vue-router';
 import Home from '@/views/Home.vue';
 import Login from '@/views/Login.vue';
+import Invitation from '@/views/Invitation.vue';
 import UserAppointments from '@/views/UserAppointments.vue';
 import Contact from '@/views/Contact.vue';
 const routes = {
@@ -32,6 +33,12 @@ const routes = {
             name: 'Login',
             component: Login,
             meta: { linkText: 'Login' },
+        },
+        {
+            path: '/Invitation',
+            name: 'Invitation',
+            component: Invitation,
+            meta: { linkText: 'Invitation' },
         },
     ],
 };
