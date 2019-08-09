@@ -33,7 +33,7 @@ $table-header-background-color: #f2f8fb;
 // info-box
 $info-box-border-left-color: #a6cad8;
 $info-box-title-background-color: #edeff0;
-$info-box-icon-color: #026780;
+$info-box-icon-color: #00ccff;
 $info-box-content-background-color: #f9f9f9;
 
 // main content area
@@ -51,14 +51,14 @@ $family-sans-serif: 'DaimlerCS-Regular', #{$fallback-fonts};
 
 // bulma variables
 $primary: #409cb3;
-$navbar-background-color: #004355;
+$navbar-background-color: #e4e4e4;
 
 // grid
 $column-gap: 0.75rem;
 
 // links
-$link: #026780;
-$link-hover: #024658;
+$link: #00ccff;
+$link-hover: #e4e4e4;
 $link-focus-border: #a6cad8;
 $link-active-border: #a6cad8;
 
@@ -80,7 +80,7 @@ $navbar-dropdown-arrow: white;
 $input-border-color: #c7c7c7;
 
 // labels (forms)
-$label-color: #00566a;
+$label-color: #e4e4e4;
 $label-weight: 400;
 
 // modal

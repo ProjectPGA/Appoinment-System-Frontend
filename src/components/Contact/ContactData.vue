@@ -4,6 +4,25 @@
             <div class="column is-12"><logo-app /></div>
             <div class="column is-12">
                 <p class="title-contact">Contacto</p>
+                <ul class="info-contact">
+                    <li>  
+                        <ol class="title-info-contact">Horarios:</ol>
+                        <ol>Lunes a viernes: 10:00-14:00 / 17:00-21:00</ol>
+                        <ol>Sabado: 10:00-14:00 </ol>
+                    </li>
+                    <li>  
+                        <ol class="title-info-contact">Teléfono:</ol>
+                        <ol>+34 679839952</ol>
+                    </li>
+                    <li>  
+                        <ol class="title-info-contact">Dirección:</ol>
+                        <ol>Av. Blas Infante, 105, 29120 </ol>
+                        <ol>Alhaurín el Grande, Málaga</ol>
+                    </li>
+                    <li>
+                        <a class="whatsapp-button" href="https://wa.me/34679938186"></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -26,5 +45,21 @@ export default class ContactData extends Vue {}
 <style lang="scss" scoped>
 .title-contact {
     font-family: 'Campesina';
+    text-align: center;
+    font-size: 3em;
+}
+.info-contact{
+    text-align: center;
+}
+.title-info-contact{
+    font-size: 1.5em;
+}
+.whatsapp-button{
+    height: 50px;
+    width: 50px;
+    background-image: url('../../assets/img/whatsapp-logo.svg');
+    background-size: contain;
+    background-position: center;
+    position: relative;
 }
 </style>
