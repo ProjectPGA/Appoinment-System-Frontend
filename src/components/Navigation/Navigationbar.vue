@@ -6,7 +6,7 @@
                 <nav class="navbar">
                     <div class="container">
                         <mobile-navigation />
-                        <desktop-navigation-menu />
+                        <desktop-navigation />
                     </div>
                 </nav>
             </div>
@@ -21,14 +21,14 @@ import { Component, Vue } from 'vue-property-decorator';
 import { State } from 'vuex-class';
 
 import MobileNavigation from './MobileNavigation.vue';
-import DesktopNavigationMenu from './DesktopNavigationMenu.vue';
+import DesktopNavigation from './DesktopNavigation.vue';
 import LogoApp from './LogoApp.vue';
 
 @Component({
     name: 'Navigationbar',
     components: {
         MobileNavigation,
-        DesktopNavigationMenu,
+        DesktopNavigation,
         LogoApp,
     },
 })
