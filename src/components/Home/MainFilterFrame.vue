@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="columns custom-padding">
+        <div class="columns pagination-container">
             <div class="column">
                 <b-pagination
                     :total="total()"
@@ -10,7 +10,7 @@
                 </b-pagination>
             </div>
         </div>
-        <div class="columns custom-padding">
+        <div class="columns appoinments-container">
             <div class="column">
                 <MainSchedule :daysFiltered="paginatedItems()" />
             </div>
@@ -99,7 +99,7 @@ export default class MainFilterFrame extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.custom-padding {
-    padding: 4.5rem;
+.appoinments-container {
+    padding: 4.5em;
 }
 </style>
