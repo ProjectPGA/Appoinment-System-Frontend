@@ -1,12 +1,19 @@
 <template>
-    <div>UserAppointments</div>
+    <div>
+        <content-appointments></content-appointments>
+    </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
+import ContentAppointments from '@/components/Appointments/ContentAppointments.vue';
+
 @Component({
     name: 'UserAppointments',
+    components: {
+        ContentAppointments,
+    }
 })
 export default class UserAppointments extends Vue {}
 </script>

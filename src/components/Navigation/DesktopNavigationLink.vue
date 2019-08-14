@@ -3,7 +3,7 @@
         v-if="to"
         :to="to"
         class="desktop-navigation-link"
-        @click="this.emit('click');"
+        @click="this.emit('click')"
     >
         <span class="desktop-navigation-label">{{ $t(label) }}</span>
     </router-link>
