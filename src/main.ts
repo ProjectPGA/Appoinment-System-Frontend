@@ -7,15 +7,18 @@ import VeeValidate from 'vee-validate';
 import Vue from 'vue';
 import VueMq from 'vue-mq';
 
-import '@/components/tracking/matomo';
 import '@/class-component-hooks';
 import App from '@/App.vue';
 import { router } from '@/router';
 import store from '@/vuex/store';
 import '@/registerServiceWorker';
-import '@/components/utils/closest';
 import i18n from '@/localization/localization';
-import '@/components/elements/PrismaElement';
+import { Device } from '@/models/utils/Device';
+import { Autofocus } from '@/directives/AutofocusDirective';
+import { Scroll } from '@/directives/Scroll';
+
+import './assets/main.scss';
+import Router from 'vue-router';
 import { Http } from './namespaces/Http';
 
 Vue.config.productionTip = false;
