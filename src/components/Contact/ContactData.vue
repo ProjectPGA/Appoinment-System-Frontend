@@ -3,7 +3,7 @@
         <div class="columns is-multiline">
             <div class="column is-12"><logo-app /></div>
             <div class="column is-12">
-                <titles-app title="Contacto"/>
+                <titles-app title="Contacto" />
                 <ul class="info-contact">
                     <li>
                         <ol class="title-info-contact">
@@ -34,12 +34,6 @@
                         <ol>
                             Alhaurín el Grande, Málaga
                         </ol>
-                    </li>
-                    <li>
-                        <a
-                            class="whatsapp-button"
-                            href="https://wa.me/34679938186"
-                        ></a>
                     </li>
                 </ul>
             </div>
@@ -74,13 +68,5 @@ export default class ContactData extends Vue {}
 }
 .title-info-contact {
     font-size: 1.5em;
-}
-.whatsapp-button {
-    height: 50px;
-    width: 50px;
-    background-image: url('../../assets/img/whatsapp-logo.svg');
-    background-size: contain;
-    background-position: center;
-    position: relative;
 }
 </style>

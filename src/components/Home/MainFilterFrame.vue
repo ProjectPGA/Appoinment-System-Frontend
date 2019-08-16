@@ -1,6 +1,9 @@
 <template>
     <div>
-        <titles-app class="container-appoinments-title" title="Citas"></titles-app>
+        <titles-app
+            class="container-appoinments-title"
+            title="Citas"
+        ></titles-app>
         <div class="columns pagination-container">
             <div class="column">
                 <b-pagination
@@ -124,7 +127,7 @@ export default class MainFilterFrame extends Vue {
         width: 25%;
     }
 }
-.container-appoinments-title{
+.container-appoinments-title {
     font-size: 2em;
     padding: 2em;
 }

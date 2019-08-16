@@ -1,5 +1,8 @@
 <template>
-    <div class="main-app"><router-view></router-view></div>
+    <div class="main-app">
+        <router-view></router-view>
+        <whatsapp-button></whatsapp-button>
+    </div>
 </template>
 
 <script lang="ts">
@@ -9,9 +12,13 @@ import Axios from 'axios';
 
 import { GlobalState } from '@/vuex/store';
 
+import WhatsappButton from '@/components/Contact/WhatsappButton.vue';
+
 @Component({
     name: 'App',
-    components: {},
+    components: {
+        WhatsappButton,
+    },
 })
 export default class App extends Vue {
     public created() {

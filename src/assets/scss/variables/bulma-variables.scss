@@ -1,4 +1,4 @@
-$family-sans-serif: #{$fallback-fonts};
+$family-sans-serif: 'Arial';
 
 // bulma variables
 $primary: #e4e4e4;
@@ -16,9 +16,9 @@ $link-active-border: #a6cad8;
 // navbar
 $navbar-item-color: white;
 $navbar-item-hover-color: white;
-$navbar-item-hover-background-color: rgba(255, 255, 255, 0.12);
+$navbar-item-hover-background-color: white;
 $navbar-item-active-color: white;
-$navbar-item-active-background-color: rgba(255, 255, 255, 0.2);
+$navbar-item-active-background-color: white;
 
 $navbar-dropdown-item-hover-color: black;
 $navbar-dropdown-item-hover-background-color: white;

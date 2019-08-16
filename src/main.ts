@@ -19,6 +19,7 @@ import { Scroll } from '@/directives/Scroll';
 
 import './assets/main.scss';
 import Router from 'vue-router';
+import '@/plugins/axios';
 import { Http } from './namespaces/Http';
 
 Vue.config.productionTip = false;

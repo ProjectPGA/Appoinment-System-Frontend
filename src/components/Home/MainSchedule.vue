@@ -94,7 +94,7 @@ import appointment from '../../vuex/appointment/store';
     name: 'MainSchedule',
     components: {
         Modal,
-        Confirm
+        Confirm,
     },
 })
 export default class MainSchedule extends Vue {
@@ -110,14 +110,14 @@ export default class MainSchedule extends Vue {
     private getDay(key: number, arg: string): boolean {
         return this.daysFiltered[key].date.includes(arg);
     }
-    private openModal(day: Day, appoint: Appointment, appointIndex: number){
+    private openModal(day: Day, appoint: Appointment, appointIndex: number) {
         this.showModal = true;
         this.day = day;
         this.appoint = appoint;
         this.appointIndex = appointIndex;
     }
     private async userConfirmation() {
-        await this.TakeAppoint(this.day,this.appoint,this.appointIndex);
+        await this.TakeAppoint(this.day, this.appoint, this.appointIndex);
         this.showModal = false;
     }
 

@@ -1,7 +1,7 @@
 //Global SCSS overrides. Whenever possible add rules as Vuetify override in 'vuetify-verrides.styl' file, otherwise add it here
 html {
     overflow-y: auto !important;
-    background-color: #333333;
+    background-color: #fff;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
      * - use back-up fonts
      * - use reasonable global font
      */
-    font-family: 'DaimlerCS-Regular';
+    font-family: 'Arial';
 }
 
 //Andres app official colors

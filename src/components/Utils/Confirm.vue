@@ -1,5 +1,5 @@
 <template>
-    <div :class="['confirm', loading && 'confirm-disabled']" >
+    <div :class="['confirm', loading && 'confirm-disabled']">
         <h2 class="confirm-title">{{ title }}</h2>
         <h3 class="confirm-sub-title">
             {{ subTitle }}
@@ -12,10 +12,7 @@
             >
                 {{ acceptLabel }}
             </b-button>
-            <b-button
-                class="button is-primary cancel"
-                @click="cancel"
-            >
+            <b-button class="button is-primary cancel" @click="cancel">
                 {{ cancelLabel }}
             </b-button>
         </div>
@@ -80,10 +77,10 @@ export default class Confirm extends Vue {
     @include mobile {
         min-width: auto;
     }
-    &.accept{
+    &.accept {
         background-color: #75ff3e !important;
     }
-    &.cancel{
+    &.cancel {
         background-color: #ff3e3e !important;
     }
 }

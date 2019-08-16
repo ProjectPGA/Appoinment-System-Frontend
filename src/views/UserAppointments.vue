@@ -13,7 +13,7 @@ import ContentAppointments from '@/components/Appointments/ContentAppointments.v
     name: 'UserAppointments',
     components: {
         ContentAppointments,
-    }
+    },
 })
 export default class UserAppointments extends Vue {}
 </script>
