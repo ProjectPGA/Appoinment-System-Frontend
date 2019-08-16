@@ -20,6 +20,7 @@
                         <mobile-navigation-link
                             label="navigation.index"
                             to="/"
+                            @click.native="hide"
                         ></mobile-navigation-link>
                         <mobile-navigation-link
                             label="navigation.appoinmets"

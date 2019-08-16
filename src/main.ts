@@ -7,22 +7,16 @@ import VeeValidate from 'vee-validate';
 import Vue from 'vue';
 import VueMq from 'vue-mq';
 
+import '@/components/tracking/matomo';
 import '@/class-component-hooks';
 import App from '@/App.vue';
 import { router } from '@/router';
 import store from '@/vuex/store';
 import '@/registerServiceWorker';
+import '@/components/utils/closest';
 import i18n from '@/localization/localization';
-import { Autofocus } from '@/directives/AutofocusDirective';
-import { Scroll } from '@/directives/Scroll';
-import { Device } from '@/models/utils/Device';
-
-// import './assets/scss/variables/bulma-variables.scss';
-import 'buefy/dist/buefy.css';
-import Router from 'vue-router';
+import '@/components/elements/PrismaElement';
 import { Http } from './namespaces/Http';
-import '@/plugins/axios';
-import '@/assets/main.scss';
 
 Vue.config.productionTip = false;
 

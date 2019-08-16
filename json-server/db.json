@@ -960,31 +960,31 @@
         },
         {
           "id": 500346403,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 4
         },
         {
           "id": 622992661,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 5
         },
         {
           "id": 650605293,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 6
         },
         {
           "id": 791355370,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 7
         },
         {
           "id": 915777512,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 8
         },
@@ -1104,7 +1104,7 @@
         },
         {
           "id": 659551042,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 2
         },
