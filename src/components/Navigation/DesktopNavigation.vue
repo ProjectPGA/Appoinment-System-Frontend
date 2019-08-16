@@ -29,14 +29,14 @@ import DesktopNavigationLink from '@/components/Navigation/DesktopNavigationLink
     name: 'DesktopNavigationMenu',
     components: {
         DesktopNavigationLink,
-    }
+    },
 })
 export default class DesktopNavigationMenu extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.navbar-end{
-    a{
+.navbar-end {
+    a {
         color: black;
     }
 }

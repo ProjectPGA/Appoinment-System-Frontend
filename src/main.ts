@@ -13,16 +13,14 @@ import { router } from '@/router';
 import store from '@/vuex/store';
 import '@/registerServiceWorker';
 import i18n from '@/localization/localization';
+import { Device } from '@/models/utils/Device';
 import { Autofocus } from '@/directives/AutofocusDirective';
 import { Scroll } from '@/directives/Scroll';
-import { Device } from '@/models/utils/Device';
 
-// import './assets/scss/variables/bulma-variables.scss';
-import 'buefy/dist/buefy.css';
+import './assets/main.scss';
 import Router from 'vue-router';
-import { Http } from './namespaces/Http';
 import '@/plugins/axios';
-import '@/assets/main.scss'
+import { Http } from './namespaces/Http';
 
 Vue.config.productionTip = false;
 
