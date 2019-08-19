@@ -116,9 +116,13 @@ export default class MainSchedule extends Vue {
         this.appoint = appoint;
         this.appointIndex = appointIndex;
     }
-    private async userConfirmation() {
-        await this.TakeAppoint(this.day, this.appoint, this.appointIndex);
-        this.showModal = false;
+    private async userConfirmation(accepted: boolean): Promise<void> {
+        if (accepted) {
+            await this.TakeAppoint(this.day, this.appoint, this.appointIndex);
+            this.showModal = false;
+        } else {
+            this.showModal = false;
+        }
     }
 
     private getDayMonth(date: string): string {
