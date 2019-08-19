@@ -1,0 +1,45 @@
+<template>
+    <router-link
+        v-if="to"
+        :to="to"
+        class="desktop-navigation-link"
+        @click="this.emit('click');"
+    >
+        <span class="desktop-navigation-label">{{ $t(label) }}</span>
+    </router-link>
+    <li v-else class="desktop-navigation-link">
+        <a :href="path" class="desktop-navigation-label" target="_blank"
+            >{{ $t(label) }}
+        </a>
+    </li>
+</template>
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator';
+
+@Component({
+    name: 'DesktopNavigationLink',
+})
+export default class DesktopNavigationLink extends Vue {
+    @Prop(String) private label: string;
+    @Prop(String) private path: string;
+    @Prop([String, Object]) private to: string | any;
+}
+</script>
+
+<style lang="scss" scoped>
+.desktop-navigation-link {
+    display: block;
+    padding: 23px 20px;
+}
+.desktop-navigation-link:hover {
+    background-color: rgb(170, 170, 170);
+    cursor: pointer;
+}
+.desktop-navigation-icon {
+    color: white !important;
+}
+.desktop-navigation-label {
+    font-size: $size-normal;
+    color: #000 !important;
+}
+</style>
