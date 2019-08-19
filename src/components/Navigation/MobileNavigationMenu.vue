@@ -20,6 +20,7 @@
                         <mobile-navigation-link
                             label="navigation.index"
                             to="/"
+                            @click.native="hide"
                         ></mobile-navigation-link>
                         <mobile-navigation-link
                             label="navigation.appoinmets"
@@ -90,7 +91,7 @@ export default class MobileNavigationMenu extends Vue {
     position: fixed;
     left: 10px;
     top: 10px;
-    color: white;
+    color: #000;
     font-size: 30px;
     cursor: pointer;
 }

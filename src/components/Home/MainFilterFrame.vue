@@ -1,18 +1,23 @@
 <template>
     <div>
-        <div class="columns custom-padding">
+        <titles-app
+            class="container-appoinments-title"
+            title="Citas"
+        ></titles-app>
+        <div class="columns pagination-container">
             <div class="column">
                 <b-pagination
                     :total="total()"
                     :current.sync="current"
                     :per-page="getPerPage()"
+                    size="is-large"
                 >
                 </b-pagination>
             </div>
         </div>
-        <div class="columns custom-padding">
+        <div class="columns appoinments-container">
             <div class="column">
-                <MainSchedule :daysFiltered="paginatedItems()" />
+                <main-schedule :daysFiltered="paginatedItems()" />
             </div>
         </div>
     </div>
@@ -25,11 +30,13 @@ import { GlobalState } from '@/vuex/store';
 
 import MainSchedule from './MainSchedule.vue';
 import { Day } from '@/models/appointment/Appointment';
+import TitlesApp from '@/components/Home/TitlesApp.vue';
 
 @Component({
     name: 'MainFilterFrame',
     components: {
         MainSchedule,
+        TitlesApp,
     },
 })
 export default class MainFilterFrame extends Vue {
@@ -74,7 +81,7 @@ export default class MainFilterFrame extends Vue {
     }
     private getPerPage(): number {
         if (this.notMobile) {
-            return 5;
+            return 6;
         } else {
             return 1;
         }
@@ -99,7 +106,32 @@ export default class MainFilterFrame extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.custom-padding {
-    padding: 4.5rem;
+.appoinments-container {
+    padding: 1em 2.5em 0em 2em;
+}
+.pagination-container {
+    padding: 1em 2em 0em 2em;
+}
+/deep/ .pagination-list {
+    display: none;
+}
+/deep/ .pagination-next {
+    width: 50%;
+    @include touch {
+        width: 25%;
+    }
+}
+/deep/ .pagination-previous {
+    width: 50%;
+    @include touch {
+        width: 25%;
+    }
+}
+.container-appoinments-title {
+    font-size: 2em;
+    padding: 2em;
+    @include mobile{
+        font-size: 1em;
+    }
 }
 </style>

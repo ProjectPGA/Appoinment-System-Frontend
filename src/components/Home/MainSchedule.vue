@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="columns box custom-box-padding is-size-4 is-multiline">
+        <div class="columns box custom-box-padding is-multiline">
             <div
                 v-for="(day, index) in daysFiltered"
                 :key="index"
@@ -57,13 +57,22 @@
                             'bg-free': appoint.takerid === 0,
                             'bg-taken': appoint.takerid !== 0,
                         }"
-                        @click="TakeAppoint(day, appoint, i);"
+                        @click="openModal(day, appoint, i)"
                     >
                         {{ getAppointHour(appoint.type) }}
                     </div>
                 </div>
             </div>
         </div>
+        <modal :active.sync="showModal">
+            <confirm
+                title="Confirmación"
+                subTitle="¿Desea reservar esta cita?"
+                acceptLabel="Aceptar"
+                cancelLabel="Cancelar"
+                @confirm="userConfirmation"
+            ></confirm>
+        </modal>
     </div>
 </template>
 <script lang="ts">
@@ -73,20 +82,46 @@ import { State, Mutation, Action } from 'vuex-class';
 import { UtilState } from '@/vuex/utils/store';
 import { GlobalState } from '@/vuex/store';
 
+import Modal from '@/components/Utils/Modal.vue';
+import Confirm from '@/components/Utils/Confirm.vue';
+
 import { Day, Appointment } from '../../models/appointment/Appointment';
 // @ts-ignore
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
+import appointment from '../../vuex/appointment/store';
 
 @Component({
     name: 'MainSchedule',
-    components: {},
+    components: {
+        Modal,
+        Confirm,
+    },
 })
 export default class MainSchedule extends Vue {
     @Action('appointment/assignAppoint') private assignAppoint: (Day) => void;
+
     @Prop() private daysFiltered: Day[];
+
+    private showModal: boolean = false;
+    private day: Day;
+    private appoint: Appointment;
+    private appointIndex: number;
 
     private getDay(key: number, arg: string): boolean {
         return this.daysFiltered[key].date.includes(arg);
+    }
+    private openModal(day: Day, appoint: Appointment, appointIndex: number) {
+        this.showModal = true;
+        this.day = day;
+        this.appoint = appoint;
+        this.appointIndex = appointIndex;
+    }
+    private async userConfirmation() {
+        await this.TakeAppoint(this.day, this.appoint, this.appointIndex);
+        this.showModal = false;
+    }
+    private async userCancel() {
+        this.showModal = false;
     }
 
     private getDayMonth(date: string): string {
