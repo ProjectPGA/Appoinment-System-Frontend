@@ -124,6 +124,9 @@ export default class MainSchedule extends Vue {
             this.showModal = false;
         }
     }
+    private async userCancel() {
+        this.showModal = false;
+    }
 
     private getDayMonth(date: string): string {
         const fech: Date = new Date(date);
