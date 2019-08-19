@@ -120,6 +120,9 @@ export default class MainSchedule extends Vue {
         await this.TakeAppoint(this.day, this.appoint, this.appointIndex);
         this.showModal = false;
     }
+    private async userCancel() {
+        this.showModal = false;
+    }
 
     private getDayMonth(date: string): string {
         const fech: Date = new Date(date);
