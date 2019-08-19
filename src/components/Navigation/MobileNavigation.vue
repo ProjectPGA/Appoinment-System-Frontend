@@ -52,7 +52,7 @@ export default class MobileNavBar extends Vue {
 
 <style lang="scss" scoped>
 .navbar-burger {
-    color: white !important;
+    color: #000 !important;
     margin-left: 0;
 }
 .is-centered {
