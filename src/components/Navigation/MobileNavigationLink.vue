@@ -3,7 +3,7 @@
         v-if="to"
         :to="to"
         class="mobile-navigation-link"
-        @click="this.emit('click');"
+        @click="this.emit('click')"
     >
         <span class="mobile-navigation-label">{{ $t(label) }}</span>
     </router-link>
