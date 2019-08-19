@@ -91,7 +91,7 @@ export default class MobileNavigationMenu extends Vue {
     position: fixed;
     left: 10px;
     top: 10px;
-    color: white;
+    color: #000;
     font-size: 30px;
     cursor: pointer;
 }
