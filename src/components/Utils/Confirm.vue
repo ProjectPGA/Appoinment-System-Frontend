@@ -75,6 +75,7 @@ export default class Confirm extends Vue {
     margin-right: 15px;
     margin-left: 15px;
     box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    color: #4a4a4a !important;
     @include mobile {
         min-width: auto;
     }
