@@ -69,7 +69,7 @@ export default class InvitationalCode extends Vue {
                     type: 'is-danger',
                     position: 'is-bottom-left',
                     duration: 5000,
-                    actionText:'LIMPIAR',
+                    actionText: 'LIMPIAR',
                     onAction: () => {
                         this.clear();
                     },
