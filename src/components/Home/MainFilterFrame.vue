@@ -130,7 +130,7 @@ export default class MainFilterFrame extends Vue {
 .container-appoinments-title {
     font-size: 2em;
     padding: 2em;
-    @include mobile{
+    @include mobile {
         font-size: 1em;
     }
 }
