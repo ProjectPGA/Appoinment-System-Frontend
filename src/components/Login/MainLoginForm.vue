@@ -1,0 +1,147 @@
+<template>
+    <div>
+        <div class="columns is-centered">
+            <div class="column is-6"><logo-app /></div>
+        </div>
+        <div class="columns is-centered is-mobile">
+            <div class="column is-6 container ">
+                <p class="title">Login</p>
+                <b-field label="Email" class="" :type="bfieldType">
+                    <b-input
+                        v-model="email"
+                        placeholder="Email"
+                        value=""
+                        size="is-medium"
+                        @keyup.native.enter="checkLogin()"
+                        class=""
+                    >
+                    </b-input>
+                </b-field>
+
+                <b-field label="Contraseña" class="" :type="bfieldType">
+                    <b-input
+                        v-model="password"
+                        placeholder="Contraseña"
+                        type="password"
+                        value=""
+                        size="is-medium"
+                        class="custom-margin"
+                        @keyup.native.enter="checkLogin()"
+                        password-reveal
+                    >
+                    </b-input>
+                </b-field>
+                <div class="columns is-vcentered">
+                    <div class="column is-2">
+                        <b-button
+                            @click="checkLogin()"
+                            :loading="isLoading"
+                            outlined
+                            type="is-danger"
+                            size="is-medium"
+                            >Acceder</b-button
+                        >
+                    </div>
+                    <div class="column ">
+                        <p class="custom-size">
+                            ¿No tienes cuenta?
+                            <router-link
+                                class="invitation-link"
+                                to="/invitation"
+                            >
+                                Pulsa aquí para canjear tu codigo de
+                                invitación.</router-link
+                            >
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import LogoApp from '@/components/Navigation/LogoApp.vue';
+import { SnackbarProgrammatic as Snackbar } from 'buefy';
+import Axios, { AxiosResponse } from 'axios';
+
+@Component({
+    name: 'MainLoginForm',
+    components: {
+        LogoApp,
+    },
+})
+export default class MainLoginForm extends Vue {
+    private email: string = '';
+    private password: string = '';
+    private isLoading: boolean = false;
+    private bfieldType: string = '';
+
+    private async checkLogin() {
+        this.isLoading = true;
+        try {
+            const response: AxiosResponse = await Vue.axios({
+                method: 'POST',
+                url: '/login',
+                data: { email: this.email, password: this.password },
+            });
+
+            if (!response.data.cod) {
+                this.bfieldType = 'is-danger';
+                this.isLoading = false;
+                Snackbar.open({
+                    message: response.data.mensaje,
+                    type: 'is-danger',
+                    position: 'is-bottom-left',
+                    indefinite: true,
+                    actionText: 'Volver a intentar',
+                    onAction: () => {
+                        this.clearInputs();
+                    },
+                });
+            } else {
+                this.isLoading = false;
+                console.log(response.data.user)
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    private clearInputs() {
+        this.email = '';
+        this.password = '';
+        this.bfieldType = '';
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+.invitation-link {
+    color: #e01f2f !important;
+}
+.custom-size {
+    font-size: 1.25em;
+}
+.title {
+    font-family: 'CabbageTown';
+    @include mobile {
+        font-size: calc(0.75em + 0.5vw);
+    }
+    font-size: calc(0.5em + 0.5vw);
+    line-height: 3em !important;
+}
+.custom-login-input {
+    width: 50%;
+    @include mobile {
+        width: 85%;
+    }
+}
+.centered-content {
+    display: flex !important;
+    justify-content: center !important;
+}
+.custom-margin {
+    margin-bottom: 6%;
+}
+</style>
