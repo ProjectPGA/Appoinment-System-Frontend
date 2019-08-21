@@ -25,7 +25,7 @@ export default class ContentAppointments extends Vue {}
 .user-appointments-title {
     font-size: 2em;
     padding: 2em;
-    @include mobile{
+    @include mobile {
         font-size: 1em;
     }
 }
