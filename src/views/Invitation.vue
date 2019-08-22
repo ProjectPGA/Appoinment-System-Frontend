@@ -18,9 +18,6 @@ import InvitationalCode from '@/components/Invitation/InvitationalCode.vue';
 export default class Invitation extends Vue {}
 </script>
 <style lang="scss" scoped>
-.custom-invitation-input {
-    // width: 50%;
-}
 .title {
     font-family: 'Campesina';
 }
