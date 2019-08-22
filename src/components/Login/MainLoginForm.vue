@@ -4,7 +4,7 @@
             <div class="column is-6"><logo-app /></div>
         </div>
         <div class="columns is-centered is-mobile">
-            <div class="column is-6 container ">
+            <div class="column is-6-desktop is-10-mobile container ">
                 <p class="title">Login</p>
                 <b-field label="Email" class="" :type="bfieldType">
                     <b-input
@@ -61,9 +61,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import LogoApp from '@/components/Navigation/LogoApp.vue';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
 import Axios, { AxiosResponse } from 'axios';
+import { Mutation } from 'vuex-class';
+import { AuthUser } from '@/models/auth/AuthUser';
+import LogoApp from '@/components/Navigation/LogoApp.vue';
+import { router } from '@/router';
 
 @Component({
     name: 'MainLoginForm',
@@ -77,41 +80,65 @@ export default class MainLoginForm extends Vue {
     private isLoading: boolean = false;
     private bfieldType: string = '';
 
-    private async checkLogin() {
-        this.isLoading = true;
-        try {
-            const response: AxiosResponse = await Vue.axios({
-                method: 'POST',
-                url: '/login',
-                data: { email: this.email, password: this.password },
-            });
+    @Mutation('auth/setUser') private saveUser: (user: AuthUser) => void;
 
-            if (!response.data.cod) {
-                this.bfieldType = 'is-danger';
-                this.isLoading = false;
-                Snackbar.open({
-                    message: response.data.mensaje,
-                    type: 'is-danger',
-                    position: 'is-bottom-left',
-                    indefinite: true,
-                    actionText: 'Volver a intentar',
-                    onAction: () => {
-                        this.clearInputs();
-                    },
+    private async checkLogin() {
+        const validator = this.loginValidator();
+        if (validator) {
+            this.isLoading = true;
+            try {
+                const response: AxiosResponse = await Vue.axios({
+                    method: 'POST',
+                    url: '/login',
+                    data: { email: this.email, password: this.password },
                 });
-            } else {
-                this.isLoading = false;
-                console.log(response.data.user)
+
+                if (!response.data.cod) {
+                    this.bfieldType = 'is-danger';
+                    this.isLoading = false;
+                    Snackbar.open({
+                        message: response.data.mensaje,
+                        type: 'is-danger',
+                        position: 'is-bottom-left',
+                        indefinite: true,
+                        actionText: 'Volver a intentar',
+                        onAction: () => {
+                            this.clearInputs();
+                        },
+                    });
+                } else {
+                    this.isLoading = false;
+                    this.saveUser(response.data.user);
+                    router.push('/inicio');
+                }
+            } catch (error) {
+                console.log(error);
             }
-        } catch (error) {
-            console.log(error);
         }
     }
 
-    private clearInputs() {
+    private clearInputs(): void {
         this.email = '';
         this.password = '';
         this.bfieldType = '';
+    }
+    private loginValidator(): boolean {
+        if (this.email.length === 0 || this.password.length === 0) {
+            this.bfieldType = 'is-danger';
+            Snackbar.open({
+                message: 'Por favor introduzca la informacion requerida',
+                type: 'is-danger',
+                position: 'is-bottom-left',
+                indefinite: true,
+                actionText: 'Volver a intentar',
+                onAction: () => {
+                    this.clearInputs();
+                },
+            });
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 </script>

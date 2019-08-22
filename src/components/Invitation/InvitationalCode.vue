@@ -4,7 +4,9 @@
             <div class="column is-6"><logo-app /></div>
         </div>
         <div class="columns is-centered is-mobile">
-            <div class="column is-8 container has-text-centered">
+            <div
+                class="column is-8-desktop is-10-mobile container has-text-centered"
+            >
                 <p class="title">Introduce tu codigo de invitacion</p>
                 <b-field
                     label=""
@@ -40,7 +42,7 @@ import { Action } from 'vuex-class';
 import { AxiosResponse } from 'axios';
 import { InvCode } from '@/models/utils/Code';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
-import { type } from 'os';
+import { router } from '../../router';
 
 @Component({
     name: 'InvitationalCode',
@@ -74,6 +76,8 @@ export default class InvitationalCode extends Vue {
                         this.clear();
                     },
                 });
+            } else {
+                router.push('/registro');
             }
         } catch (error) {
             console.log('Error en el checkeo del codigo invitacional');
