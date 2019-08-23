@@ -14,23 +14,23 @@ export interface AuthState {
 }
 
 const actions: ActionTree<AuthState> = {
-    async login(
-        context: ActionContext<AuthState>,
-        payload: AuthUser
-    ): Promise<any> {
-        try {
-            const response: AxiosResponse = await Vue.axios({
-                method: 'POST',
-                url: '/login',
-                data: payload,
-            });
-            context.commit('setUser', payload);
-        } catch (error) {
-            if (error.response) {
-                context.commit('authError', error.response.statusText);
-            }
-        }
-    },
+    // async login(
+    //     context: ActionContext<AuthState>,
+    //     payload: AuthUser
+    // ): Promise<any> {
+    //     try {
+    //         const response: AxiosResponse = await Vue.axios({
+    //             method: 'POST',
+    //             url: '/login',
+    //             data: payload,
+    //         });
+    //         context.commit('setUser', payload);
+    //     } catch (error) {
+    //         if (error.response) {
+    //             context.commit('authError', error.response.statusText);
+    //         }
+    //     }
+    // },
 };
 
 const mutations: MutationTree<AuthState> = {
