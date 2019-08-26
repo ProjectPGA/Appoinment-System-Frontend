@@ -8,9 +8,9 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { State } from 'vuex-class';
+import { State, Mutation } from 'vuex-class';
 
-import GlobalState from '../vuex/store';
+import { GlobalState } from '../vuex/store';
 
 import HeaderApp from '@/components/Navigation/Header.vue';
 import ContentHome from '@/components/Home/ContentHome.vue';
@@ -23,8 +23,16 @@ import ContentHome from '@/components/Home/ContentHome.vue';
     },
 })
 export default class Home extends Vue {
+    @State((state: GlobalState) => state.utils.showWhatsappButton)
+    private showWhatsappButton: boolean;
+
+    @Mutation('utils/changeStateWhatsappButton')
+    private changeStateWhatsappButton;
+
     public mounted() {
-        console.log(this.$route.name);
+        if (!this.showWhatsappButton) {
+            this.changeStateWhatsappButton();
+        }
     }
 }
 </script>

@@ -112,17 +112,17 @@ export default class MainLoginForm extends Vue {
                     router.push('/inicio');
                 }
             } catch (error) {
-                                    this.isLoading = false;
-                    Snackbar.open({
-                        message: 'Error en la conexión',
-                        type: 'is-danger',
-                        position: 'is-bottom-left',
-                        indefinite: true,
-                        actionText: 'Volver a intentar',
-                        onAction: () => {
-                            this.clearInputs();
-                        },
-                    });
+                this.isLoading = false;
+                Snackbar.open({
+                    message: 'Error en la conexión',
+                    type: 'is-danger',
+                    position: 'is-bottom-left',
+                    indefinite: true,
+                    actionText: 'Volver a intentar',
+                    onAction: () => {
+                        this.clearInputs();
+                    },
+                });
                 console.log(error);
             }
         }

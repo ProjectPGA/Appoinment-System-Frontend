@@ -1,6 +1,6 @@
 <template>
     <div>
-        <MainLoginForm></MainLoginForm>
+        <main-login-form></main-login-form>
     </div>
 </template>
 
@@ -20,13 +20,13 @@ import MainLoginForm from '@/components/Login/MainLoginForm.vue';
 })
 export default class Login extends Vue {
     @State((state: GlobalState) => state.utils.showWhatsappButton)
-    private showWhatsappButton:boolean;
+    private showWhatsappButton: boolean;
 
     @Mutation('utils/changeStateWhatsappButton')
     private changeStateWhatsappButton;
 
-    private beforeRouteEnter (to, from, next) {
-        if(this.showWhatsappButton){
+    private mounted() {
+        if (this.showWhatsappButton) {
             this.changeStateWhatsappButton();
         }
     }

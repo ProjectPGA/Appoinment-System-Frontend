@@ -22,7 +22,7 @@ import WhatsappButton from '@/components/Contact/WhatsappButton.vue';
 })
 export default class App extends Vue {
     @State((state: GlobalState) => state.utils.showWhatsappButton)
-    private showWhatsappButton:boolean;
+    private showWhatsappButton: boolean;
 
     public created() {
         const store = this.$store;
