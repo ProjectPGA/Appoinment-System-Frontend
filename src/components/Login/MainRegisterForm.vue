@@ -13,7 +13,6 @@
                         value=""
                         size="is-medium"
                         class="custom-margin"
-                        @keyup.native.enter="checkRegist()"
                     >
                     </b-input>
                 </b-field>
@@ -36,7 +35,6 @@
                         value=""
                         size="is-medium"
                         class="custom-margin"
-                        :onkeypress="checkEmail()"
                     >
                     </b-input>
                 </b-field>
@@ -48,7 +46,6 @@
                         value=""
                         size="is-medium"
                         class="custom-margin"
-                        @keyup.native.enter="checkRegist()"
                         password-reveal
                     >
                     </b-input>
@@ -65,15 +62,15 @@
                         value=""
                         size="is-medium"
                         class="custom-margin"
-                        @keyup.native.enter="checkRegist()"
                         password-reveal
+                        @keyup.native.enter="checRegist()"
                     >
                     </b-input>
                 </b-field>
                 <div class="columns is-vcentered">
                     <div class="column is-2">
                         <b-button
-                            @click="checkRegist()"
+                            @click="checRegist()"
                             :loading="isLoading"
                             outlined
                             type="is-danger"
@@ -94,6 +91,7 @@ import { Mutation } from 'vuex-class';
 import { AuthUser } from '@/models/auth/AuthUser';
 import LogoApp from '@/components/Navigation/LogoApp.vue';
 import { router } from '../../router';
+import { setTimeout } from 'timers';
 
 @Component({
     name: 'MainRegisterForm',
@@ -115,46 +113,81 @@ export default class MainRegisterForm extends Vue {
 
     @Mutation('auth/setUser') private saveUser: (user: AuthUser) => void;
 
-    private async checkEmail() {
-        try {
-            console.log('MailCheck');
-            const response: AxiosResponse = await Vue.axios({
-                method: 'POST',
-                url: '/mailcheck',
-                data: {
-                    email: this.email,
+    private async checRegist() {
+        if (this.password === this.passwordRe) {
+            try {
+                const response: AxiosResponse = await Vue.axios({
+                    method: 'POST',
+                    url: '/mailcheck',
+                    data: {
+                        email: this.email,
+                    },
+                });
+                if (!response.data.cod) {
+                    this.emailfieldType = 'is-success';
+                    this.Regist();
+                } else {
+                    Snackbar.open({
+                        message: 'El email introducido ya existe',
+                        type: 'is-danger',
+                        position: 'is-bottom-left',
+                        indefinite: true,
+                        actionText: 'Volver a intentar',
+                        onAction: () => {
+                            this.clearInputs();
+                        },
+                    });
+                    this.emailfieldType = 'is-danger';
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            this.passfieldType = 'is-danger';
+            Snackbar.open({
+                message: 'Las contraseñas no coinciden',
+                type: 'is-danger',
+                position: 'is-bottom-left',
+                indefinite: true,
+                actionText: 'Volver a intentar',
+                onAction: () => {
+                    this.clearPassInputs();
                 },
             });
-            console.log(response.data.cod)
-            if (!response.data.cod) {
-                this.emailfieldType = 'is-success';
-            } else {
-                this.emailfieldType = 'is-danger';
-            }
-        } catch (error) {
-            console.log(error);
         }
     }
-    private async checkRegist() {
+    private async Regist() {
         this.isLoading = true;
         try {
             const response: AxiosResponse = await Vue.axios({
                 method: 'POST',
-                url: '/register',
+                url: '/users',
                 data: {
+                    id: Date.now(),
                     email: this.email,
                     password: this.password,
-                    name: this.name,
+                    name: this.name + ' ' + this.apellidos,
+                    admin: false,
                 },
             });
 
-            if (!response.data.cod) {
+            if (response.status === 201) {
+                this.isLoading = false;
+                const user = {
+                    id: response.data.id,
+                    email: response.data.email,
+                    name: response.data.name,
+                    admin: response.data.admin,
+                };
+                this.saveUser(user);
+                router.push('/inicio');
+            } else {
                 this.bfieldType = 'is-danger';
                 this.emailfieldType = 'is-danger';
                 this.passfieldType = 'is-danger';
                 this.isLoading = false;
                 Snackbar.open({
-                    message: response.data.mensaje,
+                    message: 'Error en el registro',
                     type: 'is-danger',
                     position: 'is-bottom-left',
                     indefinite: true,
@@ -163,10 +196,6 @@ export default class MainRegisterForm extends Vue {
                         this.clearInputs();
                     },
                 });
-            } else {
-                this.isLoading = false;
-                this.saveUser(response.data.user);
-                router.push('/inicio');
             }
         } catch (error) {
             console.log(error);
@@ -175,6 +204,14 @@ export default class MainRegisterForm extends Vue {
 
     private clearInputs() {
         this.email = '';
+        this.password = '';
+        this.passwordRe = '';
+        this.bfieldType = '';
+        this.emailfieldType = '';
+        this.passfieldType = '';
+    }
+    private clearPassInputs() {
+        this.passwordRe = '';
         this.password = '';
         this.bfieldType = '';
         this.emailfieldType = '';

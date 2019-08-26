@@ -1,11 +1,34 @@
 {
   "users": [
-
-    {"id":0, "email": "dev", "password" : "dev15", "name" :"Desarrollador", "admin" : true},
-    {"id":1, "email": "admin15", "password" : "admin15", "name" :"Admin", "admin" : true}
-
+    {
+      "id": 0,
+      "email": "dev",
+      "password": "dev15",
+      "name": "Desarrollador",
+      "admin": true
+    },
+    {
+      "id": 1,
+      "email": "admin15",
+      "password": "admin15",
+      "name": "Admin",
+      "admin": true
+    },
+    {
+      "id": 1566803544191,
+      "email": "pepenavas@gmail.com",
+      "password": "pepe",
+      "name": "Pepe Navas",
+      "admin": false
+    },
+    {
+      "id": 1566803765702,
+      "email": "2asdf@asdfklm",
+      "password": "pepe",
+      "name": "peppe aosdf",
+      "admin": false
+    }
   ],
-
   "codigos": [
     {
       "id": "SK4DX9Z"
