@@ -17,8 +17,8 @@ export default class TitlesApp extends Vue {
 
 <style lang="scss" scoped>
 .title-contact {
-    font-family: 'Campesina';
+    font-family: 'CabbageTown';
     text-align: center;
-    font-size: 3em;
+    font-size: 1em;
 }
 </style>

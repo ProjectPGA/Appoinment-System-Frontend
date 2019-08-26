@@ -1,10 +1,14 @@
 <template>
     <div>
-        <InvitationalCode />
+        <invitational-code></invitational-code>
     </div>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { State, Mutation } from 'vuex-class';
+
+import { GlobalState } from '@/vuex/store';
+
 import LogoApp from '@/components/Navigation/LogoApp.vue';
 import InvitationalCode from '@/components/Invitation/InvitationalCode.vue';
 
@@ -15,7 +19,19 @@ import InvitationalCode from '@/components/Invitation/InvitationalCode.vue';
         InvitationalCode,
     },
 })
-export default class Invitation extends Vue {}
+export default class Invitation extends Vue {
+    @State((state: GlobalState) => state.utils.showWhatsappButton)
+    private showWhatsappButton: boolean;
+
+    @Mutation('utils/changeStateWhatsappButton')
+    private changeStateWhatsappButton;
+
+    private mounted() {
+        if (this.showWhatsappButton) {
+            this.changeStateWhatsappButton();
+        }
+    }
+}
 </script>
 <style lang="scss" scoped>
 .title {
