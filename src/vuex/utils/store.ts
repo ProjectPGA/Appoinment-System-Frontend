@@ -7,11 +7,18 @@ Vue.use(Vuex);
 export interface UtilState {
     currentLocale: string;
     showWhatsappButton: boolean;
+    invitationProgress: boolean;
 }
 
 const mutations: MutationTree<UtilState> = {
     setCurrentLocale(currentState: UtilState, currentLocale: string) {
         currentState.currentLocale = currentLocale;
+    },
+    setInvitationProgress(
+        currentState: UtilState,
+        invitationProgress: boolean
+    ) {
+        currentState.invitationProgress = invitationProgress;
     },
 
     resetState() {
@@ -45,6 +52,7 @@ function initialState() {
     return {
         currentLocale: 'en',
         showWhatsappButton: true,
+        invitationProgress: false,
     };
 }
 
