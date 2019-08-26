@@ -10,7 +10,7 @@ const routes = {
     base: process.env.BASE_URL,
     routes: [
         {
-            path: '/',
+            path: '/Inicio',
             name: 'Home',
             component: Home,
             meta: { linkText: 'Home' },
@@ -30,7 +30,7 @@ const routes = {
             ],
         },
         {
-            path: '/Login',
+            path: '/',
             name: 'Login',
             component: Login,
             meta: { linkText: 'Login' },
