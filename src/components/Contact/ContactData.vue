@@ -3,7 +3,10 @@
         <div class="columns is-multiline">
             <div class="column is-12"><logo-app /></div>
             <div class="column is-12">
-                <titles-app title="Contacto" />
+                <titles-app
+                    title="titles.contact"
+                    class="title-contact"
+                ></titles-app>
                 <ul class="info-contact">
                     <li>
                         <ol class="title-info-contact">
@@ -59,9 +62,7 @@ export default class ContactData extends Vue {}
 
 <style lang="scss" scoped>
 .title-contact {
-    font-family: 'Campesina';
-    text-align: center;
-    font-size: 3em;
+    padding-bottom: 15px;
 }
 .info-contact {
     text-align: center;

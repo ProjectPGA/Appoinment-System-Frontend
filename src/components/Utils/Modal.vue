@@ -90,10 +90,13 @@ export default class Modal extends Vue {
         width: calc(100vw - 20px);
     }
 }
+.modal-card-head {
+    border: none;
+}
 .modal-card-title {
-    font-size: 20px;
-    line-height: 23px;
-    color: #c5c5c5;
+    font-size: 2rem;
+    text-align: center;
+    color: #000000;
 }
 .modal-card-body {
     font-size: 15px;
@@ -111,6 +114,8 @@ export default class Modal extends Vue {
 }
 
 .close-button {
+    position: absolute;
+    right: 25px;
     border: none;
     background: transparent;
     font-size: 1.2rem;

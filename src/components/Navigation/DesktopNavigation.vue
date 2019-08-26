@@ -3,15 +3,15 @@
         <div id="navbarMenuDesktop" class="navbar-menu">
             <div class="navbar-end">
                 <desktop-navigation-link
-                    label="navigation.index"
+                    label="components.navigation.index"
                     to="/Inicio"
                 ></desktop-navigation-link>
                 <desktop-navigation-link
-                    label="navigation.appoinmets"
+                    label="components.navigation.appoinmets"
                     to="/Appointments"
                 ></desktop-navigation-link>
                 <desktop-navigation-link
-                    label="navigation.contactUs"
+                    label="components.navigation.contactUs"
                     to="/Contact"
                 ></desktop-navigation-link>
             </div>

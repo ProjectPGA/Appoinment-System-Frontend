@@ -1,5 +1,5 @@
 <template>
-    <div><MainFilterFrame /></div>
+    <div><main-filter-frame></main-filter-frame></div>
 </template>
 
 <script lang="ts">
