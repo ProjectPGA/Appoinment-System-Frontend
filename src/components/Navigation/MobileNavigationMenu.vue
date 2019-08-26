@@ -18,17 +18,17 @@
                             />
                         </router-link>
                         <mobile-navigation-link
-                            label="navigation.index"
+                            label="components.navigation.index"
                             to="/"
                             @click.native="hide"
                         ></mobile-navigation-link>
                         <mobile-navigation-link
-                            label="navigation.appoinmets"
+                            label="components.navigation.appoinmets"
                             to="/Appointments"
                             @click.native="hide"
                         ></mobile-navigation-link>
                         <mobile-navigation-link
-                            label="navigation.contactUs"
+                            label="components.navigation.contactUs"
                             to="/Contact"
                             @click.native="hide"
                         ></mobile-navigation-link>
