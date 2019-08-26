@@ -127,7 +127,7 @@ export default class MainSchedule extends Vue {
     private notTaken(appoint: Appointment): boolean {
         if (appoint.takerid === 0) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
@@ -288,6 +288,7 @@ export default class MainSchedule extends Vue {
 }
 .bg-free {
     background-color: #53ff53;
+    cursor: pointer;
 }
 .bg-taken {
     background-color: #ff6969;

@@ -14,6 +14,7 @@ import { GlobalState } from '../vuex/store';
 
 import HeaderApp from '@/components/Navigation/Header.vue';
 import ContentHome from '@/components/Home/ContentHome.vue';
+import { Route } from 'vue-router';
 
 @Component({
     name: 'Home',
@@ -25,10 +26,19 @@ import ContentHome from '@/components/Home/ContentHome.vue';
 export default class Home extends Vue {
     @State((state: GlobalState) => state.utils.showWhatsappButton)
     private showWhatsappButton: boolean;
+    @State((state: GlobalState) => state.auth.isLogged)
+    private isLogged: boolean;
 
     @Mutation('utils/changeStateWhatsappButton')
     private changeStateWhatsappButton;
 
+    public async beforeRouteEnter(from: Route, to: Route, next: any) {
+        next((vm: Home) => {
+            if (vm.isLogged === false) {
+                next('/');
+            }
+        });
+    }
     public mounted() {
         if (!this.showWhatsappButton) {
             this.changeStateWhatsappButton();

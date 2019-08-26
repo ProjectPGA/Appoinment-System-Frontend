@@ -112,6 +112,7 @@ export default class MainRegisterForm extends Vue {
     private passfieldType: string = '';
 
     @Mutation('auth/setUser') private saveUser: (user: AuthUser) => void;
+    @Mutation('utils/setInvitationProgress') private changeinvitationProgress: (inv: boolean)=> void;
 
     private async checRegist() {
         if (this.password === this.passwordRe) {
@@ -180,6 +181,7 @@ export default class MainRegisterForm extends Vue {
                     admin: response.data.admin,
                 };
                 this.saveUser(user);
+                this.changeinvitationProgress(false);
                 router.push('/inicio');
             } else {
                 this.bfieldType = 'is-danger';

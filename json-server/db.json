@@ -34,14 +34,18 @@
       "password": "12345",
       "name": "ewf we",
       "admin": false
+    },
+    {
+      "id": 1566826315237,
+      "email": "plopez@gmail.com",
+      "password": "pepepepe",
+      "name": "Pepito lopez",
+      "admin": false
     }
   ],
   "codigos": [
     {
       "id": "SK4DX9Z"
-    },
-    {
-      "id": "42WC3TG"
     },
     {
       "id": "ZEGDWGZ"
@@ -2877,7 +2881,7 @@
         },
         {
           "id": 518271069,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 3
         },
