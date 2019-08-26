@@ -65,9 +65,11 @@
             </div>
         </div>
         <modal :active.sync="showModal">
+            <template slot="modal_title">
+               Confirmación
+            </template>
             <confirm
-                title="Confirmación"
-                subTitle="¿Desea reservar esta cita?"
+                title="¿Desea reservar esta cita?"
                 acceptLabel="Aceptar"
                 cancelLabel="Cancelar"
                 @confirm="userConfirmation"
