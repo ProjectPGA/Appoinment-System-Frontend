@@ -4,7 +4,7 @@
             <div class="navbar-end">
                 <desktop-navigation-link
                     label="navigation.index"
-                    to="/"
+                    to="/Inicio"
                 ></desktop-navigation-link>
                 <desktop-navigation-link
                     label="navigation.appoinmets"

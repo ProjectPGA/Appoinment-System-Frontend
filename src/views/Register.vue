@@ -11,6 +11,7 @@ import { State, Mutation } from 'vuex-class';
 import { GlobalState } from '@/vuex/store';
 
 import MainRegisterForm from '@/components/Login/MainRegisterForm.vue';
+import { Route } from 'vue-router';
 
 @Component({
     name: 'Login',
@@ -21,9 +22,19 @@ import MainRegisterForm from '@/components/Login/MainRegisterForm.vue';
 export default class Register extends Vue {
     @State((state: GlobalState) => state.utils.showWhatsappButton)
     private showWhatsappButton: boolean;
+    @State((state: GlobalState) => state.utils.invitationProgress)
+    private invitationProgress: boolean;
 
     @Mutation('utils/changeStateWhatsappButton')
     private changeStateWhatsappButton;
+
+    public async beforeRouteEnter(from: Route, to: Route, next: any) {
+        next((vm: Register) => {
+            if (vm.invitationProgress === false) {
+                next('/');
+            }
+        });
+    }
 
     private mounted() {
         if (this.showWhatsappButton) {

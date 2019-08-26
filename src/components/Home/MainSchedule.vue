@@ -111,7 +111,7 @@ export default class MainSchedule extends Vue {
         return this.daysFiltered[key].date.includes(arg);
     }
     private openModal(day: Day, appoint: Appointment, appointIndex: number) {
-        this.showModal = true;
+        this.showModal = this.notTaken(appoint);
         this.day = day;
         this.appoint = appoint;
         this.appointIndex = appointIndex;
@@ -124,8 +124,12 @@ export default class MainSchedule extends Vue {
             this.showModal = false;
         }
     }
-    private async userCancel() {
-        this.showModal = false;
+    private notTaken(appoint: Appointment): boolean {
+        if (appoint.takerid === 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private getDayMonth(date: string): string {
@@ -284,9 +288,11 @@ export default class MainSchedule extends Vue {
 }
 .bg-free {
     background-color: #53ff53;
+    cursor: pointer;
 }
 .bg-taken {
     background-color: #ff6969;
+    cursor: not-allowed;
 }
 .custom-border {
     border: 1px black;

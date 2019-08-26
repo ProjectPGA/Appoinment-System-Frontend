@@ -38,11 +38,12 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import LogoApp from '@/components/Navigation/LogoApp.vue';
-import { Action } from 'vuex-class';
+import { Action, State, Mutation } from 'vuex-class';
 import { AxiosResponse } from 'axios';
 import { InvCode } from '@/models/utils/Code';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
 import { router } from '../../router';
+import { GlobalState } from '@/vuex/store';
 
 @Component({
     name: 'InvitationalCode',
@@ -51,11 +52,18 @@ import { router } from '../../router';
     },
 })
 export default class InvitationalCode extends Vue {
+    @State((state: GlobalState) => state.utils.invitationProgress)
+    private invitationProgress: boolean;
+
+    @Mutation('utils/setInvitationProgress')
+    private changeinvitationProgress;
+    @Mutation('utils/changeStateWhatsappButton')
+    private changeStateWhatsappButton;
+
     private code: string = '';
     private errorMessage: string = '';
     private bfieldType: string = '';
     private codeObj: InvCode = { code: '' };
-
     private async check() {
         try {
             const response: AxiosResponse = await Vue.axios({
@@ -77,6 +85,7 @@ export default class InvitationalCode extends Vue {
                     },
                 });
             } else {
+                this.changeinvitationProgress(true);
                 router.push('/registro');
             }
         } catch (error) {
