@@ -12,37 +12,37 @@
                             v-if="getDay(index, 'Mon')"
                             class="custom-padding title"
                         >
-                            Lunes
+                            {{ $t('week.monday') }}
                         </div>
                         <div
                             v-if="getDay(index, 'Tue')"
                             class="custom-padding title"
                         >
-                            Martes
+                            {{ $t('week.tuesday') }}
                         </div>
                         <div
                             v-if="getDay(index, 'Wed')"
                             class="custom-padding title"
                         >
-                            Miercoles
+                            {{ $t('week.wednesday') }}
                         </div>
                         <div
                             v-if="getDay(index, 'Thu')"
                             class="custom-padding title"
                         >
-                            Jueves
+                            {{ $t('week.thursday') }}
                         </div>
                         <div
                             v-if="getDay(index, 'Fri')"
                             class="custom-padding title"
                         >
-                            Viernes
+                            {{ $t('week.friday') }}
                         </div>
                         <div
                             v-if="getDay(index, 'Sat')"
                             class="custom-padding title"
                         >
-                            Sabado
+                            {{ $t('week.saturday') }}
                         </div>
 
                         <div class="custom-padding">
@@ -66,7 +66,7 @@
         </div>
         <modal :active.sync="showModal">
             <template slot="modal_title">
-               Confirmación
+                Confirmación
             </template>
             <confirm
                 title="¿Desea reservar esta cita?"

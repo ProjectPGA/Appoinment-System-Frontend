@@ -5,11 +5,15 @@
         </div>
         <div class="columns is-centered is-mobile">
             <div class="column is-6-desktop is-10-mobile container ">
-                <p class="title">Registro</p>
-                <b-field label="Nombre" class="" :type="bfieldType">
+                <p class="title">{{ $t('titles.register') }}</p>
+                <b-field
+                    :label="$i18n.t('components.register.name')"
+                    class=""
+                    :type="bfieldType"
+                >
                     <b-input
                         v-model="name"
-                        placeholder="Nombre"
+                        :placeholder="$i18n.t('components.register.name')"
                         value=""
                         size="is-medium"
                         class="custom-margin"
@@ -17,20 +21,28 @@
                     </b-input>
                 </b-field>
 
-                <b-field label="Apellidos" class="" :type="bfieldType">
+                <b-field 
+                    :label="$i18n.t('components.register.surname')"
+                    class="" 
+                    :type="bfieldType"
+                >
                     <b-input
                         v-model="apellidos"
-                        placeholder="Apellidos"
+                        :placeholder="$i18n.t('components.register.surname')"
                         value=""
                         size="is-medium"
                         class="custom-margin"
                     >
                     </b-input>
                 </b-field>
-                <b-field label="Email" class="" :type="emailfieldType">
+                <b-field 
+                    :label="$i18n.t('components.register.email')"
+                    class="" 
+                    :type="emailfieldType"
+                >
                     <b-input
                         v-model="email"
-                        placeholder="Email"
+                        :placeholder="$i18n.t('components.register.email')"
                         type=""
                         value=""
                         size="is-medium"
@@ -38,10 +50,14 @@
                     >
                     </b-input>
                 </b-field>
-                <b-field label="Contraseña" class="" :type="passfieldType">
+                <b-field 
+                    :label="$i18n.t('components.register.password')"
+                    class="" 
+                    :type="passfieldType"
+                >
                     <b-input
                         v-model="password"
-                        placeholder="Contraseña"
+                        :placeholder="$i18n.t('components.register.password')"
                         type="password"
                         value=""
                         size="is-medium"
@@ -51,13 +67,13 @@
                     </b-input>
                 </b-field>
                 <b-field
-                    label="Repetir Contraseña"
+                    :label="$i18n.t('components.register.repeatPassword')"
                     class=""
                     :type="passfieldType"
                 >
                     <b-input
                         v-model="passwordRe"
-                        placeholder="Contraseña"
+                        :placeholder="$i18n.t('components.register.password')"
                         type="password"
                         value=""
                         size="is-medium"
@@ -75,7 +91,7 @@
                             outlined
                             type="is-danger"
                             size="is-medium"
-                            >Registrar</b-button
+                            >{{ $t('components.register.button') }}</b-button
                         >
                     </div>
                 </div>
@@ -87,11 +103,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
 import Axios, { AxiosResponse } from 'axios';
-import { Mutation } from 'vuex-class';
-import { AuthUser } from '@/models/auth/AuthUser';
-import LogoApp from '@/components/Navigation/LogoApp.vue';
 import { router } from '../../router';
+import { Mutation } from 'vuex-class';
 import { setTimeout } from 'timers';
+
+import { AuthUser } from '@/models/auth/AuthUser';
+
+import LogoApp from '@/components/Navigation/LogoApp.vue';
 
 @Component({
     name: 'MainRegisterForm',
@@ -112,7 +130,9 @@ export default class MainRegisterForm extends Vue {
     private passfieldType: string = '';
 
     @Mutation('auth/setUser') private saveUser: (user: AuthUser) => void;
-    @Mutation('utils/setInvitationProgress') private changeinvitationProgress: (inv: boolean)=> void;
+    @Mutation('utils/setInvitationProgress') private changeinvitationProgress: (
+        inv: boolean
+    ) => void;
 
     private async checRegist() {
         if (this.password === this.passwordRe) {

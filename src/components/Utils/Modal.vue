@@ -90,8 +90,8 @@ export default class Modal extends Vue {
         width: calc(100vw - 20px);
     }
 }
-.modal-card-head{
-    border:none;
+.modal-card-head {
+    border: none;
 }
 .modal-card-title {
     font-size: 2rem;

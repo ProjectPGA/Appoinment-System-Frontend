@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p class="title-contact">{{ title }}</p>
+        <p class="title">{{ $t(title) }}</p>
     </div>
 </template>
 
@@ -16,7 +16,7 @@ export default class TitlesApp extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.title-contact {
+.title {
     font-family: 'CabbageTown';
     text-align: center;
     font-size: 1em;

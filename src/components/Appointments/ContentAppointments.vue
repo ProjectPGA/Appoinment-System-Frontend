@@ -2,7 +2,7 @@
     <div>
         <titles-app
             class="user-appointments-title"
-            title="Mis Citas"
+            title="titles.userAppointments"
         ></titles-app>
     </div>
 </template>

@@ -2,7 +2,7 @@
     <div>
         <titles-app
             class="container-appoinments-title"
-            title="Citas"
+            title="titles.appointments"
         ></titles-app>
         <div class="columns pagination-container">
             <div class="column">
