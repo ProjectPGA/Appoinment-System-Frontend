@@ -41,6 +41,13 @@
       "password": "pepepepe",
       "name": "Pepito lopez",
       "admin": false
+    },
+    {
+      "id": 1566830198937,
+      "email": "",
+      "password": "",
+      "name": " ",
+      "admin": false
     }
   ],
   "codigos": [
@@ -48,10 +55,10 @@
       "id": "SK4DX9Z"
     },
     {
-      "id": "ZEGDWGZ"
+      "id": "88NWFQE"
     },
     {
-      "id": "88NWFQL"
+      "id": "88NWFQF"
     }
   ],
   "days": [
