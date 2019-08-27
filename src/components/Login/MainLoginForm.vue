@@ -4,7 +4,7 @@
             <div class="column is-6"><logo-app /></div>
         </div>
         <div class="columns is-centered is-mobile">
-            <div class="column is-6-desktop is-10-mobile container ">
+            <div class="column is-6-desktop is-10-mobile is-8-touch container ">
                 <p class="title">{{ $t('titles.login') }}</p>
                 <b-field 
                     :label="$i18n.t('components.login.email')"
@@ -40,7 +40,7 @@
                     </b-input>
                 </b-field>
                 <div class="columns is-vcentered">
-                    <div class="column is-2">
+                    <div class="column is-3 is-2-fullhd">
                         <b-button
                             @click="checkLogin()"
                             :loading="isLoading"
@@ -163,6 +163,12 @@ export default class MainLoginForm extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.margin-rigth{
+    @include desktop {
+        margin-right: 4%
+    }
+
+}
 .invitation-link {
     color: #e01f2f !important;
 }
