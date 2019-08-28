@@ -20,10 +20,9 @@
                     >
                     </b-input>
                 </b-field>
-
-                <b-field 
+                <b-field
                     :label="$i18n.t('components.register.surname')"
-                    class="" 
+                    class=""
                     :type="bfieldType"
                 >
                     <b-input
@@ -35,9 +34,9 @@
                     >
                     </b-input>
                 </b-field>
-                <b-field 
+                <b-field
                     :label="$i18n.t('components.register.email')"
-                    class="" 
+                    class=""
                     :type="emailfieldType"
                 >
                     <b-input
@@ -50,9 +49,9 @@
                     >
                     </b-input>
                 </b-field>
-                <b-field 
+                <b-field
                     :label="$i18n.t('components.register.password')"
-                    class="" 
+                    class=""
                     :type="passfieldType"
                 >
                     <b-input

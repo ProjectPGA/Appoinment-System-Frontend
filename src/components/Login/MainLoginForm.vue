@@ -6,9 +6,9 @@
         <div class="columns is-centered is-mobile">
             <div class="column is-6-desktop is-10-mobile is-8-touch container ">
                 <p class="title">{{ $t('titles.login') }}</p>
-                <b-field 
+                <b-field
                     :label="$i18n.t('components.login.email')"
-                    class="" 
+                    class=""
                     :type="bfieldType"
                 >
                     <b-input
@@ -22,9 +22,9 @@
                     </b-input>
                 </b-field>
 
-                <b-field 
+                <b-field
                     :label="$i18n.t('components.login.password')"
-                    class="" 
+                    class=""
                     :type="bfieldType"
                 >
                     <b-input
@@ -58,8 +58,7 @@
                                 to="/invitation"
                             >
                                 {{ $t('components.login.accessToInvitation') }}
-                            </router-link
-                        >
+                            </router-link>
                         </p>
                     </div>
                 </div>
