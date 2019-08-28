@@ -7,7 +7,7 @@ import { AuthUser } from '@/models/auth/AuthUser';
 Vue.use(Vuex);
 
 export interface AuthState {
-    user: AuthUser | null;
+    user: AuthUser;
     isLogged: boolean;
     error: boolean;
     errorMessage: string;
@@ -41,23 +41,30 @@ const mutations: MutationTree<AuthState> = {
         state.errorMessage = '';
     },
     unsetUser(state: AuthState) {
-        state.user = null;
+        state.user = emptyUser;
         state.isLogged = false;
     },
     authError(state: AuthState, payload: string) {
         state.error = true;
         state.errorMessage = payload;
-        state.user = null;
+        state.user = { id: 0, name: '', admin: false, email: '' };
         state.isLogged = false;
     },
 };
 
 export const getInitialState = (): AuthState => ({
-    user: null,
+    user: emptyUser,
     isLogged: false,
     error: false,
     errorMessage: '',
 });
+
+const emptyUser: AuthUser = {
+    id: 0,
+    name: '',
+    admin: false,
+    email: '',
+};
 
 const auth = {
     namespaced: true,

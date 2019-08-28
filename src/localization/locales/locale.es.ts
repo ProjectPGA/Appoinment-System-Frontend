@@ -20,14 +20,15 @@ const es = {
             email: 'E-Mail',
             password: 'Contraseña',
             repeatPassword: 'Repetir Contraseña',
-            button: 'Registrar'
+            button: 'Registrar',
         },
         login: {
             email: 'E-Mail',
             password: 'Contraseña',
             button: 'Acceder',
             noAccount: '¿No tienes cuenta?',
-            accessToInvitation: 'Pulsa aquí para canjear tu codigo de invitación.',
+            accessToInvitation:
+                'Pulsa aquí para canjear tu codigo de invitación.',
         },
     },
     titles: {
@@ -45,7 +46,7 @@ const es = {
         friday: 'Viernes',
         saturday: 'Sabado',
         sunday: 'Domingo',
-    }
+    },
 };
 
 export default es;

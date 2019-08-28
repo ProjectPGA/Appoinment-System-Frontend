@@ -102,6 +102,8 @@ import appointment from '../../vuex/appointment/store';
 export default class MainSchedule extends Vue {
     @Action('appointment/assignAppoint') private assignAppoint: (Day) => void;
 
+    @State((state: GlobalState) => state.auth.user.id) private userId: number;
+
     @Prop() private daysFiltered: Day[];
 
     private showModal: boolean = false;
@@ -133,7 +135,6 @@ export default class MainSchedule extends Vue {
             return false;
         }
     }
-
     private getDayMonth(date: string): string {
         const fech: Date = new Date(date);
         let daymonth: string = '';
@@ -273,7 +274,7 @@ export default class MainSchedule extends Vue {
     }
 
     private TakeAppoint(day: Day, appoint: Appointment, appointIndex: number) {
-        day.appointments[appointIndex].takerid = 1;
+        day.appointments[appointIndex].takerid = this.userId;
         this.assignAppoint(day);
         Snackbar.open(
             'Cita asignada el dia ' +
