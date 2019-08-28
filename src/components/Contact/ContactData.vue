@@ -10,32 +10,48 @@
                 <ul class="info-contact">
                     <li>
                         <ol class="title-info-contact">
-                            Horarios:
+                            {{
+                                $t('components.contact.titleSchedule')
+                            }}
                         </ol>
                         <ol>
-                            Lunes a viernes: 10:00-14:00 / 17:00-21:00
+                            {{
+                                $t('components.contact.textMondayToFriday')
+                            }}
                         </ol>
                         <ol>
-                            Sabado: 10:00-14:00
+                            {{
+                                $t('components.contact.textSaturday')
+                            }}
                         </ol>
                     </li>
                     <li>
                         <ol class="title-info-contact">
-                            Teléfono:
+                            {{
+                                $t('components.contact.titlePhone')
+                            }}
                         </ol>
                         <ol>
-                            +34 679839952
+                            {{
+                                $t('components.contact.textPhone')
+                            }}
                         </ol>
                     </li>
                     <li>
                         <ol class="title-info-contact">
-                            Dirección:
+                            {{
+                                $t('components.contact.titleAddress')
+                            }}
                         </ol>
                         <ol>
-                            Av. Blas Infante, 105, 29120
+                            {{
+                                $t('components.contact.textAddress')
+                            }}
                         </ol>
                         <ol>
-                            Alhaurín el Grande, Málaga
+                            {{
+                                $t('components.contact.textCity')
+                            }}
                         </ol>
                     </li>
                 </ul>
@@ -69,5 +85,6 @@ export default class ContactData extends Vue {}
 }
 .title-info-contact {
     font-size: 1.5em;
+    padding: 5px;
 }
 </style>
