@@ -4,7 +4,9 @@
             <div class="column is-6"><logo-app /></div>
         </div>
         <div class="columns is-centered is-mobile">
-            <div class="column is-6-desktop is-10-mobile is-8-touch container ">
+            <div
+                class="column is-6-desktop is-10-mobile is-8-tablet-only container "
+            >
                 <p class="title">{{ $t('titles.login') }}</p>
                 <b-field
                     :label="$i18n.t('components.login.email')"
@@ -162,11 +164,10 @@ export default class MainLoginForm extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.margin-rigth{
+.margin-rigth {
     @include desktop {
-        margin-right: 4%
+        margin-right: 4%;
     }
-
 }
 .invitation-link {
     color: #e01f2f !important;
