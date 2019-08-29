@@ -3,15 +3,15 @@
         <div id="navbarMenuDesktop" class="navbar-menu">
             <div class="navbar-end">
                 <desktop-navigation-link
-                    label="components.navigation.index"
+                    :label="$i18n.t('components.navigation.index')"
                     to="/Inicio"
                 ></desktop-navigation-link>
                 <desktop-navigation-link
-                    label="components.navigation.appoinmets"
+                    :label="$i18n.t('components.navigation.appointments')"
                     to="/Appointments"
                 ></desktop-navigation-link>
                 <desktop-navigation-link
-                    label="components.navigation.contactUs"
+                    :label="$i18n.t('components.navigation.contactUs')"
                     to="/Contact"
                 ></desktop-navigation-link>
             </div>

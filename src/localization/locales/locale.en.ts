@@ -2,9 +2,9 @@ const en = {
     navigation: {
         title: 'Castillo',
         subtitle: 'Barberia',
-        index: 'Inicio',
-        appoinmets: 'Mis Citas',
-        contactUs: 'Contacto',
+        index: 'Main',
+        appointments: 'My Appointments',
+        contactUs: 'Contact',
     },
 };
 

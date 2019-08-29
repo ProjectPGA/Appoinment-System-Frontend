@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="hero is-medium navigation-bar-content">
+        <section class="hero is-small navigation-bar-content">
             <!-- Menú escritorio y Menu movil -->
             <div class="hero-head">
                 <nav class="navbar">
