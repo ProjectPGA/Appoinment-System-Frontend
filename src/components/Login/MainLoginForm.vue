@@ -5,7 +5,7 @@
         </div>
         <div class="columns is-centered is-mobile">
             <div
-                class="column is-6-desktop is-10-mobile is-8-tablet-only container "
+                class="column is-6-desktop is-10-mobile is-8-tablet container "
             >
                 <p class="title">{{ $t('titles.login') }}</p>
                 <b-field

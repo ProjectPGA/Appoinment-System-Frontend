@@ -42,6 +42,6 @@ export default class MobileNavigationLink extends Vue {
 }
 .mobile-navigation-label {
     font-size: $size-normal;
-    color: white !important;
+    color: #535353 !important;
 }
 </style>

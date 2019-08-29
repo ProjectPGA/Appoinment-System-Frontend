@@ -6,10 +6,7 @@
                 :key="index"
                 class="column is-3-fullhd is-4-desktop is-6-tablet"
             >
-                <div
-                    class="card"
-                    :class="isActive(cita.date)"
-                >
+                <div class="card" :class="isActive(cita.date)">
                     <div class="card-content">
                         <p class="title">
                             {{ getAppointHour(cita.type) }}
@@ -43,13 +40,6 @@
                                 <b-icon pack="fas" icon="ban" size="is-small">
                                 </b-icon>
                                 Cancelar Cita
-                            </span>
-                        </p>
-                        <p class="card-footer-item">
-                            <span>
-                                <b-switch :value="true" type="is-danger">
-                                    Notificar
-                                </b-switch>
                             </span>
                         </p>
                     </footer>
@@ -242,28 +232,37 @@ export default class UserAppointmentsDisplay extends Vue {
         return hourString;
     }
     private isActive(d: string): string {
-        var result: string = '';
+        let result: string = '';
         const today: number = new Date().getTime();
         const date: number = new Date(d).getTime();
-        console.log('hoy: '+today)
-        console.log('cita: '+date)
+        console.log('hoy: ' + today);
+        console.log('cita: ' + date);
         if (today <= date) {
             result = 'active';
         }
         if (today > date) {
             result = 'inactive';
-        }        
+        }
         return result;
-
     }
 }
 </script>
 
 <style lang="scss" scoped>
+.card-footer-item {
+    cursor: pointer;
+}
+.card {
+    border: black;
+    border-style: double;
+    border-width: thick;
+}
 .card.active {
-    box-shadow: 0 6px 6px rgba(10, 180, 0, 0.67), 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 11px 8px 7px rgba(10, 180, 0, 0.67),
+        0 0 1px rgba(10, 10, 10, 0.1);
 }
 .card.inactive {
-    box-shadow: 0 6px 6px rgba(180, 0, 0, 0.67), 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 11px 8px 7px rgba(180, 0, 0, 0.67),
+        0 0 1px rgba(10, 10, 10, 0.1);
 }
 </style>
