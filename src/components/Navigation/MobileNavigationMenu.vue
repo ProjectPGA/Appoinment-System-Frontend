@@ -44,9 +44,13 @@
                             </router-link>
                         </div>
                         <div class="mobile-navigation-logout-link">
-                            <router-link to="/" class="menu-title" @click.native="unsetUser()">
+                            <router-link
+                                to="/"
+                                class="menu-title"
+                                @click.native="unsetUser()"
+                            >
                                 <b-icon pack="fas" icon="sign-out-alt"></b-icon>
-                                Cerrar sesión
+                                {{ $t('user.logof') }}
                             </router-link>
                         </div>
                     </div>

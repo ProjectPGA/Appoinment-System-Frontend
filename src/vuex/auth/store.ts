@@ -52,15 +52,6 @@ const mutations: MutationTree<AuthState> = {
     },
 };
 
-const getters: GetterTree<AuthState> = {
-    isLoggedIn(state) {
-        return state.isLogged === true;
-    },
-    isLoggedOut(state) {
-        return state.isLogged === false;
-    },
-};
-
 export const getInitialState = (): AuthState => ({
     user: emptyUser,
     isLogged: false,
@@ -80,7 +71,6 @@ const auth = {
     state: getInitialState(),
     mutations,
     actions,
-    getters,
 };
 
 export default auth;
