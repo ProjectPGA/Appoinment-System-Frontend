@@ -41,6 +41,10 @@ const es = {
             textCity: 'Alhaurín el Grande, Málaga',
         },
     },
+    user: {
+        settings: 'Configuración',
+        logof: 'Cerrar sesión',
+    },
     titles: {
         appointments: 'Citas',
         userAppointments: 'Mis Citas',

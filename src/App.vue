@@ -1,7 +1,7 @@
 <template>
     <div class="main-app">
         <router-view></router-view>
-        <whatsapp-button v-show="showWhatsappButton"></whatsapp-button>
+        <whatsapp-button v-show="isLogged"></whatsapp-button>
     </div>
 </template>
 
@@ -21,8 +21,8 @@ import WhatsappButton from '@/components/Contact/WhatsappButton.vue';
     },
 })
 export default class App extends Vue {
-    @State((state: GlobalState) => state.utils.showWhatsappButton)
-    private showWhatsappButton: boolean;
+    @State((state: GlobalState) => state.auth.isLogged)
+    private isLogged: boolean;
 
     public created() {
         const store = this.$store;

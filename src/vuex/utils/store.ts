@@ -6,7 +6,6 @@ Vue.use(Vuex);
 
 export interface UtilState {
     currentLocale: string;
-    showWhatsappButton: boolean;
     invitationProgress: boolean;
 }
 
@@ -28,9 +27,6 @@ const mutations: MutationTree<UtilState> = {
             state[key] = s[key];
         });
     },
-    changeStateWhatsappButton(currentState: UtilState) {
-        currentState.showWhatsappButton = !currentState.showWhatsappButton;
-    },
 };
 
 const actions: ActionTree<UtilState> = {
@@ -51,7 +47,6 @@ const getters = {
 function initialState() {
     return {
         currentLocale: 'en',
-        showWhatsappButton: true,
         invitationProgress: false,
     };
 }

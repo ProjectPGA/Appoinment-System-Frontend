@@ -3,11 +3,14 @@
         <section class="hero is-small navigation-bar-content">
             <!-- Menú escritorio y Menu movil -->
             <div class="hero-head">
-                <nav class="navbar">
-                    <div class="container">
-                        <mobile-navigation />
-                        <desktop-navigation />
-                    </div>
+                <nav
+                    c
+                    class="navbar"
+                    role="navigation"
+                    aria-label="main navigation"
+                >
+                    <mobile-navigation />
+                    <desktop-navigation />
                 </nav>
             </div>
             <!-- Logo o titulo -->

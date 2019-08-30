@@ -18,30 +18,19 @@
                             />
                         </router-link>
                         <mobile-navigation-link
-<<<<<<< HEAD
-                            label="components.navigation.index"
-=======
                             :label="$i18n.t('components.navigation.index')"
                             to="/Inicio"
                             @click.native="hide"
                         ></mobile-navigation-link>
                         <mobile-navigation-link
-<<<<<<< HEAD
-                            label="components.navigation.appoinmets"
-=======
                             :label="
                                 $i18n.t('components.navigation.appointments')
                             "
->>>>>>> pablo
                             to="/Appointments"
                             @click.native="hide"
                         ></mobile-navigation-link>
                         <mobile-navigation-link
-<<<<<<< HEAD
-                            label="components.navigation.contactUs"
-=======
                             :label="$i18n.t('components.navigation.contactUs')"
->>>>>>> pablo
                             to="/Contact"
                             @click.native="hide"
                         ></mobile-navigation-link>
@@ -55,9 +44,13 @@
                             </router-link>
                         </div>
                         <div class="mobile-navigation-logout-link">
-                            <router-link to="/" class="menu-title" @click.native="unsetUser()">
+                            <router-link
+                                to="/"
+                                class="menu-title"
+                                @click.native="unsetUser()"
+                            >
                                 <b-icon pack="fas" icon="sign-out-alt"></b-icon>
-                                Cerrar sesión
+                                {{ $t('user.logof') }}
                             </router-link>
                         </div>
                     </div>

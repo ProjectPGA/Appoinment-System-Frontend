@@ -20,8 +20,6 @@ import { Route } from 'vue-router';
     },
 })
 export default class Register extends Vue {
-    @State((state: GlobalState) => state.utils.showWhatsappButton)
-    private showWhatsappButton: boolean;
     @State((state: GlobalState) => state.utils.invitationProgress)
     private invitationProgress: boolean;
 
@@ -34,12 +32,6 @@ export default class Register extends Vue {
                 next('/');
             }
         });
-    }
-
-    private mounted() {
-        if (this.showWhatsappButton) {
-            this.changeStateWhatsappButton();
-        }
     }
 }
 </script>

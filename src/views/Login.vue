@@ -18,19 +18,7 @@ import MainLoginForm from '@/components/Login/MainLoginForm.vue';
         MainLoginForm,
     },
 })
-export default class Login extends Vue {
-    @State((state: GlobalState) => state.utils.showWhatsappButton)
-    private showWhatsappButton: boolean;
-
-    @Mutation('utils/changeStateWhatsappButton')
-    private changeStateWhatsappButton;
-
-    private mounted() {
-        if (this.showWhatsappButton) {
-            this.changeStateWhatsappButton();
-        }
-    }
-}
+export default class Login extends Vue {}
 </script>
 
 <style lang="scss" scoped>

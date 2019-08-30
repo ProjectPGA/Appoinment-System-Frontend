@@ -24,8 +24,6 @@ import { Route } from 'vue-router';
     },
 })
 export default class Home extends Vue {
-    @State((state: GlobalState) => state.utils.showWhatsappButton)
-    private showWhatsappButton: boolean;
     @State((state: GlobalState) => state.auth.isLogged)
     private isLogged: boolean;
 
@@ -38,11 +36,6 @@ export default class Home extends Vue {
                 next('/');
             }
         });
-    }
-    public mounted() {
-        if (!this.showWhatsappButton) {
-            this.changeStateWhatsappButton();
-        }
     }
 }
 </script>

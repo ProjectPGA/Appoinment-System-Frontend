@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="navbar-brand">
         <div class="columns is-mobile is-vcentered">
             <div class="column is-one-quarter has-no-vertical-padding">
                 <a
