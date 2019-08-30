@@ -8,6 +8,7 @@ export interface UtilState {
     currentLocale: string;
     showWhatsappButton: boolean;
     invitationProgress: boolean;
+    pastAppoints: boolean;
 }
 
 const mutations: MutationTree<UtilState> = {
@@ -19,6 +20,9 @@ const mutations: MutationTree<UtilState> = {
         invitationProgress: boolean
     ) {
         currentState.invitationProgress = invitationProgress;
+    },
+    setPastAppoints(currentState: UtilState, currentPastAppoints: boolean) {
+        currentState.pastAppoints = currentPastAppoints;
     },
 
     resetState() {
@@ -53,6 +57,7 @@ function initialState() {
         currentLocale: 'en',
         showWhatsappButton: true,
         invitationProgress: false,
+        pastAppoints: false,
     };
 }
 

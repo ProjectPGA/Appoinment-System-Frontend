@@ -50,9 +50,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import { State } from 'vuex-class';
+
 import { GlobalState } from '@/vuex/store';
+
 import {
     Day,
     ViewAppointment,
@@ -66,6 +68,8 @@ import {
 export default class UserAppointmentsDisplay extends Vue {
     @State((state: GlobalState) => state.appointment.days) private days: Day[];
     @State((state: GlobalState) => state.auth.user.id) private userId: number;
+    @State((state: GlobalState) => state.utils.pastAppoints)
+    private pastAppoints: boolean;
 
     private citasView: ViewAppointment[] = [];
     private citas: Appointment[] = [];
@@ -76,7 +80,7 @@ export default class UserAppointmentsDisplay extends Vue {
     private getUserAppointments(): void {
         for (let i = 0; i < this.days.length; i++) {
             for (let k = 0; k < this.days[i].appointments.length; k++) {
-                if (this.days[i].appointments[k].takerid === 1) {
+                if (this.days[i].appointments[k].takerid === this.userId) {
                     this.citas.push(this.days[i].appointments[k]);
                     const cita: ViewAppointment = {
                         id: this.days[i].appointments[k].id,
@@ -91,6 +95,48 @@ export default class UserAppointmentsDisplay extends Vue {
             }
         }
     }
+    // @Watch('pastAppoints')
+    // private showPastAppoints() {
+    //     if (this.pastAppoints) {
+    //         for (let i = 0; i < this.citasView.length; i++) {
+    //             if (this.appointDateCompare(this.citasView[i].date)) {
+    //                 console.log(this.citasView[i]);
+    //             }
+    //         }
+    //     } else {
+    //         this.getUserAppointments();
+    //     }
+    // }
+    // private appointDateCompare(d: string): boolean {
+    //     let result: boolean = false;
+    //     let today: number = new Date().getTime();
+    //     today = (today - (today % 100000000)) / 100000000;
+    //     let date: number = new Date(d).getTime();
+    //     date = (date - (date % 100000000)) / 100000000;
+    //     if (today <= date) {
+    //         result = false;
+    //     }
+    //     if (today > date) {
+    //         result = true;
+    //     }
+    //     return result;
+    // }
+    private isActive(d: string): string {
+        let result: string = '';
+        let today: number = new Date().getTime();
+        today = (today - (today % 100000000)) / 100000000;
+        let date: number = new Date(d).getTime();
+        date = (date - (date % 100000000)) / 100000000;
+        console.log('hoy: ' + today);
+        console.log('cita: ' + date);
+        if (today <= date) {
+            result = 'active';
+        }
+        if (today > date) {
+            result = 'inactive';
+        }
+        return result;
+    }
     private getDay(key: number, arg: string): boolean {
         return this.citasView[key].date.includes(arg);
     }
@@ -99,6 +145,7 @@ export default class UserAppointmentsDisplay extends Vue {
         let daymonth: string = '';
         const dia: number = fech.getDate();
         const mes: number = fech.getMonth();
+
         let mesString: string = '';
 
         switch (mes) {
@@ -150,100 +197,83 @@ export default class UserAppointmentsDisplay extends Vue {
             case 1:
                 hourString = '10:00';
                 break;
-            case 1:
+            case 2:
                 hourString = '10:20';
                 break;
-            case 2:
+            case 3:
                 hourString = '10:40';
                 break;
-            case 3:
+            case 4:
                 hourString = '11:00';
                 break;
-            case 4:
+            case 5:
                 hourString = '11:20';
                 break;
-            case 5:
+            case 6:
                 hourString = '11:40';
                 break;
-            case 6:
+            case 7:
                 hourString = '12:00';
                 break;
-            case 7:
+            case 8:
                 hourString = '12:20';
                 break;
-            case 8:
+            case 9:
                 hourString = '12:40';
                 break;
-            case 9:
+            case 10:
                 hourString = '13:00';
                 break;
-            case 10:
+            case 11:
                 hourString = '13:20';
                 break;
-            case 11:
+            case 12:
                 hourString = '13:40';
                 break;
-            case 12:
+            case 13:
                 hourString = '14:00';
                 break;
-            case 13:
+            case 14:
                 hourString = '17:00';
                 break;
-            case 14:
+            case 15:
                 hourString = '17:20';
                 break;
-            case 15:
+            case 16:
                 hourString = '17:40';
                 break;
-            case 16:
+            case 17:
                 hourString = '18:00';
                 break;
-            case 17:
+            case 18:
                 hourString = '18:20';
                 break;
-            case 18:
+            case 19:
                 hourString = '18:40';
                 break;
-            case 19:
+            case 20:
                 hourString = '19:00';
                 break;
-            case 20:
+            case 21:
                 hourString = '19:20';
                 break;
-            case 21:
+            case 22:
                 hourString = '19:40';
                 break;
-            case 22:
+            case 23:
                 hourString = '20:00';
                 break;
-            case 23:
+            case 24:
                 hourString = '20:20';
                 break;
-            case 24:
-                hourString = '20:40';
-                break;
             case 25:
-                hourString = '21:00';
+                hourString = '20:40';
                 break;
             default:
                 break;
         }
 
         return hourString;
-    }
-    private isActive(d: string): string {
-        let result: string = '';
-        const today: number = new Date().getTime();
-        const date: number = new Date(d).getTime();
-        console.log('hoy: ' + today);
-        console.log('cita: ' + date);
-        if (today <= date) {
-            result = 'active';
-        }
-        if (today > date) {
-            result = 'inactive';
-        }
-        return result;
     }
 }
 </script>
@@ -252,17 +282,12 @@ export default class UserAppointmentsDisplay extends Vue {
 .card-footer-item {
     cursor: pointer;
 }
-.card {
-    border: black;
-    border-style: double;
-    border-width: thick;
-}
 .card.active {
-    box-shadow: 11px 8px 7px rgba(10, 180, 0, 0.67),
-        0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 4px 3px 7px rgba(10, 180, 0, 0.67),
+        8px 3px 1px rgba(255, 255, 255, 0.1);
 }
 .card.inactive {
-    box-shadow: 11px 8px 7px rgba(180, 0, 0, 0.67),
-        0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 4px 3px 7px rgba(180, 0, 0, 0.67),
+        8px 3px 1px rgba(255, 255, 255, 0.1);
 }
 </style>

@@ -30,7 +30,7 @@
     },
     {
       "id": 1566808137449,
-      "email": "pene@gmail.com",
+      "email": "pepe@gmail.com",
       "password": "12345",
       "name": "ewf we",
       "admin": false
@@ -98,7 +98,7 @@
         },
         {
           "id": 914631088,
-          "takerid": 0,
+          "takerid": 1566826315237,
           "notes": "",
           "type": 6
         },
@@ -3446,7 +3446,7 @@
         },
         {
           "id": 519462511,
-          "takerid": 0,
+          "takerid": 1566826315237,
           "notes": "",
           "type": 18
         },
@@ -3500,7 +3500,7 @@
       "appointments": [
         {
           "id": 719942601,
-          "takerid": 0,
+          "takerid": 1566826315237,
           "notes": "",
           "type": 1
         },
@@ -3566,7 +3566,7 @@
         },
         {
           "id": 420770407,
-          "takerid": 0,
+          "takerid": 1566826315237,
           "notes": "",
           "type": 12
         },
@@ -4124,7 +4124,7 @@
       "appointments": [
         {
           "id": 941171598,
-          "takerid": 0,
+          "takerid": 1566826315237,
           "notes": "",
           "type": 1
         },
