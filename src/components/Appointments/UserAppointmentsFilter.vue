@@ -29,6 +29,7 @@ export default class UserAppointmentsFilter extends Vue {
 
     private showPastAppoints(): void {
         if (this.pastAppoints) {
+            // test
         }
     }
 }

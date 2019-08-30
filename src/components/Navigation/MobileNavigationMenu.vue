@@ -18,31 +18,19 @@
                             />
                         </router-link>
                         <mobile-navigation-link
-<<<<<<< HEAD
-                            label="components.navigation.index"
-=======
                             :label="$i18n.t('components.navigation.index')"
->>>>>>> pablo
                             to="/"
                             @click.native="hide"
                         ></mobile-navigation-link>
                         <mobile-navigation-link
-<<<<<<< HEAD
-                            label="components.navigation.appoinmets"
-=======
                             :label="
                                 $i18n.t('components.navigation.appointments')
                             "
->>>>>>> pablo
                             to="/Appointments"
                             @click.native="hide"
                         ></mobile-navigation-link>
                         <mobile-navigation-link
-<<<<<<< HEAD
-                            label="components.navigation.contactUs"
-=======
                             :label="$i18n.t('components.navigation.contactUs')"
->>>>>>> pablo
                             to="/Contact"
                             @click.native="hide"
                         ></mobile-navigation-link>

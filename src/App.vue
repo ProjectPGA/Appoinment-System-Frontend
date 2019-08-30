@@ -13,11 +13,13 @@ import Axios from 'axios';
 import { GlobalState } from '@/vuex/store';
 
 import WhatsappButton from '@/components/Contact/WhatsappButton.vue';
+import Login from '@/views/Login.vue'
 
 @Component({
     name: 'App',
     components: {
         WhatsappButton,
+        Login,
     },
 })
 export default class App extends Vue {
