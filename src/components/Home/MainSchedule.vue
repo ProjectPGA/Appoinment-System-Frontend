@@ -191,80 +191,77 @@ export default class MainSchedule extends Vue {
             case 1:
                 hourString = '10:00';
                 break;
-            case 1:
+            case 2:
                 hourString = '10:20';
                 break;
-            case 2:
+            case 3:
                 hourString = '10:40';
                 break;
-            case 3:
+            case 4:
                 hourString = '11:00';
                 break;
-            case 4:
+            case 5:
                 hourString = '11:20';
                 break;
-            case 5:
+            case 6:
                 hourString = '11:40';
                 break;
-            case 6:
+            case 7:
                 hourString = '12:00';
                 break;
-            case 7:
+            case 8:
                 hourString = '12:20';
                 break;
-            case 8:
+            case 9:
                 hourString = '12:40';
                 break;
-            case 9:
+            case 10:
                 hourString = '13:00';
                 break;
-            case 10:
+            case 11:
                 hourString = '13:20';
                 break;
-            case 11:
+            case 12:
                 hourString = '13:40';
                 break;
-            case 12:
+            case 13:
                 hourString = '14:00';
                 break;
-            case 13:
+            case 14:
                 hourString = '17:00';
                 break;
-            case 14:
+            case 15:
                 hourString = '17:20';
                 break;
-            case 15:
+            case 16:
                 hourString = '17:40';
                 break;
-            case 16:
+            case 17:
                 hourString = '18:00';
                 break;
-            case 17:
+            case 18:
                 hourString = '18:20';
                 break;
-            case 18:
+            case 19:
                 hourString = '18:40';
                 break;
-            case 19:
+            case 20:
                 hourString = '19:00';
                 break;
-            case 20:
+            case 21:
                 hourString = '19:20';
                 break;
-            case 21:
+            case 22:
                 hourString = '19:40';
                 break;
-            case 22:
+            case 23:
                 hourString = '20:00';
                 break;
-            case 23:
+            case 24:
                 hourString = '20:20';
                 break;
-            case 24:
-                hourString = '20:40';
-                break;
             case 25:
-                hourString = '21:00';
+                hourString = '20:40';
                 break;
             default:
                 break;

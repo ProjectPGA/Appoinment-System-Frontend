@@ -8,7 +8,7 @@
                             <p-icon name="close"></p-icon>
                         </button>
                         <router-link
-                            to="/"
+                            to="/Inicio"
                             class="menu-title"
                             @click.native="hide"
                         >
@@ -22,8 +22,7 @@
                             label="components.navigation.index"
 =======
                             :label="$i18n.t('components.navigation.index')"
->>>>>>> pablo
-                            to="/"
+                            to="/Inicio"
                             @click.native="hide"
                         ></mobile-navigation-link>
                         <mobile-navigation-link
