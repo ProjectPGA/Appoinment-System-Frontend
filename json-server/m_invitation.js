@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
 
     if (req.method === 'POST' && req.path === '/code') {
         axios
-            .get('http://80.102.112.116:3000/codigos')
+            .get('http://192.168.137.1:3000/codigos')
             .then(resp => {
                 for (let i = 0; i < resp.data.length; i++) {
                     originalCodes.push(resp.data[i].id);
@@ -31,7 +31,7 @@ module.exports = (req, res, next) => {
 
     async function DeleteCode(id) {
         let resPost = await axios
-            .delete('http://80.102.112.116:3000/codigos/' + id)
+            .delete('http://192.168.137.1:3000/codigos/' + id)
             .catch(error => {});
     }
 };

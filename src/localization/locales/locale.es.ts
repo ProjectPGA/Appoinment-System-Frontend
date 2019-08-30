@@ -4,14 +4,14 @@ const es = {
             title: 'Castillo',
             subtitle: 'Barberia',
             index: 'Inicio',
-            appoinmets: 'Mis Citas',
+            appointments: 'Mis Citas',
             contactUs: 'Contacto',
         },
         modal: {
             title: 'Castillo',
             subtitle: 'Barberia',
             index: 'Inicio',
-            appoinmets: 'Mis Citas',
+            appointments: 'Mis Citas',
             contactUs: 'Contacto',
         },
         register: {

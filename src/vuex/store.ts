@@ -8,7 +8,7 @@ import appointment, { DayState } from './appointment/store';
 
 Vue.use(Vuex);
 
-const persistedPaths: string[] = ['settings'];
+const persistedPaths: string[] = ['utils', 'auth', 'appointment'];
 
 export default new Vuex.Store({
     plugins: [createPersistedState({ paths: persistedPaths })],

@@ -68,151 +68,151 @@
       "appointments": [
         {
           "id": 483718659,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
         {
           "id": 143495411,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
         {
           "id": 230829052,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 3
         },
         {
           "id": 492048075,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 4
         },
         {
           "id": 217199383,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 5
         },
         {
           "id": 914631088,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 6
         },
         {
           "id": 302229715,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 7
         },
         {
           "id": 438723192,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 8
         },
         {
           "id": 201964271,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 9
         },
         {
           "id": 466585665,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 10
         },
         {
           "id": 997132870,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 11
         },
         {
           "id": 464569811,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 12
         },
         {
           "id": 557003268,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 13
         },
         {
           "id": 615964703,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 14
         },
         {
           "id": 15305055,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 15
         },
         {
           "id": 827114027,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 16
         },
         {
           "id": 842376479,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 17
         },
         {
           "id": 832314712,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 18
         },
         {
           "id": 921626919,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 19
         },
         {
           "id": 931267482,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 20
         },
         {
           "id": 731808637,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 21
         },
         {
           "id": 409947190,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 22
         },
         {
           "id": 363373350,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 23
         },
         {
           "id": 958537911,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 24
         },
         {
           "id": 738541737,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 25
         }
@@ -224,19 +224,19 @@
       "appointments": [
         {
           "id": 924556508,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
         {
           "id": 932852068,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
         {
           "id": 220081361,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 3
         },
@@ -248,7 +248,7 @@
         },
         {
           "id": 786115671,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 5
         },
@@ -266,7 +266,7 @@
         },
         {
           "id": 3000325,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 8
         },
@@ -344,7 +344,7 @@
         },
         {
           "id": 370758153,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 21
         },
@@ -386,13 +386,13 @@
         },
         {
           "id": 694313351,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
         {
           "id": 932530035,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 3
         },
@@ -434,7 +434,7 @@
         },
         {
           "id": 719525240,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 10
         },
@@ -698,7 +698,7 @@
         },
         {
           "id": 446502388,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
@@ -710,13 +710,13 @@
         },
         {
           "id": 953570707,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 4
         },
         {
           "id": 631245141,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 5
         },
@@ -812,7 +812,7 @@
         },
         {
           "id": 230975462,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 21
         },
@@ -824,7 +824,7 @@
         },
         {
           "id": 263823481,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 23
         },
@@ -848,37 +848,37 @@
       "appointments": [
         {
           "id": 618297434,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
         {
           "id": 265191732,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
         {
           "id": 659951627,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 3
         },
         {
           "id": 974199427,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 4
         },
         {
           "id": 455809734,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 5
         },
         {
           "id": 757628958,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 6
         },
@@ -1004,19 +1004,19 @@
       "appointments": [
         {
           "id": 514183069,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
         {
           "id": 484970576,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
         {
           "id": 192509156,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 3
         },
@@ -1064,7 +1064,7 @@
         },
         {
           "id": 921964698,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 11
         },
@@ -1130,7 +1130,7 @@
         },
         {
           "id": 892202776,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 22
         },
@@ -1160,13 +1160,13 @@
       "appointments": [
         {
           "id": 622707727,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
         {
           "id": 659551042,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
@@ -1274,7 +1274,7 @@
         },
         {
           "id": 57808776,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 20
         },
@@ -1316,13 +1316,13 @@
       "appointments": [
         {
           "id": 996333468,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
         {
           "id": 90966130,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
@@ -1784,13 +1784,13 @@
       "appointments": [
         {
           "id": 705776309,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
         {
           "id": 593456394,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
@@ -1802,7 +1802,7 @@
         },
         {
           "id": 666871048,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 4
         },
@@ -1940,7 +1940,7 @@
       "appointments": [
         {
           "id": 111301995,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
@@ -1958,7 +1958,7 @@
         },
         {
           "id": 33112736,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 4
         },
@@ -2102,7 +2102,7 @@
         },
         {
           "id": 554595117,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
@@ -2252,7 +2252,7 @@
       "appointments": [
         {
           "id": 31196821,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
@@ -2876,7 +2876,7 @@
       "appointments": [
         {
           "id": 759478322,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
@@ -2888,7 +2888,7 @@
         },
         {
           "id": 518271069,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 3
         },
@@ -3032,13 +3032,13 @@
       "appointments": [
         {
           "id": 221140815,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 1
         },
         {
           "id": 971561015,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 2
         },
@@ -3188,13 +3188,13 @@
       "appointments": [
         {
           "id": 815423502,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 1
         },
         {
           "id": 640753280,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 2
         },
@@ -3296,7 +3296,7 @@
         },
         {
           "id": 402477011,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 19
         },
@@ -3344,7 +3344,7 @@
       "appointments": [
         {
           "id": 253209441,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 1
         },
@@ -3368,13 +3368,13 @@
         },
         {
           "id": 23799036,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 5
         },
         {
           "id": 599203781,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 6
         },
@@ -3392,7 +3392,7 @@
         },
         {
           "id": 141850459,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 9
         },
@@ -3506,7 +3506,7 @@
         },
         {
           "id": 262533062,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 2
         },
@@ -3644,7 +3644,7 @@
         },
         {
           "id": 739088070,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 25
         }
@@ -3656,19 +3656,19 @@
       "appointments": [
         {
           "id": 475383513,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 1
         },
         {
           "id": 653554324,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 2
         },
         {
           "id": 584539691,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 3
         },
@@ -3968,7 +3968,7 @@
       "appointments": [
         {
           "id": 912758207,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 1
         },
@@ -5528,151 +5528,151 @@
       "appointments": [
         {
           "id": 112651828,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 1
         },
         {
           "id": 345165213,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 2
         },
         {
           "id": 434005524,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 3
         },
         {
           "id": 909209360,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 4
         },
         {
           "id": 637196086,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 5
         },
         {
           "id": 278363596,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 6
         },
         {
           "id": 436613152,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 7
         },
         {
           "id": 966851104,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 8
         },
         {
           "id": 160615889,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 9
         },
         {
           "id": 477409921,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 10
         },
         {
           "id": 639246819,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 11
         },
         {
           "id": 357639855,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 12
         },
         {
           "id": 359813414,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 13
         },
         {
           "id": 307992974,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 14
         },
         {
           "id": 443647316,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 15
         },
         {
           "id": 244443660,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 16
         },
         {
           "id": 682182183,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 17
         },
         {
           "id": 387540816,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 18
         },
         {
           "id": 853918806,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 19
         },
         {
           "id": 629969971,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 20
         },
         {
           "id": 98363331,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 21
         },
         {
           "id": 254595758,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 22
         },
         {
           "id": 944555009,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 23
         },
         {
           "id": 304287079,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 24
         },
         {
           "id": 642153994,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 25
         }
