@@ -7,6 +7,7 @@ Vue.use(Vuex);
 export interface UtilState {
     currentLocale: string;
     invitationProgress: boolean;
+    pastAppoints: boolean;
 }
 
 const mutations: MutationTree<UtilState> = {
@@ -18,6 +19,9 @@ const mutations: MutationTree<UtilState> = {
         invitationProgress: boolean
     ) {
         currentState.invitationProgress = invitationProgress;
+    },
+    setPastAppoints(currentState: UtilState, currentPastAppoints: boolean) {
+        currentState.pastAppoints = currentPastAppoints;
     },
 
     resetState() {
@@ -48,6 +52,7 @@ function initialState() {
     return {
         currentLocale: 'en',
         invitationProgress: false,
+        pastAppoints: false,
     };
 }
 
