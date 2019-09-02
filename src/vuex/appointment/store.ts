@@ -2,12 +2,18 @@ import Vue from 'vue';
 import Vuex, { MutationTree, Computed } from 'vuex';
 import { ActionTree, ActionContext, GetterTree } from '@/types';
 import { AxiosResponse } from 'axios';
-import { Day, Appointment } from '@/models/appointment/Appointment';
+import {
+    Day,
+    Appointment,
+    ViewAppointment,
+} from '@/models/appointment/Appointment';
+import { appointDateCompare } from '@/utils/helpers';
 
 Vue.use(Vuex);
 
 export interface DayState {
     days: Day[];
+    viewAppointments: ViewAppointment[];
     error: boolean;
     errorMessage: string;
 }
@@ -72,6 +78,7 @@ const actions: ActionTree<DayState> = {
                 url: '/days',
             });
             const payload: Day[] = response && response.data;
+
             context.commit('daysLoaded', payload);
         } catch (e) {
             context.commit('daysError', e.message);
@@ -98,6 +105,107 @@ const actions: ActionTree<DayState> = {
             console.log('EDIT');
         }
     },
+    async fetchActiveUserAppoints(
+        context: ActionContext<DayState>,
+        userId: number
+    ): Promise<any> {
+        const citas: Appointment[] = [];
+        const citasView: ViewAppointment[] = [];
+        for (let i = 0; i < context.state.days.length; i++) {
+            for (
+                let k = 0;
+                k < context.state.days[i].appointments.length;
+                k++
+            ) {
+                if (context.state.days[i].appointments[k].takerid === userId) {
+                    citas.push(context.state.days[i].appointments[k]);
+                    const cita: ViewAppointment = {
+                        id: context.state.days[i].appointments[k].id,
+                        type: context.state.days[i].appointments[k].type,
+                        notes: context.state.days[i].appointments[k].notes,
+                        takerid: context.state.days[i].appointments[k].takerid,
+                        date: context.state.days[i].date,
+                    };
+                    citasView.push(cita);
+                    citasView.sort((obj1, obj2) => {
+                        let date1: number = new Date(
+                            obj2.date + ' 10:00:00'
+                        ).getTime();
+                        date1 = (date1 - (date1 % 10000000)) / 10000000;
+                        let date2: number = new Date(
+                            obj1.date + ' 10:00:00'
+                        ).getTime();
+                        date2 = (date2 - (date2 % 10000000)) / 10000000;
+
+                        if (date1 > date2) {
+                            return 1;
+                        }
+
+                        if (date1 < date2) {
+                            return -1;
+                        }
+
+                        return 0;
+                    });
+                }
+            }
+        }
+        const pastCitasView: ViewAppointment[] = [];
+
+        for (let i = 0; i < citasView.length; i++) {
+            if (appointDateCompare(citasView[i].date)) {
+                pastCitasView.push(citasView[i]);
+            }
+        }
+        context.commit('userAppointsLoaded', pastCitasView);
+    },
+    async fetchPastUserAppoints(
+        context: ActionContext<DayState>,
+        userId: number
+    ): Promise<any> {
+        const citas: Appointment[] = [];
+        const citasView: ViewAppointment[] = [];
+        for (let i = 0; i < context.state.days.length; i++) {
+            for (
+                let k = 0;
+                k < context.state.days[i].appointments.length;
+                k++
+            ) {
+                if (context.state.days[i].appointments[k].takerid === userId) {
+                    citas.push(context.state.days[i].appointments[k]);
+                    const cita: ViewAppointment = {
+                        id: context.state.days[i].appointments[k].id,
+                        type: context.state.days[i].appointments[k].type,
+                        notes: context.state.days[i].appointments[k].notes,
+                        takerid: context.state.days[i].appointments[k].takerid,
+                        date: context.state.days[i].date,
+                    };
+                    citasView.push(cita);
+                    citasView.sort((obj1, obj2) => {
+                        let date1: number = new Date(
+                            obj2.date + ' 10:00:00'
+                        ).getTime();
+                        date1 = (date1 - (date1 % 10000000)) / 10000000;
+                        let date2: number = new Date(
+                            obj1.date + ' 10:00:00'
+                        ).getTime();
+                        date2 = (date2 - (date2 % 10000000)) / 10000000;
+
+                        if (date1 > date2) {
+                            return 1;
+                        }
+
+                        if (date1 < date2) {
+                            return -1;
+                        }
+
+                        return 0;
+                    });
+                }
+            }
+        }
+        context.commit('userAppointsLoaded', citasView);
+    },
 };
 
 const mutations: MutationTree<DayState> = {
@@ -109,6 +217,9 @@ const mutations: MutationTree<DayState> = {
         state.error = true;
         state.errorMessage = payload;
         state.days = [];
+    },
+    userAppointsLoaded(state: DayState, payload: ViewAppointment[]) {
+        state.viewAppointments = payload;
     },
 };
 
@@ -125,6 +236,15 @@ export const getInitialState = (): DayState => ({
             id: 0,
             date: '',
             appointments: [],
+        },
+    ],
+    viewAppointments: [
+        {
+            id: 0,
+            type: 0,
+            notes: '',
+            takerid: 0,
+            date: '',
         },
     ],
     error: false,

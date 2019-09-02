@@ -51,7 +51,7 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import { State } from 'vuex-class';
+import { State, Action } from 'vuex-class';
 
 import { GlobalState } from '@/vuex/store';
 
@@ -70,65 +70,33 @@ export default class UserAppointmentsDisplay extends Vue {
     @State((state: GlobalState) => state.auth.user.id) private userId: number;
     @State((state: GlobalState) => state.utils.pastAppoints)
     private pastAppoints: boolean;
+    @State((state: GlobalState) => state.appointment.viewAppointments)
+    private citasView: ViewAppointment[];
 
-    private citasView: ViewAppointment[] = [];
-    private citas: Appointment[] = [];
+    @Action('appointment/fetchActiveUserAppoints')
+    private getUserAppoints: (userId: number) => void;
+    @Action('appointment/fetchPastUserAppoints')
+    private getPastUserAppoints: (userId: number) => void;
 
     private mounted() {
-        this.getUserAppointments();
+        this.getUserAppoints(this.userId);
     }
-    private getUserAppointments(): void {
-        for (let i = 0; i < this.days.length; i++) {
-            for (let k = 0; k < this.days[i].appointments.length; k++) {
-                if (this.days[i].appointments[k].takerid === this.userId) {
-                    this.citas.push(this.days[i].appointments[k]);
-                    const cita: ViewAppointment = {
-                        id: this.days[i].appointments[k].id,
-                        type: this.days[i].appointments[k].type,
-                        notes: this.days[i].appointments[k].notes,
-                        takerid: this.days[i].appointments[k].takerid,
-                        date: this.days[i].date,
-                    };
-                    this.citasView.push(cita);
-                    this.citasView.reverse();
-                }
-            }
+
+    @Watch('pastAppoints')
+    private showPastAppoints() {
+        if (this.pastAppoints) {
+            this.getPastUserAppoints(this.userId);
+        } else {
+            this.getUserAppoints(this.userId);
         }
     }
-    // @Watch('pastAppoints')
-    // private showPastAppoints() {
-    //     if (this.pastAppoints) {
-    //         for (let i = 0; i < this.citasView.length; i++) {
-    //             if (this.appointDateCompare(this.citasView[i].date)) {
-    //                 console.log(this.citasView[i]);
-    //             }
-    //         }
-    //     } else {
-    //         this.getUserAppointments();
-    //     }
-    // }
-    // private appointDateCompare(d: string): boolean {
-    //     let result: boolean = false;
-    //     let today: number = new Date().getTime();
-    //     today = (today - (today % 100000000)) / 100000000;
-    //     let date: number = new Date(d).getTime();
-    //     date = (date - (date % 100000000)) / 100000000;
-    //     if (today <= date) {
-    //         result = false;
-    //     }
-    //     if (today > date) {
-    //         result = true;
-    //     }
-    //     return result;
-    // }
+
     private isActive(d: string): string {
         let result: string = '';
         let today: number = new Date().getTime();
         today = (today - (today % 100000000)) / 100000000;
-        let date: number = new Date(d).getTime();
+        let date: number = new Date(d + ' 10:00:00').getTime();
         date = (date - (date % 100000000)) / 100000000;
-        console.log('hoy: ' + today);
-        console.log('cita: ' + date);
         if (today <= date) {
             result = 'active';
         }
