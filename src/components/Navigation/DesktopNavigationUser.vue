@@ -47,11 +47,13 @@ export default class DesktopNavigationUser extends Vue {
     private username: string;
 
     @Mutation('auth/unsetUser') private unsetUser;
+    @Mutation('utils/unsetPastAppoints') private unsetPastAppoints;
 
     private openUserMenu: boolean = false;
 
     private signoff() {
         this.unsetUser();
+        this.unsetPastAppoints();
         router.push('/');
     }
 }
