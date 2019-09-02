@@ -3188,13 +3188,13 @@
       "appointments": [
         {
           "id": 815423502,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
         {
           "id": 640753280,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
@@ -3296,7 +3296,7 @@
         },
         {
           "id": 402477011,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 19
         },
@@ -3344,7 +3344,7 @@
       "appointments": [
         {
           "id": 253209441,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
@@ -3368,7 +3368,7 @@
         },
         {
           "id": 23799036,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 5
         },
@@ -3506,7 +3506,7 @@
         },
         {
           "id": 262533062,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
@@ -3560,7 +3560,7 @@
         },
         {
           "id": 269426201,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 11
         },
@@ -3644,7 +3644,7 @@
         },
         {
           "id": 739088070,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 25
         }
@@ -3662,13 +3662,13 @@
         },
         {
           "id": 653554324,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 2
         },
         {
           "id": 584539691,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 3
         },
@@ -3692,7 +3692,7 @@
         },
         {
           "id": 85774731,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 7
         },
@@ -3968,7 +3968,7 @@
       "appointments": [
         {
           "id": 912758207,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 1
         },
@@ -3986,7 +3986,7 @@
         },
         {
           "id": 267021021,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 4
         },
@@ -4148,7 +4148,7 @@
         },
         {
           "id": 745537204,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 5
         },
