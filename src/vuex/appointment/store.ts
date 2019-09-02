@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuex, { MutationTree, Computed } from 'vuex';
+import Vuex, { MutationTree } from 'vuex';
 import { ActionTree, ActionContext, GetterTree } from '@/types';
 import { AxiosResponse } from 'axios';
 import {

@@ -57,7 +57,7 @@ function initialState() {
         currentLocale: 'en',
         showWhatsappButton: true,
         invitationProgress: false,
-        pastAppoints: false,
+        pastAppoints: true,
     };
 }
 
