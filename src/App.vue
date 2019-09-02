@@ -2,6 +2,7 @@
     <div class="main-app">
         <router-view></router-view>
         <whatsapp-button v-show="isLogged"></whatsapp-button>
+        <call-button v-show="isLogged"></call-button>
     </div>
 </template>
 
@@ -13,11 +14,13 @@ import Axios from 'axios';
 import { GlobalState } from '@/vuex/store';
 
 import WhatsappButton from '@/components/Contact/WhatsappButton.vue';
+import CallButton from '@/components/Contact/CallButton.vue';
 
 @Component({
     name: 'App',
     components: {
         WhatsappButton,
+        CallButton,
     },
 })
 export default class App extends Vue {

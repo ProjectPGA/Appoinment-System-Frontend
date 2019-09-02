@@ -250,12 +250,16 @@ export default class UserAppointmentsDisplay extends Vue {
 .card-footer-item {
     cursor: pointer;
 }
-.card.active {
-    box-shadow: 4px 3px 7px rgba(10, 180, 0, 0.67),
-        8px 3px 1px rgba(255, 255, 255, 0.1);
-}
-.card.inactive {
-    box-shadow: 4px 3px 7px rgba(180, 0, 0, 0.67),
-        8px 3px 1px rgba(255, 255, 255, 0.1);
+
+.card {
+    border: 0.5px solid #eee;
+    &.active {
+        -webkit-box-shadow: 8px 8px 9px 1px rgba(0, 255, 41, 0.38);
+        box-shadow: 8px 8px 9px 1px rgba(0, 255, 41, 0.38);
+    }
+    &.inactive {
+        -webkit-box-shadow: 8px 8px 9px 1px rgba(255, 0, 0, 0.38);
+        box-shadow: 8px 8px 9px 1px rgba(255, 0, 0, 0.38);
+    }
 }
 </style>

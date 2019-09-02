@@ -32,7 +32,7 @@ export default class Home extends Vue {
 
     public async beforeRouteEnter(from: Route, to: Route, next: any) {
         next((vm: Home) => {
-            if (vm.isLogged === false) {
+            if (!vm.isLogged) {
                 next('/');
             }
         });

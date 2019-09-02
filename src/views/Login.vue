@@ -6,7 +6,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { State, Mutation } from 'vuex-class';
+import { State } from 'vuex-class';
+import { Route } from 'vue-router';
 
 import { GlobalState } from '@/vuex/store';
 
@@ -18,7 +19,18 @@ import MainLoginForm from '@/components/Login/MainLoginForm.vue';
         MainLoginForm,
     },
 })
-export default class Login extends Vue {}
+export default class Login extends Vue {
+    @State((state: GlobalState) => state.auth.isLogged)
+    private isLogged: boolean;
+
+    public async beforeRouteEnter(from: Route, to: Route, next: any) {
+        next((vm: Login) => {
+            if (vm.isLogged) {
+                next('/inicio');
+            }
+        });
+    }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -14,7 +14,7 @@
                     <router-link
                         to="/"
                         class="menu-title"
-                        @click.native="unsetUser()"
+                        @click.native="signoff()"
                     >
                         <b-icon pack="fas" icon="sign-out-alt"></b-icon>
                         {{ $t('user.logof') }}
@@ -34,6 +34,7 @@ import { GlobalState } from '../../vuex/store';
 import DesktopNavigationLink from '@/components/Navigation/DesktopNavigationLink.vue';
 import DesktopNavigationMenu from '@/components/Navigation/DesktopNavigationMenu.vue';
 import RotateIcon from '@/components/Utils/RotateIcon.vue';
+import { router } from '@/router';
 
 @Component({
     name: 'DesktopNavigationUser',
@@ -48,6 +49,11 @@ export default class DesktopNavigationUser extends Vue {
     @Mutation('auth/unsetUser') private unsetUser;
 
     private openUserMenu: boolean = false;
+
+    private signoff() {
+        this.unsetUser();
+        router.push('/');
+    }
 }
 </script>
 
