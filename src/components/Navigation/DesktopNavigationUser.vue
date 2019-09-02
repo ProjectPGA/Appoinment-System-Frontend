@@ -7,7 +7,12 @@
 
             <div class="navbar-dropdown">
                 <a class="navbar-item">
-                    {{ $t('user.settings') }}
+                    <router-link
+                        to="/User"
+                        class="menu-title"
+                    >
+                        {{ $t('user.settings') }}
+                    </router-link>
                 </a>
                 <hr class="navbar-divider" />
                 <a class="navbar-item">

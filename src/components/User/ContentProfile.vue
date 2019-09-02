@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div>
+        Content Profile
+    </div>
 </template>
 
 <script lang="ts">
