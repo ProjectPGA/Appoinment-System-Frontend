@@ -47,7 +47,7 @@
                             <router-link
                                 to="/"
                                 class="menu-title"
-                                @click.native="unsetUser()"
+                                @click.native="signoff()"
                             >
                                 <b-icon pack="fas" icon="sign-out-alt"></b-icon>
                                 {{ $t('user.logof') }}
@@ -62,12 +62,14 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import { State, Mutation } from 'vuex-class';
+
+import { GlobalState } from '../../vuex/store';
 
 import MobileNavigationLink from '@/components/Navigation/MobileNavigationLink.vue';
 import PIcon from '@/components/icons/PIcon.vue';
 
-import { GlobalState } from '../../vuex/store';
-import { State, Mutation } from 'vuex-class';
+import { router } from '@/router';
 
 @Component({
     name: 'MobileNavigationMenu',
@@ -89,6 +91,11 @@ export default class MobileNavigationMenu extends Vue {
 
     private hide() {
         this.$emit('hide');
+    }
+
+    private signoff() {
+        this.unsetUser();
+        router.push('/');
     }
 }
 </script>
@@ -124,6 +131,7 @@ hr {
     width: 80vw;
     max-width: 430px;
     min-width: 290px;
+    z-index: 100;
 }
 .mobile-menu {
     padding-left: 30px;

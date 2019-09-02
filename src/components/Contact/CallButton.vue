@@ -28,7 +28,7 @@ export default class CallButton extends Vue {}
     text-align: center;
     font-size: 30px;
     box-shadow: 2px 2px 3px #999;
-    z-index: 100;
+    z-index: 29;
 }
 .my-float {
     margin-top: 16px;

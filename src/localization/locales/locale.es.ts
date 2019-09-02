@@ -16,7 +16,7 @@ const es = {
         },
         register: {
             name: 'Nombre',
-            surname: 'Surname',
+            surname: 'Apellido',
             email: 'E-Mail',
             password: 'Contraseña',
             repeatPassword: 'Repetir Contraseña',

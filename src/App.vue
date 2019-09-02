@@ -20,7 +20,7 @@ import CallButton from '@/components/Contact/CallButton.vue';
     name: 'App',
     components: {
         WhatsappButton,
-        CallButton
+        CallButton,
     },
 })
 export default class App extends Vue {
