@@ -20,7 +20,6 @@
                     >
                     </b-input>
                 </b-field>
-
                 <b-field
                     :label="$i18n.t('components.register.surname')"
                     class=""

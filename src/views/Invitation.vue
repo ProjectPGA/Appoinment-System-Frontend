@@ -19,19 +19,7 @@ import InvitationalCode from '@/components/Invitation/InvitationalCode.vue';
         InvitationalCode,
     },
 })
-export default class Invitation extends Vue {
-    @State((state: GlobalState) => state.utils.showWhatsappButton)
-    private showWhatsappButton: boolean;
-
-    @Mutation('utils/changeStateWhatsappButton')
-    private changeStateWhatsappButton;
-
-    private mounted() {
-        if (this.showWhatsappButton) {
-            this.changeStateWhatsappButton();
-        }
-    }
-}
+export default class Invitation extends Vue {}
 </script>
 <style lang="scss" scoped>
 .title {

@@ -16,7 +16,7 @@ const es = {
         },
         register: {
             name: 'Nombre',
-            surname: 'Surname',
+            surname: 'Apellido',
             email: 'E-Mail',
             password: 'Contraseña',
             repeatPassword: 'Repetir Contraseña',
@@ -30,6 +30,20 @@ const es = {
             accessToInvitation:
                 'Pulsa aquí para canjear tu codigo de invitación.',
         },
+        contact: {
+            titleSchedule: 'Horarios:',
+            textMondayToFriday: 'Lunes a viernes: 10:00-14:00 / 17:00-21:00',
+            textSaturday: 'Sabado: 10:00-14:00',
+            titlePhone: 'Teléfono:',
+            textPhone: '+34 679839952',
+            titleAddress: 'Dirección:',
+            textAddress: 'Av. Blas Infante, 105, 29120',
+            textCity: 'Alhaurín el Grande, Málaga',
+        },
+    },
+    user: {
+        settings: 'Configuración',
+        logof: 'Cerrar sesión',
     },
     titles: {
         appointments: 'Citas',

@@ -1,43 +1,24 @@
 <template>
-    <div>
-        <div id="navbarMenuDesktop" class="navbar-menu">
-            <div class="navbar-end">
-                <desktop-navigation-link
-                    :label="$i18n.t('components.navigation.index')"
-                    to="/Inicio"
-                ></desktop-navigation-link>
-                <desktop-navigation-link
-                    :label="$i18n.t('components.navigation.appointments')"
-                    to="/Appointments"
-                ></desktop-navigation-link>
-                <desktop-navigation-link
-                    :label="$i18n.t('components.navigation.contactUs')"
-                    to="/Contact"
-                ></desktop-navigation-link>
-            </div>
-        </div>
+    <div id="navbarMenuDesktop" class="navbar-menu">
+        <desktop-navigation-menu></desktop-navigation-menu>
+        <desktop-navigation-user></desktop-navigation-user>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { State } from 'vuex-class';
 
-import DesktopNavigationLink from '@/components/Navigation/DesktopNavigationLink.vue';
+import DesktopNavigationMenu from '@/components/Navigation/DesktopNavigationMenu.vue';
+import DesktopNavigationUser from '@/components/Navigation/DesktopNavigationUser.vue';
 
 @Component({
-    name: 'DesktopNavigationMenu',
+    name: 'DesktopNavigation',
     components: {
-        DesktopNavigationLink,
+        DesktopNavigationUser,
+        DesktopNavigationMenu,
     },
 })
-export default class DesktopNavigationMenu extends Vue {}
+export default class DesktopNavigation extends Vue {}
 </script>
 
-<style lang="scss" scoped>
-.navbar-end {
-    a {
-        color: black;
-    }
-}
-</style>
+<style lang="scss" scoped></style>
