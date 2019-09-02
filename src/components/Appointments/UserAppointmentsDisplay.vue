@@ -84,9 +84,12 @@ export default class UserAppointmentsDisplay extends Vue {
 
     @Watch('pastAppoints')
     private showPastAppoints() {
+        console.log('Entered')
         if (this.pastAppoints) {
+            console.log('Active')
             this.getPastUserAppoints(this.userId);
         } else {
+            console.log('Past')
             this.getUserAppoints(this.userId);
         }
     }
