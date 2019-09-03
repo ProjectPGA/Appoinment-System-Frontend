@@ -18,5 +18,4 @@ import ContentProfile from '@/components/User/ContentProfile.vue';
 export default class User extends Vue {}
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

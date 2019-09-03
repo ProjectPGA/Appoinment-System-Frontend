@@ -3031,16 +3031,20 @@
       "date": "Tue Aug 27 2019",
       "appointments": [
         {
-          "id": 221140815,
-          "takerid": 0,
+          "id": 971561015,
+          "type": 2,
           "notes": "",
-          "type": 1
+          "takerid": 0,
+          "date": "Tue Aug 27 2019",
+          "dayid": 712775952
         },
         {
           "id": 971561015,
-          "takerid": 0,
+          "type": 2,
           "notes": "",
-          "type": 2
+          "takerid": 0,
+          "date": "Tue Aug 27 2019",
+          "dayid": 712775952
         },
         {
           "id": 257832354,
@@ -3187,16 +3191,20 @@
       "date": "Wed Aug 28 2019",
       "appointments": [
         {
-          "id": 815423502,
-          "takerid": 0,
+          "id": 640753280,
+          "type": 2,
           "notes": "",
-          "type": 1
+          "takerid": 0,
+          "date": "Wed Aug 28 2019",
+          "dayid": 476540680
         },
         {
           "id": 640753280,
-          "takerid": 0,
+          "type": 2,
           "notes": "",
-          "type": 2
+          "takerid": 0,
+          "date": "Wed Aug 28 2019",
+          "dayid": 476540680
         },
         {
           "id": 509388685,
@@ -3295,10 +3303,12 @@
           "type": 18
         },
         {
-          "id": 402477011,
-          "takerid": 0,
+          "id": 640753280,
+          "type": 2,
           "notes": "",
-          "type": 19
+          "takerid": 0,
+          "date": "Wed Aug 28 2019",
+          "dayid": 476540680
         },
         {
           "id": 990737693,
@@ -3344,9 +3354,11 @@
       "appointments": [
         {
           "id": 253209441,
-          "takerid": 0,
+          "type": 1,
           "notes": "",
-          "type": 1
+          "takerid": 0,
+          "date": "Thu Aug 29 2019",
+          "dayid": 22165747
         },
         {
           "id": 18483674,
@@ -3362,15 +3374,17 @@
         },
         {
           "id": 29830191,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 4
         },
         {
-          "id": 23799036,
-          "takerid": 0,
+          "id": 253209441,
+          "type": 1,
           "notes": "",
-          "type": 5
+          "takerid": 0,
+          "date": "Thu Aug 29 2019",
+          "dayid": 22165747
         },
         {
           "id": 599203781,
@@ -3421,10 +3435,12 @@
           "type": 13
         },
         {
-          "id": 76521107,
-          "takerid": 0,
+          "id": 253209441,
+          "type": 1,
           "notes": "",
-          "type": 14
+          "takerid": 0,
+          "date": "Thu Aug 29 2019",
+          "dayid": 22165747
         },
         {
           "id": 967133550,
@@ -3506,9 +3522,11 @@
         },
         {
           "id": 262533062,
-          "takerid": 1,
+          "type": 2,
           "notes": "",
-          "type": 2
+          "takerid": 0,
+          "date": "Fri Aug 30 2019",
+          "dayid": 76712984
         },
         {
           "id": 130097615,
@@ -3518,7 +3536,7 @@
         },
         {
           "id": 44691378,
-          "takerid": 1,
+          "takerid": 0,
           "notes": "",
           "type": 4
         },
@@ -3643,10 +3661,12 @@
           "type": 24
         },
         {
-          "id": 739088070,
-          "takerid": 0,
+          "id": 262533062,
+          "type": 2,
           "notes": "",
-          "type": 25
+          "takerid": 0,
+          "date": "Fri Aug 30 2019",
+          "dayid": 76712984
         }
       ]
     },
@@ -3655,22 +3675,28 @@
       "date": "Sat Aug 31 2019",
       "appointments": [
         {
-          "id": 475383513,
-          "takerid": 0,
+          "id": 85774731,
+          "type": 7,
           "notes": "",
-          "type": 1
+          "takerid": 0,
+          "date": "Sat Aug 31 2019",
+          "dayid": 137224228
         },
         {
-          "id": 653554324,
-          "takerid": 0,
+          "id": 85774731,
+          "type": 7,
           "notes": "",
-          "type": 2
+          "takerid": 0,
+          "date": "Sat Aug 31 2019",
+          "dayid": 137224228
         },
         {
-          "id": 584539691,
-          "takerid": 0,
+          "id": 85774731,
+          "type": 7,
           "notes": "",
-          "type": 3
+          "takerid": 0,
+          "date": "Sat Aug 31 2019",
+          "dayid": 137224228
         },
         {
           "id": 656725722,
@@ -3692,9 +3718,11 @@
         },
         {
           "id": 85774731,
-          "takerid": 0,
+          "type": 7,
           "notes": "",
-          "type": 7
+          "takerid": 0,
+          "date": "Sat Aug 31 2019",
+          "dayid": 137224228
         },
         {
           "id": 980434042,
@@ -3968,9 +3996,11 @@
       "appointments": [
         {
           "id": 912758207,
-          "takerid": 1,
+          "type": 1,
           "notes": "",
-          "type": 1
+          "takerid": 0,
+          "date": "Mon Sep 02 2019",
+          "dayid": 649034343
         },
         {
           "id": 181208184,
@@ -4280,9 +4310,11 @@
       "appointments": [
         {
           "id": 252455848,
-          "takerid": 0,
+          "type": 1,
           "notes": "",
-          "type": 1
+          "takerid": 0,
+          "date": "Wed Sep 04 2019",
+          "dayid": 562516778
         },
         {
           "id": 467354738,
@@ -4292,15 +4324,19 @@
         },
         {
           "id": 70413492,
-          "takerid": 0,
+          "type": 3,
           "notes": "",
-          "type": 3
+          "takerid": 0,
+          "date": "Wed Sep 04 2019",
+          "dayid": 562516778
         },
         {
           "id": 140948331,
-          "takerid": 0,
+          "type": 4,
           "notes": "",
-          "type": 4
+          "takerid": 0,
+          "date": "Wed Sep 04 2019",
+          "dayid": 562516778
         },
         {
           "id": 70397041,
@@ -4442,21 +4478,27 @@
         },
         {
           "id": 820750615,
-          "takerid": 0,
+          "type": 2,
           "notes": "",
-          "type": 2
+          "takerid": 0,
+          "date": "Thu Sep 05 2019",
+          "dayid": 416818964
         },
         {
           "id": 622921691,
-          "takerid": 0,
+          "type": 3,
           "notes": "",
-          "type": 3
+          "takerid": 0,
+          "date": "Thu Sep 05 2019",
+          "dayid": 416818964
         },
         {
           "id": 360005272,
-          "takerid": 0,
+          "type": 4,
           "notes": "",
-          "type": 4
+          "takerid": 0,
+          "date": "Thu Sep 05 2019",
+          "dayid": 416818964
         },
         {
           "id": 377529583,
@@ -4748,9 +4790,11 @@
       "appointments": [
         {
           "id": 368240480,
-          "takerid": 0,
+          "type": 1,
           "notes": "",
-          "type": 1
+          "takerid": 0,
+          "date": "Sat Sep 07 2019",
+          "dayid": 595421518
         },
         {
           "id": 423004473,
@@ -4766,9 +4810,11 @@
         },
         {
           "id": 942688293,
-          "takerid": 0,
+          "type": 4,
           "notes": "",
-          "type": 4
+          "takerid": 0,
+          "date": "Sat Sep 07 2019",
+          "dayid": 595421518
         },
         {
           "id": 331664894,
@@ -5078,9 +5124,11 @@
         },
         {
           "id": 681511280,
-          "takerid": 0,
+          "type": 4,
           "notes": "",
-          "type": 4
+          "takerid": 0,
+          "date": "Mon Sep 09 2019",
+          "dayid": 965655680
         },
         {
           "id": 354405104,
@@ -5600,9 +5648,11 @@
         },
         {
           "id": 359813414,
-          "takerid": 0,
+          "type": 13,
           "notes": "",
-          "type": 13
+          "takerid": 0,
+          "date": "Thu Sep 12 2019",
+          "dayid": 900905569
         },
         {
           "id": 307992974,
@@ -5617,10 +5667,12 @@
           "type": 15
         },
         {
-          "id": 244443660,
-          "takerid": 0,
+          "id": 359813414,
+          "type": 13,
           "notes": "",
-          "type": 16
+          "takerid": 0,
+          "date": "Thu Sep 12 2019",
+          "dayid": 900905569
         },
         {
           "id": 682182183,

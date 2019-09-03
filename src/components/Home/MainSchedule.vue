@@ -54,6 +54,7 @@
                         :key="i"
                         class="column is-12 box custom-box-padding is-size-4"
                         :class="{
+                            'bg-user': appoint.takerid === userId,
                             'bg-free': appoint.takerid === 0,
                             'bg-taken': appoint.takerid !== 0,
                         }"
@@ -292,6 +293,10 @@ export default class MainSchedule extends Vue {
 }
 .bg-taken {
     background-color: #ff6969;
+    cursor: not-allowed;
+}
+.bg-user {
+    background-color: #628bff;
     cursor: not-allowed;
 }
 .custom-border {
