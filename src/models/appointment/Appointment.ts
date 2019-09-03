@@ -10,6 +10,7 @@ export interface ViewAppointment {
     notes: string;
     takerid: number;
     date: string;
+    dayid: number;
 }
 
 export interface Day {

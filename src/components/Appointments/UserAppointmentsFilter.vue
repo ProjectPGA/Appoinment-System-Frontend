@@ -32,7 +32,7 @@ export default class UserAppointmentsFilter extends Vue {
     private pastAppoints: boolean = false;
 
     private showPastAppoints(): void {
-        console.log(this.pastAppoints)
+        console.log(this.pastAppoints);
         this.setPastAppoints(this.pastAppoints);
     }
 }

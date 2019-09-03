@@ -1,6 +1,20 @@
 <template>
     <div>
         <div class="columns is-multiline p-4">
+            <div class="column" v-if="citasView.length === 0">
+                <section class="hero is-danger">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Ninguna cita Asignada
+                            </h1>
+                            <h2 class="subtitle">
+                                <router-link to="/inicio">Puedes asignarte una cita pulsando aquí</router-link>
+                            </h2>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <div
                 v-for="(cita, index) in citasView"
                 :key="index"
@@ -35,7 +49,10 @@
                         </p>
                     </div>
                     <footer class="card-footer">
-                        <p class="card-footer-item">
+                        <p
+                            class="card-footer-item"
+                            @click="appointCancel(cita)"
+                        >
                             <span>
                                 <b-icon pack="fas" icon="ban" size="is-small">
                                 </b-icon>
@@ -66,7 +83,6 @@ import {
     components: {},
 })
 export default class UserAppointmentsDisplay extends Vue {
-    @State((state: GlobalState) => state.appointment.days) private days: Day[];
     @State((state: GlobalState) => state.auth.user.id) private userId: number;
     @State((state: GlobalState) => state.utils.pastAppoints)
     private pastAppoints: boolean;
@@ -74,26 +90,27 @@ export default class UserAppointmentsDisplay extends Vue {
     private citasView: ViewAppointment[];
 
     @Action('appointment/fetchActiveUserAppoints')
-    private getUserAppoints: (userId: number) => void;
+    private getUserAppoints: () => void;
     @Action('appointment/fetchPastUserAppoints')
-    private getPastUserAppoints: (userId: number) => void;
+    private getPastUserAppoints: () => void;
+    @Action('appointment/appointCancel')
+    private appointCancel: () => void;
 
     private mounted() {
-        this.getUserAppoints(this.userId);
+        this.getUserAppoints();
     }
 
     @Watch('pastAppoints')
     private showPastAppoints() {
-        console.log('Entered')
+        console.log('Entered');
         if (this.pastAppoints) {
-            console.log('Active')
-            this.getPastUserAppoints(this.userId);
+            console.log('Active');
+            this.getPastUserAppoints();
         } else {
-            console.log('Past')
-            this.getUserAppoints(this.userId);
+            console.log('Past');
+            this.getUserAppoints();
         }
     }
-
     private isActive(d: string): string {
         let result: string = '';
         let today: number = new Date().getTime();
@@ -253,7 +270,10 @@ export default class UserAppointmentsDisplay extends Vue {
 .card-footer-item {
     cursor: pointer;
 }
-
+.center{
+    display: flex;
+    justify-content: center;
+}
 .card {
     border: 0.5px solid #eee;
     &.active {
