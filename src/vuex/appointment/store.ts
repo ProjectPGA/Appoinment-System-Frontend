@@ -7,7 +7,7 @@ import {
     Appointment,
     ViewAppointment,
 } from '@/models/appointment/Appointment';
-import { appointDateCompare } from '@/utils/helpers';
+import { appointDateCompare } from '@/utils/appointHelper';
 
 Vue.use(Vuex);
 

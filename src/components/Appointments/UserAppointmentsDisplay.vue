@@ -1,51 +1,56 @@
 <template>
     <div>
+        <no-appoints :citasView="citasView"></no-appoints>
         <div class="columns is-multiline p-4">
-            <div class="column" v-if="citasView.length === 0">
-                <section class="hero is-danger">
-                    <div class="hero-body">
-                        <div class="container">
-                            <h1 class="title">
-                                Ninguna cita Asignada
-                            </h1>
-                            <h2 class="subtitle">
-                                <router-link to="/inicio">Puedes asignarte una cita pulsando aquí</router-link>
-                            </h2>
-                        </div>
-                    </div>
-                </section>
-            </div>
             <div
                 v-for="(cita, index) in citasView"
                 :key="index"
                 class="column is-3-fullhd is-4-desktop is-6-tablet"
             >
-                <div class="card" :class="isActive(cita.date)">
+                <div class="card" :class="_isActive(cita.date)">
                     <div class="card-content">
                         <p class="title">
-                            {{ getAppointHour(cita.type) }}
+                            {{ _getAppointHour(cita.type) }}
                         </p>
-                        <p class="subtitle" v-if="getDay(index, 'Mon')">
-                            {{ $t('week.monday') }} {{ getDayMonth(cita.date) }}
+                        <p
+                            class="subtitle"
+                            v-if="_getDay(index, 'Mon', citasView)"
+                        >
+                            {{ $t('week.monday') }} {{ _getDayMonth(cita.date) }}
                         </p>
-                        <p class="subtitle" v-if="getDay(index, 'Tue')">
+                        <p
+                            class="subtitle"
+                            v-if="_getDay(index, 'Tue', citasView)"
+                        >
                             {{ $t('week.tuesday') }}
-                            {{ getDayMonth(cita.date) }}
+                            {{ _getDayMonth(cita.date) }}
                         </p>
-                        <p class="subtitle" v-if="getDay(index, 'Wed')">
+                        <p
+                            class="subtitle"
+                            v-if="_getDay(index, 'Wed', citasView)"
+                        >
                             {{ $t('week.wednesday') }}
-                            {{ getDayMonth(cita.date) }}
+                            {{ _getDayMonth(cita.date) }}
                         </p>
-                        <p class="subtitle" v-if="getDay(index, 'Thu')">
+                        <p
+                            class="subtitle"
+                            v-if="_getDay(index, 'Thu', citasView)"
+                        >
                             {{ $t('week.thursday') }}
-                            {{ getDayMonth(cita.date) }}
+                            {{ _getDayMonth(cita.date) }}
                         </p>
-                        <p class="subtitle" v-if="getDay(index, 'Fri')">
-                            {{ $t('week.friday') }} {{ getDayMonth(cita.date) }}
+                        <p
+                            class="subtitle"
+                            v-if="_getDay(index, 'Fri', citasView)"
+                        >
+                            {{ $t('week.friday') }} {{ _getDayMonth(cita.date) }}
                         </p>
-                        <p class="subtitle" v-if="getDay(index, 'Sat')">
+                        <p
+                            class="subtitle"
+                            v-if="_getDay(index, 'Sat', citasView)"
+                        >
                             {{ $t('week.saturday') }}
-                            {{ getDayMonth(cita.date) }}
+                            {{ _getDayMonth(cita.date) }}
                         </p>
                     </div>
                     <footer class="card-footer">
@@ -67,20 +72,25 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Component, Vue, Watch} from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
 
 import { GlobalState } from '@/vuex/store';
 
+import NoAppoints from '@/components/Utils/NoAppoints.vue';
 import {
     Day,
     ViewAppointment,
     Appointment,
 } from '@/models/appointment/Appointment';
 
+import { getDayMonth, getDay, getAppointHour, isActive } from '@/utils/appointHelper';
+
 @Component({
     name: 'UserAppointmentsDisplay',
-    components: {},
+    components: {
+        NoAppoints,
+    },
 })
 export default class UserAppointmentsDisplay extends Vue {
     @State((state: GlobalState) => state.auth.user.id) private userId: number;
@@ -99,170 +109,28 @@ export default class UserAppointmentsDisplay extends Vue {
     private mounted() {
         this.getUserAppoints();
     }
+    private _isActive(d: string): string{
+        return isActive(d)
+    }
+    private _getDay(key: number, arg: string, citasView: ViewAppointment[]){
+        return getDay(key, arg, citasView)
+    }
+    private _getDayMonth(date: string ){
+        return getDayMonth(date);
+    }
+    private _getAppointHour(type: number){
+        return getAppointHour(type);
+    }
 
     @Watch('pastAppoints')
     private showPastAppoints() {
-        console.log('Entered');
         if (this.pastAppoints) {
-            console.log('Active');
             this.getPastUserAppoints();
         } else {
-            console.log('Past');
             this.getUserAppoints();
         }
     }
-    private isActive(d: string): string {
-        let result: string = '';
-        let today: number = new Date().getTime();
-        today = (today - (today % 100000000)) / 100000000;
-        let date: number = new Date(d + ' 10:00:00').getTime();
-        date = (date - (date % 100000000)) / 100000000;
-        if (today <= date) {
-            result = 'active';
-        }
-        if (today > date) {
-            result = 'inactive';
-        }
-        return result;
-    }
-    private getDay(key: number, arg: string): boolean {
-        return this.citasView[key].date.includes(arg);
-    }
-    private getDayMonth(date: string): string {
-        const fech: Date = new Date(date);
-        let daymonth: string = '';
-        const dia: number = fech.getDate();
-        const mes: number = fech.getMonth();
 
-        let mesString: string = '';
-
-        switch (mes) {
-            case 0:
-                mesString = 'Enero';
-                break;
-            case 1:
-                mesString = 'Febrero';
-                break;
-            case 2:
-                mesString = 'Marzo';
-                break;
-            case 3:
-                mesString = 'Abril';
-                break;
-            case 4:
-                mesString = 'Mayo';
-                break;
-            case 5:
-                mesString = 'Junio';
-                break;
-            case 6:
-                mesString = 'Julio';
-                break;
-            case 7:
-                mesString = 'Agosto';
-                break;
-            case 8:
-                mesString = 'Septiembre';
-                break;
-            case 9:
-                mesString = 'Octubre';
-                break;
-            case 10:
-                mesString = 'Noviembre';
-                break;
-            case 11:
-                mesString = 'Diciembre';
-                break;
-            default:
-                break;
-        }
-        daymonth = dia + ' de ' + mesString;
-        return daymonth;
-    }
-    private getAppointHour(type: number): string {
-        let hourString = '';
-        switch (type) {
-            case 1:
-                hourString = '10:00';
-                break;
-            case 2:
-                hourString = '10:20';
-                break;
-            case 3:
-                hourString = '10:40';
-                break;
-            case 4:
-                hourString = '11:00';
-                break;
-            case 5:
-                hourString = '11:20';
-                break;
-            case 6:
-                hourString = '11:40';
-                break;
-            case 7:
-                hourString = '12:00';
-                break;
-            case 8:
-                hourString = '12:20';
-                break;
-            case 9:
-                hourString = '12:40';
-                break;
-            case 10:
-                hourString = '13:00';
-                break;
-            case 11:
-                hourString = '13:20';
-                break;
-            case 12:
-                hourString = '13:40';
-                break;
-            case 13:
-                hourString = '14:00';
-                break;
-            case 14:
-                hourString = '17:00';
-                break;
-            case 15:
-                hourString = '17:20';
-                break;
-            case 16:
-                hourString = '17:40';
-                break;
-            case 17:
-                hourString = '18:00';
-                break;
-            case 18:
-                hourString = '18:20';
-                break;
-            case 19:
-                hourString = '18:40';
-                break;
-            case 20:
-                hourString = '19:00';
-                break;
-            case 21:
-                hourString = '19:20';
-                break;
-            case 22:
-                hourString = '19:40';
-                break;
-            case 23:
-                hourString = '20:00';
-                break;
-            case 24:
-                hourString = '20:20';
-                break;
-            case 25:
-                hourString = '20:40';
-                break;
-            default:
-                break;
-        }
-
-        return hourString;
-    }
 }
 </script>
 
@@ -270,7 +138,7 @@ export default class UserAppointmentsDisplay extends Vue {
 .card-footer-item {
     cursor: pointer;
 }
-.center{
+.center {
     display: flex;
     justify-content: center;
 }
