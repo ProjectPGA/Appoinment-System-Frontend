@@ -109,7 +109,7 @@ export default class MainLoginForm extends Vue {
                         message: response.data.mensaje,
                         type: 'is-danger',
                         position: 'is-bottom-left',
-                        indefinite: true,
+                        duration: 3000,
                         actionText: 'Volver a intentar',
                         onAction: () => {
                             this.clearInputs();
@@ -126,7 +126,7 @@ export default class MainLoginForm extends Vue {
                     message: 'Error en la conexión',
                     type: 'is-danger',
                     position: 'is-bottom-left',
-                    indefinite: true,
+                    duration: 3000,
                     actionText: 'Volver a intentar',
                     onAction: () => {
                         this.clearInputs();
@@ -149,7 +149,7 @@ export default class MainLoginForm extends Vue {
                 message: 'Por favor introduzca la informacion requerida',
                 type: 'is-danger',
                 position: 'is-bottom-left',
-                indefinite: true,
+                duration: 3000,
                 actionText: 'Volver a intentar',
                 onAction: () => {
                     this.clearInputs();
