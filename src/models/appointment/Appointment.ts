@@ -3,18 +3,12 @@ export interface Appointment {
     type: number;
     notes: string;
     takerid: number;
-}
-export interface ViewAppointment {
-    id: number;
-    type: number;
-    notes: string;
-    takerid: number;
-    date: string;
+    date: number;
     dayid: number;
 }
 
 export interface Day {
     id: number;
-    date: string;
+    date: number;
     appointments: Appointment[];
 }
