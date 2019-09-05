@@ -1,9 +1,9 @@
 <template>
     <div>
-        <no-appoints :citasView="citasView"></no-appoints>
+        <no-appoints :citas="citas"></no-appoints>
         <div class="columns is-multiline p-4">
             <div
-                v-for="(cita, index) in citasView"
+                v-for="(cita, index) in citas"
                 :key="index"
                 class="column is-3-fullhd is-4-desktop is-6-tablet"
             >
@@ -12,43 +12,27 @@
                         <p class="title">
                             {{ _getAppointHour(cita.type) }}
                         </p>
-                        <p
-                            class="subtitle"
-                            v-if="_getDay(index, 'Mon', citasView)"
-                        >
-                            {{ $t('week.monday') }} {{ _getDayMonth(cita.date) }}
+                        <p class="subtitle" v-if="_getDay('Mon', cita)">
+                            {{ $t('week.monday') }}
+                            {{ _getDayMonth(cita.date) }}
                         </p>
-                        <p
-                            class="subtitle"
-                            v-if="_getDay(index, 'Tue', citasView)"
-                        >
+                        <p class="subtitle" v-if="_getDay('Tue', cita)">
                             {{ $t('week.tuesday') }}
                             {{ _getDayMonth(cita.date) }}
                         </p>
-                        <p
-                            class="subtitle"
-                            v-if="_getDay(index, 'Wed', citasView)"
-                        >
+                        <p class="subtitle" v-if="_getDay('Wed', cita)">
                             {{ $t('week.wednesday') }}
                             {{ _getDayMonth(cita.date) }}
                         </p>
-                        <p
-                            class="subtitle"
-                            v-if="_getDay(index, 'Thu', citasView)"
-                        >
+                        <p class="subtitle" v-if="_getDay('Thu', cita)">
                             {{ $t('week.thursday') }}
                             {{ _getDayMonth(cita.date) }}
                         </p>
-                        <p
-                            class="subtitle"
-                            v-if="_getDay(index, 'Fri', citasView)"
-                        >
-                            {{ $t('week.friday') }} {{ _getDayMonth(cita.date) }}
+                        <p class="subtitle" v-if="_getDay('Fri', cita)">
+                            {{ $t('week.friday') }}
+                            {{ _getDayMonth(cita.date) }}
                         </p>
-                        <p
-                            class="subtitle"
-                            v-if="_getDay(index, 'Sat', citasView)"
-                        >
+                        <p class="subtitle" v-if="_getDay('Sat', cita)">
                             {{ $t('week.saturday') }}
                             {{ _getDayMonth(cita.date) }}
                         </p>
@@ -72,19 +56,20 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch} from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
 
 import { GlobalState } from '@/vuex/store';
 
 import NoAppoints from '@/components/Utils/NoAppoints.vue';
-import {
-    Day,
-    ViewAppointment,
-    Appointment,
-} from '@/models/appointment/Appointment';
+import { Day, Appointment } from '@/models/appointment/Appointment';
 
-import { getDayMonth, getDay, getAppointHour, isActive } from '@/utils/appointHelper';
+import {
+    getDayMonth,
+    getDay,
+    getAppointHour,
+    isActive,
+} from '@/utils/appointHelper';
 
 @Component({
     name: 'UserAppointmentsDisplay',
@@ -96,8 +81,8 @@ export default class UserAppointmentsDisplay extends Vue {
     @State((state: GlobalState) => state.auth.user.id) private userId: number;
     @State((state: GlobalState) => state.utils.pastAppoints)
     private pastAppoints: boolean;
-    @State((state: GlobalState) => state.appointment.viewAppointments)
-    private citasView: ViewAppointment[];
+    @State((state: GlobalState) => state.appointment.Appointments)
+    private citas: Appointment[];
 
     @Action('appointment/fetchActiveUserAppoints')
     private getUserAppoints: () => void;
@@ -109,16 +94,16 @@ export default class UserAppointmentsDisplay extends Vue {
     private mounted() {
         this.getUserAppoints();
     }
-    private _isActive(d: string): string{
-        return isActive(d)
+    private _isActive(d: number): string {
+        return isActive(d);
     }
-    private _getDay(key: number, arg: string, citasView: ViewAppointment[]){
-        return getDay(key, arg, citasView)
+    private _getDay(arg: string, citas: Appointment) {
+        return getDay(arg, citas);
     }
-    private _getDayMonth(date: string ){
+    private _getDayMonth(date: number) {
         return getDayMonth(date);
     }
-    private _getAppointHour(type: number){
+    private _getAppointHour(type: number) {
         return getAppointHour(type);
     }
 
@@ -130,7 +115,6 @@ export default class UserAppointmentsDisplay extends Vue {
             this.getUserAppoints();
         }
     }
-
 }
 </script>
 

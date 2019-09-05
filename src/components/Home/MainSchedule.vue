@@ -9,44 +9,44 @@
                 <div class="columns is-multiline">
                     <div class="column is-12 is-size-5">
                         <div
-                            v-if="getDay(index, 'Mon')"
+                            v-if="_getDay(day, 'Mon')"
                             class="custom-padding title"
                         >
                             {{ $t('week.monday') }}
                         </div>
                         <div
-                            v-if="getDay(index, 'Tue')"
+                            v-if="_getDay(day, 'Tue')"
                             class="custom-padding title"
                         >
                             {{ $t('week.tuesday') }}
                         </div>
                         <div
-                            v-if="getDay(index, 'Wed')"
+                            v-if="_getDay(day, 'Wed')"
                             class="custom-padding title"
                         >
                             {{ $t('week.wednesday') }}
                         </div>
                         <div
-                            v-if="getDay(index, 'Thu')"
+                            v-if="_getDay(day, 'Thu')"
                             class="custom-padding title"
                         >
                             {{ $t('week.thursday') }}
                         </div>
                         <div
-                            v-if="getDay(index, 'Fri')"
+                            v-if="_getDay(day, 'Fri')"
                             class="custom-padding title"
                         >
                             {{ $t('week.friday') }}
                         </div>
                         <div
-                            v-if="getDay(index, 'Sat')"
+                            v-if="_getDay(day, 'Sat')"
                             class="custom-padding title"
                         >
                             {{ $t('week.saturday') }}
                         </div>
 
                         <div class="custom-padding">
-                            {{ getDayMonth(day.date) }}
+                            {{ _getDayMonth(day.date) }}
                         </div>
                     </div>
                     <div
@@ -56,11 +56,26 @@
                         :class="{
                             'bg-user': appoint.takerid === userId,
                             'bg-free': appoint.takerid === 0,
-                            'bg-taken': appoint.takerid !== 0,
+                            'bg-taken':
+                                appoint.takerid !== 0 &&
+                                appoint.takerid !== userId,
                         }"
                         @click="openModal(day, appoint, i)"
                     >
-                        {{ getAppointHour(appoint.type) }}
+                        <div v-if="appoint.takerid === userId">
+                            <span class="hour-margin">{{
+                                _getAppointHour(appoint.type)
+                            }}</span>
+                            <b-icon
+                                pack="far"
+                                icon="window-close"
+                                size="is-small"
+                                class="is-size-4"
+                            ></b-icon>
+                        </div>
+                        <div v-if="appoint.takerid !== userId">
+                            {{ _getAppointHour(appoint.type) }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,7 +85,7 @@
                 Confirmación
             </template>
             <confirm
-                title="¿Desea reservar esta cita?"
+                :title="tituloModal"
                 acceptLabel="Aceptar"
                 cancelLabel="Cancelar"
                 @confirm="userConfirmation"
@@ -88,10 +103,11 @@ import { GlobalState } from '@/vuex/store';
 import Modal from '@/components/Utils/Modal.vue';
 import Confirm from '@/components/Utils/Confirm.vue';
 
-import { Day, Appointment } from '../../models/appointment/Appointment';
+import { Day, Appointment } from '@/models/appointment/Appointment';
 // @ts-ignore
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
-import appointment from '../../vuex/appointment/store';
+import appointment from '@/vuex/appointment/store';
+import { getDay, getDayMonth, getAppointHour } from '@/utils/appointHelper';
 
 @Component({
     name: 'MainSchedule',
@@ -102,29 +118,65 @@ import appointment from '../../vuex/appointment/store';
 })
 export default class MainSchedule extends Vue {
     @Action('appointment/assignAppoint') private assignAppoint: (Day) => void;
+    @Action('appointment/cancelAppoint') private cancelAppoint: (Day) => void;
+    @Action('appointment/firstLoad') private firstLoad: () => void;
 
     @State((state: GlobalState) => state.auth.user.id) private userId: number;
 
     @Prop() private daysFiltered: Day[];
 
     private showModal: boolean = false;
+    private tituloModal: string = '';
+    private modalType: string = '';
     private day: Day;
     private appoint: Appointment;
     private appointIndex: number;
 
-    private getDay(key: number, arg: string): boolean {
-        return this.daysFiltered[key].date.includes(arg);
+    private created() {
+        // this.firstLoad();
+    }
+    private _getDay(arr: Day, arg: string): boolean {
+        return getDay(arg, arr);
     }
     private openModal(day: Day, appoint: Appointment, appointIndex: number) {
-        this.showModal = this.notTaken(appoint);
-        this.day = day;
-        this.appoint = appoint;
-        this.appointIndex = appointIndex;
+        if (appoint.takerid === this.userId) {
+            this.modalType = 'cancel';
+            this.tituloModal = '¿Deseas Cancelar esta cita?';
+            this.showModal = true;
+            this.day = day;
+            this.appoint = appoint;
+            this.appointIndex = appointIndex;
+        } else {
+            this.modalType = 'assign';
+            this.tituloModal = '¿Deseas Reservar esta cita?';
+            this.showModal = this.notTaken(appoint);
+            this.day = day;
+            this.appoint = appoint;
+            this.appointIndex = appointIndex;
+        }
     }
     private async userConfirmation(accepted: boolean): Promise<void> {
         if (accepted) {
-            await this.TakeAppoint(this.day, this.appoint, this.appointIndex);
-            this.showModal = false;
+            switch (this.modalType) {
+                case 'assign':
+                    await this.cogerCita(
+                        this.day,
+                        this.appoint,
+                        this.appointIndex
+                    );
+                    this.showModal = false;
+                    break;
+                case 'cancel':
+                    await this.cancelarCita(
+                        this.day,
+                        this.appoint,
+                        this.appointIndex
+                    );
+                    this.showModal = false;
+                    break;
+                default:
+                    break;
+            }
         } else {
             this.showModal = false;
         }
@@ -136,154 +188,50 @@ export default class MainSchedule extends Vue {
             return false;
         }
     }
-    private getDayMonth(date: string): string {
-        const fech: Date = new Date(date);
-        let daymonth: string = '';
-        const dia: number = fech.getDate();
-        const mes: number = fech.getMonth();
-        let mesString: string = '';
-
-        switch (mes) {
-            case 0:
-                mesString = 'Enero';
-                break;
-            case 1:
-                mesString = 'Febrero';
-                break;
-            case 2:
-                mesString = 'Marzo';
-                break;
-            case 3:
-                mesString = 'Abril';
-                break;
-            case 4:
-                mesString = 'Mayo';
-                break;
-            case 5:
-                mesString = 'Junio';
-                break;
-            case 6:
-                mesString = 'Julio';
-                break;
-            case 7:
-                mesString = 'Agosto';
-                break;
-            case 8:
-                mesString = 'Septiembre';
-                break;
-            case 9:
-                mesString = 'Octubre';
-                break;
-            case 10:
-                mesString = 'Noviembre';
-                break;
-            case 11:
-                mesString = 'Diciembre';
-                break;
-            default:
-                break;
-        }
-        daymonth = dia + ' de ' + mesString;
-        return daymonth;
+    private _getDayMonth(date: number) {
+        return getDayMonth(date);
     }
-    private getAppointHour(type: number): string {
-        let hourString = '';
-        switch (type) {
-            case 1:
-                hourString = '10:00';
-                break;
-            case 2:
-                hourString = '10:20';
-                break;
-            case 3:
-                hourString = '10:40';
-                break;
-            case 4:
-                hourString = '11:00';
-                break;
-            case 5:
-                hourString = '11:20';
-                break;
-            case 6:
-                hourString = '11:40';
-                break;
-            case 7:
-                hourString = '12:00';
-                break;
-            case 8:
-                hourString = '12:20';
-                break;
-            case 9:
-                hourString = '12:40';
-                break;
-            case 10:
-                hourString = '13:00';
-                break;
-            case 11:
-                hourString = '13:20';
-                break;
-            case 12:
-                hourString = '13:40';
-                break;
-            case 13:
-                hourString = '14:00';
-                break;
-            case 14:
-                hourString = '17:00';
-                break;
-            case 15:
-                hourString = '17:20';
-                break;
-            case 16:
-                hourString = '17:40';
-                break;
-            case 17:
-                hourString = '18:00';
-                break;
-            case 18:
-                hourString = '18:20';
-                break;
-            case 19:
-                hourString = '18:40';
-                break;
-            case 20:
-                hourString = '19:00';
-                break;
-            case 21:
-                hourString = '19:20';
-                break;
-            case 22:
-                hourString = '19:40';
-                break;
-            case 23:
-                hourString = '20:00';
-                break;
-            case 24:
-                hourString = '20:20';
-                break;
-            case 25:
-                hourString = '20:40';
-                break;
-            default:
-                break;
-        }
-
-        return hourString;
+    private _getAppointHour(type: number) {
+        return getAppointHour(type);
     }
-
-    private TakeAppoint(day: Day, appoint: Appointment, appointIndex: number) {
-        day.appointments[appointIndex].takerid = this.userId;
-        this.assignAppoint(day);
+    private cancelarCita(day: Day, appoint: Appointment, appointIndex: number) {
+        day.appointments[appointIndex].takerid = 0;
+        this.cancelAppoint(day);
         Snackbar.open(
-            'Cita asignada el dia ' +
-                this.getDayMonth(day.date) +
+            'Cancelada : Dia ' +
+                this._getDayMonth(day.date) +
                 ' a las ' +
-                this.getAppointHour(appoint.type)
+                this._getAppointHour(appoint.type)
         );
+    }
+    private cogerCita(day: Day, appoint: Appointment, appointIndex: number) {
+        if (this.checkTwoAppoints(day)) {
+            day.appointments[appointIndex].takerid = this.userId;
+            this.assignAppoint(day);
+            Snackbar.open(
+                'Asignada : Dia ' +
+                    this._getDayMonth(day.date) +
+                    ' a las ' +
+                    this._getAppointHour(appoint.type)
+            );
+        } else {
+            Snackbar.open('Solo puedes asignar una cita por dia');
+        }
+    }
+    private checkTwoAppoints(day: Day) {
+        for (let i = 0; i < day.appointments.length; i++) {
+            if (day.appointments[i].takerid === this.userId) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+.hour-margin {
+    margin-right: 0.75rem;
+}
 .custom-box-margin {
     margin: 0.5rem !important;
 }
@@ -297,7 +245,7 @@ export default class MainSchedule extends Vue {
 }
 .bg-user {
     background-color: #628bff;
-    cursor: not-allowed;
+    cursor: pointer;
 }
 .custom-border {
     border: 1px black;
@@ -307,7 +255,13 @@ export default class MainSchedule extends Vue {
     padding: 0.25rem !important;
 }
 .column {
-    padding: 1.25rem !important;
+    &.is-auto {
+        padding: 1.25rem !important;
+    }
+    &.is-12 {
+        padding: 0.5rem !important;
+    }
+    padding: 0rem !important;
 }
 .box {
     margin-bottom: 1.5rem;
