@@ -27,6 +27,8 @@ import Loading from '@/components/Utils/Loading.vue';
     },
 })
 export default class App extends Vue {
+    @State((state: GlobalState) => state.language.currentLanguage)
+    private currentLanguage: string;
     @State((state: GlobalState) => state.auth.isLogged)
     private isLogged: boolean;
     @State((state: GlobalState) => state.appointment.isLoading)
@@ -34,6 +36,15 @@ export default class App extends Vue {
 
     public created() {
         const store = this.$store;
+        this.$i18n.locale = this.currentLanguage;
+        Axios.defaults.headers.post['Accept-Language'] = this.currentLanguage;
+    }
+
+    @Watch('currentLanguage')
+    private onChangeLanguage(language: string) {
+        console.log('cambiar lenguage');
+        this.$i18n.locale = this.currentLanguage;
+        this.$router.push({ path: '/' });
     }
 }
 </script>

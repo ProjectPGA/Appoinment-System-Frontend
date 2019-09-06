@@ -1,20 +1,21 @@
 <template>
     <div id="navbarMenuDesktop" class="navbar-menu">
         <desktop-navigation-menu></desktop-navigation-menu>
-        <desktop-navigation-user></desktop-navigation-user>
+        <desktop-navigation-end></desktop-navigation-end>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { State, Mutation } from 'vuex-class';
 
 import DesktopNavigationMenu from '@/components/Navigation/DesktopNavigationMenu.vue';
-import DesktopNavigationUser from '@/components/Navigation/DesktopNavigationUser.vue';
+import DesktopNavigationEnd from '@/components/Navigation/DesktopNavigationEnd.vue';
 
 @Component({
     name: 'DesktopNavigation',
     components: {
-        DesktopNavigationUser,
+        DesktopNavigationEnd,
         DesktopNavigationMenu,
     },
 })

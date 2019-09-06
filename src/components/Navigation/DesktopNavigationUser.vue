@@ -1,30 +1,26 @@
 <template>
-    <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-                <b-icon pack="fas" icon="user"></b-icon>
-            </a>
+    <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+            <b-icon pack="fas" icon="user"></b-icon>
+        </a>
 
-            <div class="navbar-dropdown">
-                <a class="navbar-item">
-                    <router-link to="/User" class="menu-title">
-                        {{ $t('user.settings') }}
-                    </router-link>
-                </a>
-                <hr class="navbar-divider" />
-                <desktop-language-navigation></desktop-language-navigation>
-                <hr class="navbar-divider" />
-                <a class="navbar-item">
-                    <router-link
-                        to="/"
-                        class="menu-title"
-                        @click.native="signoff()"
-                    >
-                        <b-icon pack="fas" icon="sign-out-alt"></b-icon>
-                        {{ $t('user.logof') }}
-                    </router-link>
-                </a>
-            </div>
+        <div class="navbar-dropdown">
+            <a class="navbar-item">
+                <router-link to="/User" class="menu-title">
+                    {{ $t('user.settings') }}
+                </router-link>
+            </a>
+            <hr class="navbar-divider" />
+            <a class="navbar-item">
+                <router-link
+                    to="/"
+                    class="menu-title"
+                    @click.native="signoff()"
+                >
+                    <b-icon pack="fas" icon="sign-out-alt"></b-icon>
+                    {{ $t('user.logof') }}
+                </router-link>
+            </a>
         </div>
     </div>
 </template>
@@ -35,18 +31,10 @@ import { State, Mutation } from 'vuex-class';
 
 import { GlobalState } from '../../vuex/store';
 
-import DesktopNavigationLink from '@/components/Navigation/DesktopNavigationLink.vue';
-import DesktopNavigationMenu from '@/components/Navigation/DesktopNavigationMenu.vue';
-import DesktopLanguageNavigation from '@/components/Navigation/DesktopLanguageNavigation.vue';
-import RotateIcon from '@/components/Utils/RotateIcon.vue';
 import { router } from '@/router';
 
 @Component({
     name: 'DesktopNavigationUser',
-    components: {
-        RotateIcon,
-        DesktopLanguageNavigation,
-    },
 })
 export default class DesktopNavigationUser extends Vue {
     @State((state: GlobalState) => state.auth.user.name)
@@ -65,28 +53,4 @@ export default class DesktopNavigationUser extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.navbar-item {
-    color: #000;
-    &:hover {
-        .navbar-link {
-            color: #000;
-            background-color: #d5d5d5 !important;
-        }
-    }
-}
-.navbar-link {
-    color: #000;
-    &:after {
-        border-color: #000 !important;
-    }
-}
-.menu-title {
-    color: #000;
-}
-.navbar-dropdown {
-    right: 0;
-    left: unset;
-    border-top-left-radius: 6px;
-}
-</style>
+<style lang="scss" scoped></style>
