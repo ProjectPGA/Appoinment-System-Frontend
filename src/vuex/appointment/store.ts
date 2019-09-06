@@ -13,6 +13,7 @@ export interface DayState {
     Appointments: Appointment[];
     error: boolean;
     errorMessage: string;
+    isLoading: boolean;
 }
 
 const actions: ActionTree<DayState> = {
@@ -181,6 +182,7 @@ const actions: ActionTree<DayState> = {
 
     async fetchData(context: ActionContext<DayState>): Promise<any> {
         try {
+            context.commit('activeLoading');
             const response: AxiosResponse = await Vue.axios({
                 url: '/days',
             });
@@ -191,6 +193,7 @@ const actions: ActionTree<DayState> = {
             context.commit('daysError', e.message);
         } finally {
             console.log('LOAD');
+            context.commit('desactiveLoading');
         }
     },
     async assignAppoint(
@@ -198,6 +201,7 @@ const actions: ActionTree<DayState> = {
         day: Day
     ): Promise<any> {
         try {
+            context.commit('activeLoading');
             const response: AxiosResponse = await Vue.axios({
                 method: 'PUT',
                 url: `/days/${day.id}`,
@@ -209,6 +213,7 @@ const actions: ActionTree<DayState> = {
         } catch (e) {
             context.commit('daysError', e.message);
         } finally {
+            context.commit('desactiveLoading');
             console.log('EDIT');
         }
     },
@@ -380,6 +385,12 @@ const mutations: MutationTree<DayState> = {
     userAppointsLoaded(state: DayState, payload: Appointment[]) {
         state.Appointments = payload;
     },
+    activeLoading(currentState: DayState) {
+        currentState.isLoading = true;
+    },
+    desactiveLoading(currentState: DayState) {
+        currentState.isLoading = false;
+    },
 };
 
 const getters: GetterTree<DayState> = {
@@ -416,6 +427,7 @@ export const getInitialState = (): DayState => ({
     ],
     error: false,
     errorMessage: '',
+    isLoading: false,
 });
 
 const appointment = {
