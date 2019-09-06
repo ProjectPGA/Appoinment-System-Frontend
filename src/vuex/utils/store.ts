@@ -8,6 +8,7 @@ export interface UtilState {
     currentLocale: string;
     invitationProgress: boolean;
     pastAppoints: boolean;
+    selectedSettingsMenu: string;
 }
 
 const mutations: MutationTree<UtilState> = {
@@ -25,6 +26,12 @@ const mutations: MutationTree<UtilState> = {
     },
     unsetPastAppoints(currentState: UtilState) {
         currentState.pastAppoints = false;
+    },
+    setSelectedSettingsMenu(currentState: UtilState, payload: string) {
+        currentState.selectedSettingsMenu = payload;
+    },
+    unsetSelectedSettingsMenu(currentState: UtilState) {
+        currentState.selectedSettingsMenu = '';
     },
     resetState() {
         // acquire initial state
@@ -55,6 +62,7 @@ function initialState() {
         currentLocale: 'en',
         invitationProgress: false,
         pastAppoints: false,
+        selectedSettingsMenu: '',
     };
 }
 

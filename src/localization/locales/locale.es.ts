@@ -47,6 +47,33 @@ const es = {
         settings: 'Configuración',
         logof: 'Cerrar sesión',
     },
+    userConfig: {
+        configText: 'Configuración',
+        userText: 'Usuario',
+        adminText: 'Administrador',
+        user: {
+            infoText:'Informacion',
+            securityText:'Seguridad',
+            adminText:'Administrador',
+            info: {
+                infoText:'Editar información de usuario',
+                emailText:'Email',
+                newEmailText:'Nuevo Email',
+                emailSaveButton:'Guardar',
+                userNameText:'Nombre de usuario',
+                newUserNameText:'Nuevo nombre de usuario',
+                userNameButton:'Guardar'
+            },
+            security: {
+                passChangeTittle:'Cambio de contraseña',
+                actualPassText:'Contraseña Actual',
+                newPassText:'Nueva Contraseña',
+                repeatNewPassText:'Repetir Nueva Contraseña',
+                changePassButton:'Guardar'
+            }
+        },
+        admin: {}
+    },
     titles: {
         appointments: 'Citas',
         userAppointments: 'Mis Citas',
