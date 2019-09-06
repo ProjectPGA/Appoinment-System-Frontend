@@ -44,7 +44,6 @@ export default class App extends Vue {
     private onChangeLanguage(language: string) {
         console.log('cambiar lenguage');
         this.$i18n.locale = this.currentLanguage;
-        this.$router.push({ path: '/' });
     }
 }
 </script>
