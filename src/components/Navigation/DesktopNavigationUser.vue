@@ -12,6 +12,8 @@
                     </router-link>
                 </a>
                 <hr class="navbar-divider" />
+                <desktop-language-navigation></desktop-language-navigation>
+                <hr class="navbar-divider" />
                 <a class="navbar-item">
                     <router-link
                         to="/"
@@ -35,6 +37,7 @@ import { GlobalState } from '../../vuex/store';
 
 import DesktopNavigationLink from '@/components/Navigation/DesktopNavigationLink.vue';
 import DesktopNavigationMenu from '@/components/Navigation/DesktopNavigationMenu.vue';
+import DesktopLanguageNavigation from '@/components/Navigation/DesktopLanguageNavigation.vue';
 import RotateIcon from '@/components/Utils/RotateIcon.vue';
 import { router } from '@/router';
 
@@ -42,6 +45,7 @@ import { router } from '@/router';
     name: 'DesktopNavigationUser',
     components: {
         RotateIcon,
+        DesktopLanguageNavigation,
     },
 })
 export default class DesktopNavigationUser extends Vue {

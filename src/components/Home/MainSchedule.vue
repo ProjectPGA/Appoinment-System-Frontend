@@ -63,17 +63,22 @@
                         @click="openModal(day, appoint, i)"
                     >
                         <div v-if="appoint.takerid === userId">
-                            <span class="hour-margin">{{
-                                _getAppointHour(appoint.type)
-                            }}</span>
-                            <b-icon
-                                pack="far"
-                                icon="window-close"
-                                size="is-small"
-                                class="is-size-4"
-                            ></b-icon>
+                            <span class="hour-margin">{{ userName }}</span>
                         </div>
-                        <div v-if="appoint.takerid !== userId">
+                        <div
+                            v-if="
+                                appoint.takerid !== userId &&
+                                    appoint.takerid !== 0
+                            "
+                        >
+                            {{ $t('components.appointments.reserved') }}
+                        </div>
+                        <div
+                            v-if="
+                                appoint.takerid !== userId &&
+                                    appoint.takerid === 0
+                            "
+                        >
                             {{ _getAppointHour(appoint.type) }}
                         </div>
                     </div>
@@ -82,12 +87,12 @@
         </div>
         <modal :active.sync="showModal">
             <template slot="modal_title">
-                Confirmación
+                {{ $t('components.modal.title') }}
             </template>
             <confirm
                 :title="tituloModal"
-                acceptLabel="Aceptar"
-                cancelLabel="Cancelar"
+                :acceptLabel="$i18n.t('components.modal.accept')"
+                :cancelLabel="$i18n.t('components.modal.cancel')"
                 @confirm="userConfirmation"
             ></confirm>
         </modal>
@@ -122,6 +127,8 @@ export default class MainSchedule extends Vue {
     @Action('appointment/firstLoad') private firstLoad: () => void;
 
     @State((state: GlobalState) => state.auth.user.id) private userId: number;
+    @State((state: GlobalState) => state.auth.user.name)
+    private userName: string;
 
     @Prop() private daysFiltered: Day[];
 

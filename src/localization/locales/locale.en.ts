@@ -8,11 +8,9 @@ const en = {
             contactUs: 'Contacto',
         },
         modal: {
-            title: 'Castillo',
-            subtitle: 'Barberia',
-            index: 'Inicio',
-            appointments: 'Mis Citas',
-            contactUs: 'Contacto',
+            title: 'Confirmación',
+            accept: 'Aceptar',
+            cancel: 'Cancelar',
         },
         register: {
             name: 'Nombre',
@@ -40,6 +38,9 @@ const en = {
             textAddress: 'Av. Blas Infante, 105, 29120',
             textCity: 'Alhaurín el Grande, Málaga',
         },
+        appointments: {
+            reserved: 'Reservado',
+        },
     },
     user: {
         settings: 'Configuración',
@@ -60,6 +61,20 @@ const en = {
         friday: 'Viernes',
         saturday: 'Sabado',
         sunday: 'Domingo',
+    },
+    month: {
+        january: 'Enero',
+        february: 'Febrero',
+        march: 'Marzo',
+        april: 'Abril',
+        may: 'Mayo',
+        june: 'Junio',
+        july: 'Julio',
+        august: 'Agosto',
+        september: 'Septiembre',
+        october: 'Octubre',
+        november: 'Noviembre',
+        december: 'diciembre',
     },
 };
 

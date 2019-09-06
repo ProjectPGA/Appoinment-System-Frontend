@@ -132,13 +132,13 @@ export default class MainFilterFrame extends Vue {
 }
 /deep/ .pagination-next {
     width: 50%;
-    @include touch {
+    @include mobile {
         width: 25%;
     }
 }
 /deep/ .pagination-previous {
     width: 50%;
-    @include touch {
+    @include mobile {
         width: 25%;
     }
 }
