@@ -1,11 +1,8 @@
-import { ViewAppointment } from '@/models/appointment/Appointment';
+import { Appointment, Day } from '@/models/appointment/Appointment';
 
-export const appointDateCompare = (d: string): boolean => {
+export const appointDateCompare = (date: number): boolean => {
     let result: boolean = false;
-    let today: number = new Date().getTime();
-    today = (today - (today % 100000000)) / 100000000;
-    let date: number = new Date(d + ' 10:00:00').getTime();
-    date = (date - (date % 100000000)) / 100000000;
+    const today: number = new Date().getTime();
     if (today > date) {
         result = false;
     }
@@ -15,12 +12,10 @@ export const appointDateCompare = (d: string): boolean => {
     return result;
 };
 
-export const isActive = (d: string): string => {
+export const isActive = (date: number): string => {
     let result: string = '';
-    let today: number = new Date().getTime();
-    today = (today - (today % 100000000)) / 100000000;
-    let date: number = new Date(d + ' 10:00:00').getTime();
-    date = (date - (date % 100000000)) / 100000000;
+    const today: number = new Date().getTime();
+
     if (today <= date) {
         result = 'active';
     }
@@ -30,22 +25,17 @@ export const isActive = (d: string): string => {
     return result;
 };
 
-export const getDay = (
-    key: number,
-    arg: string,
-    citasView: ViewAppointment[]
-): boolean => {
-    return citasView[key].date.includes(arg);
+export const getDay = (arg: string, arr: Appointment | Day): boolean => {
+    return new Date(arr.date).toDateString().includes(arg);
 };
 
-export const getDayMonth = (date: string): string => {
+export const getDayMonth = (date: number): string => {
     const fech: Date = new Date(date);
     let daymonth: string = '';
     const dia: number = fech.getDate();
     const mes: number = fech.getMonth();
 
     let mesString: string = '';
-
     switch (mes) {
         case 0:
             mesString = 'Enero';
@@ -130,42 +120,39 @@ export const getAppointHour = (type: number): string => {
             hourString = '13:40';
             break;
         case 13:
-            hourString = '14:00';
-            break;
-        case 14:
             hourString = '17:00';
             break;
-        case 15:
+        case 14:
             hourString = '17:20';
             break;
-        case 16:
+        case 15:
             hourString = '17:40';
             break;
-        case 17:
+        case 16:
             hourString = '18:00';
             break;
-        case 18:
+        case 17:
             hourString = '18:20';
             break;
-        case 19:
+        case 18:
             hourString = '18:40';
             break;
-        case 20:
+        case 19:
             hourString = '19:00';
             break;
-        case 21:
+        case 20:
             hourString = '19:20';
             break;
-        case 22:
+        case 21:
             hourString = '19:40';
             break;
-        case 23:
+        case 22:
             hourString = '20:00';
             break;
-        case 24:
+        case 23:
             hourString = '20:20';
             break;
-        case 25:
+        case 24:
             hourString = '20:40';
             break;
         default:

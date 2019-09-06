@@ -24,8 +24,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { State, Action } from 'vuex-class';
+import { Component, Vue, Watch } from 'vue-property-decorator';
+import { State, Action, Mutation } from 'vuex-class';
 import { GlobalState } from '@/vuex/store';
 
 import MainSchedule from './MainSchedule.vue';
@@ -48,30 +48,45 @@ export default class MainFilterFrame extends Vue {
     private current: number = 1;
 
     private created() {
-        this.cargarDatos().then((resp: void) => {
-            const week: string[] = [];
-            let j: number = 30;
+        this.datosPrincipal();
+    }
 
-            for (let i = 0; i <= j; i++) {
-                const fech = new Date();
-                fech.setDate(fech.getDate() + i);
-                week[i] = fech.toDateString();
-                if (week[i].includes('Sun')) {
-                    week.splice(i);
-                    fech.setDate(fech.getDate() + 1);
-                    week[i] = fech.toDateString();
-                    i++;
-                    j++;
-                }
-            }
-            for (let i = 0; i < this.days.length; i++) {
-                for (let k = 0; k < week.length; k++) {
-                    if (this.days[i].date === week[k]) {
-                        this.daysFiltered.push(this.days[i]);
-                    }
-                }
-            }
+    private datosPrincipal() {
+        this.cargarDatos().then(() => {
+            this.sliceDatos();
         });
+    }
+
+    private sliceDatos() {
+        const week: string[] = [];
+        let j: number = 30;
+        // Fill "week" array with the next 30 days counting from the current day, and delete the ones that includes "Sundays"
+        for (let i = 0; i <= j; i++) {
+            const fech = new Date();
+            fech.setDate(fech.getDate() + i);
+            week[i] = fech.toDateString();
+            if (week[i].includes('Sun')) {
+                week.splice(i);
+                fech.setDate(fech.getDate() + 1);
+                week[i] = fech.toDateString();
+                i++;
+                j++;
+            }
+        }
+        // Compare the 30 days (excluding Sundays) of "week" and add the ones that match
+        for (let i = 0; i < this.days.length; i++) {
+            for (let k = 0; k < week.length; k++) {
+                if (new Date(this.days[i].date).toDateString() === week[k]) {
+                    this.daysFiltered.push(this.days[i]);
+                }
+            }
+        }
+        // Removes half of appoints (first half(morning): 12 / second half(afternoon): 12)
+        for (let i = 0; i < this.daysFiltered.length; i++) {
+            if (new Date(this.days[i].date).toDateString().includes('Sat')) {
+                this.days[i].appointments.splice(12, 12);
+            }
+        }
     }
     private async cargarDatos(): Promise<any> {
         return await this.fetchData();
