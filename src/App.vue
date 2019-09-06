@@ -3,6 +3,7 @@
         <router-view></router-view>
         <whatsapp-button v-show="isLogged"></whatsapp-button>
         <call-button v-show="isLogged"></call-button>
+        <loading v-show="isLoading"></loading>
     </div>
 </template>
 
@@ -15,17 +16,21 @@ import { GlobalState } from '@/vuex/store';
 
 import WhatsappButton from '@/components/Contact/WhatsappButton.vue';
 import CallButton from '@/components/Contact/CallButton.vue';
+import Loading from '@/components/Utils/Loading.vue';
 
 @Component({
     name: 'App',
     components: {
         WhatsappButton,
         CallButton,
+        Loading,
     },
 })
 export default class App extends Vue {
     @State((state: GlobalState) => state.auth.isLogged)
     private isLogged: boolean;
+    @State((state: GlobalState) => state.appointment.isLoading)
+    private isLoading: boolean;
 
     public created() {
         const store = this.$store;

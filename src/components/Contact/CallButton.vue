@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="only-mobile">
         <a href="tel:34679938186" class="float" target="_blank">
             <i class="fas fa-phone my-float"></i>
         </a>
@@ -33,5 +33,11 @@ export default class CallButton extends Vue {}
 .my-float {
     margin-top: 16px;
     font-family: 'FontAwesome';
+}
+.only-mobile {
+    display: none;
+    @include touch {
+        display: unset;
+    }
 }
 </style>

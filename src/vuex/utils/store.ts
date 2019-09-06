@@ -26,7 +26,6 @@ const mutations: MutationTree<UtilState> = {
     unsetPastAppoints(currentState: UtilState) {
         currentState.pastAppoints = false;
     },
-
     resetState() {
         // acquire initial state
         const s = initialState();
