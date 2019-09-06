@@ -25,8 +25,7 @@ const en = {
             password: 'Password',
             button: 'Login',
             noAccount: 'You dont have an account?',
-            accessToInvitation:
-                'click here to redeem your invitational code.',
+            accessToInvitation: 'click here to redeem your invitational code.',
         },
         contact: {
             titleSchedule: 'Timetables:',
@@ -51,26 +50,26 @@ const en = {
         userText: 'User',
         adminText: 'Administrator',
         user: {
-            infoText:'Information',
-            securityText:'Security',
+            infoText: 'Information',
+            securityText: 'Security',
             info: {
-                infoText:'User information edit',
-                emailText:'Email',
-                newEmailText:'New Email',
-                emailSaveButton:'Save',
-                userNameText:'Username',
-                newUserNameText:'New Username',
-                userNameButton:'Save'
+                infoText: 'User information edit',
+                emailText: 'Email',
+                newEmailText: 'New Email',
+                emailSaveButton: 'Save',
+                userNameText: 'Username',
+                newUserNameText: 'New Username',
+                userNameButton: 'Save',
             },
             security: {
-                passChangeTittle:'Password change',
-                actualPassText:'Current Password',
-                newPassText:'New Password',
-                repeatNewPassText:'Repeat New Password',
-                changePassButton:'Save'
-            }
+                passChangeTittle: 'Password change',
+                actualPassText: 'Current Password',
+                newPassText: 'New Password',
+                repeatNewPassText: 'Repeat New Password',
+                changePassButton: 'Save',
+            },
         },
-        admin: {}
+        admin: {},
     },
     titles: {
         appointments: 'Appoints',
@@ -78,6 +77,7 @@ const en = {
         contact: 'Contact',
         register: 'Register',
         login: 'Login',
+        language: 'Language',
     },
     week: {
         monday: 'Monday',
