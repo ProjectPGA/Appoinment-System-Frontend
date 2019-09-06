@@ -1,8 +1,14 @@
 <template>
     <div class="columns p-4" v-if="selected === 'security'">
-<div class="column is-8 ">
-            <div class="title">{{$t('userConfig.user.security.passChangeTittle')}}</div>
-            <b-field type="" class="is-size-3" :label="$i18n.t('userConfig.user.security.actualPassText')">
+        <div class="column is-8 ">
+            <div class="title">
+                {{ $t('userConfig.user.security.passChangeTittle') }}
+            </div>
+            <b-field
+                type=""
+                class="is-size-3"
+                :label="$i18n.t('userConfig.user.security.actualPassText')"
+            >
                 <b-input
                     size="is-medium"
                     icon-pack="fas"
@@ -12,7 +18,11 @@
                 >
                 </b-input>
             </b-field>
-            <b-field type="" class="is-size-3" :label="$i18n.t('userConfig.user.security.newPassText')">
+            <b-field
+                type=""
+                class="is-size-3"
+                :label="$i18n.t('userConfig.user.security.newPassText')"
+            >
                 <b-input
                     size="is-medium"
                     icon-pack="fas"
@@ -43,7 +53,7 @@
                 outlined
                 type="is-danger"
                 size="is-medium"
-                >{{$t('userConfig.user.security.changePassButton')}}</b-button
+                >{{ $t('userConfig.user.security.changePassButton') }}</b-button
             >
         </div>
     </div>

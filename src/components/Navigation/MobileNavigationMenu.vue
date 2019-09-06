@@ -38,12 +38,36 @@
                             <hr />
                         </div>
                         <div class="mobile-navigation-user-link">
-                            <router-link to="/" class="menu-title">
+                            <Collapse icon="fas fa-angle-down">
+                                <template slot="collapse_title">
+                                    <b-icon
+                                        pack="fas"
+                                        icon="globe"
+                                        class="language-icon"
+                                    ></b-icon>
+                                    {{ $t('titles.language') }}
+                                </template>
+                                <mobile-navigation-link
+                                    label="languages.spanish"
+                                    @click.native="toSpanish"
+                                ></mobile-navigation-link>
+                                <mobile-navigation-link
+                                    label="languages.english"
+                                    @click.native="toEnglish"
+                                ></mobile-navigation-link>
+                            </Collapse>
+                        </div>
+                        <div class="mobile-navigation-user-link">
+                            <router-link
+                                to="/User"
+                                class="menu-title"
+                                @click.native="hide"
+                            >
                                 <b-icon pack="fas" icon="user"></b-icon>
                                 {{ username }}
                             </router-link>
                         </div>
-                        <div class="mobile-navigation-logout-link">
+                        <div class="mobile-navigation-user-link">
                             <router-link
                                 to="/"
                                 class="menu-title"
@@ -62,12 +86,13 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { State, Mutation } from 'vuex-class';
+import { State, Mutation, Action } from 'vuex-class';
 
 import { GlobalState } from '../../vuex/store';
 
 import MobileNavigationLink from '@/components/Navigation/MobileNavigationLink.vue';
 import PIcon from '@/components/icons/PIcon.vue';
+import Collapse from '@/components/Utils/Collapse.vue';
 
 import { router } from '@/router';
 
@@ -76,10 +101,12 @@ import { router } from '@/router';
     components: {
         MobileNavigationLink,
         PIcon,
+        Collapse,
     },
 })
 export default class MobileNavigationMenu extends Vue {
-    private showModal: boolean = false;
+    @Action('language/updateSelectedLanguage')
+    private updateSelectedLanguage: (arg) => void;
 
     @State((state: GlobalState) => state.auth.user.name)
     private username: string;
@@ -88,6 +115,18 @@ export default class MobileNavigationMenu extends Vue {
     private unsetUser;
 
     @Prop(Boolean) private show: boolean;
+
+    private showModal: boolean = false;
+
+    private toSpanish(): void {
+        this.updateSelectedLanguage('es');
+        this.hide();
+    }
+
+    private toEnglish(): void {
+        this.updateSelectedLanguage('en');
+        this.hide();
+    }
 
     private hide() {
         this.$emit('hide');
@@ -108,16 +147,15 @@ hr {
     background-color: #0000007d !important;
     height: 1px !important;
 }
-.mobile-navigation-logout-link {
+.mobile-navigation-user-link {
     display: block;
     padding: 5px 20px 15px 20px;
 }
-.mobile-navigation-user-link {
-    display: block;
-    padding: 15px 20px 15px 20px;
-}
 .menu-item-separator {
-    padding: 49px 25px 0px 15px;
+    padding: 40px 25px 0px 15px;
+    hr {
+        height: 0.5px !important;
+    }
 }
 .menu-container {
     position: fixed;
@@ -152,5 +190,8 @@ hr {
 .mobile-logo {
     height: 154px;
     width: 154px;
+}
+.language-icon {
+    margin-right: 5px;
 }
 </style>

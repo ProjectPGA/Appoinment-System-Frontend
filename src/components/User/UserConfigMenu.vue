@@ -1,10 +1,15 @@
 <template>
     <div class="column is-3">
         <b-menu>
-            <b-menu-list class="custom-menu-title" icon-pack="fas" icon="cog" :label="$i18n.t('userConfig.configText')">
+            <b-menu-list
+                class="custom-menu-title"
+                icon-pack="fas"
+                icon="cog"
+                :label="$i18n.t('userConfig.configText')"
+            >
                 <b-menu-item icon="user" active expanded>
                     <template slot="label" slot-scope="props">
-                        {{$t('userConfig.userText')}}
+                        {{ $t('userConfig.userText') }}
                         <b-icon
                             class="is-pulled-right"
                             pack="fas"
@@ -25,7 +30,9 @@
                     ></b-menu-item>
                 </b-menu-item>
                 <b-menu-item icon="user-shield" label="Administrador">
-                    <b-menu-item :label="$i18n.t('userConfig.adminText')"></b-menu-item>
+                    <b-menu-item
+                        :label="$i18n.t('userConfig.adminText')"
+                    ></b-menu-item>
                 </b-menu-item>
             </b-menu-list>
         </b-menu>
@@ -48,7 +55,7 @@ export default class UserConfigMenu extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.menu-label{
+.menu-label {
     font-size: 1rem !important;
 }
 </style>

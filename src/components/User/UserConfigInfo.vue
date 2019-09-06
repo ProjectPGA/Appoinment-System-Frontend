@@ -1,8 +1,12 @@
 <template>
     <div class="columns p-4" v-if="selected === 'info'">
         <div class="column is-8">
-            <div class="title">{{$t('userConfig.user.info.infoText')}}</div>
-            <b-field type="" class="is-size-3" :label="$i18n.t('userConfig.user.info.emailText')">
+            <div class="title">{{ $t('userConfig.user.info.infoText') }}</div>
+            <b-field
+                type=""
+                class="is-size-3"
+                :label="$i18n.t('userConfig.user.info.emailText')"
+            >
                 <b-input
                     size="is-medium"
                     :value="currentEmail"
@@ -12,13 +16,12 @@
                 >
                 </b-input>
             </b-field>
-            <b-field type="" class="is-size-3" :label="$i18n.t('userConfig.user.info.newEmailText')">
-                <b-input
-                    size="is-medium"
-                    icon-pack="fas"
-                    icon="at"
-                >
-                </b-input>
+            <b-field
+                type=""
+                class="is-size-3"
+                :label="$i18n.t('userConfig.user.info.newEmailText')"
+            >
+                <b-input size="is-medium" icon-pack="fas" icon="at"> </b-input>
             </b-field>
             <b-button
                 class="custom-edit-button-margin"
@@ -26,7 +29,7 @@
                 outlined
                 type="is-danger"
                 size="is-medium"
-                >{{$t('userConfig.user.info.emailSaveButton')}}</b-button
+                >{{ $t('userConfig.user.info.emailSaveButton') }}</b-button
             >
             <b-field
                 type=""
@@ -47,12 +50,7 @@
                 class="is-size-3"
                 :label="$i18n.t('userConfig.user.info.newUserNameText')"
             >
-                <b-input
-                    size="is-medium"
-                    icon-pack="fas"
-                    icon="user-edit"
-                    
-                >
+                <b-input size="is-medium" icon-pack="fas" icon="user-edit">
                 </b-input>
             </b-field>
             <b-button
@@ -61,7 +59,7 @@
                 outlined
                 type="is-danger"
                 size="is-medium"
-                >{{$t('userConfig.user.info.userNameButton')}}</b-button
+                >{{ $t('userConfig.user.info.userNameButton') }}</b-button
             >
         </div>
     </div>
@@ -103,5 +101,4 @@ export default class UserConfigInfo extends Vue {
     margin-top: 1rem;
     margin-bottom: 2.75rem;
 }
-
 </style>

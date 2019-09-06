@@ -21,7 +21,8 @@ export default class Loading extends Vue {}
     width: 100%;
     height: 100%;
     color: #fff;
-    background: rgba(160, 160, 160, 0.658);
+    background: rgb(187, 187, 187);
+    z-index: 100;
 }
 .image-loading {
     @include mobile {
