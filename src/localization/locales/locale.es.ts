@@ -104,6 +104,10 @@ const es = {
         november: 'Noviembre',
         december: 'diciembre',
     },
+    languages: {
+        spanish: 'Español',
+        english: 'Ingles',
+    },
 };
 
 export default es;

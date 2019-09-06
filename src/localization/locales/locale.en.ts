@@ -64,6 +64,7 @@ const en = {
             },
             security: {
                 passChangeTittle:'Password change',
+                actualPassText:'Current Password',
                 newPassText:'New Password',
                 repeatNewPassText:'Repeat New Password',
                 changePassButton:'Save'
@@ -100,6 +101,10 @@ const en = {
         october: 'October',
         november: 'November',
         december: 'December',
+    },
+    languages: {
+        spanish: 'Spanish',
+        english: 'English',
     },
 };
 
