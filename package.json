@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "json": "cd json-server && json-server --watch db.json --middlewares invitation.js login.js mailcheck.js",
     "json-ext": "cd json-server && json-server --watch db.json --middlewares invitation.js login.js mailcheck.js --host 192.168.1.115",
-    "json-mobile": "cd json-server && json-server --watch db.json --middlewares m_invitation.js m_login.js m_mailcheck.js --host 192.168.137.1",
+    "json-mobile": "cd json-server && json-server --watch db.json --middlewares m_invitation.js m_login.js m_mailcheck.js m_passcheck.js m_passchange.js --host 192.168.137.1",
     "build": "vue-cli-service build",
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",

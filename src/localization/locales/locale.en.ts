@@ -25,8 +25,7 @@ const en = {
             password: 'Password',
             button: 'Login',
             noAccount: 'You dont have an account?',
-            accessToInvitation:
-                'click here to redeem your invitational code.',
+            accessToInvitation: 'click here to redeem your invitational code.',
         },
         contact: {
             titleSchedule: 'Timetables:',
@@ -51,26 +50,37 @@ const en = {
         userText: 'User',
         adminText: 'Administrator',
         user: {
-            infoText:'Information',
-            securityText:'Security',
+            infoText: 'Information',
+            securityText: 'Security',
             info: {
-                infoText:'User information edit',
-                emailText:'Email',
-                newEmailText:'New Email',
-                emailSaveButton:'Save',
-                userNameText:'Username',
-                newUserNameText:'New Username',
-                userNameButton:'Save'
+                infoText: 'User information edit',
+                emailText: 'Email',
+                newEmailText: 'New Email',
+                emailSaveButton: 'Save',
+                userNameText: 'Username',
+                newUserNameText: 'New Username',
+                userNameButton: 'Save',
+                emailShort: 'The email introduced is too short',
+                emailSame:
+                    'The new email must be different from the current one',
+                emailNotType: 'The value introduced is not email type',
+                emailEmpty: 'This field cant be empty',
+                emailChangeMessage: 'The user email has been updated',
+                usernameEmpty: 'This field cant be empty',
+                usernameSame:
+                    'The new username must be different from the current one',
+                usernameChangeMessage: 'The username has been updated',
             },
             security: {
-                passChangeTittle:'Password change',
-                actualPassText:'Current Password',
-                newPassText:'New Password',
-                repeatNewPassText:'Repeat New Password',
-                changePassButton:'Save'
-            }
+                passChangeTittle: 'Password change',
+                actualPassText: 'Current Password',
+                newPassText: 'New Password',
+                repeatNewPassText: 'Repeat New Password',
+                changePassButton: 'Save',
+                passChangedMessage: 'Password successfully updated',
+            },
         },
-        admin: {}
+        admin: {},
     },
     titles: {
         appointments: 'Appoints',

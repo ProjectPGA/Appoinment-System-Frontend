@@ -1,10 +1,15 @@
 <template>
     <div class="column is-3">
         <b-menu>
-            <b-menu-list class="custom-menu-title" icon-pack="fas" icon="cog" :label="$i18n.t('userConfig.configText')">
+            <b-menu-list
+                class="custom-menu-title"
+                icon-pack="fas"
+                icon="cog"
+                :label="$i18n.t('userConfig.configText')"
+            >
                 <b-menu-item icon="user" active expanded>
                     <template slot="label" slot-scope="props">
-                        {{$t('userConfig.userText')}}
+                        {{ $t('userConfig.userText') }}
                         <b-icon
                             class="is-pulled-right"
                             pack="fas"
@@ -24,8 +29,14 @@
                         :label="$i18n.t('userConfig.user.securityText')"
                     ></b-menu-item>
                 </b-menu-item>
-                <b-menu-item icon="user-shield" label="Administrador">
-                    <b-menu-item :label="$i18n.t('userConfig.adminText')"></b-menu-item>
+                <b-menu-item
+                    :v-if="admin"
+                    icon="user-shield"
+                    :label="$i18n.t('userConfig.adminText')"
+                >
+                    <b-menu-item
+                        :label="$i18n.t('userConfig.adminText')"
+                    ></b-menu-item>
                 </b-menu-item>
             </b-menu-list>
         </b-menu>
@@ -34,7 +45,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Mutation } from 'vuex-class';
+import { Mutation, State } from 'vuex-class';
+import { GlobalState } from '@/vuex/store';
 
 @Component({
     name: 'UserConfigMenu',
@@ -44,11 +56,13 @@ export default class UserConfigMenu extends Vue {
     @Mutation('utils/setSelectedSettingsMenu') private setSelectedSettings: (
         menu: string
     ) => void;
+    @State((state: GlobalState) => state.auth.user.admin)
+    private admin: boolean;
 }
 </script>
 
 <style lang="scss" scoped>
-.menu-label{
+.menu-label {
     font-size: 1rem !important;
 }
 </style>
