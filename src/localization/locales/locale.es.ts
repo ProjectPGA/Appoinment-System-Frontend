@@ -63,6 +63,17 @@ const es = {
                 userNameText: 'Nombre de usuario',
                 newUserNameText: 'Nuevo nombre de usuario',
                 userNameButton: 'Guardar',
+                emailShort: 'El email es demasiado corto',
+                emailSame:
+                    'El nuevo nuevo email tiene que ser distinto al actual',
+                emailNotType: 'El valor intruducido no es tipo email',
+                emailEmpty: 'El campo no puede estar vacio',
+                emailChangeMessage: 'El email de usuario ha sido actualizado',
+                usernameEmpty: 'El campo no puede estar vacio',
+                usernameSame:
+                    'El nuevo nuevo nombre de usuario tiene que ser distinto al actual',
+                usernameChangeMessage:
+                    'El nombre de usuario ha sido actualizado',
             },
             security: {
                 passChangeTittle: 'Cambio de contraseña',
@@ -70,6 +81,8 @@ const es = {
                 newPassText: 'Nueva Contraseña',
                 repeatNewPassText: 'Repetir Nueva Contraseña',
                 changePassButton: 'Guardar',
+                passChangedMessage:
+                    'La contraseña ha sido actualizada con exito',
             },
         },
         admin: {},

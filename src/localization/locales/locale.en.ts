@@ -60,6 +60,16 @@ const en = {
                 userNameText: 'Username',
                 newUserNameText: 'New Username',
                 userNameButton: 'Save',
+                emailShort: 'The email introduced is too short',
+                emailSame:
+                    'The new email must be different from the current one',
+                emailNotType: 'The value introduced is not email type',
+                emailEmpty: 'This field cant be empty',
+                emailChangeMessage: 'The user email has been updated',
+                usernameEmpty: 'This field cant be empty',
+                usernameSame:
+                    'The new username must be different from the current one',
+                usernameChangeMessage: 'The username has been updated',
             },
             security: {
                 passChangeTittle: 'Password change',
@@ -67,6 +77,7 @@ const en = {
                 newPassText: 'New Password',
                 repeatNewPassText: 'Repeat New Password',
                 changePassButton: 'Save',
+                passChangedMessage: 'Password successfully updated',
             },
         },
         admin: {},
