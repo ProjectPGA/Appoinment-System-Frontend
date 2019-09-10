@@ -138,7 +138,9 @@ export default class UserConfigInfo extends Vue {
                     }, 3000);
                 }
             }
-        } catch (error) {}
+        } catch (error) {
+            console.log(error)
+        }
     }
     private async changeUsername() {
         try {
@@ -169,7 +171,9 @@ export default class UserConfigInfo extends Vue {
                     }, 3000);
                 }
             }
-        } catch (error) {}
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     private checkUsername() {
