@@ -139,7 +139,7 @@ export default class UserConfigInfo extends Vue {
                 }
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
     private async changeUsername() {
@@ -172,7 +172,7 @@ export default class UserConfigInfo extends Vue {
                 }
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 
