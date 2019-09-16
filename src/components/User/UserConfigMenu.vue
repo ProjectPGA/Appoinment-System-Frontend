@@ -29,7 +29,11 @@
                         :label="$i18n.t('userConfig.user.securityText')"
                     ></b-menu-item>
                 </b-menu-item>
-                <b-menu-item icon="user-shield" label="Administrador">
+                <b-menu-item
+                    :v-if="admin"
+                    icon="user-shield"
+                    :label="$i18n.t('userConfig.adminText')"
+                >
                     <b-menu-item
                         :label="$i18n.t('userConfig.adminText')"
                     ></b-menu-item>
@@ -41,7 +45,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Mutation } from 'vuex-class';
+import { Mutation, State } from 'vuex-class';
+import { GlobalState } from '@/vuex/store';
 
 @Component({
     name: 'UserConfigMenu',
@@ -51,6 +56,8 @@ export default class UserConfigMenu extends Vue {
     @Mutation('utils/setSelectedSettingsMenu') private setSelectedSettings: (
         menu: string
     ) => void;
+    @State((state: GlobalState) => state.auth.user.admin)
+    private admin: boolean;
 }
 </script>
 
