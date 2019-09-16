@@ -25,7 +25,7 @@
       "id": 1566830198937,
       "email": "usuario@gmail.com",
       "password": "usuario",
-      "name": "asdfasdfasf",
+      "name": "Pepe Garcia",
       "admin": false
     }
   ],
@@ -1155,7 +1155,7 @@
         },
         {
           "id": 573529370,
-          "takerid": 0,
+          "takerid": 1566830198937,
           "notes": "",
           "type": 3,
           "date": 1568191200000,

@@ -17,7 +17,7 @@ export interface DayState {
 }
 
 const actions: ActionTree<DayState> = {
-    //#region
+    
     // async firstLoad(context: ActionContext<DayState>): Promise<any> {
     //     const days: Day[] = [];
     //     let diaDate: number = 0;
@@ -262,7 +262,6 @@ const actions: ActionTree<DayState> = {
                 pastCitas.push(citas[i]);
             }
         }
-        console.log(pastCitas);
         context.commit('userAppointsLoaded', pastCitas);
     },
     async fetchPastUserAppoints(
@@ -305,7 +304,7 @@ const actions: ActionTree<DayState> = {
         }
         context.commit('userAppointsLoaded', citas);
     },
-    // Cancelar cita desde Appoints
+    // Cancelar cita desde Appoints (inicio)
     async cancelAppoint(
         context: ActionContext<DayState>,
         day: Day
@@ -325,7 +324,7 @@ const actions: ActionTree<DayState> = {
     },
 
     // Cancelar cita desde MyAppoints
-    async appointCancel(
+        async appointCancel(
         context: ActionContext<DayState>,
         appoint: Appointment
     ): Promise<any> {

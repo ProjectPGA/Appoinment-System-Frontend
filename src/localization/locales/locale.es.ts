@@ -12,6 +12,7 @@ const es = {
             title: 'Confirmación',
             accept: 'Aceptar',
             cancel: 'Cancelar',
+            takeAppointTittle: ''
         },
         register: {
             name: 'Nombre',
