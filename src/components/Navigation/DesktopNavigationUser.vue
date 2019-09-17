@@ -5,6 +5,9 @@
         </a>
 
         <div class="navbar-dropdown">
+            <div class="navbar-item username-title">
+                {{ username }}
+            </div>
             <a class="navbar-item">
                 <router-link to="/User" class="menu-title">
                     {{ $t('user.settings') }}
@@ -17,7 +20,6 @@
                     class="menu-title"
                     @click.native="signoff()"
                 >
-                    <b-icon pack="fas" icon="sign-out-alt"></b-icon>
                     {{ $t('user.logof') }}
                 </router-link>
             </a>
@@ -53,4 +55,14 @@ export default class DesktopNavigationUser extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.username-title {
+    background-color: #d4d4d4;
+    display: block;
+    text-align: center;
+    padding: 15px !important;
+}
+.navbar-dropdown {
+    padding-top: 0px;
+}
+</style>

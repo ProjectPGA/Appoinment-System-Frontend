@@ -23,18 +23,22 @@
     },
     {
       "id": 1566830198937,
-      "email": "usuario@gmail.com",
+      "email": "usuario",
       "password": "usuario",
-      "name": "Pepe Garcia",
+      "name": "User",
+      "admin": false
+    },
+    {
+      "id": 1568626788029,
+      "email": "andres@gmail.com",
+      "password": "andres",
+      "name": "Andres Hernandez Galindo",
       "admin": false
     }
   ],
   "codigos": [
     {
       "id": "SK4DX9Z"
-    },
-    {
-      "id": "88NWFQE"
     },
     {
       "id": "88NWFQF"
@@ -2129,7 +2133,7 @@
       "appointments": [
         {
           "id": 968899085,
-          "takerid": 0,
+          "takerid": 1566830198937,
           "notes": "",
           "type": 1,
           "date": 1568620800000,
@@ -2137,7 +2141,7 @@
         },
         {
           "id": 642485517,
-          "takerid": 0,
+          "takerid": 1568626788029,
           "notes": "",
           "type": 2,
           "date": 1568622000000,

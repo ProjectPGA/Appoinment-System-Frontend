@@ -148,14 +148,14 @@ export default class MainSchedule extends Vue {
     private openModal(day: Day, appoint: Appointment, appointIndex: number) {
         if (appoint.takerid === this.userId) {
             this.modalType = 'cancel';
-            this.tituloModal = '¿Deseas Cancelar esta cita?';
+            this.tituloModal = `${this.$t('components.modal.CancelMessage')}`;
             this.showModal = true;
             this.day = day;
             this.appoint = appoint;
             this.appointIndex = appointIndex;
         } else {
             this.modalType = 'assign';
-            this.tituloModal = '¿Deseas Reservar esta cita?';
+            this.tituloModal = `${this.$t('components.modal.reserveMessage')}`;
             this.showModal = this.notTaken(appoint);
             this.day = day;
             this.appoint = appoint;
@@ -205,9 +205,9 @@ export default class MainSchedule extends Vue {
         day.appointments[appointIndex].takerid = 0;
         this.cancelAppoint(day);
         Snackbar.open(
-            'Cancelada : Dia ' +
+            `${this.$t('snackbar.cancelMessage')}` +
                 this._getDayMonth(day.date) +
-                ' a las ' +
+                `${this.$t('snackbar.cancelMessagedate')}` +
                 this._getAppointHour(appoint.type)
         );
     }
@@ -216,13 +216,13 @@ export default class MainSchedule extends Vue {
             day.appointments[appointIndex].takerid = this.userId;
             this.assignAppoint(day);
             Snackbar.open(
-                'Asignada : Dia ' +
+                `${this.$t('snackbar.assginMessage')}` +
                     this._getDayMonth(day.date) +
-                    ' a las ' +
+                    `${this.$t('snackbar.assginMessageDate')}` +
                     this._getAppointHour(appoint.type)
             );
         } else {
-            Snackbar.open('Solo puedes asignar una cita por dia');
+            Snackbar.open(`${this.$t('snackbar.oneAppoinmetPerday')}`);
         }
     }
     private checkTwoAppoints(day: Day) {

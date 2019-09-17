@@ -10,9 +10,11 @@ const es = {
         },
         modal: {
             title: 'Confirmación',
+            reserveMessage: '¿Deseas Reservar esta cita?',
+            CancelMessage: '¿Deseas Cancelar esta cita?',
             accept: 'Aceptar',
             cancel: 'Cancelar',
-            takeAppointTittle: ''
+            takeAppointTittle: '',
         },
         register: {
             name: 'Nombre',
@@ -95,6 +97,16 @@ const es = {
         register: 'Registro',
         login: 'Iniciar sesion',
         language: 'Idioma',
+    },
+    snackbar: {
+        cancelMessage: 'Cancelada: Día ',
+        cancelMessagedate: ' a las ',
+        assginMessage: 'Assignada: Día ',
+        assginMessageDate: ' a las ',
+        oneAppoinmetPerday: 'Solo puedes asignar una cita por dia',
+        existEmail: 'El email introducido ya existe',
+        notLikePassword: 'Las contraseñas no coinciden',
+        try: 'Volver a intentar',
     },
     week: {
         monday: 'Lunes',

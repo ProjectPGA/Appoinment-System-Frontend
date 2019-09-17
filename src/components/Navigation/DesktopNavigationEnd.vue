@@ -46,6 +46,5 @@ export default class DesktopNavigationEnd extends Vue {}
 /deep/.navbar-dropdown {
     right: 0;
     left: unset;
-    border-top-left-radius: 6px;
 }
 </style>
