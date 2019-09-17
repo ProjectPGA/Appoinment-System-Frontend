@@ -9,6 +9,8 @@ const en = {
         },
         modal: {
             title: 'Confirmation',
+            reserveMessage: '¿Deseas Reservar esta cita?',
+            CancelMessage: '¿Deseas Cancelar esta cita?',
             accept: 'Confirm',
             cancel: 'Cancel',
         },
@@ -89,6 +91,13 @@ const en = {
         register: 'Register',
         login: 'Login',
         language: 'Language',
+    },
+    snackbar: {
+        cancelMessage: 'Cancelada: Día ',
+        cancelMessagedate: ' a las ',
+        assginMessage: 'Assignada: Día ',
+        assginMessageDate: ' a las ',
+        oneAppoinmetPerday: 'Solo puedes asignar una cita por dia',
     },
     week: {
         monday: 'Monday',

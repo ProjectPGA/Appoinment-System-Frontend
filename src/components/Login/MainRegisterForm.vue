@@ -148,11 +148,11 @@ export default class MainRegisterForm extends Vue {
                     this.Regist();
                 } else {
                     Snackbar.open({
-                        message: 'El email introducido ya existe',
+                        message: `${this.$t('snackbar.existEmail')}`,
                         type: 'is-danger',
                         position: 'is-bottom-left',
                         indefinite: true,
-                        actionText: 'Volver a intentar',
+                        actionText: `${this.$t('snackbar.try')}`,
                         onAction: () => {
                             this.clearInputs();
                         },
@@ -165,11 +165,11 @@ export default class MainRegisterForm extends Vue {
         } else {
             this.passfieldType = 'is-danger';
             Snackbar.open({
-                message: 'Las contraseñas no coinciden',
+                message: `${this.$t('snackbar.notLikePassword')}`,
                 type: 'is-danger',
                 position: 'is-bottom-left',
                 indefinite: true,
-                actionText: 'Volver a intentar',
+                actionText: `${this.$t('snackbar.try')}`,
                 onAction: () => {
                     this.clearPassInputs();
                 },
