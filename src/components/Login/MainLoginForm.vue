@@ -1,7 +1,8 @@
 <template>
     <div>
+        <button-translation></button-translation>
         <div class="columns is-centered">
-            <div class="column is-6"><logo-app /></div>
+            <div class="column login-logo"><logo-app /></div>
         </div>
         <div class="columns is-centered is-mobile">
             <div
@@ -71,16 +72,21 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
+
 import Axios, { AxiosResponse } from 'axios';
-import { Mutation } from 'vuex-class';
-import { AuthUser } from '@/models/auth/AuthUser';
-import LogoApp from '@/components/Navigation/LogoApp.vue';
 import { router } from '@/router';
+import { Mutation } from 'vuex-class';
+
+import { AuthUser } from '@/models/auth/AuthUser';
+
+import LogoApp from '@/components/Navigation/LogoApp.vue';
+import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
 
 @Component({
     name: 'MainLoginForm',
     components: {
         LogoApp,
+        ButtonTranslation,
     },
 })
 export default class MainLoginForm extends Vue {
@@ -195,5 +201,12 @@ export default class MainLoginForm extends Vue {
 }
 .custom-margin {
     margin-bottom: 6%;
+}
+.login-logo {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    // @include mobile {
+    //     margin-top: 50px;
+    // }
 }
 </style>

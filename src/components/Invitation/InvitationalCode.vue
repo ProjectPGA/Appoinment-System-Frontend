@@ -7,7 +7,9 @@
             <div
                 class="column is-8-desktop is-10-mobile container has-text-centered"
             >
-                <p class="title">Introduce tu codigo de invitacion</p>
+                <p class="title">
+                    {{ $t('components.register.invitationCodeTitle') }}
+                </p>
                 <b-field
                     label=""
                     :type="bfieldType"
@@ -27,7 +29,9 @@
                             @click="check()"
                             class="button is-success"
                             size="is-medium"
-                            >Validar</b-button
+                            >{{
+                                $t('components.register.invitationCodeButton')
+                            }}</b-button
                         >
                     </p>
                 </b-field>

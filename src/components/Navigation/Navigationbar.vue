@@ -42,4 +42,7 @@ export default class Navigationbar extends Vue {}
 .navigation-bar-content {
     background-color: #e4e4e4;
 }
+.hero-body {
+    padding-bottom: 5.5rem !important;
+}
 </style>

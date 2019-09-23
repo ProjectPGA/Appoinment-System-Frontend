@@ -23,6 +23,8 @@ const es = {
             password: 'Contraseña',
             repeatPassword: 'Repetir Contraseña',
             button: 'Registrar',
+            invitationCodeTitle: 'Introduce tu codigo de invitación',
+            invitationCodeButton: 'Validar',
         },
         login: {
             email: 'E-Mail',

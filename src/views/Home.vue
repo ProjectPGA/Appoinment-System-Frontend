@@ -3,7 +3,6 @@
         <header-app></header-app>
         <router-view></router-view>
         <content-home v-if="$route.name == 'Home'" />
-        test
     </div>
 </template>
 
