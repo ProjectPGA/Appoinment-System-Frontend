@@ -1,5 +1,5 @@
 <template>
-    <div class="float" @click="changeLanguage()">
+    <div class="float" @click="changeLanguage()" data-cy="translation">
         <b-icon pack="fas" icon="globe" class="icon-translation"></b-icon>
         {{ currentLanguage }}
     </div>

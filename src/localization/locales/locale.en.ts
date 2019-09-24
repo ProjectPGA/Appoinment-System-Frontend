@@ -9,8 +9,8 @@ const en = {
         },
         modal: {
             title: 'Confirmation',
-            reserveMessage: '¿Deseas Reservar esta cita?',
-            CancelMessage: '¿Deseas Cancelar esta cita?',
+            reserveMessage: 'Do you want to book this appointment?',
+            CancelMessage: 'Do you want to cancel this appointment?',
             accept: 'Confirm',
             cancel: 'Cancel',
         },
@@ -43,6 +43,7 @@ const en = {
         },
         appointments: {
             reserved: 'Reserved',
+            userAppointment: 'My appointment',
         },
     },
     user: {

@@ -46,6 +46,7 @@ const es = {
         },
         appointments: {
             reserved: 'Reservado',
+            userAppointment: 'Mi cita',
         },
     },
     user: {

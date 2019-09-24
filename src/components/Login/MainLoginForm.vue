@@ -2,7 +2,9 @@
     <div>
         <button-translation></button-translation>
         <div class="columns is-centered">
-            <div class="column login-logo"><logo-app /></div>
+            <div class="column login-logo">
+                <logo-app data-cy="login-logo"></logo-app>
+            </div>
         </div>
         <div class="columns is-centered is-mobile">
             <div
@@ -11,33 +13,30 @@
                 <p class="title">{{ $t('titles.login') }}</p>
                 <b-field
                     :label="$i18n.t('components.login.email')"
-                    class=""
                     :type="bfieldType"
                 >
                     <b-input
                         v-model="email"
                         :placeholder="$i18n.t('components.login.email')"
-                        value=""
                         size="is-medium"
                         @keyup.native.enter="checkLogin()"
-                        class=""
+                        data-cy="email"
                     >
                     </b-input>
                 </b-field>
 
                 <b-field
                     :label="$i18n.t('components.login.password')"
-                    class=""
                     :type="bfieldType"
                 >
                     <b-input
                         v-model="password"
                         :placeholder="$i18n.t('components.login.password')"
                         type="password"
-                        value=""
                         size="is-medium"
                         class="custom-margin"
                         @keyup.native.enter="checkLogin()"
+                        data-cy="password"
                         password-reveal
                     >
                     </b-input>
@@ -50,11 +49,13 @@
                             outlined
                             type="is-danger"
                             size="is-medium"
-                            >{{ $t('components.login.button') }}</b-button
+                            data-cy="submit"
                         >
+                            {{ $t('components.login.button') }}
+                        </b-button>
                     </div>
                     <div class="column ">
-                        <p class="custom-size">
+                        <p class="custom-size" data-cy="invitation">
                             {{ $t('components.login.noAccount') }}
                             <router-link
                                 class="invitation-link"
@@ -205,8 +206,5 @@ export default class MainLoginForm extends Vue {
 .login-logo {
     margin-top: 50px;
     margin-bottom: 50px;
-    // @include mobile {
-    //     margin-top: 50px;
-    // }
 }
 </style>

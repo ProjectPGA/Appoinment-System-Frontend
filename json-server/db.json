@@ -34,6 +34,13 @@
       "password": "andres",
       "name": "Andres Hernandez Galindo",
       "admin": false
+    },
+    {
+      "id": 1569334243334,
+      "email": "test",
+      "password": "test8574",
+      "name": "test",
+      "admin": true
     }
   ],
   "codigos": [
@@ -4113,7 +4120,7 @@
       "appointments": [
         {
           "id": 387412025,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 1,
           "date": 1569484800000,
@@ -4509,7 +4516,7 @@
       "appointments": [
         {
           "id": 457732152,
-          "takerid": 0,
+          "takerid": 1568626788029,
           "notes": "",
           "type": 1,
           "date": 1569657600000,
@@ -4517,7 +4524,7 @@
         },
         {
           "id": 521269118,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 2,
           "date": 1569658800000,
@@ -4601,102 +4608,6 @@
           "notes": "",
           "type": 12,
           "date": 1569670800000,
-          "dayid": 690428100
-        },
-        {
-          "id": 3965109,
-          "takerid": 0,
-          "notes": "",
-          "type": 13,
-          "date": 1569682800000,
-          "dayid": 690428100
-        },
-        {
-          "id": 737093396,
-          "takerid": 0,
-          "notes": "",
-          "type": 14,
-          "date": 1569684000000,
-          "dayid": 690428100
-        },
-        {
-          "id": 975570119,
-          "takerid": 0,
-          "notes": "",
-          "type": 15,
-          "date": 1569685200000,
-          "dayid": 690428100
-        },
-        {
-          "id": 865556792,
-          "takerid": 0,
-          "notes": "",
-          "type": 16,
-          "date": 1569686400000,
-          "dayid": 690428100
-        },
-        {
-          "id": 516136248,
-          "takerid": 0,
-          "notes": "",
-          "type": 17,
-          "date": 1569687600000,
-          "dayid": 690428100
-        },
-        {
-          "id": 177589952,
-          "takerid": 0,
-          "notes": "",
-          "type": 18,
-          "date": 1569688800000,
-          "dayid": 690428100
-        },
-        {
-          "id": 824761333,
-          "takerid": 0,
-          "notes": "",
-          "type": 19,
-          "date": 1569690000000,
-          "dayid": 690428100
-        },
-        {
-          "id": 236772513,
-          "takerid": 0,
-          "notes": "",
-          "type": 20,
-          "date": 1569691200000,
-          "dayid": 690428100
-        },
-        {
-          "id": 872548607,
-          "takerid": 0,
-          "notes": "",
-          "type": 21,
-          "date": 1569692400000,
-          "dayid": 690428100
-        },
-        {
-          "id": 48061964,
-          "takerid": 0,
-          "notes": "",
-          "type": 22,
-          "date": 1569693600000,
-          "dayid": 690428100
-        },
-        {
-          "id": 329846211,
-          "takerid": 0,
-          "notes": "",
-          "type": 23,
-          "date": 1569694800000,
-          "dayid": 690428100
-        },
-        {
-          "id": 767491179,
-          "takerid": 0,
-          "notes": "",
-          "type": 24,
-          "date": 1569696000000,
           "dayid": 690428100
         }
       ]

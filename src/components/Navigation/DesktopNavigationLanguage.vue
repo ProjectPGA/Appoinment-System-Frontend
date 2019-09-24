@@ -5,6 +5,9 @@
         </a>
 
         <div class="navbar-dropdown">
+            <div class="navbar-item language-title">
+                {{ $t('titles.language') }}
+            </div>
             <a class="navbar-item" @click="toSpanish">
                 {{ $t('languages.spanish') }}
             </a>
@@ -38,4 +41,14 @@ export default class DesktopNavigationLanguage extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.language-title {
+    background-color: #d4d4d4;
+    display: block;
+    text-align: center;
+    padding: 15px !important;
+}
+.navbar-dropdown {
+    padding-top: 0px;
+}
+</style>

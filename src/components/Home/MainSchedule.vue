@@ -63,7 +63,9 @@
                         @click="openModal(day, appoint, i)"
                     >
                         <div v-if="appoint.takerid === userId">
-                            <span class="hour-margin">{{ userName }}</span>
+                            <span class="hour-margin">{{
+                                $t('components.appointments.userAppointment')
+                            }}</span>
                         </div>
                         <div
                             v-if="
