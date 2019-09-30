@@ -12,12 +12,12 @@
             >
                 <p class="title">{{ $t('titles.login') }}</p>
                 <b-field
-                    :label="$i18n.t('components.login.email')"
+                    :label="$t('components.login.email')"
                     :type="bfieldType"
                 >
                     <b-input
                         v-model="email"
-                        :placeholder="$i18n.t('components.login.email')"
+                        :placeholder="$t('components.login.email')"
                         size="is-medium"
                         @keyup.native.enter="checkLogin()"
                         data-cy="email"
@@ -26,12 +26,12 @@
                 </b-field>
 
                 <b-field
-                    :label="$i18n.t('components.login.password')"
+                    :label="$t('components.login.password')"
                     :type="bfieldType"
                 >
                     <b-input
                         v-model="password"
-                        :placeholder="$i18n.t('components.login.password')"
+                        :placeholder="$t('components.login.password')"
                         type="password"
                         size="is-medium"
                         class="custom-margin"

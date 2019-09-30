@@ -5,7 +5,7 @@
             <b-field
                 type=""
                 class="is-size-3"
-                :label="$i18n.t('userConfig.user.info.emailText')"
+                :label="$t('userConfig.user.info.emailText')"
             >
                 <b-input
                     size="is-medium"
@@ -20,7 +20,7 @@
                 :message="emailMessage"
                 :type="emailType"
                 class="is-size-3"
-                :label="$i18n.t('userConfig.user.info.newEmailText')"
+                :label="$t('userConfig.user.info.newEmailText')"
             >
                 <b-input
                     size="is-medium"
@@ -41,7 +41,7 @@
             >
             <b-field
                 class="is-size-3"
-                :label="$i18n.t('userConfig.user.info.userNameText')"
+                :label="$t('userConfig.user.info.userNameText')"
             >
                 <b-input
                     size="is-medium"
@@ -56,7 +56,7 @@
                 :type="usernameType"
                 class="is-size-3"
                 :message="usernameMessage"
-                :label="$i18n.t('userConfig.user.info.newUserNameText')"
+                :label="$t('userConfig.user.info.newUserNameText')"
             >
                 <b-input
                     size="is-medium"

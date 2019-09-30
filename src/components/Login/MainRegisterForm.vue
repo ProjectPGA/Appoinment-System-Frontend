@@ -7,58 +7,49 @@
             <div class="column is-6-desktop is-10-mobile container ">
                 <p class="title">{{ $t('titles.register') }}</p>
                 <b-field
-                    :label="$i18n.t('components.register.name')"
-                    class=""
+                    :label="$t('components.register.name')"
                     :type="bfieldType"
                 >
                     <b-input
                         v-model="name"
-                        :placeholder="$i18n.t('components.register.name')"
-                        value=""
+                        :placeholder="$t('components.register.name')"
                         size="is-medium"
                         class="custom-margin"
                     >
                     </b-input>
                 </b-field>
                 <b-field
-                    :label="$i18n.t('components.register.surname')"
-                    class=""
+                    :label="$t('components.register.surname')"
                     :type="bfieldType"
                 >
                     <b-input
                         v-model="apellidos"
-                        :placeholder="$i18n.t('components.register.surname')"
-                        value=""
+                        :placeholder="$t('components.register.surname')"
                         size="is-medium"
                         class="custom-margin"
                     >
                     </b-input>
                 </b-field>
                 <b-field
-                    :label="$i18n.t('components.register.email')"
-                    class=""
+                    :label="$t('components.register.email')"
                     :type="emailfieldType"
                 >
                     <b-input
                         v-model="email"
-                        :placeholder="$i18n.t('components.register.email')"
-                        type=""
-                        value=""
+                        :placeholder="$t('components.register.email')"
                         size="is-medium"
                         class="custom-margin"
                     >
                     </b-input>
                 </b-field>
                 <b-field
-                    :label="$i18n.t('components.register.password')"
-                    class=""
+                    :label="$t('components.register.password')"
                     :type="passfieldType"
                 >
                     <b-input
                         v-model="password"
-                        :placeholder="$i18n.t('components.register.password')"
+                        :placeholder="$t('components.register.password')"
                         type="password"
-                        value=""
                         size="is-medium"
                         class="custom-margin"
                         password-reveal
@@ -66,15 +57,13 @@
                     </b-input>
                 </b-field>
                 <b-field
-                    :label="$i18n.t('components.register.repeatPassword')"
-                    class=""
+                    :label="$t('components.register.repeatPassword')"
                     :type="passfieldType"
                 >
                     <b-input
                         v-model="passwordRe"
-                        :placeholder="$i18n.t('components.register.password')"
+                        :placeholder="$t('components.register.password')"
                         type="password"
-                        value=""
                         size="is-medium"
                         class="custom-margin"
                         password-reveal

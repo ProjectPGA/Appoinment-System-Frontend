@@ -5,7 +5,7 @@
                 class="custom-menu-title"
                 icon-pack="fas"
                 icon="cog"
-                :label="$i18n.t('userConfig.configText')"
+                :label="$t('userConfig.configText')"
             >
                 <b-menu-item icon="user" active expanded>
                     <template slot="label" slot-scope="props">
@@ -20,22 +20,22 @@
                     <b-menu-item
                         @click="setSelectedSettings('info')"
                         icon="info"
-                        :label="$i18n.t('userConfig.user.infoText')"
+                        :label="$t('userConfig.user.infoText')"
                     ></b-menu-item>
                     <b-menu-item
                         @click="setSelectedSettings('security')"
                         icon-pack="fas"
                         icon="lock"
-                        :label="$i18n.t('userConfig.user.securityText')"
+                        :label="$t('userConfig.user.securityText')"
                     ></b-menu-item>
                 </b-menu-item>
                 <b-menu-item
                     :v-if="admin"
                     icon="user-shield"
-                    :label="$i18n.t('userConfig.adminText')"
+                    :label="$t('userConfig.adminText')"
                 >
                     <b-menu-item
-                        :label="$i18n.t('userConfig.adminText')"
+                        :label="$t('userConfig.adminText')"
                     ></b-menu-item>
                 </b-menu-item>
             </b-menu-list>

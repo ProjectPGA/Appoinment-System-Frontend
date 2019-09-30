@@ -93,8 +93,8 @@
             </template>
             <confirm
                 :title="tituloModal"
-                :acceptLabel="$i18n.t('components.modal.accept')"
-                :cancelLabel="$i18n.t('components.modal.cancel')"
+                :acceptLabel="$t('components.modal.accept')"
+                :cancelLabel="$t('components.modal.cancel')"
                 @confirm="userConfirmation"
             ></confirm>
         </modal>

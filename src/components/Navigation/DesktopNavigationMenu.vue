@@ -1,15 +1,15 @@
 <template>
     <div class="navbar-start">
         <desktop-navigation-link
-            :label="$i18n.t('components.navigation.index')"
+            label="components.navigation.index"
             to="/Inicio"
         ></desktop-navigation-link>
         <desktop-navigation-link
-            :label="$i18n.t('components.navigation.appointments')"
+            label="components.navigation.appointments"
             to="/Appointments"
         ></desktop-navigation-link>
         <desktop-navigation-link
-            :label="$i18n.t('components.navigation.contactUs')"
+            label="components.navigation.contactUs"
             to="/Contact"
         ></desktop-navigation-link>
     </div>

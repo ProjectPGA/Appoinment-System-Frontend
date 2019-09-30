@@ -42,7 +42,6 @@ export default class App extends Vue {
 
     @Watch('currentLanguage')
     private onChangeLanguage(language: string) {
-        console.log('cambiar lenguage');
         this.$i18n.locale = this.currentLanguage;
     }
 }

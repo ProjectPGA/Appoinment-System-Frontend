@@ -8,7 +8,7 @@
                 :type="oldPassType"
                 :message="oldPassMessage"
                 class="is-size-3"
-                :label="$i18n.t('userConfig.user.security.actualPassText')"
+                :label="$t('userConfig.user.security.actualPassText')"
             >
                 <b-input
                     v-model="currentPass"
@@ -25,7 +25,7 @@
                 :type="newPassType"
                 :message="newPassMessage"
                 class="is-size-3"
-                :label="$i18n.t('userConfig.user.security.newPassText')"
+                :label="$t('userConfig.user.security.newPassText')"
             >
                 <b-input
                     v-model="newPass"
@@ -42,7 +42,7 @@
                 :type="reNewPassType"
                 :message="reNewPassMessage"
                 class="is-size-3"
-                :label="$i18n.t('userConfig.user.security.repeatNewPassText')"
+                :label="$t('userConfig.user.security.repeatNewPassText')"
             >
                 <b-input
                     v-model="reNewPass"
