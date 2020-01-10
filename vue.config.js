@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     transpileDependencies: ['d3-scale', 'd3-array', 'cash-dom'],
     devServer: {
-        port: 18080,
+        port: 8080,
     },
 
     pwa: {

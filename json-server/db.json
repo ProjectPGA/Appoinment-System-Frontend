@@ -30,9 +30,9 @@
     },
     {
       "id": 1568626788029,
-      "email": "andres@gmail.com",
-      "password": "andres",
-      "name": "Andres Hernandez Galindo",
+      "email": "prue@gmail.com",
+      "password": "Prueba.1",
+      "name": "Andres",
       "admin": false
     },
     {
@@ -1182,7 +1182,7 @@
         },
         {
           "id": 573529370,
-          "takerid": 1566830198937,
+          "takerid": 0,
           "notes": "",
           "type": 3,
           "date": 1568191200000,
@@ -2156,7 +2156,7 @@
       "appointments": [
         {
           "id": 968899085,
-          "takerid": 1566830198937,
+          "takerid": 0,
           "notes": "",
           "type": 1,
           "date": 1568620800000,
@@ -5236,7 +5236,7 @@
         },
         {
           "id": 945623670,
-          "takerid": 0,
+          "takerid": 1569841810106,
           "notes": "",
           "type": 2,
           "date": 1570004400000,
@@ -9980,7 +9980,7 @@
       "appointments": [
         {
           "id": 955243146,
-          "takerid": 0,
+          "takerid": 1,
           "notes": "",
           "type": 1,
           "date": 1572076800000,
@@ -10376,7 +10376,7 @@
       "appointments": [
         {
           "id": 617516143,
-          "takerid": 0,
+          "takerid": 1568626788029,
           "notes": "",
           "type": 1,
           "date": 1572253200000,

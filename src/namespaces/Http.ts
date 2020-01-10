@@ -3,6 +3,7 @@ import { AxiosRequestConfig, AxiosResponse, AxiosInstance } from 'axios';
 
 declare module 'vue/types/vue' {
     interface VueConstructor {
+        // @ts-ignore
         axios: AxiosInstance;
     }
 }

@@ -4,6 +4,7 @@
         <whatsapp-button v-show="isLogged"></whatsapp-button>
         <call-button v-show="isLogged"></call-button>
         <loading v-show="isLoading"></loading>
+        test
     </div>
 </template>
 

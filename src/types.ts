@@ -1,4 +1,5 @@
 import {
+    // @ts-ignore
     ActionContext,
     ActionContext as ActionContextVuex,
     GetterTree as GetterTreeVuex,
