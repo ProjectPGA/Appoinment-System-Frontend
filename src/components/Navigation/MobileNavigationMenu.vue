@@ -43,7 +43,12 @@
                                         icon="globe"
                                         class="language-icon"
                                     ></b-icon>
-                                    {{ $t('titles.language') }}
+                                    <span>
+                                        {{ $t('titles.language') }}
+                                    </span>
+                                    <span class="current-language">
+                                        ({{ currentLanguage }})
+                                    </span>
                                 </template>
                                 <mobile-navigation-link
                                     label="languages.spanish"
@@ -108,6 +113,8 @@ export default class MobileNavigationMenu extends Vue {
 
     @State((state: GlobalState) => state.auth.user.name)
     private username: string;
+    @State((state: GlobalState) => state.language.currentLanguage)
+    private currentLanguage: string;
 
     @Mutation('auth/unsetUser')
     private unsetUser;
@@ -138,6 +145,9 @@ export default class MobileNavigationMenu extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.current-language {
+    text-transform: uppercase;
+}
 a {
     color: #535353 !important;
 }

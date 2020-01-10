@@ -1,5 +1,6 @@
 <template>
     <div>
+        <button-translation></button-translation>
         <div class="columns is-centered">
             <div class="column is-6"><logo-app /></div>
         </div>
@@ -41,18 +42,25 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import LogoApp from '@/components/Navigation/LogoApp.vue';
 import { Action, State, Mutation } from 'vuex-class';
+
+import LogoApp from '@/components/Navigation/LogoApp.vue';
+import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
+
 import { AxiosResponse } from 'axios';
-import { InvCode } from '@/models/utils/Code';
-import { SnackbarProgrammatic as Snackbar } from 'buefy';
-import { router } from '../../router';
 import { GlobalState } from '@/vuex/store';
+
+import { InvCode } from '@/models/utils/Code';
+
+import { SnackbarProgrammatic as Snackbar } from 'buefy';
+
+import { router } from '../../router';
 
 @Component({
     name: 'InvitationalCode',
     components: {
         LogoApp,
+        ButtonTranslation,
     },
 })
 export default class InvitationalCode extends Vue {

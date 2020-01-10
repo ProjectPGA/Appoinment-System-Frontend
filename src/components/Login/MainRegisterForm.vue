@@ -1,5 +1,6 @@
 <template>
     <div>
+        <button-translation></button-translation>
         <div class="columns is-centered">
             <div class="column is-6"><logo-app /></div>
         </div>
@@ -98,11 +99,13 @@ import { setTimeout } from 'timers';
 import { AuthUser } from '@/models/auth/AuthUser';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
+import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
 
 @Component({
     name: 'MainRegisterForm',
     components: {
         LogoApp,
+        ButtonTranslation,
     },
 })
 export default class MainRegisterForm extends Vue {

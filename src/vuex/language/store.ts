@@ -5,7 +5,6 @@ import { errorHandlerTree } from '../utils/errorHandler';
 import { Language } from '@/models/Language';
 
 export interface LanguageState {
-    languages: Language[];
     currentLanguage: string;
 }
 
@@ -25,18 +24,6 @@ export const actions: ActionTree<LanguageState> = errorHandlerTree<
 
 export const getInitialState = (): LanguageState => ({
     currentLanguage: 'es',
-    languages: [
-        {
-            code: 'ES',
-            name: 'Spanish',
-            culture: 'es-ES',
-        },
-        {
-            code: 'EN',
-            name: 'English',
-            culture: 'en-GB',
-        },
-    ],
 });
 
 const languageStore = {
