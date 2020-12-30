@@ -12,7 +12,8 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Action, Getter, State } from 'vuex-class';
 import Axios from 'axios';
 
-import { GlobalState } from '@/vuex/store';
+import mainStore from '@/store/main-store/MainStore';
+import authStore from '@/store/auth-store/AuthStore';
 
 import WhatsappButton from '@/components/Contact/WhatsappButton.vue';
 import CallButton from '@/components/Contact/CallButton.vue';
@@ -27,12 +28,16 @@ import Loading from '@/components/Utils/Loading.vue';
     },
 })
 export default class App extends Vue {
-    @State((state: GlobalState) => state.language.currentLanguage)
-    private currentLanguage: string;
-    @State((state: GlobalState) => state.auth.isLogged)
-    private isLogged: boolean;
-    @State((state: GlobalState) => state.appointment.isLoading)
-    private isLoading: boolean;
+    private mainStore = mainStore.context(this.$store);
+    private authStore = authStore.context(this.$store);
+
+    private get isLogged(): boolean {
+        return this.authStore.state.isLogged;
+    }
+
+    private get currentLanguage(): string {
+        return this.mainStore.state.currentLanguage;
+    }
 
     public created() {
         const store = this.$store;
@@ -49,26 +54,5 @@ export default class App extends Vue {
 <style lang="scss">
 .main-app {
     min-width: 320px;
-}
-.p-1 {
-    padding: 0.25em !important;
-}
-.p-2 {
-    padding: 0.5em !important;
-}
-.p-3 {
-    padding: !important;
-}
-.p-4 {
-    padding: 1.5em !important;
-}
-.p-5 {
-    padding: 3em !important;
-}
-.h-100 {
-    height: 100% !important;
-}
-.w-100 {
-    width: 100% !important;
 }
 </style>

@@ -59,7 +59,9 @@
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
 
-import { GlobalState } from '@/vuex/store';
+// TODO: Refactor Store
+// // TODO: Refactor Store
+// import { GlobalState } from '@/vuex/store';
 
 import NoAppoints from '@/components/Utils/NoAppoints.vue';
 import { Day, Appointment } from '@/models/appointment/Appointment';

@@ -82,7 +82,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
-import { GlobalState } from '@/vuex/store';
+// TODO: Refactor Store
+// import { GlobalState } from '@/vuex/store';
 import { AuthUser } from '../../models/auth/AuthUser';
 import { AxiosResponse } from 'axios';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
@@ -139,7 +140,8 @@ export default class UserConfigInfo extends Vue {
                 }
             }
         } catch (error) {
-            console.log(error);
+            // TODO: Show Error
+            // console.log(error);
         }
     }
     private async changeUsername() {
@@ -172,7 +174,8 @@ export default class UserConfigInfo extends Vue {
                 }
             }
         } catch (error) {
-            console.log(error);
+            // TODO: Show Error
+            // console.log(error);
         }
     }
 

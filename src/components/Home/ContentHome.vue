@@ -5,7 +5,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
-import { GlobalState } from '@/vuex/store';
+// TODO: Refactor Store
+// import { GlobalState } from '@/vuex/store';
 
 import MainFilterFrame from './MainFilterFrame.vue';
 

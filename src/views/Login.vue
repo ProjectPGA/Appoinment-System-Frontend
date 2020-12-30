@@ -9,7 +9,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { State } from 'vuex-class';
 import { Route } from 'vue-router';
 
-import { GlobalState } from '@/vuex/store';
+import authStore from '@/store/auth-store/AuthStore';
 
 import MainLoginForm from '@/components/Login/MainLoginForm.vue';
 
@@ -20,8 +20,11 @@ import MainLoginForm from '@/components/Login/MainLoginForm.vue';
     },
 })
 export default class Login extends Vue {
-    @State((state: GlobalState) => state.auth.isLogged)
-    private isLogged: boolean;
+    private authStore = authStore.context(this.$store);
+
+    private get isLogged(): boolean {
+        return this.authStore.state.isLogged;
+    }
 
     public async beforeRouteEnter(from: Route, to: Route, next: any) {
         next((vm: Login) => {

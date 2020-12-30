@@ -7,9 +7,7 @@
             </div>
         </div>
         <div class="columns is-centered is-mobile">
-            <div
-                class="column is-6-desktop is-10-mobile is-8-tablet container "
-            >
+            <div class="column is-6-desktop is-10-mobile is-8-tablet container">
                 <p class="title">{{ $t('titles.login') }}</p>
                 <b-field
                     :label="$t('components.login.email')"
@@ -54,7 +52,7 @@
                             {{ $t('components.login.button') }}
                         </b-button>
                     </div>
-                    <div class="column ">
+                    <div class="column">
                         <p class="custom-size" data-cy="invitation">
                             {{ $t('components.login.noAccount') }}
                             <router-link
@@ -75,7 +73,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
 
 import Axios, { AxiosResponse } from 'axios';
-import { router } from '@/router';
+import router from '@/router';
 import { Mutation } from 'vuex-class';
 
 import { AuthUser } from '@/models/auth/AuthUser';
@@ -139,7 +137,8 @@ export default class MainLoginForm extends Vue {
                         this.clearInputs();
                     },
                 });
-                console.log(error);
+                // TODO: Show Error
+                // console.log(error);
             }
         }
     }

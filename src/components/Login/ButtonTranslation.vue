@@ -8,7 +8,8 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, State } from 'vuex-class';
 
-import { GlobalState } from '@/vuex/store';
+// TODO: Refactor Store
+// import { GlobalState } from '@/vuex/store';
 
 @Component({
     name: 'ButtonTranslation',

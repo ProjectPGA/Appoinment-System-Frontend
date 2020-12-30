@@ -5,7 +5,7 @@
             <div class="column is-6"><logo-app /></div>
         </div>
         <div class="columns is-centered is-mobile">
-            <div class="column is-6-desktop is-10-mobile container ">
+            <div class="column is-6-desktop is-10-mobile container">
                 <p class="title">{{ $t('titles.register') }}</p>
                 <b-field
                     :label="$t('components.register.name')"
@@ -152,7 +152,8 @@ export default class MainRegisterForm extends Vue {
                     this.emailfieldType = 'is-danger';
                 }
             } catch (error) {
-                console.log(error);
+                // TODO: Show Error
+                // console.log(error);
             }
         } else {
             this.passfieldType = 'is-danger';
@@ -211,7 +212,8 @@ export default class MainRegisterForm extends Vue {
                 });
             }
         } catch (error) {
-            console.log(error);
+            // TODO: Show Error
+            // console.log(error);
         }
     }
 

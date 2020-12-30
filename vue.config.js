@@ -3,10 +3,15 @@ const path = require('path');
 module.exports = {
     transpileDependencies: ['d3-scale', 'd3-array', 'cash-dom'],
     devServer: {
-        port: 8080,
+        port: 18000,
     },
 
     pwa: {
+        name: 'Porfolio framework',
+        themeColor: '#506975',
+        msTileColor: '#000000',
+        appleMobileWebAppCapable: 'yes',
+        appleMobileWebAppStatusBarStyle: 'black',
         workboxOptions: {
             exclude: [
                 /\.map$/,
@@ -17,6 +22,12 @@ module.exports = {
             ],
             skipWaiting: true,
         },
+        // iconPaths: {
+        //     favicon32: 'img/icons/icon-32x32.png',
+        //     favicon16: 'img/icons/icon-16x16.png',
+        //     appleTouchIcon: 'img/icons/icon-152x152.png',
+        //     msTileImage: 'img/icons/icon-144x144.png',
+        // },
     },
 
     // TODO once we want proper support for offline usage we have to define
@@ -25,14 +36,7 @@ module.exports = {
     pluginOptions: {
         'style-resources-loader': {
             preProcessor: 'scss',
-            patterns: [
-                path.resolve(__dirname, 'src/assets/scss/utilities.scss'),
-            ],
+            patterns: [path.resolve(__dirname, 'src/styles/utilities.scss')],
         },
     },
-
-    /** https://vuejs.org/v2/cookbook/debugging-in-vscode.html#Displaying-Source-Code-in-the-Browser */
-    /*configureWebpack: {
-        devtool: 'source-map',
-    },*/
 };

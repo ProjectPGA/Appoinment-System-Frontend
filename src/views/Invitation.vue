@@ -7,7 +7,8 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { State, Mutation } from 'vuex-class';
 
-import { GlobalState } from '@/vuex/store';
+// TODO: Refactor Store
+// import { GlobalState } from '@/vuex/store';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
 import InvitationalCode from '@/components/Invitation/InvitationalCode.vue';

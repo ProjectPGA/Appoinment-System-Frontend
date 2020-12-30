@@ -26,7 +26,8 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import { State, Action, Mutation } from 'vuex-class';
-import { GlobalState } from '@/vuex/store';
+// TODO: Refactor Store
+// import { GlobalState } from '@/vuex/store';
 
 import MainSchedule from './MainSchedule.vue';
 import { Day } from '@/models/appointment/Appointment';
@@ -81,7 +82,7 @@ export default class MainFilterFrame extends Vue {
                 }
             }
         }
-        // Removes half of appoints (first half(morning): 12 / second half(afternoon): 12)
+        // Removes half of appoints (first (morning): 12 / second half(afternoon): 12)
         for (let i = 0; i < this.daysFiltered.length; i++) {
             if (new Date(this.days[i].date).toDateString().includes('Sat')) {
                 this.days[i].appointments.splice(12, 12);

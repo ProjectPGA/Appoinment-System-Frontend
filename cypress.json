@@ -1,7 +1,9 @@
 {
-  "pluginsFile": "tests/e2e/plugins/index.js",
-  "baseUrl": "http://localhost:8080",
-  "viewport": "macbook-15",
-  "viewportHeight": 900,
-  "viewportWidth": 1440
+    "pluginsFile": "tests/e2e/plugins/index.js",
+    "baseUrl": "http://localhost:18000/",
+    "viewportHeight": 720,
+    "viewportWidth": 1280,
+    "requestTimeout": 8000,
+    "defaultCommandTimeout": 6000,
+    "video": false
 }

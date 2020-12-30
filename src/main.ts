@@ -1,37 +1,26 @@
-import '@babel/polyfill';
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import { store } from './store';
+import Router from 'vue-router';
+
+import './styles/main.scss';
+
+import VueMq from 'vue-mq';
 import axios from 'axios';
 import Buefy from 'buefy';
-import VTooltip from 'v-tooltip';
-import vClickOutside from 'v-click-outside';
-import VeeValidate from 'vee-validate';
-import Vue from 'vue';
-import VueMq from 'vue-mq';
-
-import '@/class-component-hooks';
-import App from '@/App.vue';
-import { router } from '@/router';
-import store from '@/vuex/store';
-import '@/registerServiceWorker';
 import i18n from '@/localization/localization';
-import { Device } from '@/models/utils/Device';
-import { Autofocus } from '@/directives/AutofocusDirective';
-import { Scroll } from '@/directives/Scroll';
 
-import './assets/main.scss';
-import Router from 'vue-router';
-import '@/plugins/axios';
-import { Http } from './namespaces/Http';
+import { Scroll } from '@/directives/Scroll';
+import { Device } from '@/models/utils/Device';
+import { WindowResize } from '@/directives/WindowResize';
+import { Autofocus } from '@/directives/AutofocusDirective';
 
 Vue.config.productionTip = false;
-
-// tslint:disable-next-line: no-unused-expression
-new Http.ApiJwtSercice();
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 Vue.use(Router);
-Vue.use(vClickOutside);
-Vue.use(VTooltip);
 Vue.use(Buefy, {
     defaultIconPack: 'fas',
 });
@@ -44,16 +33,14 @@ Vue.use(VueMq, {
     },
     defaultBreakpoint: 'sm',
 });
-Vue.use(VeeValidate, {
-    i18n,
-    i18nRootKey: 'errors',
-});
-Vue.directive('autofocus', Autofocus);
+
 Vue.directive('scroll', Scroll);
+Vue.directive('autofocus', Autofocus);
+Vue.directive('resize', WindowResize);
 
 new Vue({
-    i18n,
     router,
     store,
+    i18n,
     render: h => h(App),
 }).$mount('#app');
