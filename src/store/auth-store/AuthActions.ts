@@ -4,11 +4,12 @@ import AuthState from './AuthState';
 import AuthGetters from './AuthGetters';
 import AuthMutations from './AuthMutations';
 
-import { login, getUserData } from '../../webservices/AuthWebservice';
-
-import { UserData } from '../../models/UserData';
+import { login } from '../../webservices/AuthWebservice';
 
 import { LoginRequest } from '../../webservices/models/auth/LoginRequest';
+import { UserData } from '@/models/user/UserData';
+
+import router from '@/router';
 
 export default class AuthActions extends Actions<
     AuthState,
@@ -24,15 +25,14 @@ export default class AuthActions extends Actions<
         try {
             this.commit('setLoginInProgress', null);
 
-            await login({
-                login: loginData.login,
+            const response: UserData = await login({
+                email: loginData.email,
                 password: loginData.password,
             });
 
-            const response: UserData = await getUserData();
-
             if (response.user !== null) {
                 this.commit('setLoggedIn', response.user);
+                router.push('/inicio');
             } else {
                 this.commit('setUserNotLoggedIn', null);
                 return false;
@@ -41,20 +41,6 @@ export default class AuthActions extends Actions<
         } catch (exception) {
             this.commit('setLoginFailed', null);
             return false;
-        }
-    }
-
-    public async getUserData(): Promise<void> {
-        try {
-            const response: UserData = await getUserData();
-
-            if (response.user !== null) {
-                this.commit('setLoggedIn', response.user);
-            } else {
-                this.commit('setUserNotLoggedIn', null);
-            }
-        } catch (e) {
-            this.commit('setUserNotLoggedIn', null);
         }
     }
 
