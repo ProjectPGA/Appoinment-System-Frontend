@@ -8,7 +8,8 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { State, Mutation } from 'vuex-class';
 
-import { GlobalState } from '@/vuex/store';
+// TODO: Refactor Store
+// import { GlobalState } from '@/vuex/store';
 
 import MainRegisterForm from '@/components/Login/MainRegisterForm.vue';
 import { Route } from 'vue-router';

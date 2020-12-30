@@ -10,19 +10,16 @@
     ]
   },
   "rules": {
-      "prefer-for-of": false,
-      "quotemark": false,
-      "indent": [true, "spaces", 4],
-      "object-literal-key-quotes": false,
-      "max-line-length": false,
-      "interface-name": false,
-      "ordered-imports": false,
-      "object-literal-sort-keys": false,
-      "no-consecutive-blank-lines": false,
-      "no-console": false,
-      "only-arrow-functions": false,
-      "no-trailing-whitespace": true,
-      "valid-template-root": false
-    }
+    "quotemark": false,
+    "indent": [true, "spaces", 4],
+    "object-literal-key-quotes": false,
+    "max-line-length": false,
+    "interface-name": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "no-consecutive-blank-lines": false,
+    "no-debugger": true,
+    "only-arrow-functions": false,
+    "no-trailing-whitespace": true
   }
-  
+}

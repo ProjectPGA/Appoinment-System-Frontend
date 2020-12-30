@@ -1,6 +1,6 @@
 <template>
     <div class="columns p-4" v-if="selected === 'security'">
-        <div class="column is-8 ">
+        <div class="column is-8">
             <div class="title">
                 {{ $t('userConfig.user.security.passChangeTittle') }}
             </div>
@@ -70,7 +70,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { State } from 'vuex-class';
-import { GlobalState } from '@/vuex/store';
+// TODO: Refactor Store
+// import { GlobalState } from '@/vuex/store';
 import { AxiosResponse } from 'axios';
 import { AuthUser } from '../../models/auth/AuthUser';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
@@ -130,7 +131,8 @@ export default class UserConfigSecurity extends Vue {
                 data: userTemp,
             });
         } catch (error) {
-            console.log(error);
+            // TODO: Show Error
+            // console.log(error);
         }
     }
     private async checkOldPass(): Promise<any> {
@@ -150,7 +152,8 @@ export default class UserConfigSecurity extends Vue {
                 return false;
             }
         } catch (error) {
-            console.log(error);
+            // TODO: Show Error
+            // console.log(error);
         }
     }
     private async checkNewPass(): Promise<any> {

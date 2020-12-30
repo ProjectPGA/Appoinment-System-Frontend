@@ -70,7 +70,7 @@
                         <div
                             v-if="
                                 appoint.takerid !== userId &&
-                                    appoint.takerid !== 0
+                                appoint.takerid !== 0
                             "
                         >
                             {{ $t('components.appointments.reserved') }}
@@ -78,7 +78,7 @@
                         <div
                             v-if="
                                 appoint.takerid !== userId &&
-                                    appoint.takerid === 0
+                                appoint.takerid === 0
                             "
                         >
                             {{ _getAppointHour(appoint.type) }}
@@ -105,7 +105,8 @@ import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
 import { State, Mutation, Action } from 'vuex-class';
 
 import { UtilState } from '@/vuex/utils/store';
-import { GlobalState } from '@/vuex/store';
+// TODO: Refactor Store
+// import { GlobalState } from '@/vuex/store';
 
 import Modal from '@/components/Utils/Modal.vue';
 import Confirm from '@/components/Utils/Confirm.vue';

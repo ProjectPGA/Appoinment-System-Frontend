@@ -1,0 +1,8 @@
+// ONLY IMPORT FILES THAT DO NOT GENERATE CSS AS OUTPUT
+// e.g. variables, mixins, functions
+// this will be imported in all scoped css files
+@import 'variables/custom-variables';
+@import 'variables/bulma-variables';
+@import '~bulma/sass/utilities/_all';
+@import 'transitions/_all';
+@import 'modifiers/all';

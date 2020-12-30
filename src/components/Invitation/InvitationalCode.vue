@@ -48,7 +48,8 @@ import LogoApp from '@/components/Navigation/LogoApp.vue';
 import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
 
 import { AxiosResponse } from 'axios';
-import { GlobalState } from '@/vuex/store';
+// TODO: Refactor Store
+// import { GlobalState } from '@/vuex/store';
 
 import { InvCode } from '@/models/utils/Code';
 
@@ -81,7 +82,7 @@ export default class InvitationalCode extends Vue {
             const response: AxiosResponse = await Vue.axios({
                 method: 'POST',
                 url: '/code',
-                data: this.codeObj = { code: this.code },
+                data: (this.codeObj = { code: this.code }),
             });
 
             if (!response.data.cod) {
@@ -101,7 +102,8 @@ export default class InvitationalCode extends Vue {
                 router.push('/registro');
             }
         } catch (error) {
-            console.log('Error en el checkeo del codigo invitacional');
+            // TODO: Show error
+            // console.log('Error en el checkeo del codigo invitacional');
         }
     }
     private clear() {

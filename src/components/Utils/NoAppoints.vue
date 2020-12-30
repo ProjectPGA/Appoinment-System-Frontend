@@ -4,9 +4,7 @@
             <section class="hero is-danger">
                 <div class="hero-body">
                     <div class="container">
-                        <h1 class="title">
-                            Ninguna cita Asignada
-                        </h1>
+                        <h1 class="title">Ninguna cita Asignada</h1>
                         <h2 class="subtitle">
                             <router-link to="/inicio"
                                 >Puedes asignarte una cita pulsando

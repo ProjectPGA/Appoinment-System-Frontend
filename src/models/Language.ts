@@ -3,3 +3,7 @@ export interface Language {
     name: string;
     culture: string;
 }
+
+export interface LanguageOption extends Language {
+    disabled: boolean;
+}

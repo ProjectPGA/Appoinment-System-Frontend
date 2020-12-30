@@ -1,0 +1,48 @@
+variables:
+    DOCKER_HOST: tcp://localhost:2375/
+    DOCKER_DRIVER: overlay2
+    KUBECONFIG: /etc/deploy/config
+    DOCKER_TLS_CERTDIR: "" 
+
+stages:
+    - build
+    - test
+    - deploy
+
+default:
+    image: node:12.14-alpine
+    cache: &global_cache
+        key: ${$CI_PROJECT_ID}
+        paths:
+            - node_modules/
+            - .yarn
+        policy: pull
+
+build webapp:
+    image: node:12.14-alpine
+    stage: build
+    cache:
+        <<: *global_cache
+        policy: pull-push
+    script:
+        - yarn install --pure-lockfile --cache-folder .yarn
+        - sh scripts/build-dist.sh
+    artifacts:
+        expire_in: 1 week
+        paths:
+            - dist
+
+e2e test:
+    cache: {}
+    stage: test
+    except:
+        - triggers
+    when: manual
+    script:
+        - yarn test:e2e
+    artifacts:
+        expire_in: 1 week
+        when: always
+        paths:
+            - tests/e2e/screenshots
+            - tests/e2e/screenshots
