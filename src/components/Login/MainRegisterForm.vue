@@ -92,7 +92,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
 import Axios, { AxiosResponse } from 'axios';
-import { router } from '../../router';
+import router from '../../router';
 import { Mutation } from 'vuex-class';
 import { setTimeout } from 'timers';
 

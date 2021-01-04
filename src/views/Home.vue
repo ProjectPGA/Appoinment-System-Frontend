@@ -27,7 +27,7 @@ export default class Home extends Vue {
     private authStore = authStore.context(this.$store);
 
     private get isLogged(): boolean {
-        return this.authStore.state.isLogged;
+        return this.authStore.state.loggedIn;
     }
 
     public async beforeRouteEnter(
@@ -36,9 +36,7 @@ export default class Home extends Vue {
         next: any
     ): Promise<void> {
         next((vm: Home) => {
-            console.log('HANS');
             if (!vm.isLogged) {
-                console.log('HANS');
                 next('/');
             }
         });
