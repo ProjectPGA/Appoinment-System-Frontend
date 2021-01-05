@@ -16,7 +16,7 @@
                     'is-active': currentLanguage === 'es',
                 }"
                 class="navbar-item"
-                @click="toSpanish"
+                @click="changeLanguajeToSpanish"
             >
                 {{ $t('languages.spanish') }}
             </a>
@@ -25,7 +25,7 @@
                     'is-active': currentLanguage === 'en',
                 }"
                 class="navbar-item"
-                @click="toEnglish"
+                @click="changeLanguajeToEnglish"
             >
                 {{ $t('languages.english') }}
             </a>
@@ -37,25 +37,25 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, State } from 'vuex-class';
 
-// TODO: Refactor Store
-// import { GlobalState } from '@/vuex/store';
+import mainStore from '@/store/main-store/MainStore';
 
 import { Language } from '@/models/Language';
 @Component({
     name: 'DesktopNavigationLanguage',
 })
 export default class DesktopNavigationLanguage extends Vue {
-    @Action('language/updateSelectedLanguage')
-    private updateSelectedLanguage: (arg) => void;
+    private mainStore = mainStore.context(this.$store);
 
-    @State((state: GlobalState) => state.language.currentLanguage)
-    private currentLanguage: string;
-
-    private toSpanish(): void {
-        this.updateSelectedLanguage('es');
+    private changeLanguajeToSpanish(): void {
+        this.mainStore.actions.changeLanguajeToSpanish();
     }
-    private toEnglish(): void {
-        this.updateSelectedLanguage('en');
+
+    private changeLanguajeToEnglish(): void {
+        this.mainStore.actions.changeLanguajeToEnglish();
+    }
+
+    private get currentLanguage(): string | null {
+        return this.mainStore.state.currentLanguage;
     }
 }
 </script>

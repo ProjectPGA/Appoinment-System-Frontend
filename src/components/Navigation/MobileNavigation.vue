@@ -16,13 +16,10 @@
             <div
                 class="column is-one-quarter has-text-right has-no-vertical-padding is-left-paddingless"
             >
-                <router-view name="mobileNavBar"></router-view>
+                <router-view name="mobileNavBar" />
             </div>
         </div>
-        <mobile-navigation-menu
-            :show="show"
-            @hide="hideMenu"
-        ></mobile-navigation-menu>
+        <mobile-navigation-menu :show="show" @hide="hideMenu" />
     </div>
 </template>
 

@@ -55,7 +55,7 @@ import { InvCode } from '@/models/utils/Code';
 
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
 
-import { router } from '../../router';
+import router from '../../router';
 
 @Component({
     name: 'InvitationalCode',

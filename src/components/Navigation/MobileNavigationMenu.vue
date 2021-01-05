@@ -21,22 +21,22 @@
                             :label="$t('components.navigation.index')"
                             to="/Inicio"
                             @click.native="hide"
-                        ></mobile-navigation-link>
+                        />
                         <mobile-navigation-link
                             :label="$t('components.navigation.appointments')"
                             to="/Appointments"
                             @click.native="hide"
-                        ></mobile-navigation-link>
+                        />
                         <mobile-navigation-link
                             :label="$t('components.navigation.contactUs')"
                             to="/Contact"
                             @click.native="hide"
-                        ></mobile-navigation-link>
+                        />
                         <div class="menu-item-separator">
                             <hr />
                         </div>
                         <div class="mobile-navigation-user-link">
-                            <Collapse icon="fas fa-angle-down">
+                            <collapse icon="fas fa-angle-down">
                                 <template slot="collapse_title">
                                     <b-icon
                                         pack="fas"
@@ -52,13 +52,13 @@
                                 </template>
                                 <mobile-navigation-link
                                     label="languages.spanish"
-                                    @click.native="toSpanish"
-                                ></mobile-navigation-link>
+                                    @click.native="changeLanguajeToSpanish"
+                                />
                                 <mobile-navigation-link
                                     label="languages.english"
-                                    @click.native="toEnglish"
-                                ></mobile-navigation-link>
-                            </Collapse>
+                                    @click.native="changeLanguajeToEnglish"
+                                />
+                            </collapse>
                         </div>
                         <div class="mobile-navigation-user-link">
                             <router-link
@@ -66,7 +66,7 @@
                                 class="menu-title"
                                 @click.native="hide"
                             >
-                                <b-icon pack="fas" icon="user"></b-icon>
+                                <b-icon pack="fas" icon="user" />
                                 {{ username }}
                             </router-link>
                         </div>
@@ -76,7 +76,7 @@
                                 class="menu-title"
                                 @click.native="signoff()"
                             >
-                                <b-icon pack="fas" icon="sign-out-alt"></b-icon>
+                                <b-icon pack="fas" icon="sign-out-alt" />
                                 {{ $t('user.logof') }}
                             </router-link>
                         </div>
@@ -91,13 +91,14 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { State, Mutation, Action } from 'vuex-class';
 
-import { GlobalState } from '../../vuex/store';
+import authStore from '@/store/auth-store/AuthStore';
+import mainStore from '@/store/main-store/MainStore';
 
 import MobileNavigationLink from '@/components/Navigation/MobileNavigationLink.vue';
 import PIcon from '@/components/icons/PIcon.vue';
 import Collapse from '@/components/Utils/Collapse.vue';
 
-import { router } from '@/router';
+import router from '@/router';
 
 @Component({
     name: 'MobileNavigationMenu',
@@ -108,37 +109,34 @@ import { router } from '@/router';
     },
 })
 export default class MobileNavigationMenu extends Vue {
-    @Action('language/updateSelectedLanguage')
-    private updateSelectedLanguage: (arg) => void;
-
-    @State((state: GlobalState) => state.auth.user.name)
-    private username: string;
-    @State((state: GlobalState) => state.language.currentLanguage)
-    private currentLanguage: string;
-
-    @Mutation('auth/unsetUser')
-    private unsetUser;
-
     @Prop(Boolean) private show: boolean;
+
+    private authStore = authStore.context(this.$store);
+    private mainStore = mainStore.context(this.$store);
 
     private showModal: boolean = false;
 
-    private toSpanish(): void {
-        this.updateSelectedLanguage('es');
-        this.hide();
+    private changeLanguajeToSpanish(): void {
+        this.mainStore.actions.changeLanguajeToSpanish();
     }
 
-    private toEnglish(): void {
-        this.updateSelectedLanguage('en');
-        this.hide();
+    private changeLanguajeToEnglish(): void {
+        this.mainStore.actions.changeLanguajeToEnglish();
     }
 
-    private hide() {
+    private get currentLanguage(): string | null {
+        return this.mainStore.state.currentLanguage;
+    }
+
+    private get username(): string | null {
+        return this.authStore.state.username;
+    }
+
+    private hide(): void{
         this.$emit('hide');
     }
 
-    private signoff() {
-        this.unsetUser();
+    private signoff(): void {
         router.push('/');
     }
 }
