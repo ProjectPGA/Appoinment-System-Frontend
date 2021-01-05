@@ -13,36 +13,30 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path: '/inicio',
+        path: '/',
         name: 'Home',
         component: Home,
         meta: { linkText: 'Home' },
         children: [
-            // {
-            //     path: '/Appointments',
-            //     name: 'Appointments',
-            //     component: UserAppointments,
-            //     meta: { linkText: 'Appointments' },
-            // },
-            // {
-            //     path: '/Contact',
-            //     name: 'Contact',
-            //     component: Contact,
-            //     meta: { linkText: 'Contact' },
-            // },
-            // {
-            //     path: '/User',
-            //     name: 'User',
-            //     component: User,
-            //     meta: { linkText: 'User' },
-            // },
+            {
+                path: '/Appointments',
+                name: 'Appointments',
+                component: UserAppointments,
+                meta: { linkText: 'Appointments' },
+            },
+            {
+                path: '/Contact',
+                name: 'Contact',
+                component: Contact,
+                meta: { linkText: 'Contact' },
+            },
+            {
+                path: '/User',
+                name: 'User',
+                component: User,
+                meta: { linkText: 'User' },
+            },
         ],
-    },
-    {
-        path: '/',
-        name: 'Login',
-        component: Login,
-        meta: { linkText: 'Login' },
     },
     {
         path: '/Registro',
@@ -55,6 +49,11 @@ const routes = [
         name: 'Invitation',
         component: Invitation,
         meta: { linkText: 'Invitation' },
+    },
+    {
+        path: '*',
+        name: 'fallback',
+        redirect: { name: 'Home' },
     },
 ];
 

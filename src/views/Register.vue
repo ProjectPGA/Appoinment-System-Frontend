@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <main-register-form></main-register-form>
-    </div>
+    <main-register-form />
 </template>
 
 <script lang="ts">

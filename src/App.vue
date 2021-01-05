@@ -1,9 +1,10 @@
 <template>
     <div class="main-app">
-        <router-view></router-view>
-        <whatsapp-button v-show="isLogged"></whatsapp-button>
-        <call-button v-show="isLogged"></call-button>
-        <loading v-show="isLoading"></loading>
+        <router-view v-if="isLogged" />
+        <login v-if="!isLogged" />
+        <whatsapp-button v-if="isLogged" />
+        <call-button v-if="isLogged" />
+        <loading v-if="isLoading" />
     </div>
 </template>
 
@@ -19,12 +20,15 @@ import WhatsappButton from '@/components/Contact/WhatsappButton.vue';
 import CallButton from '@/components/Contact/CallButton.vue';
 import Loading from '@/components/Utils/Loading.vue';
 
+import Login from '@/views/Login.vue';
+
 @Component({
     name: 'App',
     components: {
         WhatsappButton,
         CallButton,
         Loading,
+        Login,
     },
 })
 export default class App extends Vue {
@@ -32,7 +36,11 @@ export default class App extends Vue {
     private authStore = authStore.context(this.$store);
 
     private get isLogged(): boolean {
-        return this.authStore.state.loggedIn;
+        return this.authStore.state.isLogged;
+    }
+
+    private get isLoading(): boolean {
+        return this.authStore.state.isLoading;
     }
 
     private get currentLanguage(): string {

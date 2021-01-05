@@ -32,9 +32,9 @@ export default class AuthActions extends Actions<
             const response: UserData = await getUserData();
 
             if (response.user !== null) {
-                this.commit('setLoggedIn', response.user);
+                this.commit('setIsLogged', response.user);
             } else {
-                this.commit('setUserNotLoggedIn', null);
+                this.commit('setUserNotisLogged', null);
                 return false;
             }
             return true;
@@ -49,12 +49,12 @@ export default class AuthActions extends Actions<
             const response: UserData = await getUserData();
 
             if (response.user !== null) {
-                this.commit('setLoggedIn', response.user);
+                this.commit('setIsLogged', response.user);
             } else {
-                this.commit('setUserNotLoggedIn', null);
+                this.commit('setUserNotisLogged', null);
             }
         } catch (e) {
-            this.commit('setUserNotLoggedIn', null);
+            this.commit('setUserNotisLogged', null);
         }
     }
 

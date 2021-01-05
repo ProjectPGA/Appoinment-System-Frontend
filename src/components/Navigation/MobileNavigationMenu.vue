@@ -132,7 +132,7 @@ export default class MobileNavigationMenu extends Vue {
         return this.authStore.state.username;
     }
 
-    private hide(): void{
+    private hide(): void {
         this.$emit('hide');
     }
 

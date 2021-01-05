@@ -32,9 +32,9 @@ export default class ButtonTranslation extends Vue {
 
     private changeLanguage(): void {
         if (this.currentLanguage === 'es') {
-            this.changeLanguajeToEnglish;
+            this.changeLanguajeToEnglish();
         } else {
-            this.changeLanguajeToSpanish;
+            this.changeLanguajeToSpanish();
         }
     }
 }

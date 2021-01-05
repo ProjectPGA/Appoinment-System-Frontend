@@ -9,7 +9,7 @@ export default class AuthGetters extends Getters<AuthState> {
         return this.state.loginRequestStatus === RequestStatus.IN_PROGRESS;
     }
     public get isLoggedOut(): boolean {
-        return !this.state.loggedIn;
+        return !this.state.isLogged;
     }
     public get isLoginFailed(): boolean {
         return this.state.loginRequestStatus === RequestStatus.FAILURE;
