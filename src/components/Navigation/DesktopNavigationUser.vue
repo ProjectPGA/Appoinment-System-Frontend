@@ -33,7 +33,7 @@ import { State, Mutation } from 'vuex-class';
 
 import { GlobalState } from '../../vuex/store';
 
-import { router } from '@/router';
+import router from '@/router';
 
 @Component({
     name: 'DesktopNavigationUser',

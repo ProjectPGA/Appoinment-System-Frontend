@@ -1,8 +1,6 @@
 <template>
-    <div>
-        <div class="container has-text-centered">
-            <img class="logo" src="../../assets/img/logo.svg" alt="" />
-        </div>
+    <div class="container has-text-centered">
+        <img class="logo" src="../../assets/img/logo.svg" alt="" />
     </div>
 </template>
 
