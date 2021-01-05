@@ -1,8 +1,8 @@
 <template>
     <div class="Home">
         <header-app />
-        <!-- <router-view></router-view>
-        <content-home v-if="$route.name == 'Home'" /> -->
+        <router-view />
+        <content-home v-if="$route.name == 'Home'" />
     </div>
 </template>
 
@@ -16,6 +16,7 @@ import HeaderApp from '@/components/Navigation/Header.vue';
 import ContentHome from '@/components/Home/ContentHome.vue';
 
 import { Route } from 'vue-router';
+
 @Component({
     name: 'Home',
     components: {
@@ -27,19 +28,7 @@ export default class Home extends Vue {
     private authStore = authStore.context(this.$store);
 
     private get isLogged(): boolean {
-        return this.authStore.state.loggedIn;
-    }
-
-    public async beforeRouteEnter(
-        from: Route,
-        to: Route,
-        next: any
-    ): Promise<void> {
-        next((vm: Home) => {
-            if (!vm.isLogged) {
-                next('/');
-            }
-        });
+        return this.authStore.state.isLogged;
     }
 }
 </script>
