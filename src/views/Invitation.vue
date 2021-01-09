@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <invitational-code></invitational-code>
-    </div>
+    <invitational-code />
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';

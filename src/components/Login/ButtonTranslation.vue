@@ -4,29 +4,37 @@
         {{ currentLanguage }}
     </div>
 </template>
+
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, State } from 'vuex-class';
 
-// TODO: Refactor Store
-// import { GlobalState } from '@/vuex/store';
+import mainStore from '@/store/main-store/MainStore';
 
 @Component({
     name: 'ButtonTranslation',
     components: {},
 })
 export default class ButtonTranslation extends Vue {
-    @Action('language/updateSelectedLanguage')
-    private updateSelectedLanguage: (arg) => void;
+    private mainStore = mainStore.context(this.$store);
 
-    @State((state: GlobalState) => state.language.currentLanguage)
-    private currentLanguage: string;
+    private changeLanguajeToSpanish(): void {
+        this.mainStore.actions.changeLanguajeToSpanish();
+    }
+
+    private changeLanguajeToEnglish(): void {
+        this.mainStore.actions.changeLanguajeToEnglish();
+    }
+
+    private get currentLanguage(): string | null {
+        return this.mainStore.state.currentLanguage;
+    }
 
     private changeLanguage(): void {
         if (this.currentLanguage === 'es') {
-            this.updateSelectedLanguage('en');
+            this.changeLanguajeToEnglish();
         } else {
-            this.updateSelectedLanguage('es');
+            this.changeLanguajeToSpanish();
         }
     }
 }

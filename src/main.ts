@@ -9,6 +9,7 @@ import './styles/main.scss';
 import VueMq from 'vue-mq';
 import axios from 'axios';
 import Buefy from 'buefy';
+import vClickOutside from 'v-click-outside';
 import i18n from '@/localization/localization';
 
 import { Scroll } from '@/directives/Scroll';
@@ -33,6 +34,7 @@ Vue.use(VueMq, {
     },
     defaultBreakpoint: 'sm',
 });
+Vue.use(vClickOutside);
 
 Vue.directive('scroll', Scroll);
 Vue.directive('autofocus', Autofocus);

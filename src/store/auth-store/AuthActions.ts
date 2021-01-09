@@ -9,8 +9,6 @@ import { login } from '../../webservices/AuthWebservice';
 import { LoginRequest } from '../../webservices/models/auth/LoginRequest';
 import { UserData } from '@/models/user/UserData';
 
-import router from '@/router';
-
 export default class AuthActions extends Actions<
     AuthState,
     AuthGetters,
@@ -31,8 +29,7 @@ export default class AuthActions extends Actions<
             });
 
             if (response.user !== null) {
-                this.commit('setLoggedIn', response.user);
-                router.push('/inicio');
+                this.commit('setIsLogged', response.user);
             } else {
                 this.commit('setUserNotLoggedIn', null);
                 return false;

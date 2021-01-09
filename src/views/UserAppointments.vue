@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <content-appointments></content-appointments>
-    </div>
+    <content-appointments />
 </template>
 
 <script lang="ts">

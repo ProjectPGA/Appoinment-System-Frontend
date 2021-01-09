@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <main-login-form></main-login-form>
-    </div>
+    <main-login-form />
 </template>
 
 <script lang="ts">
@@ -24,14 +22,6 @@ export default class Login extends Vue {
 
     private get isLogged(): boolean {
         return this.authStore.state.loggedIn;
-    }
-
-    public async beforeRouteEnter(from: Route, to: Route, next: any) {
-        next((vm: Login) => {
-            if (vm.isLogged) {
-                next('/inicio');
-            }
-        });
     }
 }
 </script>

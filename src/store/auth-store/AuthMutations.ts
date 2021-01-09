@@ -7,30 +7,34 @@ import { User } from '../../models/user/User';
 
 export default class AuthMutations extends Mutations<AuthState> {
     public setUserNotLoggedIn(): void {
-        this.state.loggedIn = false;
-        this.state.email = null;
-        this.state.name = null;
         this.state.roles = [];
+        this.state.name = null;
+        this.state.email = null;
+        this.state.isLogged = false;
+        this.state.isLoading = false;
         this.state.loginRequestStatus = RequestStatus.PENDING;
     }
 
     public setLoginInProgress(): void {
+        this.state.isLoading = true;
         this.state.loginRequestStatus = RequestStatus.IN_PROGRESS;
     }
 
-    public setLoggedIn(user: User): void {
-        this.state.loggedIn = true;
+    public setIsLogged(user: User): void {
+        this.state.isLogged = true;
         this.state.name = user.name;
-        this.state.email = user.email;
+        this.state.isLoading = false;
         this.state.roles = user.roles;
+        this.state.email = user.email;
         this.state.loginRequestStatus = RequestStatus.SUCCESS;
     }
 
     public setLoginFailed(): void {
-        this.state.loggedIn = false;
-        this.state.email = null;
-        this.state.name = null;
         this.state.roles = [];
+        this.state.name = null;
+        this.state.email = null;
+        this.state.isLogged = false;
+        this.state.isLoading = false;
         this.state.loginRequestStatus = RequestStatus.FAILURE;
     }
 }
