@@ -6,7 +6,7 @@ import AuthState from './AuthState';
 import { User } from '../../models/user/User';
 
 export default class AuthMutations extends Mutations<AuthState> {
-    public setUserNotLoggedIn(): void {
+    public setUserNotisLogged(): void {
         this.state.roles = [];
         this.state.name = null;
         this.state.email = null;

@@ -31,7 +31,7 @@ export default class AuthActions extends Actions<
             if (response.user !== null) {
                 this.commit('setIsLogged', response.user);
             } else {
-                this.commit('setUserNotLoggedIn', null);
+                this.commit('setUserNotisLogged', null);
                 return false;
             }
             return true;
