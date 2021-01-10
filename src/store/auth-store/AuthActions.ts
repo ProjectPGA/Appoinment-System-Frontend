@@ -30,6 +30,8 @@ export default class AuthActions extends Actions<
 
             if (response.user !== null) {
                 this.commit('setIsLogged', response.user);
+                this.saveJTWTokens(response.accessToken, response.refreshToken);
+
             } else {
                 this.commit('setUserNotisLogged', null);
                 return false;
@@ -51,5 +53,12 @@ export default class AuthActions extends Actions<
 
     public disableRegisterProcess(): void {
         this.commit('disableRegisterProcess', null);
+    }
+
+    private saveJTWTokens(accessToken: string | null, refreshToken: string | null): void {
+        if (accessToken !== null && refreshToken !== null) {
+            localStorage.setItem('accessToken', accessToken)
+            localStorage.setItem('refreshToken', refreshToken)
+        }
     }
 }
