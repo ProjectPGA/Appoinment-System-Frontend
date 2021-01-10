@@ -1,7 +1,7 @@
 <template>
     <div class="main-app">
-        <router-view v-if="isLogged" />
-        <login v-if="!isLogged" />
+        <router-view v-if="isLogged || isRegisterProcess" />
+        <login v-if="!isLogged && !isRegisterProcess" />
         <whatsapp-button v-if="isLogged" />
         <call-button v-if="isLogged" />
         <loading v-if="isLoading" />
@@ -35,8 +35,16 @@ export default class App extends Vue {
     private mainStore = mainStore.context(this.$store);
     private authStore = authStore.context(this.$store);
 
+    public created() {
+        const store = this.$store;
+        this.$i18n.locale = this.currentLanguage;
+        Axios.defaults.headers.post['Accept-Language'] = this.currentLanguage;
+
+        this.checkUserToken();
+    }
+
     private get isLogged(): boolean {
-        return this.authStore.state.loggedIn;
+        return this.authStore.state.isLogged;
     }
 
     private get isLoading(): boolean {
@@ -47,10 +55,12 @@ export default class App extends Vue {
         return this.mainStore.state.currentLanguage;
     }
 
-    public created() {
-        const store = this.$store;
-        this.$i18n.locale = this.currentLanguage;
-        Axios.defaults.headers.post['Accept-Language'] = this.currentLanguage;
+    private get isRegisterProcess(): boolean {
+        return this.authStore.state.isRegisterProcess;
+    }
+
+    private checkUserToken(): void {
+        this.authStore.actions.checkUserToken();
     }
 
     @Watch('currentLanguage')

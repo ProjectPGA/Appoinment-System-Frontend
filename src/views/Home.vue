@@ -28,7 +28,17 @@ export default class Home extends Vue {
     private authStore = authStore.context(this.$store);
 
     private get isLogged(): boolean {
-        return this.authStore.state.loggedIn;
+        return this.authStore.state.isLogged;
+    }
+
+    private renewToken(): void {
+        this.authStore.actions.renewToken();
+    }
+
+    private mounted(): void {
+        this.authStore.actions.disableRegisterProcess();
+        const tokenCheckInterval: any = setInterval(this.renewToken, 300000);
+
     }
 }
 </script>

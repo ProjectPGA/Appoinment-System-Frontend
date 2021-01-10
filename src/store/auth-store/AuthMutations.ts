@@ -6,7 +6,7 @@ import AuthState from './AuthState';
 import { User } from '../../models/user/User';
 
 export default class AuthMutations extends Mutations<AuthState> {
-    public setUserNotLoggedIn(): void {
+    public setUserNotisLogged(): void {
         this.state.roles = [];
         this.state.name = null;
         this.state.email = null;
@@ -36,5 +36,13 @@ export default class AuthMutations extends Mutations<AuthState> {
         this.state.isLogged = false;
         this.state.isLoading = false;
         this.state.loginRequestStatus = RequestStatus.FAILURE;
+    }
+
+    public enableRegisterProcess(): void {
+        this.state.isRegisterProcess = true;
+    }
+
+    public disableRegisterProcess(): void {
+        this.state.isRegisterProcess = false;
     }
 }
