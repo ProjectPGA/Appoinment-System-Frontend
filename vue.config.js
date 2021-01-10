@@ -6,7 +6,7 @@ module.exports = {
         port: 18000,
         proxy: {
             '/api': {
-                target: 'http://localhost:3000/',
+                target: 'http://45.9.190.165:3000/',
                 ws: true,
                 changeOrigin: true,
                 cookieDomainRewrite: true,
