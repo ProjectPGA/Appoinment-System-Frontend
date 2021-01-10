@@ -5,6 +5,8 @@ import { apiPrefix, jsonHeaders } from './consts';
 
 import { UserData } from '../models/user/UserData';
 import { LoginRequest } from './models/auth/LoginRequest';
+import { TokenRequest } from './models/auth/TokenRequest';
+import { TokenResponse } from './models/auth/TokenResponse';
 
 const baseUrl: string = apiPrefix('');
 
@@ -17,6 +19,17 @@ export const login: (
 ) => Promise<UserData> = async params => {
     const response = await axios.post<UserData>(
         `${baseUrl}/login`,
+        params,
+        jsonHeaders
+    );
+    return response.data;
+};
+
+export const renewToken: (
+    params: TokenRequest
+) => Promise<TokenResponse> = async params => {
+    const response = await axios.post<TokenResponse>(
+        `${baseUrl}/token`,
         params,
         jsonHeaders
     );
