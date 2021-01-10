@@ -4,7 +4,11 @@ import AuthState from './AuthState';
 import AuthGetters from './AuthGetters';
 import AuthMutations from './AuthMutations';
 
-import { login, renewToken } from '../../webservices/AuthWebservice';
+import {
+    login,
+    renewToken,
+    checkUserToken,
+} from '../../webservices/AuthWebservice';
 
 import { LoginRequest } from '../../webservices/models/auth/LoginRequest';
 import { TokenResponse } from '../../webservices/models/auth/TokenResponse';
@@ -37,6 +41,29 @@ export default class AuthActions extends Actions<
             }
         } catch (exception) {
             // TODO. Reference logout when implemented
+        }
+    }
+
+    public async checkUserToken(): Promise<void> {
+        try {
+            this.commit('setLoginInProgress', null);
+
+            const refreshToken: string | null = localStorage.getItem(
+                'refreshToken'
+            );
+
+            if (refreshToken !== null) {
+                const response: UserData = await checkUserToken({
+                    token: refreshToken,
+                });
+                if (response.user !== null) {
+                    this.commit('setIsLogged', response.user);
+                } else {
+                    this.commit('setUserNotisLogged', null);
+                }
+            }
+        } catch (exception) {
+            this.commit('setLoginFailed', null);
         }
     }
 

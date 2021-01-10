@@ -35,6 +35,14 @@ export default class App extends Vue {
     private mainStore = mainStore.context(this.$store);
     private authStore = authStore.context(this.$store);
 
+    public created() {
+        const store = this.$store;
+        this.$i18n.locale = this.currentLanguage;
+        Axios.defaults.headers.post['Accept-Language'] = this.currentLanguage;
+
+        this.checkUserToken();
+    }
+
     private get isLogged(): boolean {
         return this.authStore.state.isLogged;
     }
@@ -51,10 +59,8 @@ export default class App extends Vue {
         return this.authStore.state.isRegisterProcess;
     }
 
-    public created() {
-        const store = this.$store;
-        this.$i18n.locale = this.currentLanguage;
-        Axios.defaults.headers.post['Accept-Language'] = this.currentLanguage;
+    private checkUserToken(): void {
+        this.authStore.actions.checkUserToken();
     }
 
     @Watch('currentLanguage')
