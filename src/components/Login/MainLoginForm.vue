@@ -55,12 +55,12 @@
                     <div class="column">
                         <p class="custom-size" data-cy="invitation">
                             {{ $t('components.login.noAccount') }}
-                            <router-link
+                            <span
+                                @click="enableRegisterProgress"
                                 class="invitation-link"
-                                to="/invitation"
                             >
                                 {{ $t('components.login.accessToInvitation') }}
-                            </router-link>
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -141,6 +141,11 @@ export default class MainLoginForm extends Vue {
                 // console.log(error);
             }
         }
+    }
+
+    private enableRegisterProgress(): void {
+        this.authStore.actions.enableRegisterProcess();
+        this.$router.push('/invitation');
     }
 
     private clearInputs(): void {

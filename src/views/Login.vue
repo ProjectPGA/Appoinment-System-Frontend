@@ -20,8 +20,8 @@ import MainLoginForm from '@/components/Login/MainLoginForm.vue';
 export default class Login extends Vue {
     private authStore = authStore.context(this.$store);
 
-    private get isLogged(): boolean {
-        return this.authStore.state.isLogged;
+    private mounted(): void {
+        this.authStore.actions.disableRegisterProcess();
     }
 }
 </script>

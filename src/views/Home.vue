@@ -30,6 +30,10 @@ export default class Home extends Vue {
     private get isLogged(): boolean {
         return this.authStore.state.isLogged;
     }
+
+    private mounted(): void {
+        this.authStore.actions.disableRegisterProcess();
+    }
 }
 </script>
 

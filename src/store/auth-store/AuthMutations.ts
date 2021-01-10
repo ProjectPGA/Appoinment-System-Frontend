@@ -37,4 +37,12 @@ export default class AuthMutations extends Mutations<AuthState> {
         this.state.isLoading = false;
         this.state.loginRequestStatus = RequestStatus.FAILURE;
     }
+
+    public enableRegisterProcess(): void {
+        this.state.isRegisterProcess = true;
+    }
+
+    public disableRegisterProcess(): void {
+        this.state.isRegisterProcess = false;
+    }
 }

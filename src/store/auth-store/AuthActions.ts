@@ -44,4 +44,12 @@ export default class AuthActions extends Actions<
     public async logout(): Promise<void> {
         location.href = '/api/auth/v1/redirect-to-logout';
     }
+
+    public enableRegisterProcess(): void {
+        this.commit('enableRegisterProcess', null);
+    }
+
+    public disableRegisterProcess(): void {
+        this.commit('disableRegisterProcess', null);
+    }
 }

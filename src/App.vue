@@ -1,7 +1,7 @@
 <template>
     <div class="main-app">
-        <router-view v-if="isLogged" />
-        <login v-if="!isLogged" />
+        <router-view v-if="isLogged || isRegisterProcess" />
+        <login v-if="!isLogged && !isRegisterProcess" />
         <whatsapp-button v-if="isLogged" />
         <call-button v-if="isLogged" />
         <loading v-if="isLoading" />
@@ -45,6 +45,10 @@ export default class App extends Vue {
 
     private get currentLanguage(): string {
         return this.mainStore.state.currentLanguage;
+    }
+
+    private get isRegisterProcess(): boolean {
+        return this.authStore.state.isRegisterProcess;
     }
 
     public created() {
