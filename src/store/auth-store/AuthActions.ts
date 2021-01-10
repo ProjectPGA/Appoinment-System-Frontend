@@ -4,11 +4,10 @@ import AuthState from './AuthState';
 import AuthGetters from './AuthGetters';
 import AuthMutations from './AuthMutations';
 
-import { login, getUserData } from '../../webservices/AuthWebservice';
-
-import { UserData } from '../../models/UserData';
+import { login } from '../../webservices/AuthWebservice';
 
 import { LoginRequest } from '../../webservices/models/auth/LoginRequest';
+import { UserData } from '@/models/user/UserData';
 
 export default class AuthActions extends Actions<
     AuthState,
@@ -24,37 +23,21 @@ export default class AuthActions extends Actions<
         try {
             this.commit('setLoginInProgress', null);
 
-            await login({
-                login: loginData.login,
+            const response: UserData = await login({
+                email: loginData.email,
                 password: loginData.password,
             });
-
-            const response: UserData = await getUserData();
 
             if (response.user !== null) {
                 this.commit('setIsLogged', response.user);
             } else {
-                this.commit('setUserNotisLogged', null);
+                this.commit('setUserNotLoggedIn', null);
                 return false;
             }
             return true;
         } catch (exception) {
             this.commit('setLoginFailed', null);
             return false;
-        }
-    }
-
-    public async getUserData(): Promise<void> {
-        try {
-            const response: UserData = await getUserData();
-
-            if (response.user !== null) {
-                this.commit('setIsLogged', response.user);
-            } else {
-                this.commit('setUserNotisLogged', null);
-            }
-        } catch (e) {
-            this.commit('setUserNotisLogged', null);
         }
     }
 

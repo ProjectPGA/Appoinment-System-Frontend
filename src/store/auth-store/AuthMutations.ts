@@ -3,16 +3,13 @@ import { Mutations } from 'vuex-smart-module';
 import { RequestStatus } from '../../models/auth/RequestStatus';
 
 import AuthState from './AuthState';
-import { User } from '../../models/User';
+import { User } from '../../models/user/User';
 
 export default class AuthMutations extends Mutations<AuthState> {
-    public setUserNotisLogged(): void {
+    public setUserNotLoggedIn(): void {
         this.state.roles = [];
+        this.state.name = null;
         this.state.email = null;
-        this.state.surname = null;
-        this.state.username = null;
-        this.state.fullName = null;
-        this.state.givenName = null;
         this.state.isLogged = false;
         this.state.isLoading = false;
         this.state.loginRequestStatus = RequestStatus.PENDING;
@@ -25,23 +22,17 @@ export default class AuthMutations extends Mutations<AuthState> {
 
     public setIsLogged(user: User): void {
         this.state.isLogged = true;
+        this.state.name = user.name;
         this.state.isLoading = false;
-        this.state.email = user.email;
         this.state.roles = user.roles;
-        this.state.surname = user.surname;
-        this.state.fullName = user.fullName;
-        this.state.username = user.username;
-        this.state.givenName = user.givenName;
+        this.state.email = user.email;
         this.state.loginRequestStatus = RequestStatus.SUCCESS;
     }
 
     public setLoginFailed(): void {
         this.state.roles = [];
+        this.state.name = null;
         this.state.email = null;
-        this.state.surname = null;
-        this.state.fullName = null;
-        this.state.username = null;
-        this.state.givenName = null;
         this.state.isLogged = false;
         this.state.isLoading = false;
         this.state.loginRequestStatus = RequestStatus.FAILURE;

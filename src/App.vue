@@ -36,7 +36,7 @@ export default class App extends Vue {
     private authStore = authStore.context(this.$store);
 
     private get isLogged(): boolean {
-        return this.authStore.state.isLogged;
+        return this.authStore.state.loggedIn;
     }
 
     private get isLoading(): boolean {

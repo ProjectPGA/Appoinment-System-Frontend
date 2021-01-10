@@ -72,14 +72,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
 
-import Axios, { AxiosResponse } from 'axios';
 import router from '@/router';
-import { Mutation } from 'vuex-class';
 
-import { AuthUser } from '@/models/auth/AuthUser';
+import authStore from '@/store/auth-store/AuthStore';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
 import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
+import { LoginRequest } from '@/webservices/models/auth/LoginRequest';
 
 @Component({
     name: 'MainLoginForm',
@@ -94,37 +93,38 @@ export default class MainLoginForm extends Vue {
     private isLoading: boolean = false;
     private bfieldType: string = '';
 
-    @Mutation('auth/setUser') private saveUser: (user: AuthUser) => void;
+    private authStore = authStore.context(this.$store);
 
     private async checkLogin() {
         const validator = this.loginValidator();
         if (validator) {
             this.isLoading = true;
             try {
-                const response: AxiosResponse = await Vue.axios({
-                    method: 'POST',
-                    url: '/login',
-                    data: { email: this.email, password: this.password },
-                });
+                const loginData: LoginRequest = {
+                    email: this.email,
+                    password: this.password,
+                };
 
-                if (!response.data.cod || response.status === 404) {
-                    this.bfieldType = 'is-danger';
-                    this.isLoading = false;
-                    Snackbar.open({
-                        message: response.data.mensaje,
-                        type: 'is-danger',
-                        position: 'is-bottom-left',
-                        duration: 3000,
-                        actionText: 'Volver a intentar',
-                        onAction: () => {
-                            this.clearInputs();
-                        },
-                    });
-                } else {
-                    this.isLoading = false;
-                    this.saveUser(response.data.user);
-                    router.push('/inicio');
-                }
+                this.authStore.actions.login({ loginData });
+
+                // if (!response.data.cod || response.status === 404) {
+                //     this.bfieldType = 'is-danger';
+                //     this.isLoading = false;
+                //     Snackbar.open({
+                //         message: response.data.mensaje,
+                //         type: 'is-danger',
+                //         position: 'is-bottom-left',
+                //         duration: 3000,
+                //         actionText: 'Volver a intentar',
+                //         onAction: () => {
+                //             this.clearInputs();
+                //         },
+                //     });
+                // } else {
+                //     this.isLoading = false;
+                //     this.saveUser(response.data.user);
+                //     router.push('/inicio');
+                // }
             } catch (error) {
                 this.isLoading = false;
                 Snackbar.open({
