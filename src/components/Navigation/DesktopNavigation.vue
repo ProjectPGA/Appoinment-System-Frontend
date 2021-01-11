@@ -7,7 +7,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { State, Mutation } from 'vuex-class';
 
 import DesktopNavigationMenu from '@/components/Navigation/DesktopNavigationMenu.vue';
 import DesktopNavigationEnd from '@/components/Navigation/DesktopNavigationEnd.vue';

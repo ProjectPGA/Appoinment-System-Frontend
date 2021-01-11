@@ -1,6 +1,10 @@
 const path = require('path');
+const devMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
+    // TODO: Review if not works
+    // publicPath: devMode ? '' : ':3000',
+
     transpileDependencies: ['d3-scale', 'd3-array', 'cash-dom'],
     devServer: {
         port: 18000,

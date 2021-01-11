@@ -7,7 +7,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Action, State } from 'vuex-class';
 
 import mainStore from '@/store/main-store/MainStore';
 

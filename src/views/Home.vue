@@ -7,15 +7,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { State, Mutation } from 'vuex-class';
+import { Component, Vue } from 'vue-property-decorator';
 
 import authStore from '@/store/auth-store/AuthStore';
 
 import HeaderApp from '@/components/Navigation/Header.vue';
 import ContentHome from '@/components/Home/ContentHome.vue';
-
-import { Route } from 'vue-router';
 
 @Component({
     name: 'Home',
@@ -37,7 +34,7 @@ export default class Home extends Vue {
 
     private mounted(): void {
         this.authStore.actions.disableRegisterProcess();
-        const tokenCheckInterval: any = setInterval(this.renewToken, 300000);
+        setInterval(this.renewToken, 300000);
     }
 }
 </script>

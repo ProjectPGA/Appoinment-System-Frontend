@@ -4,8 +4,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { State } from 'vuex-class';
-import { Route } from 'vue-router';
 
 import authStore from '@/store/auth-store/AuthStore';
 
