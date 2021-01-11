@@ -1,43 +1,24 @@
 {
-    "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
-        "strict": true,
-        "jsx": "preserve",
-        "importHelpers": true,
-        "moduleResolution": "node",
-        "experimentalDecorators": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "noImplicitAny": false,
-        "strictPropertyInitialization": false,
-        "sourceMap": true,
-        "baseUrl": ".",
-        "types": [
-            "webpack-env",
-            "jest"
-          ],
-          "paths": {
-            "@/*": [
-              "src/*"
-            ]
-          },
-          "lib": [
-            "esnext",
-            "dom",
-            "dom.iterable",
-            "scripthost"
-          ]
-        },
-        "include": [
-          "src/**/*.ts",
-          "src/**/*.tsx",
-          "src/**/*.vue",
-          "tests/**/*.ts",
-          "tests/**/*.tsx"
-        ],
-        "exclude": [
-          "node_modules",
-          "test/*.test.ts"
-        ]
-    }
+  "compilerOptions": {
+      "target": "es2020",
+      "module": "esnext",
+      "strict": true,
+      "jsx": "preserve",
+      "importHelpers": true,
+      "moduleResolution": "node",
+      "experimentalDecorators": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "noImplicitAny": false,
+      "strictPropertyInitialization": false,
+      "sourceMap": true,
+      "baseUrl": ".",
+      "paths": {
+          "@/*": ["src/*"]
+      },
+      "types": ["webpack-env", "node", "jest"],
+      "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules/**", "src/**/*.test.ts"]
+}

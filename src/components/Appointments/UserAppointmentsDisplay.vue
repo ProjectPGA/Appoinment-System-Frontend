@@ -1,6 +1,6 @@
 <template>
     <div>
-        <no-appoints :citas="citas"></no-appoints>
+        <!-- <no-appoints :citas="citas"></no-appoints>
         <div class="columns is-multiline p-4">
             <div
                 v-for="(cita, index) in citas"
@@ -51,20 +51,19 @@
                     </footer>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
-import { State, Action } from 'vuex-class';
+import { Component, Vue } from 'vue-property-decorator';
+// import { State, Action } from 'vuex-class';
 
 // TODO: Refactor Store
-// // TODO: Refactor Store
 // import { GlobalState } from '@/vuex/store';
 
-import NoAppoints from '@/components/Utils/NoAppoints.vue';
-import { Day, Appointment } from '@/models/appointment/Appointment';
+// import NoAppoints from '@/components/Utils/NoAppoints.vue';
+// import { Day, Appointment } from '@/models/appointment/Appointment';
 
 import {
     getDayMonth,
@@ -76,47 +75,44 @@ import {
 @Component({
     name: 'UserAppointmentsDisplay',
     components: {
-        NoAppoints,
+        // NoAppoints,
     },
 })
 export default class UserAppointmentsDisplay extends Vue {
-    @State((state: GlobalState) => state.auth.user.id) private userId: number;
-    @State((state: GlobalState) => state.utils.pastAppoints)
-    private pastAppoints: boolean;
-    @State((state: GlobalState) => state.appointment.Appointments)
-    private citas: Appointment[];
-
-    @Action('appointment/fetchActiveUserAppoints')
-    private getUserAppoints: () => void;
-    @Action('appointment/fetchPastUserAppoints')
-    private getPastUserAppoints: () => void;
-    @Action('appointment/appointCancel')
-    private appointCancel: () => void;
-
-    private mounted() {
-        this.getUserAppoints();
-    }
-    private _isActive(d: number): string {
-        return isActive(d);
-    }
-    private _getDay(arg: string, citas: Appointment) {
-        return getDay(arg, citas);
-    }
-    private _getDayMonth(date: number) {
-        return getDayMonth(date);
-    }
-    private _getAppointHour(type: number) {
-        return getAppointHour(type);
-    }
-
-    @Watch('pastAppoints')
-    private showPastAppoints() {
-        if (this.pastAppoints) {
-            this.getPastUserAppoints();
-        } else {
-            this.getUserAppoints();
-        }
-    }
+    // @State((state: GlobalState) => state.auth.user.id) private userId: number;
+    // @State((state: GlobalState) => state.utils.pastAppoints)
+    // private pastAppoints: boolean;
+    // @State((state: GlobalState) => state.appointment.Appointments)
+    // private citas: Appointment[];
+    // @Action('appointment/fetchActiveUserAppoints')
+    // private getUserAppoints: () => void;
+    // @Action('appointment/fetchPastUserAppoints')
+    // private getPastUserAppoints: () => void;
+    // @Action('appointment/appointCancel')
+    // private appointCancel: () => void;
+    // private mounted() {
+    //     this.getUserAppoints();
+    // }
+    // private _isActive(d: number): string {
+    //     return isActive(d);
+    // }
+    // private _getDay(arg: string, citas: Appointment) {
+    //     return getDay(arg, citas);
+    // }
+    // private _getDayMonth(date: number) {
+    //     return getDayMonth(date);
+    // }
+    // private _getAppointHour(type: number) {
+    //     return getAppointHour(type);
+    // }
+    // @Watch('pastAppoints')
+    // private showPastAppoints() {
+    //     if (this.pastAppoints) {
+    //         this.getPastUserAppoints();
+    //     } else {
+    //         this.getUserAppoints();
+    //     }
+    // }
 }
 </script>
 

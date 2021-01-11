@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button-translation></button-translation>
+        <!-- <button-translation></button-translation>
         <div class="columns is-centered">
             <div class="column is-6"><logo-app /></div>
         </div>
@@ -37,80 +37,77 @@
                     </p>
                 </b-field>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Action, State, Mutation } from 'vuex-class';
+// import { Action, State, Mutation } from 'vuex-class';
 
-import LogoApp from '@/components/Navigation/LogoApp.vue';
-import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
+// import LogoApp from '@/components/Navigation/LogoApp.vue';
+// import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
 
-import { AxiosResponse } from 'axios';
+// import { AxiosResponse } from 'axios';
 // TODO: Refactor Store
 // import { GlobalState } from '@/vuex/store';
 
-import { InvCode } from '@/models/utils/Code';
+// import { InvCode } from '@/models/utils/Code';
 
-import { SnackbarProgrammatic as Snackbar } from 'buefy';
+// import { SnackbarProgrammatic as Snackbar } from 'buefy';
 
-import router from '../../router';
+// import router from '../../router';
 
 @Component({
     name: 'InvitationalCode',
     components: {
-        LogoApp,
-        ButtonTranslation,
+        // LogoApp,
+        // ButtonTranslation,
     },
 })
 export default class InvitationalCode extends Vue {
-    @State((state: GlobalState) => state.utils.invitationProgress)
-    private invitationProgress: boolean;
-
-    @Mutation('utils/setInvitationProgress')
-    private changeinvitationProgress;
-    @Mutation('utils/changeStateWhatsappButton')
-    private changeStateWhatsappButton;
-
-    private code: string = '';
-    private errorMessage: string = '';
-    private bfieldType: string = '';
-    private codeObj: InvCode = { code: '' };
-    private async check() {
-        try {
-            const response: AxiosResponse = await Vue.axios({
-                method: 'POST',
-                url: '/code',
-                data: (this.codeObj = { code: this.code }),
-            });
-
-            if (!response.data.cod) {
-                this.bfieldType = 'is-danger';
-                Snackbar.open({
-                    message: response.data.mensaje + '. Intentelo de nuevo.',
-                    type: 'is-danger',
-                    position: 'is-bottom-left',
-                    duration: 5000,
-                    actionText: 'LIMPIAR',
-                    onAction: () => {
-                        this.clear();
-                    },
-                });
-            } else {
-                this.changeinvitationProgress(true);
-                router.push('/registro');
-            }
-        } catch (error) {
-            // TODO: Show error
-            // console.log('Error en el checkeo del codigo invitacional');
-        }
-    }
-    private clear() {
-        this.errorMessage = '';
-        this.code = '';
-        this.bfieldType = '';
-    }
+    // @State((state: GlobalState) => state.utils.invitationProgress)
+    // private invitationProgress: boolean;
+    // @Mutation('utils/setInvitationProgress')
+    // private changeinvitationProgress;
+    // @Mutation('utils/changeStateWhatsappButton')
+    // private changeStateWhatsappButton;
+    // private code: string = '';
+    // private errorMessage: string = '';
+    // private bfieldType: string = '';
+    // private codeObj: InvCode = { code: '' };
+    // private async check() {
+    //     try {
+    //         const response: AxiosResponse = await Vue.axios({
+    //             method: 'POST',
+    //             url: '/code',
+    //             data: (this.codeObj = { code: this.code }),
+    //         });
+    //         if (!response.data.cod) {
+    //             this.bfieldType = 'is-danger';
+    //             Snackbar.open({
+    //                 message: response.data.mensaje + '. Intentelo de nuevo.',
+    //                 type: 'is-danger',
+    //                 position: 'is-bottom-left',
+    //                 duration: 5000,
+    //                 actionText: 'LIMPIAR',
+    //                 onAction: () => {
+    //                     this.clear();
+    //                 },
+    //             });
+    //         } else {
+    //             this.changeinvitationProgress(true);
+    //             router.push('/registro');
+    //         }
+    //     } catch (error) {
+    //         // TODO: Show error
+    //         // console.log('Error en el checkeo del codigo invitacional');
+    //     }
+    // }
+    // private clear() {
+    //     this.errorMessage = '';
+    //     this.code = '';
+    //     this.bfieldType = '';
+    // }
 }
 </script>
 <style lang="scss" scoped>

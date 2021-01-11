@@ -9,8 +9,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
-import { Action, Getter, State } from 'vuex-class';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import Axios from 'axios';
 
 import mainStore from '@/store/main-store/MainStore';
@@ -35,9 +34,9 @@ export default class App extends Vue {
     private mainStore = mainStore.context(this.$store);
     private authStore = authStore.context(this.$store);
 
-    public created() {
-        const store = this.$store;
+    public created(): void {
         this.$i18n.locale = this.currentLanguage;
+
         Axios.defaults.headers.post['Accept-Language'] = this.currentLanguage;
 
         this.checkUserToken();
@@ -64,7 +63,7 @@ export default class App extends Vue {
     }
 
     @Watch('currentLanguage')
-    private onChangeLanguage(language: string) {
+    private onChangeLanguage(): void {
         this.$i18n.locale = this.currentLanguage;
     }
 }

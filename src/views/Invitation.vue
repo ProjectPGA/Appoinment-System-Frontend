@@ -1,21 +1,22 @@
 <template>
-    <invitational-code />
+    <div />
+    <!-- <invitational-code /> -->
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { State, Mutation } from 'vuex-class';
+// import { State, Mutation } from 'vuex-class';
 
 // TODO: Refactor Store
 // import { GlobalState } from '@/vuex/store';
 
-import LogoApp from '@/components/Navigation/LogoApp.vue';
-import InvitationalCode from '@/components/Invitation/InvitationalCode.vue';
+// import LogoApp from '@/components/Navigation/LogoApp.vue';
+// import InvitationalCode from '@/components/Invitation/InvitationalCode.vue';
 
 @Component({
     name: 'Invitation',
     components: {
-        LogoApp,
-        InvitationalCode,
+        // LogoApp,
+        // InvitationalCode,
     },
 })
 export default class Invitation extends Vue {}

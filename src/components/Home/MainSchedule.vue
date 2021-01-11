@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="columns box custom-box-padding is-multiline">
+        <!-- <div class="columns box custom-box-padding is-multiline">
             <div
                 v-for="(day, index) in daysFiltered"
                 :key="index"
@@ -97,145 +97,141 @@
                 :cancelLabel="$t('components.modal.cancel')"
                 @confirm="userConfirmation"
             ></confirm>
-        </modal>
+        </modal> -->
     </div>
 </template>
 <script lang="ts">
 import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
-import { State, Mutation, Action } from 'vuex-class';
+// import { State, Mutation, Action } from 'vuex-class';
 
-import { UtilState } from '@/vuex/utils/store';
+// import { UtilState } from '@/vuex/utils/store';
 // TODO: Refactor Store
 // import { GlobalState } from '@/vuex/store';
 
-import Modal from '@/components/Utils/Modal.vue';
-import Confirm from '@/components/Utils/Confirm.vue';
+// import Modal from '@/components/Utils/Modal.vue';
+// import Confirm from '@/components/Utils/Confirm.vue';
 
-import { Day, Appointment } from '@/models/appointment/Appointment';
-// @ts-ignore
-import { SnackbarProgrammatic as Snackbar } from 'buefy';
-import appointment from '@/vuex/appointment/store';
-import { getDay, getDayMonth, getAppointHour } from '@/utils/appointHelper';
+// import { Day, Appointment } from '@/models/appointment/Appointment';
+// // @ts-ignore
+// import { SnackbarProgrammatic as Snackbar } from 'buefy';
+// import appointment from '@/vuex/appointment/store';
+// import { getDay, getDayMonth, getAppointHour } from '@/utils/appointHelper';
 
 @Component({
     name: 'MainSchedule',
     components: {
-        Modal,
-        Confirm,
+        // Modal,
+        // Confirm,
     },
 })
 export default class MainSchedule extends Vue {
-    @Action('appointment/assignAppoint') private assignAppoint: (Day) => void;
-    @Action('appointment/cancelAppoint') private cancelAppoint: (Day) => void;
-    @Action('appointment/firstLoad') private firstLoad: () => void;
-
-    @State((state: GlobalState) => state.auth.user.id) private userId: number;
-    @State((state: GlobalState) => state.auth.user.name)
-    private userName: string;
-
-    @Prop() private daysFiltered: Day[];
-
-    private showModal: boolean = false;
-    private tituloModal: string = '';
-    private modalType: string = '';
-    private day: Day;
-    private appoint: Appointment;
-    private appointIndex: number;
-
-    private created() {
-        // this.firstLoad();
-    }
-    private _getDay(arr: Day, arg: string): boolean {
-        return getDay(arg, arr);
-    }
-    private openModal(day: Day, appoint: Appointment, appointIndex: number) {
-        if (appoint.takerid === this.userId) {
-            this.modalType = 'cancel';
-            this.tituloModal = `${this.$t('components.modal.CancelMessage')}`;
-            this.showModal = true;
-            this.day = day;
-            this.appoint = appoint;
-            this.appointIndex = appointIndex;
-        } else {
-            this.modalType = 'assign';
-            this.tituloModal = `${this.$t('components.modal.reserveMessage')}`;
-            this.showModal = this.notTaken(appoint);
-            this.day = day;
-            this.appoint = appoint;
-            this.appointIndex = appointIndex;
-        }
-    }
-    private async userConfirmation(accepted: boolean): Promise<void> {
-        if (accepted) {
-            switch (this.modalType) {
-                case 'assign':
-                    await this.cogerCita(
-                        this.day,
-                        this.appoint,
-                        this.appointIndex
-                    );
-                    this.showModal = false;
-                    break;
-                case 'cancel':
-                    await this.cancelarCita(
-                        this.day,
-                        this.appoint,
-                        this.appointIndex
-                    );
-                    this.showModal = false;
-                    break;
-                default:
-                    break;
-            }
-        } else {
-            this.showModal = false;
-        }
-    }
-    private notTaken(appoint: Appointment): boolean {
-        if (appoint.takerid === 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    private _getDayMonth(date: number) {
-        return getDayMonth(date);
-    }
-    private _getAppointHour(type: number) {
-        return getAppointHour(type);
-    }
-    private cancelarCita(day: Day, appoint: Appointment, appointIndex: number) {
-        day.appointments[appointIndex].takerid = 0;
-        this.cancelAppoint(day);
-        Snackbar.open(
-            `${this.$t('snackbar.cancelMessage')}` +
-                this._getDayMonth(day.date) +
-                `${this.$t('snackbar.cancelMessagedate')}` +
-                this._getAppointHour(appoint.type)
-        );
-    }
-    private cogerCita(day: Day, appoint: Appointment, appointIndex: number) {
-        if (this.checkTwoAppoints(day)) {
-            day.appointments[appointIndex].takerid = this.userId;
-            this.assignAppoint(day);
-            Snackbar.open(
-                `${this.$t('snackbar.assginMessage')}` +
-                    this._getDayMonth(day.date) +
-                    `${this.$t('snackbar.assginMessageDate')}` +
-                    this._getAppointHour(appoint.type)
-            );
-        } else {
-            Snackbar.open(`${this.$t('snackbar.oneAppoinmetPerday')}`);
-        }
-    }
-    private checkTwoAppoints(day: Day) {
-        for (let i = 0; i < day.appointments.length; i++) {
-            if (day.appointments[i].takerid === this.userId) {
-                return false;
-            }
-        }
-        return true;
-    }
+    // @Action('appointment/assignAppoint') private assignAppoint: (Day) => void;
+    // @Action('appointment/cancelAppoint') private cancelAppoint: (Day) => void;
+    // @Action('appointment/firstLoad') private firstLoad: () => void;
+    // @State((state: GlobalState) => state.auth.user.id) private userId: number;
+    // @State((state: GlobalState) => state.auth.user.name)
+    // private userName: string;
+    // @Prop() private daysFiltered: Day[];
+    // private showModal: boolean = false;
+    // private tituloModal: string = '';
+    // private modalType: string = '';
+    // private day: Day;
+    // private appoint: Appointment;
+    // private appointIndex: number;
+    // private created() {
+    //     // this.firstLoad();
+    // }
+    // private _getDay(arr: Day, arg: string): boolean {
+    //     return getDay(arg, arr);
+    // }
+    // private openModal(day: Day, appoint: Appointment, appointIndex: number) {
+    //     if (appoint.takerid === this.userId) {
+    //         this.modalType = 'cancel';
+    //         this.tituloModal = `${this.$t('components.modal.CancelMessage')}`;
+    //         this.showModal = true;
+    //         this.day = day;
+    //         this.appoint = appoint;
+    //         this.appointIndex = appointIndex;
+    //     } else {
+    //         this.modalType = 'assign';
+    //         this.tituloModal = `${this.$t('components.modal.reserveMessage')}`;
+    //         this.showModal = this.notTaken(appoint);
+    //         this.day = day;
+    //         this.appoint = appoint;
+    //         this.appointIndex = appointIndex;
+    //     }
+    // }
+    // private async userConfirmation(accepted: boolean): Promise<void> {
+    //     if (accepted) {
+    //         switch (this.modalType) {
+    //             case 'assign':
+    //                 await this.cogerCita(
+    //                     this.day,
+    //                     this.appoint,
+    //                     this.appointIndex
+    //                 );
+    //                 this.showModal = false;
+    //                 break;
+    //             case 'cancel':
+    //                 await this.cancelarCita(
+    //                     this.day,
+    //                     this.appoint,
+    //                     this.appointIndex
+    //                 );
+    //                 this.showModal = false;
+    //                 break;
+    //             default:
+    //                 break;
+    //         }
+    //     } else {
+    //         this.showModal = false;
+    //     }
+    // }
+    // private notTaken(appoint: Appointment): boolean {
+    //     if (appoint.takerid === 0) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    // private _getDayMonth(date: number) {
+    //     return getDayMonth(date);
+    // }
+    // private _getAppointHour(type: number) {
+    //     return getAppointHour(type);
+    // }
+    // private cancelarCita(day: Day, appoint: Appointment, appointIndex: number) {
+    //     day.appointments[appointIndex].takerid = 0;
+    //     this.cancelAppoint(day);
+    //     Snackbar.open(
+    //         `${this.$t('snackbar.cancelMessage')}` +
+    //             this._getDayMonth(day.date) +
+    //             `${this.$t('snackbar.cancelMessagedate')}` +
+    //             this._getAppointHour(appoint.type)
+    //     );
+    // }
+    // private cogerCita(day: Day, appoint: Appointment, appointIndex: number) {
+    //     if (this.checkTwoAppoints(day)) {
+    //         day.appointments[appointIndex].takerid = this.userId;
+    //         this.assignAppoint(day);
+    //         Snackbar.open(
+    //             `${this.$t('snackbar.assginMessage')}` +
+    //                 this._getDayMonth(day.date) +
+    //                 `${this.$t('snackbar.assginMessageDate')}` +
+    //                 this._getAppointHour(appoint.type)
+    //         );
+    //     } else {
+    //         Snackbar.open(`${this.$t('snackbar.oneAppoinmetPerday')}`);
+    //     }
+    // }
+    // private checkTwoAppoints(day: Day) {
+    //     for (let i = 0; i < day.appointments.length; i++) {
+    //         if (day.appointments[i].takerid === this.userId) {
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    // }
 }
 </script>
 <style lang="scss" scoped>

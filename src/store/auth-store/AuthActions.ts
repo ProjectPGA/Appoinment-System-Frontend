@@ -61,6 +61,8 @@ export default class AuthActions extends Actions<
                 } else {
                     this.commit('setUserNotisLogged', null);
                 }
+            } else {
+                this.commit('setUserNotisLogged', null);
             }
         } catch (exception) {
             this.commit('setLoginFailed', null);
@@ -95,7 +97,7 @@ export default class AuthActions extends Actions<
     }
 
     public async logout(): Promise<void> {
-        location.href = '/api/auth/v1/redirect-to-logout';
+        this.commit('setUserNotisLogged', null);
     }
 
     public enableRegisterProcess(): void {

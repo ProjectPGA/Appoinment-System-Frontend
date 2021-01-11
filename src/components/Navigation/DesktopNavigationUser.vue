@@ -15,11 +15,7 @@
             </a>
             <hr class="navbar-divider" />
             <a class="navbar-item">
-                <router-link
-                    to="/"
-                    class="menu-title"
-                    @click.native="signoff()"
-                >
+                <router-link to="/" class="menu-title" @click.native="logout()">
                     {{ $t('user.logof') }}
                 </router-link>
             </a>
@@ -29,28 +25,21 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { State, Mutation } from 'vuex-class';
 
-import { GlobalState } from '../../vuex/store';
-
-import router from '@/router';
+import authStore from '@/store/auth-store/AuthStore';
 
 @Component({
     name: 'DesktopNavigationUser',
 })
 export default class DesktopNavigationUser extends Vue {
-    @State((state: GlobalState) => state.auth.user.name)
-    private username: string;
+    private authStore = authStore.context(this.$store);
 
-    @Mutation('auth/unsetUser') private unsetUser;
-    @Mutation('utils/unsetPastAppoints') private unsetPastAppoints;
+    private logout(): void {
+        this.authStore.actions.logout();
+    }
 
-    private openUserMenu: boolean = false;
-
-    private signoff() {
-        this.unsetUser();
-        this.unsetPastAppoints();
-        router.push('/');
+    private get username(): string | null {
+        return this.authStore.state.name;
     }
 }
 </script>

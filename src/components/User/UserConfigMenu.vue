@@ -1,6 +1,6 @@
 <template>
     <div class="column is-3">
-        <b-menu>
+        <!-- <b-menu>
             <b-menu-list
                 class="custom-menu-title"
                 icon-pack="fas"
@@ -39,13 +39,13 @@
                     ></b-menu-item>
                 </b-menu-item>
             </b-menu-list>
-        </b-menu>
+        </b-menu> -->
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Mutation, State } from 'vuex-class';
+// import { Mutation, State } from 'vuex-class';
 // TODO: Refactor Store
 // import { GlobalState } from '@/vuex/store';
 
@@ -54,11 +54,11 @@ import { Mutation, State } from 'vuex-class';
     components: {},
 })
 export default class UserConfigMenu extends Vue {
-    @Mutation('utils/setSelectedSettingsMenu') private setSelectedSettings: (
-        menu: string
-    ) => void;
-    @State((state: GlobalState) => state.auth.user.admin)
-    private admin: boolean;
+    // @Mutation('utils/setSelectedSettingsMenu') private setSelectedSettings: (
+    //     menu: string
+    // ) => void;
+    // @State((state: GlobalState) => state.auth.user.admin)
+    // private admin: boolean;
 }
 </script>
 

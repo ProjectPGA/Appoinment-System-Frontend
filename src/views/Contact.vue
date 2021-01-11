@@ -2,8 +2,8 @@
     <div>
         <div class="content-contact">
             <div class="columns is-multiline">
-                <div class="column"><contact-data /></div>
-                <div class="column"><contact-map /></div>
+                <!-- <div class="column"><contact-data /></div>
+                <div class="column"><contact-map /></div> -->
             </div>
         </div>
     </div>
@@ -12,14 +12,14 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import ContactData from '@/components/Contact/ContactData.vue';
-import ContactMap from '@/components/Contact/ContactMap.vue';
+// import ContactData from '@/components/Contact/ContactData.vue';
+// import ContactMap from '@/components/Contact/ContactMap.vue';
 
 @Component({
     name: 'Contact',
     components: {
-        ContactData,
-        ContactMap,
+        // ContactData,
+        // ContactMap,
     },
 })
 export default class Contact extends Vue {}
