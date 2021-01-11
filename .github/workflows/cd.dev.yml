@@ -24,5 +24,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build
-      continue-on-error: true
     - run: cp -a dist/* /var/www/html/dev/appointment-system/ 
