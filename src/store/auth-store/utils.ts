@@ -1,4 +1,9 @@
-import { AuthUser } from '../../models/auth/AuthUser';
+export interface AuthUser {
+    id: number;
+    email: string;
+    name: string;
+    admin: boolean;
+}
 
 export const emptyUser: AuthUser = {
     id: 0,
