@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <form>
         <button-translation></button-translation>
         <div class="columns is-centered">
             <div class="column login-logo">
@@ -66,13 +66,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { SnackbarProgrammatic as Snackbar } from 'buefy';
-
-import router from '@/router';
 
 import authStore from '@/store/auth-store/AuthStore';
 

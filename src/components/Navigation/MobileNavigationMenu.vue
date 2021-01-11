@@ -89,7 +89,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { State, Mutation, Action } from 'vuex-class';
 
 import authStore from '@/store/auth-store/AuthStore';
 import mainStore from '@/store/main-store/MainStore';
@@ -129,7 +128,7 @@ export default class MobileNavigationMenu extends Vue {
     }
 
     private get username(): string | null {
-        return this.authStore.state.username;
+        return this.authStore.state.name;
     }
 
     private hide(): void {

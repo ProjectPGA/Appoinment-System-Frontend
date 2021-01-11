@@ -17,9 +17,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { State } from 'vuex-class';
-
-import { GlobalState } from '../../vuex/store';
 
 import DesktopNavigationLink from '@/components/Navigation/DesktopNavigationLink.vue';
 

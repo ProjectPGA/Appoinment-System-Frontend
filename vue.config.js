@@ -48,4 +48,11 @@ module.exports = {
             patterns: [path.resolve(__dirname, 'src/styles/utilities.scss')],
         },
     },
+
+    // https://github.com/vuejs/vue-cli/issues/3123#issue-390532313
+    chainWebpack(config) {
+        config.resolve
+            .plugin('tsconfig-paths')
+            .use(require('tsconfig-paths-webpack-plugin'));
+    },
 };

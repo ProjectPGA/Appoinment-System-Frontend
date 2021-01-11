@@ -7,9 +7,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { State, Mutation } from 'vuex-class';
-
-import { GlobalState } from '../../vuex/store';
 
 import DesktopNavigationUser from '@/components/Navigation/DesktopNavigationUser.vue';
 import DesktopNavigationLanguage from '@/components/Navigation/DesktopNavigationLanguage.vue';
