@@ -1,4 +1,4 @@
-import { AuthUser } from '@/models/auth/AuthUser';
+import { AuthUser } from '../../models/auth/AuthUser';
 
 export const emptyUser: AuthUser = {
     id: 0,
