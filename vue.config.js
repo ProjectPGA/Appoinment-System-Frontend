@@ -4,15 +4,6 @@ module.exports = {
     transpileDependencies: ['d3-scale', 'd3-array', 'cash-dom'],
     devServer: {
         port: 18000,
-        proxy: {
-            '/api': {
-                target: 'http://45.9.190.165:3000/',
-                ws: true,
-                changeOrigin: true,
-                cookieDomainRewrite: true,
-                protocolRewrite: 'http',
-            },
-        },
     },
 
     pwa: {

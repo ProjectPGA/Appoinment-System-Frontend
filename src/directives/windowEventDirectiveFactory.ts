@@ -1,4 +1,4 @@
-export const windowEventDirectiveFactory = (eventName: string) => ({
+export const windowEventDirectiveFactory = (eventName: string): any => ({
     inserted(el, binding) {
         let f: any = function (evt) {
             if (binding.value(evt, el)) {

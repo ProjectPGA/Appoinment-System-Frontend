@@ -4,7 +4,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { State } from 'vuex-class';
 
 import NavigationBar from './Navigationbar.vue';
 

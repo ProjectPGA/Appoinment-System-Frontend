@@ -29,14 +29,15 @@ export default class PIcon extends Vue {
     })
     private name: string;
 
-    get iconConfig() {
+    // TODO: Fix types
+    get iconConfig(): any {
         return iconRegistry[this.name] || {};
     }
 
-    get viewBox() {
+    get viewBox(): any {
         return this.iconConfig.viewBox || '0 0 24 19';
     }
-    get size() {
+    get size(): any {
         const { iconConfig } = this;
         return {
             width: iconConfig.width ? iconConfig.width + 'em' : undefined,
