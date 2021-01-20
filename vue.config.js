@@ -1,23 +1,9 @@
-// const devMode = process.env.NODE_ENV === 'development';
-
 const path = require('path');
 
 module.exports = {
-    // TODO: Review if not works
-    // publicPath: devMode ? '' : ':3000',
-
     transpileDependencies: ['d3-scale', 'd3-array', 'cash-dom'],
     devServer: {
         port: 18000,
-        proxy: {
-            '/api': {
-                target: 'http://45.9.190.165:3000/',
-                ws: true,
-                changeOrigin: true,
-                cookieDomainRewrite: true,
-                protocolRewrite: 'http',
-            },
-        },
     },
 
     pwa: {
