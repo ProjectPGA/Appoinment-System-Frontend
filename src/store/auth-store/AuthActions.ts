@@ -6,13 +6,16 @@ import AuthMutations from './AuthMutations';
 
 import {
     login,
+    logout,
     renewToken,
     checkUserToken,
 } from '../../webservices/AuthWebservice';
 
 import { LoginRequest } from '../../webservices/models/auth/LoginRequest';
 import { TokenResponse } from '../../webservices/models/auth/TokenResponse';
+
 import { UserData } from '@/models/user/UserData';
+import { AuthTockens } from '@/models/auth/AuthTockens';
 
 export default class AuthActions extends Actions<
     AuthState,
@@ -32,15 +35,16 @@ export default class AuthActions extends Actions<
                 });
 
                 if (response.accessToken !== null) {
-                    this.saveJTWAccessToken(response.accessToken);
+                    this.dispatch('saveJTWAccessToken', response.accessToken);
                 } else {
-                    // TODO. Reference logout when implemented
+                    this.commit('setUserNotisLogged', null);
                 }
             } else {
-                // TODO. Reference logout when implemented
+                this.commit('setUserNotisLogged', null);
             }
         } catch (exception) {
-            // TODO. Reference logout when implemented
+            // TODO. Show error
+            this.commit('setUserNotisLogged', null);
         }
     }
 
@@ -65,6 +69,7 @@ export default class AuthActions extends Actions<
                 this.commit('setUserNotisLogged', null);
             }
         } catch (exception) {
+            // TODO. Show error
             this.commit('setLoginFailed', null);
         }
     }
@@ -84,20 +89,41 @@ export default class AuthActions extends Actions<
 
             if (response.user !== null) {
                 this.commit('setIsLogged', response.user);
-                this.saveJTWTokens(response.accessToken, response.refreshToken);
+                this.dispatch('saveJTWTokens', {
+                    accessToken: response.accessToken,
+                    refreshToken: response.refreshToken,
+                });
             } else {
                 this.commit('setUserNotisLogged', null);
                 return false;
             }
             return true;
         } catch (exception) {
+            // TODO. Show error
             this.commit('setLoginFailed', null);
             return false;
         }
     }
 
     public async logout(): Promise<void> {
-        this.commit('setUserNotisLogged', null);
+        try {
+            const refreshToken: string | null = localStorage.getItem(
+                'refreshToken'
+            );
+            if (refreshToken !== null) {
+                await logout({
+                    refreshToken,
+                });
+
+                localStorage.removeItem('refreshToken');
+
+                this.commit('setUserNotisLogged', null);
+            } else {
+                this.commit('setUserNotisLogged', null);
+            }
+        } catch (exception) {
+            // TODO: show error
+        }
     }
 
     public enableRegisterProcess(): void {
@@ -108,13 +134,13 @@ export default class AuthActions extends Actions<
         this.commit('disableRegisterProcess', null);
     }
 
-    public saveJTWTokens(
-        accessToken: string | null,
-        refreshToken: string | null
-    ): void {
-        if (accessToken !== null && refreshToken !== null) {
-            localStorage.setItem('accessToken', accessToken);
-            localStorage.setItem('refreshToken', refreshToken);
+    public saveJTWTokens(authTockens: AuthTockens): void {
+        if (
+            authTockens.accessToken !== null &&
+            authTockens.refreshToken !== null
+        ) {
+            localStorage.setItem('accessToken', authTockens.accessToken);
+            localStorage.setItem('refreshToken', authTockens.refreshToken);
         }
     }
 

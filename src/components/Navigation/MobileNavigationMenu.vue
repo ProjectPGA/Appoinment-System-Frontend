@@ -74,7 +74,7 @@
                             <router-link
                                 to="/"
                                 class="menu-title"
-                                @click.native="signoff()"
+                                @click.native="logout()"
                             >
                                 <b-icon pack="fas" icon="sign-out-alt" />
                                 {{ $t('user.logof') }}
@@ -96,8 +96,6 @@ import mainStore from '@/store/main-store/MainStore';
 import MobileNavigationLink from '@/components/Navigation/MobileNavigationLink.vue';
 import PIcon from '@/components/icons/PIcon.vue';
 import Collapse from '@/components/Utils/Collapse.vue';
-
-import router from '@/router';
 
 @Component({
     name: 'MobileNavigationMenu',
@@ -127,16 +125,16 @@ export default class MobileNavigationMenu extends Vue {
         return this.mainStore.state.currentLanguage;
     }
 
+    private logout(): void {
+        this.authStore.actions.logout();
+    }
+
     private get username(): string | null {
         return this.authStore.state.name;
     }
 
     private hide(): void {
         this.$emit('hide');
-    }
-
-    private signoff(): void {
-        router.push('/');
     }
 }
 </script>
