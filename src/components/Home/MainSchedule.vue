@@ -101,7 +101,7 @@
     </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Emit, Prop } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 // import { State, Mutation, Action } from 'vuex-class';
 
 // import { UtilState } from '@/vuex/utils/store';

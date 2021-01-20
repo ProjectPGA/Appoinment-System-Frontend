@@ -1,4 +1,3 @@
-// @ts-ignore
 import axios from 'axios';
 
 import { apiPrefix, jsonHeaders } from './consts';
@@ -10,10 +9,6 @@ import { TokenResponse } from './models/auth/TokenResponse';
 import { LogoutRequest } from './models/auth/LogoutRequest';
 
 const baseUrl: string = apiPrefix('');
-
-const api = axios.create({
-    headers: { Pragma: 'no-cache' },
-});
 
 export const login: (
     params: LoginRequest

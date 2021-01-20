@@ -65,12 +65,12 @@ import { Component, Vue } from 'vue-property-decorator';
 // import NoAppoints from '@/components/Utils/NoAppoints.vue';
 // import { Day, Appointment } from '@/models/appointment/Appointment';
 
-import {
-    getDayMonth,
-    getDay,
-    getAppointHour,
-    isActive,
-} from '@/utils/appointHelper';
+// import {
+//     getDayMonth,
+//     getDay,
+//     getAppointHour,
+//     isActive,
+// } from '@/utils/appointHelper';
 
 @Component({
     name: 'UserAppointmentsDisplay',

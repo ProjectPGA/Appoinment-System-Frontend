@@ -41,7 +41,7 @@
     </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 // import { Action, State, Mutation } from 'vuex-class';
 
 // import LogoApp from '@/components/Navigation/LogoApp.vue';
