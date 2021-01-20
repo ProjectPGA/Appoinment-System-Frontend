@@ -1,1 +1,1 @@
-export const getElem = (selector: string) => cy.get(selector);
+export const getElem = (selector: string): any => cy.get(selector);

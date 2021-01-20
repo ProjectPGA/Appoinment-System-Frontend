@@ -1,5 +1,6 @@
+// const devMode = process.env.NODE_ENV === 'development';
+
 const path = require('path');
-const devMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
     // TODO: Review if not works

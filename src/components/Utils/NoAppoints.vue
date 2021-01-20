@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { State } from 'vuex-class';
+
 import { Appointment } from '@/models/appointment/Appointment';
 
 @Component({
