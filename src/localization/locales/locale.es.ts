@@ -23,8 +23,12 @@ const es = {
             password: 'Contraseña',
             repeatPassword: 'Repetir Contraseña',
             button: 'Registrar',
-            invitationCodeTitle: 'Introduce tu codigo de invitación',
-            invitationCodeButton: 'Validar',
+        },
+        invitation: {
+            title: 'Introduce tu codigo de invitación',
+            button: 'Validar',
+            error: 'Codigo de invitacion incorrecto!',
+            clean: 'Limpiar',
         },
         login: {
             email: 'E-Mail',

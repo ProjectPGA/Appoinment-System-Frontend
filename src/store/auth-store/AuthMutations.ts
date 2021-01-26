@@ -45,4 +45,12 @@ export default class AuthMutations extends Mutations<AuthState> {
     public disableRegisterProcess(): void {
         this.state.isRegisterProcess = false;
     }
+
+    public setInvitationalCodeError(): void {
+        this.state.isInvitationalCodeError = true;
+    }
+
+    public disableInvitationalCodeError(): void {
+        this.state.isInvitationalCodeError = false;
+    }
 }
