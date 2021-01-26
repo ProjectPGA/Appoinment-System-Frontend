@@ -4,10 +4,10 @@
             <section class="hero is-danger">
                 <div class="hero-body">
                     <div class="container">
-                        <h1 class="title">{{ $('utils.noAppointsTitle') }}</h1>
+                        <h1 class="title">{{ $('components.utils.noAppointsTitle') }}</h1>
                         <h2 class="subtitle">
                             <router-link to="/inicio"
-                                >{{ $('utils.noAppointsSubtitle') }}</router-link
+                                >{{ $('components.utils.noAppointsSubtitle') }}</router-link
                             >
                         </h2>
                     </div>
