@@ -9,6 +9,7 @@ import {
     logout,
     renewToken,
     checkUserToken,
+    checkInvitationalCode,
 } from '../../webservices/AuthWebservice';
 
 import { LoginRequest } from '../../webservices/models/auth/LoginRequest';
@@ -16,6 +17,8 @@ import { TokenResponse } from '../../webservices/models/auth/TokenResponse';
 
 import { UserData } from '@/models/user/UserData';
 import { AuthTockens } from '@/models/auth/AuthTockens';
+
+import router from '@/router';
 
 export default class AuthActions extends Actions<
     AuthState,
@@ -123,6 +126,20 @@ export default class AuthActions extends Actions<
             }
         } catch (exception) {
             // TODO: show error
+        }
+    }
+
+    public async checkInvitationalCode(invitationCode: string): Promise<void> {
+        try {
+            this.commit('disableInvitationalCodeError', null);
+
+            await checkInvitationalCode({ invitationCode });
+
+            this.dispatch('enableRegisterProcess', null);
+
+            router.push('/register');
+        } catch (exception) {
+            this.commit('setInvitationalCodeError', null);
         }
     }
 

@@ -7,6 +7,7 @@ import { LoginRequest } from './models/auth/LoginRequest';
 import { TokenRequest } from './models/auth/TokenRequest';
 import { TokenResponse } from './models/auth/TokenResponse';
 import { LogoutRequest } from './models/auth/LogoutRequest';
+import { InvitationalCodeRequest } from './models/auth/InvitationalCodeRequest';
 
 const baseUrl: string = apiPrefix('');
 
@@ -43,6 +44,17 @@ export const renewToken: (
 ) => Promise<TokenResponse> = async params => {
     const response = await axios.post<TokenResponse>(
         `${baseUrl}/token`,
+        params,
+        jsonHeaders
+    );
+    return response.data;
+};
+
+export const checkInvitationalCode: (
+    params: InvitationalCodeRequest
+) => Promise<InvitationalCodeRequest> = async params => {
+    const response = await axios.post<InvitationalCodeRequest>(
+        `${baseUrl}/invitation`,
         params,
         jsonHeaders
     );

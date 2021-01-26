@@ -21,8 +21,12 @@ const en = {
             password: 'Password',
             repeatPassword: 'Repeat Password',
             button: 'Register',
-            invitationCodeTitle: 'Enter your invitation code',
-            invitationCodeButton: 'Validate',
+        },
+        invitation: {
+            title: 'Enter your invitation code',
+            button: 'Validate',
+            error: 'Invalid invitational code!',
+            clean: 'Clean',
         },
         login: {
             email: 'E-Mail',

@@ -3,8 +3,8 @@ import VueRouter from 'vue-router';
 
 import Home from '@/views/Home.vue';
 // import Login from '@/views/Login.vue';
-// import Register from '@/views/Register.vue';
-// import Invitation from '@/views/Invitation.vue';
+import Register from '@/views/Register.vue';
+import Invitation from '@/views/Invitation.vue';
 // import UserAppointments from '@/views/UserAppointments.vue';
 // import Contact from '@/views/Contact.vue';
 // import User from '@/views/User.vue';
@@ -38,18 +38,18 @@ const routes = [
             // },
         ],
     },
-    // {
-    //     path: '/Registro',
-    //     name: 'Register',
-    //     component: Register,
-    //     meta: { linkText: 'Register' },
-    // },
-    // {
-    //     path: '/Invitation',
-    //     name: 'Invitation',
-    //     component: Invitation,
-    //     meta: { linkText: 'Invitation' },
-    // },
+    {
+        path: '/Register',
+        name: 'Register',
+        component: Register,
+        meta: { linkText: 'Register' },
+    },
+    {
+        path: '/Invitation',
+        name: 'Invitation',
+        component: Invitation,
+        meta: { linkText: 'Invitation' },
+    },
     {
         path: '*',
         name: 'fallback',
