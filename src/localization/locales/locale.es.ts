@@ -55,7 +55,7 @@ const es = {
         utils: {
             noAppointsTitle: 'Ninguna cita asignada',
             noAppointsSubtitle: 'Puedes asignarte una cita pulsando aquí',
-        }
+        },
     },
     user: {
         settings: 'Configuración',

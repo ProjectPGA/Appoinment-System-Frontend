@@ -49,12 +49,12 @@ const en = {
             reserved: 'Reserved',
             userAppointment: 'My appointment',
             pastAppointments: 'Past appointments',
-            
         },
         utils: {
             noAppointsTitle: 'Any appointment asigned',
-            noAppointsSubtitle: 'You can assign you an appointment by pressing here',
-        }
+            noAppointsSubtitle:
+                'You can assign you an appointment by pressing here',
+        },
     },
     user: {
         settings: 'Configuration',
