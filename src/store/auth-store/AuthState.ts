@@ -7,6 +7,8 @@ export default class AuthState {
     public isRegisterProcess: boolean = false;
     public name: string | null = null;
     public email: string | null = null;
-    public isInvitationalCodeError: boolean = false;
     public loginRequestStatus: RequestStatus = RequestStatus.IN_PROGRESS;
+    public isInvitationalCodeError: boolean = false;
+    public isRegisterProcessError: boolean = false;
+    public isEmailAlreadyExist: boolean = false;
 }

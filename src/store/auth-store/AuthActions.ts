@@ -7,18 +7,21 @@ import AuthMutations from './AuthMutations';
 import {
     login,
     logout,
+    register,
     renewToken,
     checkUserToken,
     checkInvitationalCode,
-} from '../../webservices/AuthWebservice';
+    checkIfEmailAlreadyExist,
+} from '@/webservices/AuthWebservice';
 
-import { LoginRequest } from '../../webservices/models/auth/LoginRequest';
-import { TokenResponse } from '../../webservices/models/auth/TokenResponse';
+import { LoginRequest } from '@/webservices/models/auth/LoginRequest';
+import { TokenResponse } from '@/webservices/models/auth/TokenResponse';
 
 import { UserData } from '@/models/user/UserData';
 import { AuthTockens } from '@/models/auth/AuthTockens';
 
 import router from '@/router';
+import { RegisterRequest } from '@/webservices/models/auth/RegisterRequest';
 
 export default class AuthActions extends Actions<
     AuthState,
@@ -108,6 +111,34 @@ export default class AuthActions extends Actions<
         }
     }
 
+    public async register({
+        registerData,
+    }: {
+        registerData: RegisterRequest;
+    }): Promise<boolean> {
+        try {
+            this.commit('setLoginInProgress', null);
+
+            const response: UserData = await register(registerData);
+
+            if (response.user !== null) {
+                this.commit('setIsLogged', response.user);
+                this.dispatch('saveJTWTokens', {
+                    accessToken: response.accessToken,
+                    refreshToken: response.refreshToken,
+                });
+            } else {
+                this.commit('setUserNotisLogged', null);
+                return false;
+            }
+            return true;
+        } catch (exception) {
+            // TODO. Show error
+            this.commit('setLoginFailed', null);
+            return false;
+        }
+    }
+
     public async logout(): Promise<void> {
         try {
             const refreshToken: string | null = localStorage.getItem(
@@ -143,12 +174,38 @@ export default class AuthActions extends Actions<
         }
     }
 
+    public async checkIfMailAlreadyExist(email: string): Promise<void> {
+        try {
+            this.dispatch('disableEmailAlreadyExist', null);
+
+            await checkIfEmailAlreadyExist({ email });
+        } catch (exception) {
+            this.dispatch('enableEmailAlreadyExist', null);
+        }
+    }
+
     public enableRegisterProcess(): void {
         this.commit('enableRegisterProcess', null);
     }
 
     public disableRegisterProcess(): void {
         this.commit('disableRegisterProcess', null);
+    }
+
+    public enableEmailAlreadyExist(): void {
+        this.commit('enableEmailAlreadyExist', null);
+    }
+
+    public disableEmailAlreadyExist(): void {
+        this.commit('disableEmailAlreadyExist', null);
+    }
+
+    public setRegisterInProgress(): void {
+        this.commit('setRegisterInProgress', null);
+    }
+
+    public unsetRegisterInProgress(): void {
+        this.commit('unsetRegisterInProgress', null);
     }
 
     public saveJTWTokens(authTockens: AuthTockens): void {

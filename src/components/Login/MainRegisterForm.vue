@@ -1,51 +1,49 @@
 <template>
     <div>
-        <!-- <button-translation></button-translation>
+        <button-translation></button-translation>
         <div class="columns is-centered">
             <div class="column is-6"><logo-app /></div>
         </div>
+        <!-- TODO. Default error messages need to be translated -->
         <div class="columns is-centered is-mobile">
             <div class="column is-6-desktop is-10-mobile container">
                 <p class="title">{{ $t('titles.register') }}</p>
-                <b-field
-                    :label="$t('components.register.name')"
-                    :type="bfieldType"
-                >
+                <b-field :label="$t('components.register.name')">
                     <b-input
                         v-model="name"
                         :placeholder="$t('components.register.name')"
                         size="is-medium"
                         class="custom-margin"
+                        required
                     >
                     </b-input>
                 </b-field>
-                <b-field
-                    :label="$t('components.register.surname')"
-                    :type="bfieldType"
-                >
+                <b-field :label="$t('components.register.surname')">
                     <b-input
-                        v-model="apellidos"
+                        v-model="surname"
                         :placeholder="$t('components.register.surname')"
                         size="is-medium"
                         class="custom-margin"
+                        required
                     >
                     </b-input>
                 </b-field>
-                <b-field
-                    :label="$t('components.register.email')"
-                    :type="emailfieldType"
-                >
+                <b-field :label="$t('components.register.email')">
                     <b-input
                         v-model="email"
                         :placeholder="$t('components.register.email')"
                         size="is-medium"
                         class="custom-margin"
+                        required
                     >
                     </b-input>
                 </b-field>
                 <b-field
-                    :label="$t('components.register.password')"
-                    :type="passfieldType"
+                    :label="$t('components.register.repeatPassword')"
+                    :message="isNotRequiredLength"
+                    :type="{
+                        'is-danger': isNotRequiredLength || isPasswordEmpty,
+                    }"
                 >
                     <b-input
                         v-model="password"
@@ -53,181 +51,213 @@
                         type="password"
                         size="is-medium"
                         class="custom-margin"
+                        required
                         password-reveal
+                        @blur="checkPasswordEmpty"
                     >
                     </b-input>
                 </b-field>
                 <b-field
                     :label="$t('components.register.repeatPassword')"
-                    :type="passfieldType"
+                    :message="isNotSamePassword"
+                    :type="{
+                        'is-danger': isNotSamePassword || isRepeatPasswordEmpty,
+                    }"
                 >
                     <b-input
-                        v-model="passwordRe"
+                        v-model="passwordRepeat"
                         :placeholder="$t('components.register.password')"
                         type="password"
                         size="is-medium"
                         class="custom-margin"
+                        required
                         password-reveal
-                        @keyup.native.enter="checRegist()"
+                        @blur="checkRepeatPasswordEmpty"
+                        @keyup.native.enter="checkRegister()"
                     >
                     </b-input>
                 </b-field>
                 <div class="columns is-vcentered">
                     <div class="column is-2">
                         <b-button
-                            @click="checRegist()"
-                            :loading="isLoading"
+                            @click="checkRegister()"
+                            :loading="isRegisterLoading"
                             outlined
                             type="is-danger"
                             size="is-medium"
+                            :disabled="areFieldsEmpty"
                             >{{ $t('components.register.button') }}</b-button
                         >
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-// import { SnackbarProgrammatic as Snackbar } from 'buefy';
-// import Axios, { AxiosResponse } from 'axios';
+
+import { SnackbarProgrammatic as Snackbar } from 'buefy';
+
+import authStore from '@/store/auth-store/AuthStore';
+
 // import router from '../../router';
-// import { Mutation } from 'vuex-class';
-// import { setTimeout } from 'timers';
 
-// import { AuthUser } from '@/models/auth/AuthUser';
-
-// import LogoApp from '@/components/Navigation/LogoApp.vue';
-// import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
+import LogoApp from '@/components/Navigation/LogoApp.vue';
+import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
 
 @Component({
     name: 'MainRegisterForm',
     components: {
-        // LogoApp,
-        // ButtonTranslation,
+        LogoApp,
+        ButtonTranslation,
     },
 })
 export default class MainRegisterForm extends Vue {
-    // private email: string = '';
-    // private name: string = '';
-    // private password: string = '';
-    // private emailRe: string = '';
-    // private apellidos: string = '';
-    // private passwordRe: string = '';
-    // private isLoading: boolean = false;
-    // private bfieldType: string = '';
-    // private emailfieldType: string = '';
-    // private passfieldType: string = '';
-    // @Mutation('auth/setUser') private saveUser: (user: AuthUser) => void;
-    // @Mutation('utils/setInvitationProgress') private changeinvitationProgress: (
-    //     inv: boolean
-    // ) => void;
-    // private async checRegist() {
-    //     if (this.password === this.passwordRe) {
-    //         try {
-    //             const response: AxiosResponse = await Vue.axios({
-    //                 method: 'POST',
-    //                 url: '/mailcheck',
-    //                 data: {
-    //                     email: this.email,
-    //                 },
-    //             });
-    //             if (!response.data.cod) {
-    //                 this.emailfieldType = 'is-success';
-    //                 this.Regist();
-    //             } else {
-    //                 Snackbar.open({
-    //                     message: `${this.$t('snackbar.existEmail')}`,
-    //                     type: 'is-danger',
-    //                     position: 'is-bottom-left',
-    //                     indefinite: true,
-    //                     actionText: `${this.$t('snackbar.try')}`,
-    //                     onAction: () => {
-    //                         this.clearInputs();
-    //                     },
-    //                 });
-    //                 this.emailfieldType = 'is-danger';
-    //             }
-    //         } catch (error) {
-    //             // TODO: Show Error
-    //             // console.log(error);
-    //         }
-    //     } else {
-    //         this.passfieldType = 'is-danger';
-    //         Snackbar.open({
-    //             message: `${this.$t('snackbar.notLikePassword')}`,
-    //             type: 'is-danger',
-    //             position: 'is-bottom-left',
-    //             indefinite: true,
-    //             actionText: `${this.$t('snackbar.try')}`,
-    //             onAction: () => {
-    //                 this.clearPassInputs();
-    //             },
-    //         });
-    //     }
-    // }
-    // private async Regist() {
-    //     this.isLoading = true;
-    //     try {
-    //         const response: AxiosResponse = await Vue.axios({
-    //             method: 'POST',
-    //             url: '/users',
-    //             data: {
-    //                 id: Date.now(),
-    //                 email: this.email,
-    //                 password: this.password,
-    //                 name: this.name + ' ' + this.apellidos,
-    //                 admin: false,
-    //             },
-    //         });
-    //         if (response.status === 201) {
-    //             this.isLoading = false;
-    //             const user = {
-    //                 id: response.data.id,
-    //                 email: response.data.email,
-    //                 name: response.data.name,
-    //                 admin: response.data.admin,
-    //             };
-    //             this.saveUser(user);
-    //             this.changeinvitationProgress(false);
-    //             router.push('/inicio');
-    //         } else {
-    //             this.bfieldType = 'is-danger';
-    //             this.emailfieldType = 'is-danger';
-    //             this.passfieldType = 'is-danger';
-    //             this.isLoading = false;
-    //             Snackbar.open({
-    //                 message: 'Error en el registro',
-    //                 type: 'is-danger',
-    //                 position: 'is-bottom-left',
-    //                 indefinite: true,
-    //                 actionText: 'Volver a intentar',
-    //                 onAction: () => {
-    //                     this.clearInputs();
-    //                 },
-    //             });
-    //         }
-    //     } catch (error) {
-    //         // TODO: Show Error
-    //         // console.log(error);
-    //     }
-    // }
-    // private clearInputs() {
-    //     this.email = '';
-    //     this.password = '';
-    //     this.passwordRe = '';
-    //     this.bfieldType = '';
-    //     this.emailfieldType = '';
-    //     this.passfieldType = '';
-    // }
-    // private clearPassInputs() {
-    //     this.passwordRe = '';
-    //     this.password = '';
-    //     this.bfieldType = '';
-    //     this.emailfieldType = '';
-    //     this.passfieldType = '';
-    // }
+    private authStore = authStore.context(this.$store);
+
+    private name: string = '';
+    private surname: string = '';
+    private email: string = '';
+    private password: string = '';
+    private isPasswordEmpty: boolean = false;
+    private isRepeatPasswordEmpty: boolean = false;
+    private passwordRepeat: string = '';
+
+    private async checkRegister(): Promise<void> {
+        this.setRegisterInProgress();
+
+        await this.checkIfMailAlreadyExist(this.email);
+
+        if (this.isEmailAlreadyExist) {
+            this.unsetRegisterInProgress();
+
+            Snackbar.open({
+                message: `${this.$t('components.register.emailExist')}`,
+                type: 'is-danger',
+                position: 'is-bottom-left',
+                indefinite: true,
+                actionText: `${this.$t('components.register.tryAgain')}`,
+                onAction: () => {
+                    this.clearPassInputs();
+                },
+            });
+        } else {
+            this.Register();
+        }
+    }
+
+    private Register(): void {
+        // this.isLoading = true;
+        // try {
+        //     const response: AxiosResponse = await Vue.axios({
+        //         method: 'POST',
+        //         url: '/users',
+        //         data: {
+        //             id: Date.now(),
+        //             email: this.email,
+        //             password: this.password,
+        //             name: this.name + ' ' + this.apellidos,
+        //             admin: false,
+        //         },
+        //     });
+        //     if (response.status === 201) {
+        //         this.isLoading = false;
+        //         const user = {
+        //             id: response.data.id,
+        //             email: response.data.email,
+        //             name: response.data.name,
+        //             admin: response.data.admin,
+        //         };
+        //         this.saveUser(user);
+        //         this.changeinvitationProgress(false);
+        //         router.push('/inicio');
+        //     } else {
+        //         this.bfieldType = 'is-danger';
+        //         this.emailfieldType = 'is-danger';
+        //         this.passfieldType = 'is-danger';
+        //         this.isLoading = false;
+        //         Snackbar.open({
+        //             message: 'Error en el registro',
+        //             type: 'is-danger',
+        //             position: 'is-bottom-left',
+        //             indefinite: true,
+        //             actionText: 'Volver a intentar',
+        //             onAction: () => {
+        //                 this.clearInputs();
+        //             },
+        //         });
+        //     }
+        // } catch (error) {
+        //     TODO: Show Error
+        //     console.log(error);
+        // }
+    }
+
+    private clearPassInputs(): void {
+        this.password = '';
+        this.passwordRepeat = '';
+    }
+
+    private async checkIfMailAlreadyExist(email: string): Promise<void> {
+        await this.authStore.actions.checkIfMailAlreadyExist(email);
+    }
+
+    private setRegisterInProgress(): void {
+        this.authStore.actions.setRegisterInProgress();
+    }
+
+    private unsetRegisterInProgress(): void {
+        this.authStore.actions.unsetRegisterInProgress();
+    }
+
+    private checkPasswordEmpty(): void {
+        this.password === ''
+            ? (this.isPasswordEmpty = true)
+            : (this.isPasswordEmpty = false);
+    }
+    private checkRepeatPasswordEmpty(): void {
+        this.passwordRepeat === ''
+            ? (this.isRepeatPasswordEmpty = true)
+            : (this.isRepeatPasswordEmpty = false);
+    }
+
+    private get isPasswordValid(): boolean {
+        return this.isNotSamePassword === null &&
+            this.isNotRequiredLength === null
+            ? true
+            : false;
+    }
+
+    private get isNotSamePassword(): string | null {
+        return this.password === this.passwordRepeat
+            ? null
+            : `${this.$t('components.register.notSamePassword')}`;
+    }
+    private get isNotRequiredLength(): string | null {
+        return this.password.length >= 8 || this.password.length === 0
+            ? null
+            : `${this.$t('components.register.notPasswordLength')}`;
+    }
+
+    private get isEmailAlreadyExist(): boolean {
+        return this.authStore.state.isEmailAlreadyExist;
+    }
+
+    private get isRegisterLoading(): boolean {
+        return this.authStore.state.isLoading;
+    }
+
+    private get areFieldsEmpty(): boolean {
+        return this.name === '' ||
+            this.surname === '' ||
+            this.email === '' ||
+            this.password === '' ||
+            this.passwordRepeat === '' ||
+            !this.isPasswordValid
+            ? true
+            : false;
+    }
 }
 </script>
 

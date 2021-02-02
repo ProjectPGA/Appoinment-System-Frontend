@@ -8,6 +8,8 @@ import { TokenRequest } from './models/auth/TokenRequest';
 import { TokenResponse } from './models/auth/TokenResponse';
 import { LogoutRequest } from './models/auth/LogoutRequest';
 import { InvitationalCodeRequest } from './models/auth/InvitationalCodeRequest';
+import { CheckMailRequest } from './models/auth/CheckMailRequest';
+import { RegisterRequest } from './models/auth/RegisterRequest';
 
 const baseUrl: string = apiPrefix('');
 
@@ -55,6 +57,28 @@ export const checkInvitationalCode: (
 ) => Promise<InvitationalCodeRequest> = async params => {
     const response = await axios.post<InvitationalCodeRequest>(
         `${baseUrl}/invitation`,
+        params,
+        jsonHeaders
+    );
+    return response.data;
+};
+
+export const checkIfEmailAlreadyExist: (
+    params: CheckMailRequest
+) => Promise<CheckMailRequest> = async params => {
+    const response = await axios.post<CheckMailRequest>(
+        `${baseUrl}/checkmail`,
+        params,
+        jsonHeaders
+    );
+    return response.data;
+};
+
+export const register: (
+    params: RegisterRequest
+) => Promise<UserData> = async params => {
+    const response = await axios.post<UserData>(
+        `${baseUrl}/register`,
         params,
         jsonHeaders
     );
