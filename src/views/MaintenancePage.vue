@@ -21,6 +21,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+
 import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
 
 @Component({
