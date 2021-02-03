@@ -146,6 +146,10 @@ const es = {
         spanish: 'Español',
         english: 'Ingles',
     },
+    maintenance: {
+        title: 'Página en mantenimiento',
+        subtitle: 'Estaremos pronto de vuelta, gracias por su paciencia',
+    },
 };
 
 export default es;
