@@ -8,6 +8,7 @@ import Invitation from '@/views/Invitation.vue';
 // import UserAppointments from '@/views/UserAppointments.vue';
 // import Contact from '@/views/Contact.vue';
 // import User from '@/views/User.vue';
+import Maintenance from '@/views/MaintenancePage.vue';
 
 Vue.use(VueRouter);
 
@@ -54,6 +55,11 @@ const routes = [
         path: '*',
         name: 'fallback',
         redirect: { name: 'Home' },
+    },
+    {
+        path: '/maintenance',
+        name: 'Maintenance',
+        component: Maintenance,
     },
 ];
 
