@@ -39,7 +39,7 @@ const en = {
             password: 'Password',
             button: 'Login',
             noAccount: 'You dont have an account?',
-            accessToInvitation: 'click here to redeem your invitational code.',
+            accessToInvitation: 'Click here to redeem your invitational code.',
         },
         contact: {
             titleSchedule: 'Timetables:',
@@ -54,6 +54,12 @@ const en = {
         appointments: {
             reserved: 'Reserved',
             userAppointment: 'My appointment',
+            pastAppointments: 'Past appointments',
+        },
+        utils: {
+            noAppointsTitle: 'Any appointment asigned',
+            noAppointsSubtitle:
+                'You can assign you an appointment by pressing here',
         },
     },
     user: {
@@ -106,11 +112,11 @@ const en = {
         language: 'Language',
     },
     snackbar: {
-        cancelMessage: 'Cancelada: Día ',
-        cancelMessagedate: ' a las ',
-        assginMessage: 'Assignada: Día ',
-        assginMessageDate: ' a las ',
-        oneAppoinmetPerday: 'Solo puedes asignar una cita por dia',
+        cancelMessage: 'Cancelled: Day ',
+        cancelMessagedate: ' at ',
+        assginMessage: 'Assigned: Day ',
+        assginMessageDate: ' at ',
+        oneAppoinmetPerday: 'You only can asign one appoinment per day',
     },
     week: {
         monday: 'Monday',
@@ -138,6 +144,10 @@ const en = {
     languages: {
         spanish: 'Spanish',
         english: 'English',
+    },
+    maintenance: {
+        title: 'Page in maintenance',
+        subtitle: 'We will back soon, thanks for your patience',
     },
 };
 

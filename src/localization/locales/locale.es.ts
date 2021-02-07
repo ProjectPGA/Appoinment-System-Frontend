@@ -14,7 +14,6 @@ const es = {
             CancelMessage: '¿Deseas Cancelar esta cita?',
             accept: 'Aceptar',
             cancel: 'Cancelar',
-            takeAppointTittle: '',
         },
         register: {
             name: 'Nombre',
@@ -57,6 +56,11 @@ const es = {
         appointments: {
             reserved: 'Reservado',
             userAppointment: 'Mi cita',
+            pastAppointments: 'Citas pasadas',
+        },
+        utils: {
+            noAppointsTitle: 'Ninguna cita asignada',
+            noAppointsSubtitle: 'Puedes asignarte una cita pulsando aquí',
         },
     },
     user: {
@@ -145,6 +149,10 @@ const es = {
     languages: {
         spanish: 'Español',
         english: 'Ingles',
+    },
+    maintenance: {
+        title: 'Página en mantenimiento',
+        subtitle: 'Estaremos pronto de vuelta, gracias por su paciencia',
     },
 };
 
