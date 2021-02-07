@@ -10,5 +10,4 @@ export default class AuthState {
     public loginRequestStatus: RequestStatus = RequestStatus.IN_PROGRESS;
     public isInvitationalCodeError: boolean = false;
     public isRegisterProcessError: boolean = false;
-    public isEmailAlreadyExist: boolean = false;
 }

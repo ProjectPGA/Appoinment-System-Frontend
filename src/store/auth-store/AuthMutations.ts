@@ -69,12 +69,4 @@ export default class AuthMutations extends Mutations<AuthState> {
     public disableRegisterProcessError(): void {
         this.state.isRegisterProcessError = false;
     }
-
-    public enableEmailAlreadyExist(): void {
-        this.state.isEmailAlreadyExist = true;
-    }
-
-    public disableEmailAlreadyExist(): void {
-        this.state.isEmailAlreadyExist = false;
-    }
 }

@@ -20,8 +20,11 @@ import { TokenResponse } from '@/webservices/models/auth/TokenResponse';
 import { UserData } from '@/models/user/UserData';
 import { AuthTockens } from '@/models/auth/AuthTockens';
 
-import router from '@/router';
 import { RegisterRequest } from '@/webservices/models/auth/RegisterRequest';
+
+import router from '@/router';
+import i18n from '../../localization/localization';
+import { SnackbarProgrammatic as Snackbar } from 'buefy';
 
 export default class AuthActions extends Actions<
     AuthState,
@@ -119,14 +122,22 @@ export default class AuthActions extends Actions<
         try {
             this.commit('setLoginInProgress', null);
 
+            await this.dispatch(
+                'checkIfMailAlreadyExist',
+                registerData.user.email
+            );
+
             const response: UserData = await register(registerData);
 
             if (response.user !== null) {
                 this.commit('setIsLogged', response.user);
+
                 this.dispatch('saveJTWTokens', {
                     accessToken: response.accessToken,
                     refreshToken: response.refreshToken,
                 });
+
+                router.push('/');
             } else {
                 this.commit('setUserNotisLogged', null);
                 return false;
@@ -176,11 +187,15 @@ export default class AuthActions extends Actions<
 
     public async checkIfMailAlreadyExist(email: string): Promise<void> {
         try {
-            this.dispatch('disableEmailAlreadyExist', null);
-
             await checkIfEmailAlreadyExist({ email });
         } catch (exception) {
-            this.dispatch('enableEmailAlreadyExist', null);
+            Snackbar.open({
+                message: `${i18n.t('components.register.emailExist')}`,
+                type: 'is-danger',
+                position: 'is-bottom-left',
+                indefinite: true,
+                actionText: `${i18n.t('components.register.tryAgain')}`,
+            });
         }
     }
 
@@ -190,14 +205,6 @@ export default class AuthActions extends Actions<
 
     public disableRegisterProcess(): void {
         this.commit('disableRegisterProcess', null);
-    }
-
-    public enableEmailAlreadyExist(): void {
-        this.commit('enableEmailAlreadyExist', null);
-    }
-
-    public disableEmailAlreadyExist(): void {
-        this.commit('disableEmailAlreadyExist', null);
     }
 
     public setRegisterInProgress(): void {

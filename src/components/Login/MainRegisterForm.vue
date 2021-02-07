@@ -34,6 +34,7 @@
                         :placeholder="$t('components.register.email')"
                         size="is-medium"
                         class="custom-margin"
+                        type="email"
                         required
                     >
                     </b-input>
@@ -73,14 +74,14 @@
                         required
                         password-reveal
                         @blur="checkRepeatPasswordEmpty"
-                        @keyup.native.enter="checkRegister()"
+                        @keyup.native.enter="doRegister()"
                     >
                     </b-input>
                 </b-field>
                 <div class="columns is-vcentered">
                     <div class="column is-2">
                         <b-button
-                            @click="checkRegister()"
+                            @click="doRegister()"
                             :loading="isRegisterLoading"
                             outlined
                             type="is-danger"
@@ -97,14 +98,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import { SnackbarProgrammatic as Snackbar } from 'buefy';
-
 import authStore from '@/store/auth-store/AuthStore';
-
-// import router from '../../router';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
 import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
+import { RegisterRequest } from '@/webservices/models/auth/RegisterRequest';
+import { UserRoles } from '@/models/user/UserData';
 
 @Component({
     name: 'MainRegisterForm',
@@ -124,74 +123,18 @@ export default class MainRegisterForm extends Vue {
     private isRepeatPasswordEmpty: boolean = false;
     private passwordRepeat: string = '';
 
-    private async checkRegister(): Promise<void> {
-        this.setRegisterInProgress();
+    private doRegister(): void {
+        const userRequest: RegisterRequest = {
+            user: {
+                email: this.email,
+                name: this.name,
+                surname: this.surname,
+                roles: [UserRoles.COMMON_USER],
+                password: this.password,
+            },
+        };
 
-        await this.checkIfMailAlreadyExist(this.email);
-
-        if (this.isEmailAlreadyExist) {
-            this.unsetRegisterInProgress();
-
-            Snackbar.open({
-                message: `${this.$t('components.register.emailExist')}`,
-                type: 'is-danger',
-                position: 'is-bottom-left',
-                indefinite: true,
-                actionText: `${this.$t('components.register.tryAgain')}`,
-                onAction: () => {
-                    this.clearPassInputs();
-                },
-            });
-        } else {
-            this.Register();
-        }
-    }
-
-    private Register(): void {
-        // this.isLoading = true;
-        // try {
-        //     const response: AxiosResponse = await Vue.axios({
-        //         method: 'POST',
-        //         url: '/users',
-        //         data: {
-        //             id: Date.now(),
-        //             email: this.email,
-        //             password: this.password,
-        //             name: this.name + ' ' + this.apellidos,
-        //             admin: false,
-        //         },
-        //     });
-        //     if (response.status === 201) {
-        //         this.isLoading = false;
-        //         const user = {
-        //             id: response.data.id,
-        //             email: response.data.email,
-        //             name: response.data.name,
-        //             admin: response.data.admin,
-        //         };
-        //         this.saveUser(user);
-        //         this.changeinvitationProgress(false);
-        //         router.push('/inicio');
-        //     } else {
-        //         this.bfieldType = 'is-danger';
-        //         this.emailfieldType = 'is-danger';
-        //         this.passfieldType = 'is-danger';
-        //         this.isLoading = false;
-        //         Snackbar.open({
-        //             message: 'Error en el registro',
-        //             type: 'is-danger',
-        //             position: 'is-bottom-left',
-        //             indefinite: true,
-        //             actionText: 'Volver a intentar',
-        //             onAction: () => {
-        //                 this.clearInputs();
-        //             },
-        //         });
-        //     }
-        // } catch (error) {
-        //     TODO: Show Error
-        //     console.log(error);
-        // }
+        this.register(userRequest);
     }
 
     private clearPassInputs(): void {
@@ -209,6 +152,10 @@ export default class MainRegisterForm extends Vue {
 
     private unsetRegisterInProgress(): void {
         this.authStore.actions.unsetRegisterInProgress();
+    }
+
+    private register(registerRequest: RegisterRequest): void {
+        this.authStore.actions.register({ registerData: registerRequest });
     }
 
     private checkPasswordEmpty(): void {
@@ -238,10 +185,6 @@ export default class MainRegisterForm extends Vue {
         return this.password.length >= 8 || this.password.length === 0
             ? null
             : `${this.$t('components.register.notPasswordLength')}`;
-    }
-
-    private get isEmailAlreadyExist(): boolean {
-        return this.authStore.state.isEmailAlreadyExist;
     }
 
     private get isRegisterLoading(): boolean {
