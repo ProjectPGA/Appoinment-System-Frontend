@@ -38,6 +38,14 @@ export default class AuthMutations extends Mutations<AuthState> {
         this.state.loginRequestStatus = RequestStatus.FAILURE;
     }
 
+    public setRegisterInProgress(): void {
+        this.state.isLoading = true;
+    }
+
+    public unsetRegisterInProgress(): void {
+        this.state.isLoading = false;
+    }
+
     public enableRegisterProcess(): void {
         this.state.isRegisterProcess = true;
     }
@@ -52,5 +60,13 @@ export default class AuthMutations extends Mutations<AuthState> {
 
     public disableInvitationalCodeError(): void {
         this.state.isInvitationalCodeError = false;
+    }
+
+    public setRegisterProcessError(): void {
+        this.state.isRegisterProcessError = true;
+    }
+
+    public disableRegisterProcessError(): void {
+        this.state.isRegisterProcessError = false;
     }
 }

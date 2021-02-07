@@ -21,6 +21,12 @@ const en = {
             password: 'Password',
             repeatPassword: 'Repeat Password',
             button: 'Register',
+            emailExist: 'The email already exist!',
+            tryAgain: 'Try again',
+            mandatoryFieldsEmpty: 'Empty mandatory fields',
+            notSamePassword: 'The passwords are not the same',
+            notPasswordLength:
+                'Password length dont math the minimun (8 minumum)',
         },
         invitation: {
             title: 'Enter your invitation code',

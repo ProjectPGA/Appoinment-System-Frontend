@@ -22,6 +22,12 @@ const es = {
             password: 'Contraseña',
             repeatPassword: 'Repetir Contraseña',
             button: 'Registrar',
+            emailExist: 'El email introducido ya existe',
+            tryAgain: 'Volver a intentar',
+            mandatoryFieldsEmpty: 'Campos obligatorios vacios',
+            notSamePassword: 'Las contraseñas no coinciden',
+            notPasswordLength:
+                'La contraseña no cumple la longitud requerida (8 minimo)',
         },
         invitation: {
             title: 'Introduce tu codigo de invitación',
@@ -115,9 +121,7 @@ const es = {
         assginMessage: 'Assignada: Día ',
         assginMessageDate: ' a las ',
         oneAppoinmetPerday: 'Solo puedes asignar una cita por dia',
-        existEmail: 'El email introducido ya existe',
         notLikePassword: 'Las contraseñas no coinciden',
-        try: 'Volver a intentar',
     },
     week: {
         monday: 'Lunes',

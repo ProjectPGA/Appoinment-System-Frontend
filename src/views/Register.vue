@@ -1,37 +1,19 @@
 <template>
-    <div></div>
-    <!-- <main-register-form /> -->
+    <main-register-form />
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-// import { State, Mutation } from 'vuex-class';
 
-// TODO: Refactor Store
-// import { GlobalState } from '@/vuex/store';
-
-// import MainRegisterForm from '@/components/Login/MainRegisterForm.vue';
-// import { Route } from 'vue-router';
+import MainRegisterForm from '@/components/Login/MainRegisterForm.vue';
 
 @Component({
-    name: 'Login',
+    name: 'Register',
     components: {
-        // MainRegisterForm,
+        MainRegisterForm,
     },
 })
-export default class Register extends Vue {
-    // @State((state: GlobalState) => state.utils.invitationProgress)
-    // private invitationProgress: boolean;
-    // @Mutation('utils/changeStateWhatsappButton')
-    // private changeStateWhatsappButton;
-    // public async beforeRouteEnter(from: Route, to: Route, next: any) {
-    //     next((vm: Register) => {
-    //         if (vm.invitationProgress === false) {
-    //             next('/');
-    //         }
-    //     });
-    // }
-}
+export default class Register extends Vue {}
 </script>
 
 <style lang="scss" scoped>
