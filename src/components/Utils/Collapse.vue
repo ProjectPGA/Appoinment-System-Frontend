@@ -71,7 +71,7 @@ export default class Collapse extends Vue {
 
 <style lang="scss" scoped>
 .collapse {
-    background: #c2c2c2;
+    background: $main-color-light;
     box-shadow: none;
 
     &.no-style {
@@ -93,7 +93,7 @@ export default class Collapse extends Vue {
     cursor: pointer;
 }
 .collapse-title {
-    color: #535353;
+    color: $main-color-dark;
     padding: 0px;
     font-size: 1em;
     font-weight: 400;
@@ -117,7 +117,7 @@ export default class Collapse extends Vue {
     ::before {
         font-family: 'FontAwesome';
         font-weight: normal;
-        color: #000;
+        color: $main-color-dark;
     }
 }
 </style>

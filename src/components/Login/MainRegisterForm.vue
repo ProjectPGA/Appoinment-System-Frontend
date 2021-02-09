@@ -233,7 +233,7 @@ export default class MainRegisterForm extends Vue {
 
 <style lang="scss" scoped>
 .invitation-link {
-    color: #e01f2f !important;
+    color: $main-color !important;
 }
 .custom-size {
     font-size: 1.25em;

@@ -32,7 +32,7 @@ export default class DesktopNavigationLink extends Vue {
     padding: 23px 20px;
 }
 .desktop-navigation-link:hover {
-    background-color: rgb(170, 170, 170);
+    background-color: $main-color-medium-light;
     cursor: pointer;
 }
 .desktop-navigation-icon {
@@ -40,6 +40,6 @@ export default class DesktopNavigationLink extends Vue {
 }
 .desktop-navigation-label {
     font-size: $size-normal;
-    color: #000 !important;
+    color: $main-color-dark !important;
 }
 </style>

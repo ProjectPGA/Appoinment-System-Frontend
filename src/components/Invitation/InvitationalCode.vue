@@ -114,6 +114,6 @@ export default class InvitationalCode extends Vue {
     justify-content: center !important;
 }
 .button.is-success {
-    background-color: #e01f2f !important;
+    background-color: $main-color !important;
 }
 </style>

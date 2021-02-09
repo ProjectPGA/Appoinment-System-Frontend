@@ -63,7 +63,7 @@ export default class Confirm extends Vue {
 .confirm-sub-title {
     font-size: 15px;
     line-height: 17px;
-    color: #000000;
+    color: $main-color-dark;
     margin-bottom: 35px;
 }
 .buttons {

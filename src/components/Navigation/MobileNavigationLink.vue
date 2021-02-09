@@ -32,7 +32,7 @@ export default class MobileNavigationLink extends Vue {
     padding: 23px 20px;
 }
 .mobile-navigation-link:hover {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: $main-color-medium-light;
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -42,6 +42,6 @@ export default class MobileNavigationLink extends Vue {
 }
 .mobile-navigation-label {
     font-size: $size-normal;
-    color: #404040 !important;
+    color: $main-color-dark !important;
 }
 </style>

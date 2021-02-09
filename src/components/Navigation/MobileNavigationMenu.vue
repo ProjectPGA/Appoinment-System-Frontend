@@ -144,10 +144,10 @@ export default class MobileNavigationMenu extends Vue {
     text-transform: uppercase;
 }
 a {
-    color: #535353 !important;
+    color: $main-color-dark !important;
 }
 hr {
-    background-color: #0000007d !important;
+    background-color: $main-color-dark !important;
     height: 1px !important;
 }
 .mobile-navigation-user-link {
@@ -168,7 +168,7 @@ hr {
     left: 0;
     left: 0;
     z-index: z('menu');
-    background-color: #c2c2c2;
+    background-color: $main-color-light;
     width: 80vw;
     max-width: 430px;
     min-width: 290px;
@@ -186,7 +186,7 @@ hr {
     position: fixed;
     left: 10px;
     top: 10px;
-    color: #000;
+    color: $main-color-dark;
     font-size: 30px;
     cursor: pointer;
 }

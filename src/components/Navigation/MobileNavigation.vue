@@ -49,7 +49,7 @@ export default class MobileNavBar extends Vue {
 
 <style lang="scss" scoped>
 .navbar-burger {
-    color: #000 !important;
+    color: $main-color-dark !important;
     margin-left: 0;
 }
 .is-centered {
@@ -64,7 +64,7 @@ export default class MobileNavBar extends Vue {
     line-height: 21px;
 
     a {
-        color: white;
+        color: $main-color-light;
     }
 }
 .left-icon {
@@ -72,7 +72,7 @@ export default class MobileNavBar extends Vue {
 }
 .left-icon,
 .navbar-title {
-    color: white;
+    color: $main-color-light;
     cursor: pointer;
 }
 .is-left-paddingless {

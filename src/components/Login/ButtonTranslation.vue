@@ -46,7 +46,7 @@ export default class ButtonTranslation extends Vue {
     height: 40px;
     top: 20px;
     right: 20px;
-    background-color: #e01f2f;
+    background-color: $main-color;
     color: white;
     border-radius: 15px;
     -webkit-box-shadow: 2px 2px 3px #999;
