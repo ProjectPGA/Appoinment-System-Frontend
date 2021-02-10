@@ -22,7 +22,7 @@ export default class CallButton extends Vue {}
     height: 60px;
     bottom: 20px;
     left: 20px;
-    background-color: #2550d3;
+    background-color: $main-color-medium-dark;
     color: #fff;
     border-radius: 50px;
     text-align: center;

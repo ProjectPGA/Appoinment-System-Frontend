@@ -179,7 +179,7 @@ export default class MainLoginForm extends Vue {
     }
 }
 .invitation-link {
-    color: #e01f2f !important;
+    color: $main-color !important;
 }
 .custom-size {
     font-size: 1.25em;
@@ -191,6 +191,7 @@ export default class MainLoginForm extends Vue {
     }
     font-size: calc(0.5em + 0.5vw);
     line-height: 3em !important;
+    color: $main-color-dark;
 }
 .custom-login-input {
     width: 50%;

@@ -246,11 +246,11 @@ export default class MainSchedule extends Vue {
     cursor: pointer;
 }
 .bg-taken {
-    background-color: #ff6969;
+    background-color: $main-color;
     cursor: not-allowed;
 }
 .bg-user {
-    background-color: #628bff;
+    background-color: $main-color-medium-dark;
     cursor: pointer;
 }
 .custom-border {

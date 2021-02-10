@@ -64,10 +64,10 @@ export default class DesktopNavigationLanguage extends Vue {
     font-weight: bold;
 }
 .is-active {
-    background-color: #f1f1f1 !important;
+    background-color: $main-color-medium-light !important;
 }
 .language-title {
-    background-color: #d4d4d4;
+    background-color: $main-color-medium-light;
     display: block;
     text-align: center;
     padding: 15px !important;

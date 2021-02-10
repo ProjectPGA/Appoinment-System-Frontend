@@ -23,22 +23,22 @@ export default class DesktopNavigationEnd extends Vue {}
 
 <style lang="scss" scoped>
 /deep/.navbar-item {
-    color: #000;
+    color: $main-color-dark;
     &:hover {
         .navbar-link {
-            color: #000;
-            background-color: #d5d5d5 !important;
+            color: $main-color-dark;
+            background-color: $main-color-medium-light !important;
         }
     }
 }
 /deep/.navbar-link {
-    color: #000;
+    color: $main-color-dark;
     &:after {
-        border-color: #000 !important;
+        border-color: $main-color-dark !important;
     }
 }
 /deep/.menu-title {
-    color: #000;
+    color: $main-color-dark;
 }
 /deep/.navbar-dropdown {
     right: 0;
