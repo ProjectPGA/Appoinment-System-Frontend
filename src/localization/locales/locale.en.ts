@@ -57,9 +57,9 @@ const en = {
             pastAppointments: 'Past appointments',
         },
         utils: {
-            noAppointsTitle: 'Any appointment asigned',
+            noAppointsTitle: 'No appointment assigned',
             noAppointsSubtitle:
-                'You can assign you an appointment by pressing here',
+                'You can assign yourself an appointment by clicking here',
         },
     },
     user: {
@@ -84,7 +84,7 @@ const en = {
                 emailShort: 'The email introduced is too short',
                 emailSame:
                     'The new email must be different from the current one',
-                emailNotType: 'The value introduced is not email type',
+                emailNotType: 'The value introduced is not an email',
                 emailEmpty: 'This field cant be empty',
                 emailChangeMessage: 'The user email has been updated',
                 usernameEmpty: 'This field cant be empty',
@@ -112,11 +112,12 @@ const en = {
         language: 'Language',
     },
     snackbar: {
-        cancelMessage: 'Cancelled: Day ',
+        cancelMessage: 'Canceled: Day ',
         cancelMessagedate: ' at ',
         assginMessage: 'Assigned: Day ',
         assginMessageDate: ' at ',
         oneAppoinmetPerday: 'You only can asign one appoinment per day',
+        notLikePassword: 'Passwords dont match',
     },
     week: {
         monday: 'Monday',

@@ -17,22 +17,22 @@ const es = {
         },
         register: {
             name: 'Nombre',
-            surname: 'Surname',
+            surname: 'Apellido',
             email: 'E-Mail',
             password: 'Contraseña',
             repeatPassword: 'Repetir Contraseña',
             button: 'Registrar',
             emailExist: 'El email introducido ya existe',
             tryAgain: 'Volver a intentar',
-            mandatoryFieldsEmpty: 'Campos obligatorios vacios',
+            mandatoryFieldsEmpty: 'Campos obligatorios vacíos',
             notSamePassword: 'Las contraseñas no coinciden',
             notPasswordLength:
-                'La contraseña no cumple la longitud requerida (8 minimo)',
+                'La contraseña no cumple la longitud requerida (8 mínimo)',
         },
         invitation: {
-            title: 'Introduce tu codigo de invitación',
+            title: 'Introduce tu código de invitación',
             button: 'Validar',
-            error: 'Codigo de invitacion incorrecto!',
+            error: 'Código de invitación incorrecto!',
             clean: 'Limpiar',
         },
         login: {
@@ -41,12 +41,12 @@ const es = {
             button: 'Acceder',
             noAccount: '¿No tienes cuenta?',
             accessToInvitation:
-                'Pulsa aquí para canjear tu codigo de invitación.',
+                'Pulsa aquí para canjear tu código de invitación.',
         },
         contact: {
             titleSchedule: 'Horarios:',
-            textMondayToFriday: 'Lunes a viernes: 10:00-14:00 / 17:00-21:00',
-            textSaturday: 'Sabado: 10:00-14:00',
+            textMondayToFriday: 'Lunes a Viernes: 10:00-14:00 / 17:00-21:00',
+            textSaturday: 'Sábado: 10:00-14:00',
             titlePhone: 'Teléfono:',
             textPhone: '+34 679839952',
             titleAddress: 'Dirección:',
@@ -72,7 +72,7 @@ const es = {
         userText: 'Usuario',
         adminText: 'Administrador',
         user: {
-            infoText: 'Informacion',
+            infoText: 'Información',
             securityText: 'Seguridad',
             adminText: 'Administrador',
             info: {
@@ -86,10 +86,10 @@ const es = {
                 emailShort: 'El email es demasiado corto',
                 emailSame:
                     'El nuevo nuevo email tiene que ser distinto al actual',
-                emailNotType: 'El valor intruducido no es tipo email',
-                emailEmpty: 'El campo no puede estar vacio',
+                emailNotType: 'El valor intruducido no es un email',
+                emailEmpty: 'El campo no puede estar vacío',
                 emailChangeMessage: 'El email de usuario ha sido actualizado',
-                usernameEmpty: 'El campo no puede estar vacio',
+                usernameEmpty: 'El campo no puede estar vacío',
                 usernameSame:
                     'El nuevo nuevo nombre de usuario tiene que ser distinto al actual',
                 usernameChangeMessage:
@@ -102,7 +102,7 @@ const es = {
                 repeatNewPassText: 'Repetir Nueva Contraseña',
                 changePassButton: 'Guardar',
                 passChangedMessage:
-                    'La contraseña ha sido actualizada con exito',
+                    'La contraseña ha sido actualizada con éxito',
             },
         },
         admin: {},
@@ -112,7 +112,7 @@ const es = {
         userAppointments: 'Mis Citas',
         contact: 'Contacto',
         register: 'Registro',
-        login: 'Iniciar sesion',
+        login: 'Iniciar sesión',
         language: 'Idioma',
     },
     snackbar: {
@@ -120,16 +120,16 @@ const es = {
         cancelMessagedate: ' a las ',
         assginMessage: 'Assignada: Día ',
         assginMessageDate: ' a las ',
-        oneAppoinmetPerday: 'Solo puedes asignar una cita por dia',
+        oneAppoinmetPerday: 'Solo puedes asignar una cita por día',
         notLikePassword: 'Las contraseñas no coinciden',
     },
     week: {
         monday: 'Lunes',
         tuesday: 'Martes',
-        wednesday: 'Miercoles',
+        wednesday: 'Miércoles',
         thursday: 'Jueves',
         friday: 'Viernes',
-        saturday: 'Sabado',
+        saturday: 'Sábado',
         sunday: 'Domingo',
     },
     month: {
@@ -144,11 +144,11 @@ const es = {
         september: 'Septiembre',
         october: 'Octubre',
         november: 'Noviembre',
-        december: 'diciembre',
+        december: 'Diciembre',
     },
     languages: {
         spanish: 'Español',
-        english: 'Ingles',
+        english: 'Inglés',
     },
     maintenance: {
         title: 'Página en mantenimiento',
