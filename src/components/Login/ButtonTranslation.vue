@@ -53,7 +53,6 @@ export default class ButtonTranslation extends Vue {
     box-shadow: 2px 2px 3px #999;
     z-index: 100;
     display: flex;
-    justify-content: center;
     align-content: center;
     align-items: center;
     text-transform: uppercase;
