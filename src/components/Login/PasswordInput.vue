@@ -1,17 +1,20 @@
 <template>
     <b-field
-        :label="$t('components.loginInputs.email')"
+        :label="$t('components.loginInputs.password')"
         :message="errorMessage"
         :type="{
             'is-danger': !isVaild,
         }"
     >
         <b-input
-            v-model="email"
-            :placeholder="$t('components.loginInputs.email')"
+            v-model="password"
+            :placeholder="$t('components.loginInputs.password')"
             size="is-medium"
-            :data-cy="`${view}-email`"
-            @blur="checkEmail"
+            :data-cy="`${view}-password`"
+            type="password"
+            password-reveal
+            required
+            @blur="checkPassword"
             @input="onInput"
         />
     </b-field>
@@ -21,28 +24,28 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component({
-    name: 'EmailInput',
+    name: 'PasswordInput',
 })
-export default class EmailInput extends Vue {
+export default class PasswordInput extends Vue {
     @Prop(String) private view: string;
 
-    private email: string = '';
+    private password: string = '';
     private isVaild: boolean = true;
     private errorMessage: string = '';
 
     private onInput(): void {
-        this.$emit('input', this.email);
-        this.checkEmail();
+        this.$emit('input', this.password);
+        this.checkPassword();
     }
 
-    private checkEmail(): void {
-        this.email === ''
+    private checkPassword(): void {
+        this.password === ''
             ? this.inputEmpty()
-            : this.email.includes('@')
+            : this.password.length >= 8
             ? this.inputValid()
-            : this.inputEmailInvalid();
+            : this.inputPasswordInvalid();
 
-        this.$emit('checkEmail', this.isVaild);
+        this.$emit('checkPassword', this.isVaild);
     }
 
     private inputEmpty(): void {
@@ -50,8 +53,10 @@ export default class EmailInput extends Vue {
         this.isVaild = false;
     }
 
-    private inputEmailInvalid(): void {
-        this.errorMessage = `${this.$t('components.loginInputs.emailInvalid')}`;
+    private inputPasswordInvalid(): void {
+        this.errorMessage = `${this.$t(
+            'components.loginInputs.passwordInvalid'
+        )}`;
         this.isVaild = false;
     }
 

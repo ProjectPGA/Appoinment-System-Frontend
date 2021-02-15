@@ -5,6 +5,7 @@ const en = {
             password: 'Password',
             inputEmpty: 'Please fill this field',
             emailInvalid: 'Please add @ on your email',
+            passwordInvalid: 'The password has minimum 8 characters',
         },
         navigation: {
             title: 'Castillo',

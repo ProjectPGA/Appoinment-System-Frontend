@@ -3,7 +3,7 @@
         <button-translation />
         <div class="columns is-centered">
             <div class="column login-logo">
-                <logo-app data-cy="login-logo"></logo-app>
+                <logo-app data-cy="login-logo" />
             </div>
         </div>
         <div class="columns is-centered is-mobile">
@@ -16,23 +16,11 @@
                     view="login"
                 />
 
-                <b-field
-                    :label="$t('components.login.password')"
-                    :type="bfieldType"
-                >
-                    <b-input
-                        v-model="password"
-                        :placeholder="$t('components.login.password')"
-                        type="password"
-                        size="is-medium"
-                        class="custom-margin"
-                        @keyup.native.enter="checkLogin()"
-                        data-cy="password"
-                        password-reveal
-                        required
-                    >
-                    </b-input>
-                </b-field>
+                <password-input
+                    @input="onPasswordInput"
+                    @checkPassword="onCheckPassword"
+                    view="login"
+                />
                 <div class="columns is-vcentered">
                     <div class="column is-3 is-2-fullhd">
                         <b-button
@@ -42,6 +30,7 @@
                             type="is-danger"
                             size="is-medium"
                             data-cy="submit"
+                            :disabled="isInValidform"
                         >
                             {{ $t('components.login.button') }}
                         </b-button>
@@ -64,12 +53,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { SnackbarProgrammatic as Snackbar } from 'buefy';
 
 import authStore from '@/store/auth-store/AuthStore';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
 import EmailInput from '@/components/Login/EmailInput.vue';
+import PasswordInput from '@/components/Login/PasswordInput.vue';
 import ButtonTranslation from '@/components/common/ButtonTranslation.vue';
 
 import { LoginRequest } from '@/webservices/models/auth/LoginRequest';
@@ -79,18 +68,28 @@ import { LoginRequest } from '@/webservices/models/auth/LoginRequest';
     components: {
         LogoApp,
         EmailInput,
+        PasswordInput,
         ButtonTranslation,
     },
 })
 export default class MainLoginForm extends Vue {
+    private authStore = authStore.context(this.$store);
+
     private email: string = '';
     private isEmailVaild: boolean = true;
 
     private password: string = '';
-    private isLoading: boolean = false;
-    private bfieldType: string = '';
+    private isPasswordVaild: boolean = true;
 
-    private authStore = authStore.context(this.$store);
+    private isLoading: boolean = false;
+
+    private get isInValidform(): boolean {
+        return this.email === '' && this.password === ''
+            ? true
+            : !this.isEmailVaild || !this.isPasswordVaild
+            ? true
+            : false;
+    }
 
     private onEmailInput(email: string): void {
         this.email = email;
@@ -100,83 +99,26 @@ export default class MainLoginForm extends Vue {
         this.isEmailVaild = isEmailVaild;
     }
 
+    private onPasswordInput(password: string): void {
+        this.password = password;
+    }
+
+    private onCheckPassword(isPasswordVaild: boolean): void {
+        this.isPasswordVaild = isPasswordVaild;
+    }
+
     private async checkLogin() {
-        const validator = this.loginValidator();
+        const loginData: LoginRequest = {
+            email: this.email,
+            password: this.password,
+        };
 
-        console.log(this.email);
-        if (validator) {
-            this.isLoading = true;
-            try {
-                const loginData: LoginRequest = {
-                    email: this.email,
-                    password: this.password,
-                };
-
-                this.authStore.actions.login({ loginData });
-
-                // if (!response.data.cod || response.status === 404) {
-                //     this.bfieldType = 'is-danger';
-                //     this.isLoading = false;
-                //     Snackbar.open({
-                //         message: response.data.mensaje,
-                //         type: 'is-danger',
-                //         position: 'is-bottom-left',
-                //         duration: 3000,
-                //         actionText: 'Volver a intentar',
-                //         onAction: () => {
-                //             this.clearInputs();
-                //         },
-                //     });
-                // } else {
-                //     this.isLoading = false;
-                //     this.saveUser(response.data.user);
-                //     router.push('/inicio');
-                // }
-            } catch (error) {
-                this.isLoading = false;
-                Snackbar.open({
-                    message: 'Error en la conexión',
-                    type: 'is-danger',
-                    position: 'is-bottom-left',
-                    duration: 3000,
-                    actionText: 'Volver a intentar',
-                    onAction: () => {
-                        this.clearInputs();
-                    },
-                });
-                // TODO: Show Error
-                // console.log(error);
-            }
-        }
+        this.authStore.actions.login({ loginData });
     }
 
     private enableRegisterProgress(): void {
         this.authStore.actions.enableRegisterProcess();
         this.$router.push('/invitation');
-    }
-
-    private clearInputs(): void {
-        this.email = '';
-        this.password = '';
-        this.bfieldType = '';
-    }
-    private loginValidator(): boolean {
-        if (this.email.length === 0 || this.password.length === 0) {
-            this.bfieldType = 'is-danger';
-            Snackbar.open({
-                message: 'Por favor introduzca la informacion requerida',
-                type: 'is-danger',
-                position: 'is-bottom-left',
-                duration: 3000,
-                actionText: 'Volver a intentar',
-                onAction: () => {
-                    this.clearInputs();
-                },
-            });
-            return false;
-        } else {
-            return true;
-        }
     }
 }
 </script>
