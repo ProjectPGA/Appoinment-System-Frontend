@@ -1,6 +1,6 @@
 <template>
     <form>
-        <button-translation></button-translation>
+        <button-translation />
         <div class="columns is-centered">
             <div class="column login-logo">
                 <logo-app data-cy="login-logo"></logo-app>
@@ -9,19 +9,12 @@
         <div class="columns is-centered is-mobile">
             <div class="column is-6-desktop is-10-mobile is-8-tablet container">
                 <p class="title">{{ $t('titles.login') }}</p>
-                <b-field
-                    :label="$t('components.login.email')"
-                    :type="bfieldType"
-                >
-                    <b-input
-                        v-model="email"
-                        :placeholder="$t('components.login.email')"
-                        size="is-medium"
-                        @keyup.native.enter="checkLogin()"
-                        data-cy="email"
-                    >
-                    </b-input>
-                </b-field>
+
+                <email-input
+                    @input="onEmailInput"
+                    @checkEmail="onCheckEmail"
+                    view="login"
+                />
 
                 <b-field
                     :label="$t('components.login.password')"
@@ -36,6 +29,7 @@
                         @keyup.native.enter="checkLogin()"
                         data-cy="password"
                         password-reveal
+                        required
                     >
                     </b-input>
                 </b-field>
@@ -75,26 +69,41 @@ import { SnackbarProgrammatic as Snackbar } from 'buefy';
 import authStore from '@/store/auth-store/AuthStore';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
+import EmailInput from '@/components/Login/EmailInput.vue';
 import ButtonTranslation from '@/components/common/ButtonTranslation.vue';
+
 import { LoginRequest } from '@/webservices/models/auth/LoginRequest';
 
 @Component({
     name: 'MainLoginForm',
     components: {
         LogoApp,
+        EmailInput,
         ButtonTranslation,
     },
 })
 export default class MainLoginForm extends Vue {
     private email: string = '';
+    private isEmailVaild: boolean = true;
+
     private password: string = '';
     private isLoading: boolean = false;
     private bfieldType: string = '';
 
     private authStore = authStore.context(this.$store);
 
+    private onEmailInput(email: string): void {
+        this.email = email;
+    }
+
+    private onCheckEmail(isEmailVaild: boolean): void {
+        this.isEmailVaild = isEmailVaild;
+    }
+
     private async checkLogin() {
         const validator = this.loginValidator();
+
+        console.log(this.email);
         if (validator) {
             this.isLoading = true;
             try {

@@ -1,5 +1,11 @@
 const es = {
     components: {
+        loginInputs: {
+            email: 'E-Mail',
+            password: 'Contraseña',
+            inputEmpty: 'Porfavor completa este campo',
+            emailInvalid: 'Por favor añada el @ a su correo',
+        },
         navigation: {
             title: 'Castillo',
             subtitle: 'Barberia',
@@ -112,7 +118,7 @@ const es = {
         userAppointments: 'Mis Citas',
         contact: 'Contacto',
         register: 'Registro',
-        login: 'Iniciar sesión',
+        login: 'Iniciar sesion',
         language: 'Idioma',
     },
     snackbar: {

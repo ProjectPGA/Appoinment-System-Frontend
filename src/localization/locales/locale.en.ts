@@ -1,5 +1,11 @@
 const en = {
     components: {
+        loginInputs: {
+            email: 'E-Mail',
+            password: 'Password',
+            inputEmpty: 'Please fill this field',
+            emailInvalid: 'Please add @ on your email',
+        },
         navigation: {
             title: 'Castillo',
             subtitle: 'Barberia',
