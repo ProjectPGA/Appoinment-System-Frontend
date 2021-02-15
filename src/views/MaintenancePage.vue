@@ -22,7 +22,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
+import ButtonTranslation from '@/components/common/ButtonTranslation.vue';
 
 @Component({
     name: 'MaintenancePage',

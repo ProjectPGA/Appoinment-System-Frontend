@@ -75,7 +75,7 @@ import { SnackbarProgrammatic as Snackbar } from 'buefy';
 import authStore from '@/store/auth-store/AuthStore';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
-import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
+import ButtonTranslation from '@/components/common/ButtonTranslation.vue';
 import { LoginRequest } from '@/webservices/models/auth/LoginRequest';
 
 @Component({
