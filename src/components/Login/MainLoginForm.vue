@@ -1,14 +1,16 @@
 <template>
-    <form>
+    <form class="main-login-form">
         <button-translation />
         <div class="columns is-centered">
-            <div class="column login-logo">
+            <div class="column main-login-form_logo">
                 <logo-app data-cy="login-logo" />
             </div>
         </div>
         <div class="columns is-centered is-mobile">
             <div class="column is-6-desktop is-10-mobile is-8-tablet container">
-                <p class="title">{{ $t('titles.login') }}</p>
+                <h1 class="main-login-form_title title">
+                    {{ $t('titles.login') }}
+                </h1>
 
                 <email-input
                     @input="onEmailInput"
@@ -36,11 +38,14 @@
                         </b-button>
                     </div>
                     <div class="column">
-                        <p class="custom-size" data-cy="invitation">
+                        <p
+                            class="main-login-form_invitation"
+                            data-cy="invitation"
+                        >
                             {{ $t('components.login.noAccount') }}
                             <span
                                 @click="enableRegisterProgress"
-                                class="invitation-link"
+                                class="main-login-form_invitation-link"
                             >
                                 {{ $t('components.login.accessToInvitation') }}
                             </span>
@@ -124,41 +129,27 @@ export default class MainLoginForm extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.margin-rigth {
-    @include desktop {
-        margin-right: 4%;
+.main-login-form {
+    &_invitation-link {
+        cursor: pointer;
+        color: $main-color !important;
+        &:hover {
+            text-decoration-line: underline;
+        }
     }
-}
-.invitation-link {
-    color: $main-color !important;
-}
-.custom-size {
-    font-size: 1.25em;
-}
-.title {
-    font-family: 'CabbageTown';
-    @include mobile {
+
+    &_title {
+        font-family: 'CabbageTown';
         font-size: calc(0.75em + 0.5vw);
+        line-height: 3em !important;
     }
-    font-size: calc(0.5em + 0.5vw);
-    line-height: 3em !important;
-    color: $main-color-dark;
-}
-.custom-login-input {
-    width: 50%;
-    @include mobile {
-        width: 85%;
+
+    &_invitation {
+        font-size: 1.25em;
     }
-}
-.centered-content {
-    display: flex !important;
-    justify-content: center !important;
-}
-.custom-margin {
-    margin-bottom: 6%;
-}
-.login-logo {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    &_logo {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
 }
 </style>
