@@ -3,9 +3,9 @@ const en = {
         loginInputs: {
             email: 'E-Mail',
             password: 'Password',
-            inputEmpty: 'Please fill this field',
-            emailInvalid: 'Please add @ on your email',
-            passwordInvalid: 'The password has minimum 8 characters',
+            inputEmpty: 'Please fill this field.',
+            emailInvalid: 'Please add @ on your email.',
+            passwordInvalid: 'Password is 8 characters long.',
         },
         navigation: {
             title: 'Castillo',

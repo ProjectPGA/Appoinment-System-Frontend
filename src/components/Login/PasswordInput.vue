@@ -16,6 +16,7 @@
             required
             @blur="checkPassword"
             @input="onInput"
+            class="password-input"
         />
     </b-field>
 </template>
@@ -67,4 +68,10 @@ export default class PasswordInput extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.password-input {
+    /deep/.icon {
+        color: $main-color-medium-light !important;
+    }
+}
+</style>

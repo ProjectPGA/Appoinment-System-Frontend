@@ -23,11 +23,11 @@
                     @checkPassword="onCheckPassword"
                     view="login"
                 />
+
                 <div class="columns is-vcentered">
                     <div class="column is-3 is-2-fullhd">
                         <b-button
                             @click="checkLogin()"
-                            :loading="isLoading"
                             outlined
                             type="is-danger"
                             size="is-medium"
@@ -86,8 +86,6 @@ export default class MainLoginForm extends Vue {
     private password: string = '';
     private isPasswordVaild: boolean = true;
 
-    private isLoading: boolean = false;
-
     private get isInValidform(): boolean {
         return this.email === '' && this.password === ''
             ? true
@@ -139,7 +137,6 @@ export default class MainLoginForm extends Vue {
     }
 
     &_title {
-        font-family: 'CabbageTown';
         font-size: calc(0.75em + 0.5vw);
         line-height: 3em !important;
     }
