@@ -4,8 +4,9 @@ const en = {
             email: 'E-Mail',
             password: 'Password',
             inputEmpty: 'Please fill this field.',
-            emailInvalid: 'Please add @ on your email.',
-            passwordInvalid: 'Password is 8 characters long.',
+            emailInvalid: 'Invalid email. Email field must have "@".',
+            passwordInvalid:
+                'Invalid password. Password must be 8 characters long minimum',
         },
         navigation: {
             title: 'Castillo',

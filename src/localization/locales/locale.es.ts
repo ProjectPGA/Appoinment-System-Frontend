@@ -4,8 +4,10 @@ const es = {
             email: 'E-Mail',
             password: 'Contraseña',
             inputEmpty: 'Porfavor completa este campo.',
-            emailInvalid: 'Por favor añada el "@" a su correo.',
-            passwordInvalid: 'La contraseña tiene mínimo 8 caracteres.',
+            emailInvalid:
+                'Correo electrónico erroneo. El campo de correo electrónico debe tener "@".',
+            passwordInvalid:
+                'Contraseña no válida. La contraseña debe tener un mínimo de 8 caracteres."',
         },
         navigation: {
             title: 'Castillo',

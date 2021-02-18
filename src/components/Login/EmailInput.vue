@@ -10,7 +10,7 @@
             v-model="email"
             :placeholder="$t('components.loginInputs.email')"
             size="is-medium"
-            :data-cy="`${view}-email`"
+            :data-cy="`${view}-input-email`"
             @blur="checkEmail"
             @input="onInput"
         />

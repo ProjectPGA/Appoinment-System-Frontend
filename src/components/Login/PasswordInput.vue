@@ -10,7 +10,7 @@
             v-model="password"
             :placeholder="$t('components.loginInputs.password')"
             size="is-medium"
-            :data-cy="`${view}-password`"
+            :data-cy="`${view}-input-password`"
             type="password"
             password-reveal
             required

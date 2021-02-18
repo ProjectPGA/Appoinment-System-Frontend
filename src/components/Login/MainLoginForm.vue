@@ -32,7 +32,7 @@
                             type="is-danger"
                             size="is-medium"
                             data-cy="submit"
-                            :disabled="isInValidform"
+                            :disabled="isInvalidForm"
                         >
                             {{ $t('components.login.button') }}
                         </b-button>
