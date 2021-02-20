@@ -42,7 +42,7 @@
 import { Component, Vue, Watch } from 'vue-property-decorator';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
-import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
+import ButtonTranslation from '@/components/common/ButtonTranslation.vue';
 
 import authStore from '@/store/auth-store/AuthStore';
 

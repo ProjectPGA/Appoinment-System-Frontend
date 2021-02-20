@@ -1,5 +1,13 @@
 const en = {
     components: {
+        loginInputs: {
+            email: 'E-Mail',
+            password: 'Password',
+            inputEmpty: 'Please fill this field.',
+            emailInvalid: 'Invalid email. Email field must have "@".',
+            passwordInvalid:
+                'Invalid password. Password must be 8 characters long minimum',
+        },
         navigation: {
             title: 'Castillo',
             subtitle: 'Barberia',

@@ -1,5 +1,14 @@
 const es = {
     components: {
+        loginInputs: {
+            email: 'E-Mail',
+            password: 'Contraseña',
+            inputEmpty: 'Porfavor completa este campo.',
+            emailInvalid:
+                'Correo electrónico erroneo. El campo de correo electrónico debe tener "@".',
+            passwordInvalid:
+                'Contraseña no válida. La contraseña debe tener un mínimo de 8 caracteres."',
+        },
         navigation: {
             title: 'Castillo',
             subtitle: 'Barberia',
@@ -112,7 +121,7 @@ const es = {
         userAppointments: 'Mis Citas',
         contact: 'Contacto',
         register: 'Registro',
-        login: 'Iniciar sesión',
+        login: 'Iniciar sesion',
         language: 'Idioma',
     },
     snackbar: {
