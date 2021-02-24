@@ -3,7 +3,7 @@
         :label="$t('components.loginInputs.email')"
         :message="errorMessage"
         :type="{
-            'is-danger': !isVaild,
+            'is-danger': !isValid,
         }"
     >
         <b-input
@@ -27,11 +27,12 @@ export default class EmailInput extends Vue {
     @Prop(String) private view: string;
 
     private email: string = '';
-    private isVaild: boolean = true;
+    private isValid: boolean = true;
     private errorMessage: string = '';
 
     private onInput(): void {
         this.$emit('input', this.email);
+
         this.checkEmail();
     }
 
@@ -42,22 +43,24 @@ export default class EmailInput extends Vue {
             ? this.inputValid()
             : this.inputEmailInvalid();
 
-        this.$emit('checkEmail', this.isVaild);
+        this.$emit('checkEmail', this.isValid);
     }
 
     private inputEmpty(): void {
         this.errorMessage = `${this.$t('components.loginInputs.inputEmpty')}`;
-        this.isVaild = false;
+
+        this.isValid = false;
     }
 
     private inputEmailInvalid(): void {
         this.errorMessage = `${this.$t('components.loginInputs.emailInvalid')}`;
-        this.isVaild = false;
+
+        this.isValid = false;
     }
 
     private inputValid(): void {
         this.errorMessage = '';
-        this.isVaild = true;
+        this.isValid = true;
     }
 }
 </script>

@@ -5,8 +5,10 @@ const en = {
             password: 'Password',
             inputEmpty: 'Please fill this field.',
             emailInvalid: 'Invalid email. Email field must have "@".',
-            passwordInvalid:
+            passwordIncomplete:
                 'Invalid password. Password must be 8 characters long minimum',
+            repeatPassword: 'Repeat Password',
+            notSamePassword: 'The passwords are not the same',
         },
         navigation: {
             title: 'Castillo',

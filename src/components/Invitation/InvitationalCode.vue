@@ -1,37 +1,29 @@
 <template>
-    <div>
+    <div class="invitational-code section">
         <button-translation />
-        <div class="columns is-centered">
-            <div class="column is-6"><logo-app /></div>
-        </div>
-        <div class="columns is-centered is-mobile">
-            <div
-                class="column is-8-desktop is-10-mobile container has-text-centered"
-            >
-                <p class="title">
+        <div class="columns is-multiline">
+            <div class="column is-12"><logo-app /></div>
+            <div class="column is-12 invitational-code_content">
+                <p class="invitational-code_content-title title">
                     {{ $t('components.invitation.title') }}
                 </p>
-                <b-field
-                    label=""
-                    :type="bfieldType"
-                    :message="errorMessage"
-                    class="centered-content"
-                >
+                <b-field class="invitational-code_content-field">
                     <b-input
-                        v-model="code"
-                        class="custom-invitation-input"
-                        size="is-medium is-uppercase"
-                        placeholder="Ej. TX23DF2"
-                        @keyup.native.enter="checkInvitationalCode()"
+                        v-model="invitationalCode"
+                        size="is-medium is-uppercase "
+                        expanded
+                        placeholder="Ej. ASJAOLHDYWIP"
                     >
                     </b-input>
                     <p class="control">
                         <b-button
                             @click="checkInvitationalCode()"
-                            class="button is-success"
+                            type="is-danger"
                             size="is-medium"
-                            >{{ $t('components.invitation.button') }}</b-button
+                            :disabled="isInvalidCode"
                         >
+                            {{ $t('components.invitation.button') }}
+                        </b-button>
                     </p>
                 </b-field>
             </div>
@@ -39,14 +31,12 @@
     </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
 import ButtonTranslation from '@/components/common/ButtonTranslation.vue';
 
 import authStore from '@/store/auth-store/AuthStore';
-
-import { SnackbarProgrammatic as Snackbar } from 'buefy';
 
 @Component({
     name: 'InvitationalCode',
@@ -58,62 +48,34 @@ import { SnackbarProgrammatic as Snackbar } from 'buefy';
 export default class InvitationalCode extends Vue {
     private authStore = authStore.context(this.$store);
 
-    private code: string = '';
-    private errorMessage: string = '';
-
-    private bfieldType: string = '';
+    private invitationalCode: string = '';
 
     private checkInvitationalCode(): void {
-        this.authStore.actions.checkInvitationalCode(this.code);
+        this.authStore.actions.checkInvitationalCode(this.invitationalCode);
     }
 
-    private get isInvitationalCodeError(): boolean {
-        return this.authStore.state.isInvitationalCodeError;
-    }
-
-    @Watch('isInvitationalCodeError')
-    private onChangeInvitationalCodeError(): void {
-        if (this.isInvitationalCodeError) {
-            Snackbar.open({
-                message: `${this.$i18n.t('components.invitation.error')}`,
-                type: 'is-danger',
-                position: 'is-bottom-left',
-                duration: 5000,
-                actionText: `${this.$i18n.t('components.invitation.clean')}`,
-                onAction: () => {
-                    this.clearFormInput();
-                },
-            });
-        }
-
-        this.clearFormInput();
-    }
-
-    private async clearFormInput() {
-        this.errorMessage = '';
-        this.code = '';
-
-        this.bfieldType = 'is-danger';
+    private get isInvalidCode(): boolean {
+        return this.invitationalCode.length === 12 ? false : true;
     }
 }
 </script>
+
 <style lang="scss" scoped>
-.title {
-    font-family: 'CabbageTown';
-    font-size: calc(0.25em + 0.5vw);
-    line-height: 3em !important;
-}
-.custom-invitation-input {
-    width: 50%;
-    @include mobile {
-        width: 85%;
+.invitational-code {
+    &_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-}
-.centered-content {
-    display: flex !important;
-    justify-content: center !important;
-}
-.button.is-success {
-    background-color: $main-color !important;
+    &_content-title {
+        font-size: calc(0.25em + 0.5vw);
+        line-height: 3em !important;
+    }
+    &_content-field {
+        width: 75%;
+        @include touch {
+            width: 100%;
+        }
+    }
 }
 </style>

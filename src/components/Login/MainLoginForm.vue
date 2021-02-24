@@ -86,7 +86,7 @@ export default class MainLoginForm extends Vue {
     private password: string = '';
     private isPasswordVaild: boolean = true;
 
-    private get isInValidform(): boolean {
+    private get isInvalidForm(): boolean {
         return this.email === '' && this.password === ''
             ? true
             : !this.isEmailVaild || !this.isPasswordVaild
@@ -121,6 +121,7 @@ export default class MainLoginForm extends Vue {
 
     private enableRegisterProgress(): void {
         this.authStore.actions.enableRegisterProcess();
+
         this.$router.push('/invitation');
     }
 }

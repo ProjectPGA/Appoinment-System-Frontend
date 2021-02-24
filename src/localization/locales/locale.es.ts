@@ -6,8 +6,10 @@ const es = {
             inputEmpty: 'Porfavor completa este campo.',
             emailInvalid:
                 'Correo electrónico erroneo. El campo de correo electrónico debe tener "@".',
-            passwordInvalid:
+            passwordIncomplete:
                 'Contraseña no válida. La contraseña debe tener un mínimo de 8 caracteres."',
+            repeatPassword: 'Repetir Contraseña',
+            notSamePassword: 'Las contraseñas no coinciden',
         },
         navigation: {
             title: 'Castillo',
@@ -30,11 +32,11 @@ const es = {
             email: 'E-Mail',
             password: 'Contraseña',
             repeatPassword: 'Repetir Contraseña',
+            notSamePassword: 'Las contraseñas no coinciden',
             button: 'Registrar',
             emailExist: 'El email introducido ya existe',
             tryAgain: 'Volver a intentar',
             mandatoryFieldsEmpty: 'Campos obligatorios vacíos',
-            notSamePassword: 'Las contraseñas no coinciden',
             notPasswordLength:
                 'La contraseña no cumple la longitud requerida (8 mínimo)',
         },
