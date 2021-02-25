@@ -11,7 +11,7 @@ import { InvitationalCodeRequest } from './models/auth/InvitationalCodeRequest';
 import { CheckMailRequest } from './models/auth/CheckMailRequest';
 import { RegisterRequest } from './models/auth/RegisterRequest';
 
-const baseUrl: string = apiPrefix('');
+const baseUrl: string = apiPrefix('/auth');
 
 export const login: (
     params: LoginRequest
@@ -84,8 +84,3 @@ export const register: (
     );
     return response.data;
 };
-
-// export const getUserData: () => Promise<UserData> = async () => {
-//     const response = await api.get<UserData>(`${baseUrl}/login`);
-//     return response.data;
-// };

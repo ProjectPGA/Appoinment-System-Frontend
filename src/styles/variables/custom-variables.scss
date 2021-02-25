@@ -1,8 +1,3 @@
-$p-header-height: 56px;
-$p-title-color: #5097ab;
-$p-footer-height: 44px;
-$p-line-separator-color: #d8d8d8;
-
 $fallback-fonts: 'Libre Franklin', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 
@@ -21,25 +16,6 @@ $z-layers: (
     'below': -1,
     'bottomless': -9000,
 );
-
-// table
-$table-font-size: 0.8rem;
-$table-font-color: black;
-$table-border-color: #e5e5e5;
-$table-header-background-color: #f2f8fb;
-
-// info-box
-$info-box-border-left-color: #000000;
-$info-box-title-background-color: #edeff0;
-$info-box-icon-color: #e4e4e4;
-$info-box-content-background-color: #f9f9f9;
-
-// main content area
-$content-padding-top: 16px;
-
-// navigation mar
-$navigation-item-spacing: 36px;
-$navigation-item-spacing-desktop: 24px;
 
 // App Colors
 $main-color: #e01f2f;

@@ -101,7 +101,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import authStore from '@/store/auth-store/AuthStore';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
-import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
+import ButtonTranslation from '@/components/common/ButtonTranslation.vue';
 import { RegisterRequest } from '@/webservices/models/auth/RegisterRequest';
 import { UserRoles } from '@/models/user/UserData';
 

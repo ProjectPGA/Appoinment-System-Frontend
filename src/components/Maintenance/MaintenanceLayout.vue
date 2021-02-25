@@ -17,7 +17,7 @@
                     {{ subtitle }}
                 </h2>
             </div>
-            <button-translation></button-translation>
+            <button-translation />
         </div>
     </div>
 </template>
@@ -25,7 +25,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
-import ButtonTranslation from '@/components/Login/ButtonTranslation.vue';
+import ButtonTranslation from '@/components/common/ButtonTranslation.vue';
 
 @Component({
     name: 'MaintenanceLayout',
