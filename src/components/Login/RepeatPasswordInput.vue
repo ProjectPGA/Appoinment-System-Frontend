@@ -95,8 +95,8 @@ export default class RepeatPasswordInput extends Vue {
         this.$emit('inputPassword', password);
     }
 
-    private onCheckPassword(isPasswordVaild: boolean): void {
-        this.$emit('checkPassword', isPasswordVaild);
+    private onCheckPassword(isPasswordValid: boolean): void {
+        this.$emit('checkPassword', isPasswordValid);
     }
 }
 </script>

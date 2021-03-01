@@ -1,12 +1,12 @@
 <template>
-    <div class="main-reigster-form">
+    <div class="main-register-form">
         <button-translation />
         <div class="columns is-centered">
             <div class="column is-12"><logo-app /></div>
         </div>
         <div class="columns is-centered is-mobile">
             <div class="column is-6-desktop is-10-mobile container">
-                <h1 class="main-reigster-form_title title">
+                <h1 class="main-register-form_title title">
                     {{ $t('titles.register') }}
                 </h1>
                 <b-field :label="$t('components.register.name')">
@@ -41,7 +41,7 @@
                     view="register"
                 />
 
-                <div class="main-reigster-form_button columns is-vcentered">
+                <div class="main-register-form_button columns is-vcentered">
                     <div class="column is-2">
                         <b-button
                             @click="register()"
@@ -87,13 +87,13 @@ export default class MainRegisterForm extends Vue {
     private surname: string = '';
 
     private email: string = '';
-    private isEmailVaild: boolean = true;
+    private isEmailValid: boolean = true;
 
     private password: string = '';
-    private isPasswordVaild: boolean = true;
+    private isPasswordValid: boolean = true;
 
     private repeatPassword: string = '';
-    private isRepeatPasswordVaild: boolean = true;
+    private isRepeatPasswordValid: boolean = true;
 
     private register(): void {
         const registerData: RegisterRequest = {
@@ -113,38 +113,38 @@ export default class MainRegisterForm extends Vue {
         this.email = email;
     }
 
-    private onCheckEmail(isEmailVaild: boolean): void {
-        this.isEmailVaild = isEmailVaild;
+    private onCheckEmail(isEmailValid: boolean): void {
+        this.isEmailValid = isEmailValid;
     }
 
     private onPasswordInput(password: string): void {
         this.password = password;
     }
 
-    private onCheckPassword(isPasswordVaild: boolean): void {
-        this.isPasswordVaild = isPasswordVaild;
+    private onCheckPassword(isPasswordValid: boolean): void {
+        this.isPasswordValid = isPasswordValid;
     }
 
     private onRepeatPasswordInput(password: string): void {
         this.repeatPassword = password;
     }
 
-    private onCheckRepeatPassword(isPasswordVaild: boolean): void {
-        this.isRepeatPasswordVaild = isPasswordVaild;
+    private onCheckRepeatPassword(isPasswordValid: boolean): void {
+        this.isRepeatPasswordValid = isPasswordValid;
     }
 
     private get isValidForm(): boolean {
         return (
-            this.isEmailVaild &&
-            this.isPasswordVaild &&
-            this.isRepeatPasswordVaild
+            this.isEmailValid &&
+            this.isPasswordValid &&
+            this.isRepeatPasswordValid
         );
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.main-reigster-form {
+.main-register-form {
     &_title {
         font-size: calc(0.5em + 0.5vw);
         line-height: 3em !important;

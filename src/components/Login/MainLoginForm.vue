@@ -81,15 +81,15 @@ export default class MainLoginForm extends Vue {
     private authStore = authStore.context(this.$store);
 
     private email: string = '';
-    private isEmailVaild: boolean = true;
+    private isEmailValid: boolean = true;
 
     private password: string = '';
-    private isPasswordVaild: boolean = true;
+    private isPasswordValid: boolean = true;
 
     private get isInvalidForm(): boolean {
         return this.email === '' && this.password === ''
             ? true
-            : !this.isEmailVaild || !this.isPasswordVaild
+            : !this.isEmailValid || !this.isPasswordValid
             ? true
             : false;
     }
@@ -98,16 +98,16 @@ export default class MainLoginForm extends Vue {
         this.email = email;
     }
 
-    private onCheckEmail(isEmailVaild: boolean): void {
-        this.isEmailVaild = isEmailVaild;
+    private onCheckEmail(isEmailValid: boolean): void {
+        this.isEmailValid = isEmailValid;
     }
 
     private onPasswordInput(password: string): void {
         this.password = password;
     }
 
-    private onCheckPassword(isPasswordVaild: boolean): void {
-        this.isPasswordVaild = isPasswordVaild;
+    private onCheckPassword(isPasswordValid: boolean): void {
+        this.isPasswordValid = isPasswordValid;
     }
 
     private async checkLogin() {
