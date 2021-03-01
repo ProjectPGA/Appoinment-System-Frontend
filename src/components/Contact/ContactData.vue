@@ -1,60 +1,35 @@
 <template>
-    <div>
-        <div class="columns is-multiline">
-            <div class="column is-12"><logo-app /></div>
-            <div class="column is-12">
-                <titles-app
-                    title="titles.contact"
-                    class="title-contact"
-                ></titles-app>
-                <ul class="info-contact">
-                    <li>
-                        <ol class="title-info-contact">
-                            {{
-                                $t('components.contact.titleSchedule')
-                            }}
-                        </ol>
-                        <ol>
-                            {{
-                                $t('components.contact.textMondayToFriday')
-                            }}
-                        </ol>
-                        <ol>
-                            {{
-                                $t('components.contact.textSaturday')
-                            }}
-                        </ol>
-                    </li>
-                    <li>
-                        <ol class="title-info-contact">
-                            {{
-                                $t('components.contact.titlePhone')
-                            }}
-                        </ol>
-                        <ol>
-                            {{
-                                $t('components.contact.textPhone')
-                            }}
-                        </ol>
-                    </li>
-                    <li>
-                        <ol class="title-info-contact">
-                            {{
-                                $t('components.contact.titleAddress')
-                            }}
-                        </ol>
-                        <ol>
-                            {{
-                                $t('components.contact.textAddress')
-                            }}
-                        </ol>
-                        <ol>
-                            {{
-                                $t('components.contact.textCity')
-                            }}
-                        </ol>
-                    </li>
-                </ul>
+    <div class="contact-data">
+        <div class="contact-data_section-container">
+            <div class="contact-data_section">
+                <div class="contact-data_title">
+                    {{ $t('components.contact.titleScheddive') }}
+                </div>
+                <div>
+                    {{ $t('components.contact.textMondayToFriday') }}
+                </div>
+                <div>
+                    {{ $t('components.contact.textSaturday') }}
+                </div>
+            </div>
+            <div class="contact-data_section">
+                <div class="contact-data_title">
+                    {{ $t('components.contact.titlePhone') }}
+                </div>
+                <div>
+                    {{ $t('components.contact.textPhone') }}
+                </div>
+            </div>
+            <div class="contact-data_section">
+                <div class="contact-data_title">
+                    {{ $t('components.contact.titleAddress') }}
+                </div>
+                <div>
+                    {{ $t('components.contact.textAddress') }}
+                </div>
+                <div>
+                    {{ $t('components.contact.textCity') }}
+                </div>
             </div>
         </div>
     </div>
@@ -77,14 +52,32 @@ export default class ContactData extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.title-contact {
-    padding-bottom: 15px;
-}
-.info-contact {
-    text-align: center;
-}
-.title-info-contact {
-    font-size: 1.5em;
-    padding: 5px;
+.contact-data {
+    display: flex;
+    align-items: center;
+    height: 90vh;
+    background-color: $main-color-light;
+    padding: 2rem;
+    font-size: 1.15rem;
+
+    &_section-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        flex-direction: row;
+        color: $main-color-medium-dark;
+
+        @include mobile {
+            flex-direction: column;
+        }
+    }
+
+    // &_section {
+    //     padding: 1rem;
+    // }
+
+    &_title {
+        font-size: 2rem;
+    }
 }
 </style>
