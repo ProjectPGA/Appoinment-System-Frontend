@@ -13,12 +13,12 @@ export default class MainActions extends Actions<
         this.commit('changeTestData');
     }
 
-    public changeLanguajeToSpanish(): void {
-        this.commit('changeLanguajeToSpanish');
+    public changeLanguageToSpanish(): void {
+        this.commit('changeLanguageToSpanish');
     }
 
-    public changeLanguajeToEnglish(): void {
-        this.commit('changeLanguajeToEnglish');
+    public changeLanguageToEnglish(): void {
+        this.commit('changeLanguageToEnglish');
     }
 
     public activateMaintenancePage(): void {

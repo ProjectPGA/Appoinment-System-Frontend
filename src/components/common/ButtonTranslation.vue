@@ -26,18 +26,18 @@ export default class ButtonTranslation extends Vue {
         return this.mainStore.state.currentLanguage;
     }
 
-    private changeLanguajeToSpanish(): void {
-        this.mainStore.actions.changeLanguajeToSpanish();
+    private changeLanguageToSpanish(): void {
+        this.mainStore.actions.changeLanguageToSpanish();
     }
 
-    private changeLanguajeToEnglish(): void {
-        this.mainStore.actions.changeLanguajeToEnglish();
+    private changeLanguageToEnglish(): void {
+        this.mainStore.actions.changeLanguageToEnglish();
     }
 
     private changeLanguage(): void {
         this.currentLanguage === 'es'
-            ? this.changeLanguajeToEnglish()
-            : this.changeLanguajeToSpanish();
+            ? this.changeLanguageToEnglish()
+            : this.changeLanguageToSpanish();
     }
 }
 </script>
