@@ -54,6 +54,14 @@ export default class AuthMutations extends Mutations<AuthState> {
         this.state.isRegisterProcess = false;
     }
 
+    public setInvitationalCode(code: string): void {
+        this.state.invitationalCode = code;
+    }
+
+    public removeInvitationalCode(): void {
+        this.state.invitationalCode = null;
+    }
+
     public setInvitationalCodeError(): void {
         this.state.isInvitationalCodeError = true;
     }

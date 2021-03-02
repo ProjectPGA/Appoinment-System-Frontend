@@ -9,5 +9,6 @@ export default class AuthState {
     public email: string | null = null;
     public loginRequestStatus: RequestStatus = RequestStatus.IN_PROGRESS;
     public isInvitationalCodeError: boolean = false;
+    public invitationalCode: string | null = null;
     public isRegisterProcessError: boolean = false;
 }
