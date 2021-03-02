@@ -13,4 +13,12 @@ export default class MainMutations extends Mutations<MainState> {
     public changeLanguajeToEnglish(): void {
         this.state.currentLanguage = 'en';
     }
+
+    public activateMaintenancePage(): void {
+        this.state.isMaintenance = true;
+    }
+
+    public desactivateMaintenancePage(): void {
+        this.state.isMaintenance = false;
+    }
 }
