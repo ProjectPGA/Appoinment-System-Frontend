@@ -21,9 +21,9 @@ import authStore from '@/store/auth-store/AuthStore';
 import WhatsappButton from '@/components/Contact/WhatsappButton.vue';
 import CallButton from '@/components/Contact/CallButton.vue';
 import Loading from '@/components/Utils/Loading.vue';
-import MaintenancePage from '@/views/MaintenancePage.vue';
 
 import Login from '@/views/Login.vue';
+import MaintenancePage from '@/views/MaintenancePage.vue';
 
 @Component({
     name: 'App',
