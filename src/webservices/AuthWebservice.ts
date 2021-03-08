@@ -63,6 +63,20 @@ export const checkInvitationalCode: (
     return response.data;
 };
 
+export const deleteInvitationalCode: (
+    params: InvitationalCodeRequest
+) => Promise<InvitationalCodeRequest> = async params => {
+    const headers: any = jsonHeaders.headers;
+    const response = await axios.delete<InvitationalCodeRequest>(
+        `${baseUrl}/invitation`,
+        {
+            headers,
+            data: { invitationCode: params.invitationCode },
+        }
+    );
+    return response.data;
+};
+
 export const checkIfEmailAlreadyExist: (
     params: CheckMailRequest
 ) => Promise<CheckMailRequest> = async params => {
