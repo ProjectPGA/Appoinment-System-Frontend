@@ -6,6 +6,9 @@ module.exports = {
         port: 18000,
     },
 
+    publicPath:
+        process.env.NODE_ENV === 'production' ? '/appointmentsystem/' : '/',
+
     pwa: {
         name: 'Porfolio framework',
         themeColor: '#506975',
