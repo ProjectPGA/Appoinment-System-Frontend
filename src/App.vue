@@ -1,10 +1,13 @@
 <template>
     <div class="main-app">
-        <router-view v-if="isLogged || isRegisterProcess" />
-        <login v-if="!isLogged && !isRegisterProcess" />
-        <whatsapp-button v-if="isLogged" />
-        <call-button v-if="isLogged" />
-        <loading v-if="isLoading" />
+        <maintenance-page v-if="isMaintenance" />
+        <template v-else>
+            <router-view v-if="isLogged || isRegisterProcess" />
+            <login v-if="!isLogged && !isRegisterProcess" />
+            <whatsapp-button v-if="isLogged" />
+            <call-button v-if="isLogged" />
+            <loading v-if="isLoading" />
+        </template>
     </div>
 </template>
 
@@ -20,6 +23,7 @@ import CallButton from '@/components/Contact/CallButton.vue';
 import Loading from '@/components/Utils/Loading.vue';
 
 import Login from '@/views/Login.vue';
+import MaintenancePage from '@/views/MaintenancePage.vue';
 
 @Component({
     name: 'App',
@@ -28,6 +32,7 @@ import Login from '@/views/Login.vue';
         CallButton,
         Loading,
         Login,
+        MaintenancePage,
     },
 })
 export default class App extends Vue {
@@ -56,6 +61,10 @@ export default class App extends Vue {
 
     private get isRegisterProcess(): boolean {
         return this.authStore.state.isRegisterProcess;
+    }
+
+    private get isMaintenance(): boolean {
+        return this.mainStore.state.isMaintenance;
     }
 
     private checkUserToken(): void {

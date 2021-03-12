@@ -52,11 +52,11 @@
                                 </template>
                                 <mobile-navigation-link
                                     label="languages.spanish"
-                                    @click.native="changeLanguajeToSpanish"
+                                    @click.native="changeLanguageToSpanish"
                                 />
                                 <mobile-navigation-link
                                     label="languages.english"
-                                    @click.native="changeLanguajeToEnglish"
+                                    @click.native="changeLanguageToEnglish"
                                 />
                             </collapse>
                         </div>
@@ -113,12 +113,12 @@ export default class MobileNavigationMenu extends Vue {
 
     private showModal: boolean = false;
 
-    private changeLanguajeToSpanish(): void {
-        this.mainStore.actions.changeLanguajeToSpanish();
+    private changeLanguageToSpanish(): void {
+        this.mainStore.actions.changeLanguageToSpanish();
     }
 
-    private changeLanguajeToEnglish(): void {
-        this.mainStore.actions.changeLanguajeToEnglish();
+    private changeLanguageToEnglish(): void {
+        this.mainStore.actions.changeLanguageToEnglish();
     }
 
     private get currentLanguage(): string | null {

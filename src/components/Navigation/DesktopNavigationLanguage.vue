@@ -16,7 +16,7 @@
                     'is-active': currentLanguage === 'es',
                 }"
                 class="navbar-item"
-                @click="changeLanguajeToSpanish"
+                @click="changeLanguageToSpanish"
             >
                 {{ $t('languages.spanish') }}
             </a>
@@ -25,7 +25,7 @@
                     'is-active': currentLanguage === 'en',
                 }"
                 class="navbar-item"
-                @click="changeLanguajeToEnglish"
+                @click="changeLanguageToEnglish"
             >
                 {{ $t('languages.english') }}
             </a>
@@ -44,12 +44,12 @@ import mainStore from '@/store/main-store/MainStore';
 export default class DesktopNavigationLanguage extends Vue {
     private mainStore = mainStore.context(this.$store);
 
-    private changeLanguajeToSpanish(): void {
-        this.mainStore.actions.changeLanguajeToSpanish();
+    private changeLanguageToSpanish(): void {
+        this.mainStore.actions.changeLanguageToSpanish();
     }
 
-    private changeLanguajeToEnglish(): void {
-        this.mainStore.actions.changeLanguajeToEnglish();
+    private changeLanguageToEnglish(): void {
+        this.mainStore.actions.changeLanguageToEnglish();
     }
 
     private get currentLanguage(): string | null {
