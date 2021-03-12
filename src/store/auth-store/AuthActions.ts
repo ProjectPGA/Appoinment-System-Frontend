@@ -12,6 +12,7 @@ import {
     checkUserToken,
     checkInvitationalCode,
     checkIfEmailAlreadyExist,
+    deleteInvitationalCode,
 } from '@/webservices/AuthWebservice';
 
 import { LoginRequest } from '@/webservices/models/auth/LoginRequest';
@@ -137,6 +138,8 @@ export default class AuthActions extends Actions<
                     refreshToken: response.refreshToken,
                 });
 
+                this.dispatch('deleteInvitationalCode', null);
+
                 router.push('/');
             } else {
                 this.commit('setUserNotisLogged', null);
@@ -179,9 +182,23 @@ export default class AuthActions extends Actions<
 
             this.dispatch('enableRegisterProcess', null);
 
+            this.commit('setInvitationalCode', invitationCode);
+
             router.push('/register');
         } catch (exception) {
             this.commit('setInvitationalCodeError', null);
+        }
+    }
+
+    public async deleteInvitationalCode(): Promise<void> {
+        try {
+            const invitationCode: string = this.state.invitationalCode ?? '';
+
+            await deleteInvitationalCode({ invitationCode });
+
+            this.commit('removeInvitationalCode', null);
+        } catch (exception) {
+            // TODO: show error
         }
     }
 
