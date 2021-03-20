@@ -74,5 +74,8 @@ export default class InvitationalCode extends Vue {
             width: 100%;
         }
     }
+    &_content-title {
+        text-align: center;
+    }
 }
 </style>
