@@ -130,6 +130,7 @@ export default class RepeatPasswordInput extends Vue {
         font-size: 12px;
         color: $main-color-dark;
         margin-bottom: 10px;
+        font-weight: 700;
     }
     &_password-input {
         /deep/.icon {
