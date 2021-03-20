@@ -24,7 +24,9 @@
                     view="login"
                 />
 
-                <div class="columns is-vcentered">
+                <div
+                    class="columns is-vcentered main-login-form_button-section"
+                >
                     <div class="column is-3 is-2-fullhd">
                         <b-button
                             @click="checkLogin()"
@@ -129,6 +131,10 @@ export default class MainLoginForm extends Vue {
 
 <style lang="scss" scoped>
 .main-login-form {
+    &_button-section {
+        padding-top: 2.25rem;
+    }
+
     &_invitation-link {
         cursor: pointer;
         color: $main-color !important;
@@ -138,7 +144,7 @@ export default class MainLoginForm extends Vue {
     }
 
     &_title {
-        font-size: calc(0.75em + 0.5vw);
+        font-size: calc(1.25em + 0.5vw);
         line-height: 3em !important;
     }
 
