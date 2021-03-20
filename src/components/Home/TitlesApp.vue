@@ -17,8 +17,9 @@ export default class TitlesApp extends Vue {
 
 <style lang="scss" scoped>
 .title {
-    font-family: 'CabbageTown';
+    font-family: 'Libre Franklin';
     text-align: center;
-    font-size: 1em;
+    font-size: 3em;
+    background-color: $main-color-light;
 }
 </style>

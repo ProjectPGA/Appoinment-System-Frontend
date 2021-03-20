@@ -63,34 +63,50 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import LogoApp from '@/components/Navigation/LogoApp.vue';
-import TitlesApp from '@/components/Home/TitlesApp.vue';
-
 @Component({
     name: 'ContactData',
-    components: {
-        LogoApp,
-        TitlesApp,
-    },
 })
 export default class ContactData extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+@-webkit-keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(200px);
+        transform: translateY(200px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(200px);
+        transform: translateY(200px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
 .contact-data {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 90vh;
+    height: 45vh;
     background-color: $main-color-light;
     padding: 2rem;
     font-size: 1.15rem;
 
     @include tablet-only {
         flex-direction: column;
+        height: inherit;
     }
     @include mobile {
         flex-direction: column;
+        height: inherit;
     }
 
     &_icon {
@@ -102,10 +118,12 @@ export default class ContactData extends Vue {}
         color: $main-color;
 
         @include tablet-only {
-            align-items: center;
+            // align-items: center;
+            display: block;
         }
         @include mobile {
-            align-items: center;
+            // align-items: center;
+            display: block;
         }
 
         @include paddingY(2rem);
@@ -120,13 +138,15 @@ export default class ContactData extends Vue {}
         flex-direction: row;
         color: $main-color-medium-dark;
 
+        -webkit-animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            both;
+        animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
         @include tablet-only {
             justify-content: flex-start;
-            align-items: center;
         }
         @include mobile {
             justify-content: flex-start;
-            align-items: center;
         }
     }
 
