@@ -17,7 +17,9 @@ import { Component, Vue } from 'vue-property-decorator';
 })
 export default class LogoApp extends Vue {
     private toHome(): void {
-        this.$router.push('/');
+        if (this.$route.path !== '/') {
+            this.$router.push('/');
+        }
     }
 }
 </script>
