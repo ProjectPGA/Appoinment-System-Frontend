@@ -21,12 +21,12 @@ it('increments asynchronously', async () => {
 
     const store = createStore(MainStore);
 
-    store.dispatch('changeLanguajeToEnglish');
+    store.dispatch('changeLanguageToEnglish');
 
-    await actions.changeLanguajeToEnglish();
+    await actions.changeLanguageToEnglish();
 
     // Check mock commit method is called
-    expect(commit).toHaveBeenCalledWith('changeLanguajeToEnglish');
+    expect(commit).toHaveBeenCalledWith('changeLanguageToEnglish');
 
     expect(store.state.currentLanguage).toBe('en');
 });
