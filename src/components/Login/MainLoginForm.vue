@@ -143,11 +143,6 @@ export default class MainLoginForm extends Vue {
         }
     }
 
-    &_title {
-        font-size: calc(1.25em + 0.5vw);
-        line-height: 3em !important;
-    }
-
     &_invitation {
         font-size: 1.25em;
     }

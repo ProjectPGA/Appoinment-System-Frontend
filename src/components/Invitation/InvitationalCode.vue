@@ -68,10 +68,6 @@ export default class InvitationalCode extends Vue {
         flex-direction: column;
         align-items: center;
     }
-    &_content-title {
-        font-size: calc(0.25em + 0.5vw);
-        line-height: 3em !important;
-    }
     &_content-field {
         width: 75%;
         @include touch {

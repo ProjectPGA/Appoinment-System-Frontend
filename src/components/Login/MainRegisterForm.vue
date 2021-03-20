@@ -185,14 +185,6 @@ export default class MainRegisterForm extends Vue {
 
 <style lang="scss" scoped>
 .main-register-form {
-    &_title {
-        font-size: calc(0.5em + 0.5vw);
-        line-height: 3em !important;
-        @include mobile {
-            font-size: calc(0.75em + 0.5vw);
-        }
-    }
-
     &_button {
         margin-top: 15px;
     }
