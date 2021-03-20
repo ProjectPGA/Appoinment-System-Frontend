@@ -22,13 +22,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
+
+import mainStore from '@/store/main-store/MainStore';
 
 @Component({
     name: 'PasswordInput',
 })
 export default class PasswordInput extends Vue {
     @Prop(String) private view: string;
+
+    private mainStore = mainStore.context(this.$store);
 
     private password: string = '';
     private isValid: boolean = true;
@@ -43,7 +47,9 @@ export default class PasswordInput extends Vue {
     private checkPassword(): void {
         this.password === ''
             ? this.inputEmpty()
-            : this.password.length >= 8
+            : this.password.match(
+                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
+              )
             ? this.inputValid()
             : this.inputPasswordIncomplete();
 
@@ -58,7 +64,7 @@ export default class PasswordInput extends Vue {
 
     private inputPasswordIncomplete(): void {
         this.errorMessage = `${this.$t(
-            'components.loginInputs.passwordIncomplete'
+            'components.loginInputs.passwordInvalid'
         )}`;
 
         this.isValid = false;
@@ -67,6 +73,15 @@ export default class PasswordInput extends Vue {
     private inputValid(): void {
         this.errorMessage = '';
         this.isValid = true;
+    }
+
+    private get currentLanguage(): string {
+        return this.mainStore.state.currentLanguage;
+    }
+
+    @Watch('currentLanguage')
+    private onChangeLanguage(): void {
+        this.checkPassword();
     }
 }
 </script>

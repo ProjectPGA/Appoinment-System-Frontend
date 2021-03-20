@@ -4,11 +4,12 @@ const en = {
             email: 'E-Mail',
             password: 'Password',
             inputEmpty: 'Please fill this field.',
-            emailInvalid: 'Invalid email. Email field must have "@".',
-            passwordIncomplete:
-                'Invalid password. Password must be 8 characters long minimum',
+            emailInvalid: 'Invalid email. Please enter a valid email.',
+            passwordInvalid: 'Invalid password. Please enter a valid password.',
             repeatPassword: 'Repeat Password',
             notSamePassword: 'The passwords are not the same',
+            passwordRequirements:
+                'The password must be a minimum of 8 characters containing at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.',
         },
         navigation: {
             title: 'Castillo',

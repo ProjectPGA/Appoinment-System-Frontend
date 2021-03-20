@@ -18,13 +18,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
+
+import mainStore from '@/store/main-store/MainStore';
 
 @Component({
     name: 'EmailInput',
 })
 export default class EmailInput extends Vue {
     @Prop(String) private view: string;
+
+    private mainStore = mainStore.context(this.$store);
 
     private email: string = '';
     private isValid: boolean = true;
@@ -39,7 +43,7 @@ export default class EmailInput extends Vue {
     private checkEmail(): void {
         this.email === ''
             ? this.inputEmpty()
-            : this.email.includes('@')
+            : this.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
             ? this.inputValid()
             : this.inputEmailInvalid();
 
@@ -61,6 +65,15 @@ export default class EmailInput extends Vue {
     private inputValid(): void {
         this.errorMessage = '';
         this.isValid = true;
+    }
+
+    private get currentLanguage(): string {
+        return this.mainStore.state.currentLanguage;
+    }
+
+    @Watch('currentLanguage')
+    private onChangeLanguage(): void {
+        this.checkEmail();
     }
 }
 </script>

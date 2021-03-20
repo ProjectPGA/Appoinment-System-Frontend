@@ -9,11 +9,20 @@
                 <h1 class="main-register-form_title title">
                     {{ $t('titles.register') }}
                 </h1>
-                <b-field :label="$t('components.register.name')">
+                <b-field
+                    :label="$t('components.register.name')"
+                    :message="errorNameMessage"
+                    :type="{
+                        'is-danger': !isNameValid,
+                    }"
+                >
                     <b-input
                         v-model="name"
                         :placeholder="$t('components.register.name')"
                         size="is-medium"
+                        required
+                        @blur="checkName"
+                        @input="checkName"
                     >
                     </b-input>
                 </b-field>
@@ -59,9 +68,10 @@
     </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 
 import authStore from '@/store/auth-store/AuthStore';
+import mainStore from '@/store/main-store/MainStore';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
 import EmailInput from '@/components/Login/EmailInput.vue';
@@ -82,6 +92,7 @@ import { UserRoles } from '@/models/user/UserData';
 })
 export default class MainRegisterForm extends Vue {
     private authStore = authStore.context(this.$store);
+    private mainStore = mainStore.context(this.$store);
 
     private name: string = '';
     private surname: string = '';
@@ -95,6 +106,9 @@ export default class MainRegisterForm extends Vue {
     private repeatPassword: string = '';
     private isRepeatPasswordValid: boolean = true;
 
+    private errorNameMessage: string = '';
+    private isNameValid: boolean = true;
+
     private register(): void {
         const registerData: RegisterRequest = {
             user: {
@@ -107,6 +121,18 @@ export default class MainRegisterForm extends Vue {
         };
 
         this.authStore.actions.register({ registerData });
+    }
+
+    private checkName(): void {
+        this.name.length > 0
+            ? (this.isNameValid = true)
+            : (this.isNameValid = false);
+
+        this.name.length > 0
+            ? (this.errorNameMessage = '')
+            : (this.errorNameMessage = `${this.$t(
+                  'components.loginInputs.inputEmpty'
+              )}`);
     }
 
     private onEmailInput(email: string): void {
@@ -137,8 +163,22 @@ export default class MainRegisterForm extends Vue {
         return (
             this.isEmailValid &&
             this.isPasswordValid &&
-            this.isRepeatPasswordValid
+            this.isRepeatPasswordValid &&
+            this.isNameValid &&
+            this.name.length > 0 &&
+            this.email.length > 0 &&
+            this.password.length > 0 &&
+            this.repeatPassword.length > 0
         );
+    }
+
+    private get currentLanguage(): string {
+        return this.mainStore.state.currentLanguage;
+    }
+
+    @Watch('currentLanguage')
+    private onChangeLanguage(): void {
+        this.checkName();
     }
 }
 </script>

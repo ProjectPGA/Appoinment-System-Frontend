@@ -1,10 +1,13 @@
 <template>
-    <div>
+    <div class="repeat-password-input">
         <password-input
             @input="onPasswordInput"
             @checkPassword="onCheckPassword"
             :view="view"
         />
+        <p class="repeat-password-input_password-requeriments">
+            {{ $t('components.loginInputs.passwordRequirements') }}
+        </p>
         <b-field
             :label="$t('components.loginInputs.repeatPassword')"
             :message="errorMessage"
@@ -22,14 +25,16 @@
                 required
                 @blur="checkRepeatPassword"
                 @input="onInputRepeatPassword"
-                class="password-input"
+                class="repeat-password-input_password-input"
             />
         </b-field>
     </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
+
+import mainStore from '@/store/main-store/MainStore';
 
 import PasswordInput from '@/components/Login/PasswordInput.vue';
 
@@ -41,6 +46,8 @@ import PasswordInput from '@/components/Login/PasswordInput.vue';
 })
 export default class RepeatPasswordInput extends Vue {
     @Prop(String) private view: string;
+
+    private mainStore = mainStore.context(this.$store);
 
     private password: string = '';
     private isValid: boolean = true;
@@ -56,8 +63,10 @@ export default class RepeatPasswordInput extends Vue {
     private checkRepeatPassword(): void {
         this.repeatPassword === ''
             ? this.inputEmpty()
-            : this.repeatPassword.length <= 8
-            ? this.inputPasswordIncomplete()
+            : !this.repeatPassword.match(
+                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
+              )
+            ? this.inputPasswordInvalid()
             : this.repeatPassword === this.password
             ? this.inputRepeatPasswordValid()
             : this.inputRepeatPasswordInvalid();
@@ -70,9 +79,9 @@ export default class RepeatPasswordInput extends Vue {
         this.isValid = false;
     }
 
-    private inputPasswordIncomplete(): void {
+    private inputPasswordInvalid(): void {
         this.errorMessage = `${this.$t(
-            'components.loginInputs.passwordIncomplete'
+            'components.loginInputs.passwordInvalid'
         )}`;
         this.isValid = false;
     }
@@ -98,13 +107,34 @@ export default class RepeatPasswordInput extends Vue {
     private onCheckPassword(isPasswordValid: boolean): void {
         this.$emit('checkPassword', isPasswordValid);
     }
+
+    private get currentLanguage(): string {
+        return this.mainStore.state.currentLanguage;
+    }
+
+    @Watch('password')
+    private onChangePassword(): void {
+        this.checkRepeatPassword();
+    }
+
+    @Watch('currentLanguage')
+    private onChangeLanguage(): void {
+        this.checkRepeatPassword();
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-.password-input {
-    /deep/.icon {
-        color: $main-color-medium-light !important;
+.repeat-password-input {
+    &_password-requeriments {
+        font-size: 12px;
+        color: $main-color-dark;
+        margin-bottom: 10px;
+    }
+    &_password-input {
+        /deep/.icon {
+            color: $main-color-medium-light !important;
+        }
     }
 }
 </style>

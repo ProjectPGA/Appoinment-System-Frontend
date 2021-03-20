@@ -5,11 +5,13 @@ const es = {
             password: 'Contraseña',
             inputEmpty: 'Porfavor completa este campo.',
             emailInvalid:
-                'Correo electrónico erroneo. El campo de correo electrónico debe tener "@".',
-            passwordIncomplete:
-                'Contraseña no válida. La contraseña debe tener un mínimo de 8 caracteres."',
+                'Email no válida. Por favor introduzca un correo valido.',
+            passwordInvalid:
+                'Contraseña no válida. Por favor introduzca una contraseña valido."',
             repeatPassword: 'Repetir Contraseña',
             notSamePassword: 'Las contraseñas no coinciden',
+            passwordRequirements:
+                'La contraseña debe tener un mínimo de 8 caracteres que contienen al menos una letra minúscula, una letra mayúscula, un dígito numérico y un carácter especial.',
         },
         navigation: {
             title: 'Castillo',
