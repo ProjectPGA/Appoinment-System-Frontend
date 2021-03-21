@@ -1,60 +1,60 @@
 <template>
-    <div>
-        <div class="columns is-multiline">
-            <div class="column is-12"><logo-app /></div>
-            <div class="column is-12">
-                <titles-app
-                    title="titles.contact"
-                    class="title-contact"
-                ></titles-app>
-                <ul class="info-contact">
-                    <li>
-                        <ol class="title-info-contact">
-                            {{
-                                $t('components.contact.titleSchedule')
-                            }}
-                        </ol>
-                        <ol>
-                            {{
-                                $t('components.contact.textMondayToFriday')
-                            }}
-                        </ol>
-                        <ol>
-                            {{
-                                $t('components.contact.textSaturday')
-                            }}
-                        </ol>
-                    </li>
-                    <li>
-                        <ol class="title-info-contact">
-                            {{
-                                $t('components.contact.titlePhone')
-                            }}
-                        </ol>
-                        <ol>
-                            {{
-                                $t('components.contact.textPhone')
-                            }}
-                        </ol>
-                    </li>
-                    <li>
-                        <ol class="title-info-contact">
-                            {{
-                                $t('components.contact.titleAddress')
-                            }}
-                        </ol>
-                        <ol>
-                            {{
-                                $t('components.contact.textAddress')
-                            }}
-                        </ol>
-                        <ol>
-                            {{
-                                $t('components.contact.textCity')
-                            }}
-                        </ol>
-                    </li>
-                </ul>
+    <div class="contact-data">
+        <div class="contact-data_section-container">
+            <div class="contact-data_icon">
+                <b-icon
+                    pack="far"
+                    icon="calendar-alt"
+                    class="contact-data_icon-phone"
+                />
+            </div>
+            <div class="contact-data_section">
+                <div class="contact-data_title">
+                    {{ $t('components.contact.titleSchedule') }}
+                </div>
+                <h2>
+                    {{ $t('components.contact.textMondayToFriday') }}
+                </h2>
+                <h2>
+                    {{ $t('components.contact.textSaturday') }}
+                </h2>
+            </div>
+        </div>
+        <div class="contact-data_section-container">
+            <div class="contact-data_icon">
+                <b-icon
+                    pack="fas"
+                    icon="phone"
+                    class="contact-data_icon-phone"
+                />
+            </div>
+            <div class="contact-data_section">
+                <div class="contact-data_title">
+                    {{ $t('components.contact.titlePhone') }}
+                </div>
+                <h2>
+                    {{ $t('components.contact.textPhone') }}
+                </h2>
+            </div>
+        </div>
+        <div class="contact-data_section-container">
+            <div class="contact-data_icon">
+                <b-icon
+                    pack="fas"
+                    icon="map-marker-alt"
+                    class="contact-data_icon-phone"
+                />
+            </div>
+            <div class="contact-data_section">
+                <div class="contact-data_title">
+                    {{ $t('components.contact.titleAddress') }}
+                </div>
+                <h2>
+                    {{ $t('components.contact.textAddress') }}
+                </h2>
+                <h2>
+                    {{ $t('components.contact.textCity') }}
+                </h2>
             </div>
         </div>
     </div>
@@ -63,28 +63,80 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import LogoApp from '@/components/Navigation/LogoApp.vue';
-import TitlesApp from '@/components/Home/TitlesApp.vue';
-
 @Component({
     name: 'ContactData',
-    components: {
-        LogoApp,
-        TitlesApp,
-    },
 })
 export default class ContactData extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.title-contact {
-    padding-bottom: 15px;
-}
-.info-contact {
-    text-align: center;
-}
-.title-info-contact {
-    font-size: 1.5em;
-    padding: 5px;
+.contact-data {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 45vh;
+    background-color: $main-color-light;
+    padding: 2rem;
+    font-size: 1.15rem;
+
+    @include tablet-only {
+        flex-direction: column;
+        height: inherit;
+    }
+    @include mobile {
+        flex-direction: column;
+        height: inherit;
+    }
+
+    &_icon {
+        display: flex;
+        align-items: flex-start;
+        justify-content: right;
+        font-size: 2rem;
+        min-height: 200px;
+        color: $main-color;
+
+        @include tablet-only {
+            // align-items: center;
+            display: block;
+        }
+        @include mobile {
+            // align-items: center;
+            display: block;
+        }
+
+        @include paddingY(2rem);
+        @include paddingX(0.75rem);
+    }
+
+    &_section-container {
+        display: flex;
+        width: 100%;
+        min-height: 200px;
+        justify-content: center;
+        flex-direction: row;
+        color: $main-color-medium-dark;
+
+        -webkit-animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            both;
+        animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+        @include tablet-only {
+            justify-content: flex-start;
+        }
+        @include mobile {
+            justify-content: flex-start;
+        }
+    }
+
+    &_section {
+        padding: 1rem;
+    }
+
+    &_title {
+        font-size: 1.75rem;
+        display: flex;
+        align-items: flex-start;
+    }
 }
 </style>
