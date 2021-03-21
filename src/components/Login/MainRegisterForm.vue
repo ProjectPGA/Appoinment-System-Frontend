@@ -1,94 +1,75 @@
 <template>
-    <div>
-        <button-translation></button-translation>
+    <div class="main-register-form">
+        <button-translation />
         <div class="columns is-centered">
-            <div class="column is-6"><logo-app /></div>
+            <div class="column is-12"><logo-app /></div>
         </div>
-        <!-- TODO. Default error messages need to be translated -->
         <div class="columns is-centered is-mobile">
-            <div class="column is-6-desktop is-10-mobile container">
-                <p class="title">{{ $t('titles.register') }}</p>
-                <b-field :label="$t('components.register.name')">
+            <div class="column is-6-desktop is-10-mobile is-8-tablet container">
+                <h1 class="main-register-form_title title">
+                    {{ $t('titles.register') }}
+                </h1>
+                <b-field
+                    :label="$t('components.register.name')"
+                    :message="errorNameMessage"
+                    :type="{
+                        'is-danger': !isNameValid,
+                    }"
+                >
                     <b-input
                         v-model="name"
                         :placeholder="$t('components.register.name')"
                         size="is-medium"
-                        class="custom-margin"
                         required
+                        @blur="checkName"
+                        @input="checkName"
                     >
                     </b-input>
                 </b-field>
-                <b-field :label="$t('components.register.surname')">
+
+                <b-field
+                    :label="$t('components.register.surname')"
+                    :message="errorSurnameMessage"
+                    :type="{
+                        'is-danger': !isSurnameValid,
+                    }"
+                >
                     <b-input
                         v-model="surname"
                         :placeholder="$t('components.register.surname')"
                         size="is-medium"
-                        class="custom-margin"
                         required
+                        @blur="checkSurname"
+                        @input="checkSurname"
                     >
                     </b-input>
                 </b-field>
-                <b-field :label="$t('components.register.email')">
-                    <b-input
-                        v-model="email"
-                        :placeholder="$t('components.register.email')"
-                        size="is-medium"
-                        class="custom-margin"
-                        type="email"
-                        required
-                    >
-                    </b-input>
-                </b-field>
-                <b-field
-                    :label="$t('components.register.repeatPassword')"
-                    :message="isNotRequiredLength"
-                    :type="{
-                        'is-danger': isNotRequiredLength || isPasswordEmpty,
-                    }"
-                >
-                    <b-input
-                        v-model="password"
-                        :placeholder="$t('components.register.password')"
-                        type="password"
-                        size="is-medium"
-                        class="custom-margin"
-                        required
-                        password-reveal
-                        @blur="checkPasswordEmpty"
-                    >
-                    </b-input>
-                </b-field>
-                <b-field
-                    :label="$t('components.register.repeatPassword')"
-                    :message="isNotSamePassword"
-                    :type="{
-                        'is-danger': isNotSamePassword || isRepeatPasswordEmpty,
-                    }"
-                >
-                    <b-input
-                        v-model="passwordRepeat"
-                        :placeholder="$t('components.register.password')"
-                        type="password"
-                        size="is-medium"
-                        class="custom-margin"
-                        required
-                        password-reveal
-                        @blur="checkRepeatPasswordEmpty"
-                        @keyup.native.enter="doRegister()"
-                    >
-                    </b-input>
-                </b-field>
-                <div class="columns is-vcentered">
+
+                <email-input
+                    @input="onEmailInput"
+                    @check-email="onCheckEmail"
+                    view="register"
+                />
+
+                <repeat-password-input
+                    @inputPassword="onPasswordInput"
+                    @check-password="onCheckPassword"
+                    @inputRepeatPassword="onRepeatPasswordInput"
+                    @checkRepeatPassword="onCheckRepeatPassword"
+                    view="register"
+                />
+
+                <div class="main-register-form_button columns is-vcentered">
                     <div class="column is-2">
                         <b-button
-                            @click="doRegister()"
-                            :loading="isRegisterLoading"
+                            @click="register()"
                             outlined
                             type="is-danger"
                             size="is-medium"
-                            :disabled="areFieldsEmpty"
-                            >{{ $t('components.register.button') }}</b-button
+                            :disabled="!isValidForm"
                         >
+                            {{ $t('components.register.button') }}
+                        </b-button>
                     </div>
                 </div>
             </div>
@@ -96,12 +77,16 @@
     </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 
 import authStore from '@/store/auth-store/AuthStore';
+import mainStore from '@/store/main-store/MainStore';
 
 import LogoApp from '@/components/Navigation/LogoApp.vue';
+import EmailInput from '@/components/Login/EmailInput.vue';
 import ButtonTranslation from '@/components/common/ButtonTranslation.vue';
+import RepeatPasswordInput from '@/components/Login/RepeatPasswordInput.vue';
+
 import { RegisterRequest } from '@/webservices/models/auth/RegisterRequest';
 import { UserRoles } from '@/models/user/UserData';
 
@@ -109,22 +94,35 @@ import { UserRoles } from '@/models/user/UserData';
     name: 'MainRegisterForm',
     components: {
         LogoApp,
+        EmailInput,
         ButtonTranslation,
+        RepeatPasswordInput,
     },
 })
 export default class MainRegisterForm extends Vue {
     private authStore = authStore.context(this.$store);
+    private mainStore = mainStore.context(this.$store);
 
     private name: string = '';
     private surname: string = '';
-    private email: string = '';
-    private password: string = '';
-    private isPasswordEmpty: boolean = false;
-    private isRepeatPasswordEmpty: boolean = false;
-    private passwordRepeat: string = '';
 
-    private doRegister(): void {
-        const userRequest: RegisterRequest = {
+    private email: string = '';
+    private isEmailValid: boolean = true;
+
+    private password: string = '';
+    private isPasswordValid: boolean = true;
+
+    private repeatPassword: string = '';
+    private isRepeatPasswordValid: boolean = true;
+
+    private errorNameMessage: string = '';
+    private isNameValid: boolean = true;
+
+    private errorSurnameMessage: string = '';
+    private isSurnameValid: boolean = true;
+
+    private register(): void {
+        const registerData: RegisterRequest = {
             user: {
                 email: this.email,
                 name: this.name,
@@ -134,102 +132,88 @@ export default class MainRegisterForm extends Vue {
             },
         };
 
-        this.register(userRequest);
+        this.authStore.actions.register({ registerData });
     }
 
-    private clearPassInputs(): void {
-        this.password = '';
-        this.passwordRepeat = '';
+    private checkName(): void {
+        this.name.length > 0
+            ? (this.isNameValid = true)
+            : (this.isNameValid = false);
+
+        this.name.length > 0
+            ? (this.errorNameMessage = '')
+            : (this.errorNameMessage = `${this.$t(
+                  'components.loginInputs.inputEmpty'
+              )}`);
     }
 
-    private async checkIfMailAlreadyExist(email: string): Promise<void> {
-        await this.authStore.actions.checkIfMailAlreadyExist(email);
+    private checkSurname(): void {
+        this.surname.length > 0
+            ? (this.isSurnameValid = true)
+            : (this.isSurnameValid = false);
+
+        this.surname.length > 0
+            ? (this.errorSurnameMessage = '')
+            : (this.errorSurnameMessage = `${this.$t(
+                  'components.loginInputs.inputEmpty'
+              )}`);
     }
 
-    private setRegisterInProgress(): void {
-        this.authStore.actions.setRegisterInProgress();
+    private onEmailInput(email: string): void {
+        this.email = email;
     }
 
-    private unsetRegisterInProgress(): void {
-        this.authStore.actions.unsetRegisterInProgress();
+    private onCheckEmail(isEmailValid: boolean): void {
+        this.isEmailValid = isEmailValid;
     }
 
-    private register(registerRequest: RegisterRequest): void {
-        this.authStore.actions.register({ registerData: registerRequest });
+    private onPasswordInput(password: string): void {
+        this.password = password;
     }
 
-    private checkPasswordEmpty(): void {
-        this.password === ''
-            ? (this.isPasswordEmpty = true)
-            : (this.isPasswordEmpty = false);
-    }
-    private checkRepeatPasswordEmpty(): void {
-        this.passwordRepeat === ''
-            ? (this.isRepeatPasswordEmpty = true)
-            : (this.isRepeatPasswordEmpty = false);
+    private onCheckPassword(isPasswordValid: boolean): void {
+        this.isPasswordValid = isPasswordValid;
     }
 
-    private get isPasswordValid(): boolean {
-        return this.isNotSamePassword === null &&
-            this.isNotRequiredLength === null
-            ? true
-            : false;
+    private onRepeatPasswordInput(password: string): void {
+        this.repeatPassword = password;
     }
 
-    private get isNotSamePassword(): string | null {
-        return this.password === this.passwordRepeat
-            ? null
-            : `${this.$t('components.register.notSamePassword')}`;
-    }
-    private get isNotRequiredLength(): string | null {
-        return this.password.length >= 8 || this.password.length === 0
-            ? null
-            : `${this.$t('components.register.notPasswordLength')}`;
+    private onCheckRepeatPassword(isPasswordValid: boolean): void {
+        this.isRepeatPasswordValid = isPasswordValid;
     }
 
-    private get isRegisterLoading(): boolean {
-        return this.authStore.state.isLoading;
+    private get isValidForm(): boolean {
+        return (
+            this.isEmailValid &&
+            this.isPasswordValid &&
+            this.isRepeatPasswordValid &&
+            this.isNameValid &&
+            this.isSurnameValid &&
+            this.name.length > 0 &&
+            this.email.length > 0 &&
+            this.password.length > 0 &&
+            this.repeatPassword.length > 0 &&
+            this.surname.length > 0
+        );
     }
 
-    private get areFieldsEmpty(): boolean {
-        return this.name === '' ||
-            this.surname === '' ||
-            this.email === '' ||
-            this.password === '' ||
-            this.passwordRepeat === '' ||
-            !this.isPasswordValid
-            ? true
-            : false;
+    private get currentLanguage(): string {
+        return this.mainStore.state.currentLanguage;
+    }
+
+    @Watch('currentLanguage')
+    private onChangeLanguage(): void {
+        this.checkName();
+        this.checkSurname();
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.invitation-link {
-    color: $main-color !important;
-}
-.custom-size {
-    font-size: 1.25em;
-}
-.title {
-    font-family: 'CabbageTown';
-    @include mobile {
-        font-size: calc(0.75em + 0.5vw);
+.main-register-form {
+    &_button {
+        margin-top: 15px;
     }
-    font-size: calc(0.5em + 0.5vw);
-    line-height: 3em !important;
-}
-.custom-login-input {
-    width: 50%;
-    @include mobile {
-        width: 85%;
-    }
-}
-.centered-content {
-    display: flex !important;
-    justify-content: center !important;
-}
-.custom-margin {
-    margin-bottom: 4%;
 }
 </style>

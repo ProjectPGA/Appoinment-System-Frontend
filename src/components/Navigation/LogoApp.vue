@@ -1,6 +1,11 @@
 <template>
     <div class="container has-text-centered">
-        <img class="logo" src="../../assets/img/logo.svg" alt="" />
+        <img
+            @click="toHome"
+            class="logo"
+            src="../../assets/img/logo.svg"
+            :alt="$t('titles.altImage')"
+        />
     </div>
 </template>
 
@@ -10,12 +15,19 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
     name: 'LogoApp',
 })
-export default class LogoApp extends Vue {}
+export default class LogoApp extends Vue {
+    private toHome(): void {
+        if (this.$route.path !== '/') {
+            this.$router.push('/');
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>
 .logo {
     width: 25%;
+    cursor: pointer;
     @include mobile {
         width: 50%;
     }
