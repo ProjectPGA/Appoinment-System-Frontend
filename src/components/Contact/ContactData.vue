@@ -70,27 +70,6 @@ export default class ContactData extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-@-webkit-keyframes slide-top {
-    0% {
-        -webkit-transform: translateY(200px);
-        transform: translateY(200px);
-    }
-    100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-@keyframes slide-top {
-    0% {
-        -webkit-transform: translateY(200px);
-        transform: translateY(200px);
-    }
-    100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-
 .contact-data {
     display: flex;
     justify-content: space-around;
