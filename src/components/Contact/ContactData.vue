@@ -12,12 +12,12 @@
                 <div class="contact-data_title">
                     {{ $t('components.contact.titleSchedule') }}
                 </div>
-                <div>
+                <h2>
                     {{ $t('components.contact.textMondayToFriday') }}
-                </div>
-                <div>
+                </h2>
+                <h2>
                     {{ $t('components.contact.textSaturday') }}
-                </div>
+                </h2>
             </div>
         </div>
         <div class="contact-data_section-container">
@@ -32,9 +32,9 @@
                 <div class="contact-data_title">
                     {{ $t('components.contact.titlePhone') }}
                 </div>
-                <div>
+                <h2>
                     {{ $t('components.contact.textPhone') }}
-                </div>
+                </h2>
             </div>
         </div>
         <div class="contact-data_section-container">
@@ -49,12 +49,12 @@
                 <div class="contact-data_title">
                     {{ $t('components.contact.titleAddress') }}
                 </div>
-                <div>
+                <h2>
                     {{ $t('components.contact.textAddress') }}
-                </div>
-                <div>
+                </h2>
+                <h2>
                     {{ $t('components.contact.textCity') }}
-                </div>
+                </h2>
             </div>
         </div>
     </div>

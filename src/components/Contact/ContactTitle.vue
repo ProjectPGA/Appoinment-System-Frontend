@@ -1,19 +1,14 @@
 <template>
     <div class="contact-title">
-        <titles-app title="titles.contact" />
+        <h1 class="title">{{ $t('titles.contact') }}</h1>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import TitlesApp from '@/components/Home/TitlesApp.vue';
-
 @Component({
     name: 'ContactTitle',
-    components: {
-        TitlesApp,
-    },
 })
 export default class ContactTitle extends Vue {}
 </script>
