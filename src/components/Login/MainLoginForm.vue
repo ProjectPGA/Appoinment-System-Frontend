@@ -14,17 +14,21 @@
 
                 <email-input
                     @input="onEmailInput"
-                    @checkEmail="onCheckEmail"
+                    @check-email="onCheckEmail"
+                    @enter="onEnter"
                     view="login"
                 />
 
                 <password-input
                     @input="onPasswordInput"
-                    @checkPassword="onCheckPassword"
+                    @check-password="onCheckPassword"
+                    @enter="onEnter"
                     view="login"
                 />
 
-                <div class="columns is-vcentered">
+                <div
+                    class="columns is-vcentered main-login-form_button-section"
+                >
                     <div class="column is-3 is-2-fullhd">
                         <b-button
                             @click="checkLogin()"
@@ -81,33 +85,39 @@ export default class MainLoginForm extends Vue {
     private authStore = authStore.context(this.$store);
 
     private email: string = '';
-    private isEmailVaild: boolean = true;
+    private isEmailValid: boolean = true;
 
     private password: string = '';
-    private isPasswordVaild: boolean = true;
+    private isPasswordValid: boolean = true;
 
-    private get isInValidform(): boolean {
+    private get isInvalidForm(): boolean {
         return this.email === '' && this.password === ''
             ? true
-            : !this.isEmailVaild || !this.isPasswordVaild
+            : !this.isEmailValid || !this.isPasswordValid
             ? true
             : false;
+    }
+
+    private onEnter(): void {
+        if (!this.isInvalidForm) {
+            this.checkLogin();
+        }
     }
 
     private onEmailInput(email: string): void {
         this.email = email;
     }
 
-    private onCheckEmail(isEmailVaild: boolean): void {
-        this.isEmailVaild = isEmailVaild;
+    private onCheckEmail(isEmailValid: boolean): void {
+        this.isEmailValid = isEmailValid;
     }
 
     private onPasswordInput(password: string): void {
         this.password = password;
     }
 
-    private onCheckPassword(isPasswordVaild: boolean): void {
-        this.isPasswordVaild = isPasswordVaild;
+    private onCheckPassword(isPasswordValid: boolean): void {
+        this.isPasswordValid = isPasswordValid;
     }
 
     private async checkLogin() {
@@ -121,6 +131,7 @@ export default class MainLoginForm extends Vue {
 
     private enableRegisterProgress(): void {
         this.authStore.actions.enableRegisterProcess();
+
         this.$router.push('/invitation');
     }
 }
@@ -128,17 +139,16 @@ export default class MainLoginForm extends Vue {
 
 <style lang="scss" scoped>
 .main-login-form {
+    &_button-section {
+        padding-top: 2.25rem;
+    }
+
     &_invitation-link {
         cursor: pointer;
         color: $main-color !important;
         &:hover {
             text-decoration-line: underline;
         }
-    }
-
-    &_title {
-        font-size: calc(0.75em + 0.5vw);
-        line-height: 3em !important;
     }
 
     &_invitation {
