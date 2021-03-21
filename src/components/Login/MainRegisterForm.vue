@@ -5,7 +5,7 @@
             <div class="column is-12"><logo-app /></div>
         </div>
         <div class="columns is-centered is-mobile">
-            <div class="column is-6-desktop is-10-mobile container">
+            <div class="column is-6-desktop is-10-mobile is-8-tablet container">
                 <h1 class="main-register-form_title title">
                     {{ $t('titles.register') }}
                 </h1>
