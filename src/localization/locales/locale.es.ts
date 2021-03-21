@@ -136,6 +136,7 @@ const es = {
         assginMessageDate: ' a las ',
         oneAppoinmetPerday: 'Solo puedes asignar una cita por día',
         notLikePassword: 'Las contraseñas no coinciden',
+        invalidCredentials: 'Las informacion de login no es valida',
     },
     week: {
         monday: 'Lunes',
