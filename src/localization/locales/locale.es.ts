@@ -5,9 +5,13 @@ const es = {
             password: 'Contraseña',
             inputEmpty: 'Porfavor completa este campo.',
             emailInvalid:
-                'Correo electrónico erroneo. El campo de correo electrónico debe tener "@".',
+                'Email no válida. Por favor introduzca un correo valido.',
             passwordInvalid:
-                'Contraseña no válida. La contraseña debe tener un mínimo de 8 caracteres."',
+                'Contraseña no válida. Por favor introduzca una contraseña valido."',
+            repeatPassword: 'Repetir Contraseña',
+            notSamePassword: 'Las contraseñas no coinciden',
+            passwordRequirements:
+                'La contraseña debe tener un mínimo de 8 caracteres que contienen al menos una letra minúscula, una letra mayúscula, un dígito numérico y un carácter especial.',
         },
         navigation: {
             title: 'Castillo',
@@ -30,11 +34,11 @@ const es = {
             email: 'E-Mail',
             password: 'Contraseña',
             repeatPassword: 'Repetir Contraseña',
+            notSamePassword: 'Las contraseñas no coinciden',
             button: 'Registrar',
             emailExist: 'El email introducido ya existe',
             tryAgain: 'Volver a intentar',
             mandatoryFieldsEmpty: 'Campos obligatorios vacíos',
-            notSamePassword: 'Las contraseñas no coinciden',
             notPasswordLength:
                 'La contraseña no cumple la longitud requerida (8 mínimo)',
         },
@@ -123,6 +127,7 @@ const es = {
         register: 'Registro',
         login: 'Iniciar sesion',
         language: 'Idioma',
+        altImage: 'Logo de la barbería',
     },
     snackbar: {
         cancelMessage: 'Cancelada: Día ',
@@ -131,6 +136,8 @@ const es = {
         assginMessageDate: ' a las ',
         oneAppoinmetPerday: 'Solo puedes asignar una cita por día',
         notLikePassword: 'Las contraseñas no coinciden',
+        invalidCredentials: 'Las informacion de login no es valida',
+        invalidInvitationalCode: 'Código de invitación invalido',
     },
     week: {
         monday: 'Lunes',

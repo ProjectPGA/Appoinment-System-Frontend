@@ -3,7 +3,7 @@
         :label="$t('components.loginInputs.password')"
         :message="errorMessage"
         :type="{
-            'is-danger': !isVaild,
+            'is-danger': !isValid,
         }"
     >
         <b-input
@@ -16,13 +16,16 @@
             required
             @blur="checkPassword"
             @input="onInput"
+            @keypress.native.enter="onEnterPassword"
             class="password-input"
         />
     </b-field>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
+
+import mainStore from '@/store/main-store/MainStore';
 
 @Component({
     name: 'PasswordInput',
@@ -30,40 +33,64 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 export default class PasswordInput extends Vue {
     @Prop(String) private view: string;
 
+    private mainStore = mainStore.context(this.$store);
+
     private password: string = '';
-    private isVaild: boolean = true;
+    private isValid: boolean = true;
     private errorMessage: string = '';
 
     private onInput(): void {
         this.$emit('input', this.password);
+
         this.checkPassword();
+    }
+
+    private onEnterPassword(): void {
+        this.checkPassword();
+
+        if (this.isValid) {
+            this.$emit('enter');
+        }
     }
 
     private checkPassword(): void {
         this.password === ''
             ? this.inputEmpty()
-            : this.password.length >= 8
+            : this.password.match(
+                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
+              )
             ? this.inputValid()
-            : this.inputPasswordInvalid();
+            : this.inputPasswordIncomplete();
 
-        this.$emit('checkPassword', this.isVaild);
+        this.$emit('check-password', this.isValid);
     }
 
     private inputEmpty(): void {
         this.errorMessage = `${this.$t('components.loginInputs.inputEmpty')}`;
-        this.isVaild = false;
+
+        this.isValid = false;
     }
 
-    private inputPasswordInvalid(): void {
+    private inputPasswordIncomplete(): void {
         this.errorMessage = `${this.$t(
             'components.loginInputs.passwordInvalid'
         )}`;
-        this.isVaild = false;
+
+        this.isValid = false;
     }
 
     private inputValid(): void {
         this.errorMessage = '';
-        this.isVaild = true;
+        this.isValid = true;
+    }
+
+    private get currentLanguage(): string {
+        return this.mainStore.state.currentLanguage;
+    }
+
+    @Watch('currentLanguage')
+    private onChangeLanguage(): void {
+        this.checkPassword();
     }
 }
 </script>
