@@ -6,7 +6,7 @@ import Home from '@/views/Home.vue';
 import Register from '@/views/Register.vue';
 import Invitation from '@/views/Invitation.vue';
 // import UserAppointments from '@/views/UserAppointments.vue';
-// import Contact from '@/views/Contact.vue';
+import Contact from '@/views/Contact.vue';
 // import User from '@/views/User.vue';
 import Maintenance from '@/views/MaintenancePage.vue';
 
@@ -25,12 +25,12 @@ const routes = [
             //     component: UserAppointments,
             //     meta: { linkText: 'Appointments' },
             // },
-            // {
-            //     path: '/Contact',
-            //     name: 'Contact',
-            //     component: Contact,
-            //     meta: { linkText: 'Contact' },
-            // },
+            {
+                path: '/Contact',
+                name: 'Contact',
+                component: Contact,
+                meta: { linkText: 'Contact' },
+            },
             // {
             //     path: '/User',
             //     name: 'User',
