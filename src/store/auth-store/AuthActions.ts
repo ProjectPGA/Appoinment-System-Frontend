@@ -195,6 +195,14 @@ export default class AuthActions extends Actions<
             router.push('/register');
         } catch (exception) {
             this.commit('setInvitationalCodeError', null);
+
+            Snackbar.open({
+                message: `${i18n.t('snackbar.invalidInvitationalCode')}`,
+                type: 'is-danger',
+                position: 'is-bottom-left',
+                duration: 3600,
+                actionText: `${i18n.t('components.register.tryAgain')}`,
+            });
         }
     }
 

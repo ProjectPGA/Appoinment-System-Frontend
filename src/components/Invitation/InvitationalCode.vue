@@ -13,6 +13,7 @@
                         size="is-medium is-uppercase "
                         expanded
                         placeholder="Ej. ASJAOLHDYWIP"
+                        @keypress.native.enter="onEnterInvitationalCode"
                     >
                     </b-input>
                     <p class="control">
@@ -50,6 +51,12 @@ export default class InvitationalCode extends Vue {
     private authStore = authStore.context(this.$store);
 
     private invitationalCode: string = '';
+
+    private onEnterInvitationalCode(): void {
+        if (!this.isInvalidCode) {
+            this.checkInvitationalCode();
+        }
+    }
 
     private checkInvitationalCode(): void {
         this.authStore.actions.checkInvitationalCode(this.invitationalCode);

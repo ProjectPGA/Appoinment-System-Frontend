@@ -137,6 +137,7 @@ const es = {
         oneAppoinmetPerday: 'Solo puedes asignar una cita por día',
         notLikePassword: 'Las contraseñas no coinciden',
         invalidCredentials: 'Las informacion de login no es valida',
+        invalidInvitationalCode: 'Código de invitación invalido',
     },
     week: {
         monday: 'Lunes',

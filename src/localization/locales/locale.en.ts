@@ -131,6 +131,7 @@ const en = {
         oneAppoinmetPerday: 'You only can asign one appoinment per day',
         notLikePassword: 'Passwords dont match',
         invalidCredentials: 'Invalid login info',
+        invalidInvitationalCode: 'Invalid invitational code',
     },
     week: {
         monday: 'Monday',
