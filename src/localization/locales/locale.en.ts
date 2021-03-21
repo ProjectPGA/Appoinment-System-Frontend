@@ -130,6 +130,7 @@ const en = {
         assginMessageDate: ' at ',
         oneAppoinmetPerday: 'You only can asign one appoinment per day',
         notLikePassword: 'Passwords dont match',
+        invalidCredentials: 'Invalid login info',
     },
     week: {
         monday: 'Monday',

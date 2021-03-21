@@ -109,8 +109,16 @@ export default class AuthActions extends Actions<
             }
             return true;
         } catch (exception) {
-            // TODO. Show error
             this.commit('setLoginFailed', null);
+
+            Snackbar.open({
+                message: `${i18n.t('snackbar.invalidCredentials')}`,
+                type: 'is-danger',
+                position: 'is-bottom-left',
+                duration: 3600,
+                actionText: `${i18n.t('components.register.tryAgain')}`,
+            });
+
             return false;
         }
     }
@@ -210,7 +218,7 @@ export default class AuthActions extends Actions<
                 message: `${i18n.t('components.register.emailExist')}`,
                 type: 'is-danger',
                 position: 'is-bottom-left',
-                indefinite: true,
+                duration: 3600,
                 actionText: `${i18n.t('components.register.tryAgain')}`,
             });
         }
