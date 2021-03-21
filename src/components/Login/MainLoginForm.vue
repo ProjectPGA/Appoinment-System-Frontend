@@ -14,13 +14,15 @@
 
                 <email-input
                     @input="onEmailInput"
-                    @checkEmail="onCheckEmail"
+                    @check-email="onCheckEmail"
+                    @enter="onEnter"
                     view="login"
                 />
 
                 <password-input
                     @input="onPasswordInput"
-                    @checkPassword="onCheckPassword"
+                    @check-password="onCheckPassword"
+                    @enter="onEnter"
                     view="login"
                 />
 
@@ -94,6 +96,12 @@ export default class MainLoginForm extends Vue {
             : !this.isEmailValid || !this.isPasswordValid
             ? true
             : false;
+    }
+
+    private onEnter(): void {
+        if (!this.isInvalidForm) {
+            this.checkLogin();
+        }
     }
 
     private onEmailInput(email: string): void {

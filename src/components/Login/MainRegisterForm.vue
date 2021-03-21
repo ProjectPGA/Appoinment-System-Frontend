@@ -47,13 +47,13 @@
 
                 <email-input
                     @input="onEmailInput"
-                    @checkEmail="onCheckEmail"
+                    @check-email="onCheckEmail"
                     view="register"
                 />
 
                 <repeat-password-input
                     @inputPassword="onPasswordInput"
-                    @checkPassword="onCheckPassword"
+                    @check-password="onCheckPassword"
                     @inputRepeatPassword="onRepeatPasswordInput"
                     @checkRepeatPassword="onCheckRepeatPassword"
                     view="register"

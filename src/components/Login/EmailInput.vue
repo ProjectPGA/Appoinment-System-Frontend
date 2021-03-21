@@ -13,6 +13,7 @@
             :data-cy="`${view}-input-email`"
             @blur="checkEmail"
             @input="onInput"
+            @keypress.native.enter="onEnterEmail"
         />
     </b-field>
 </template>
@@ -40,6 +41,14 @@ export default class EmailInput extends Vue {
         this.checkEmail();
     }
 
+    private onEnterEmail(): void {
+        this.checkEmail();
+
+        if (this.isValid) {
+            this.$emit('enter');
+        }
+    }
+
     private checkEmail(): void {
         this.email === ''
             ? this.inputEmpty()
@@ -47,7 +56,7 @@ export default class EmailInput extends Vue {
             ? this.inputValid()
             : this.inputEmailInvalid();
 
-        this.$emit('checkEmail', this.isValid);
+        this.$emit('check-email', this.isValid);
     }
 
     private inputEmpty(): void {

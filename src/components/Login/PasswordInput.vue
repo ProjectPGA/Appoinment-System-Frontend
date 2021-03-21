@@ -16,6 +16,7 @@
             required
             @blur="checkPassword"
             @input="onInput"
+            @keypress.native.enter="onEnterPassword"
             class="password-input"
         />
     </b-field>
@@ -44,6 +45,14 @@ export default class PasswordInput extends Vue {
         this.checkPassword();
     }
 
+    private onEnterPassword(): void {
+        this.checkPassword();
+
+        if (this.isValid) {
+            this.$emit('enter');
+        }
+    }
+
     private checkPassword(): void {
         this.password === ''
             ? this.inputEmpty()
@@ -53,7 +62,7 @@ export default class PasswordInput extends Vue {
             ? this.inputValid()
             : this.inputPasswordIncomplete();
 
-        this.$emit('checkPassword', this.isValid);
+        this.$emit('check-password', this.isValid);
     }
 
     private inputEmpty(): void {
