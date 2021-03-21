@@ -134,7 +134,7 @@ export default class ContactData extends Vue {}
     }
 
     &_title {
-        font-size: 2rem;
+        font-size: 1.75rem;
         display: flex;
         align-items: flex-start;
     }
