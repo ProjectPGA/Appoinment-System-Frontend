@@ -27,11 +27,20 @@
                     </b-input>
                 </b-field>
 
-                <b-field :label="$t('components.register.surname')">
+                <b-field
+                    :label="$t('components.register.surname')"
+                    :message="errorSurnameMessage"
+                    :type="{
+                        'is-danger': !isSurnameValid,
+                    }"
+                >
                     <b-input
                         v-model="surname"
                         :placeholder="$t('components.register.surname')"
                         size="is-medium"
+                        required
+                        @blur="checkSurname"
+                        @input="checkSurname"
                     >
                     </b-input>
                 </b-field>
@@ -109,6 +118,9 @@ export default class MainRegisterForm extends Vue {
     private errorNameMessage: string = '';
     private isNameValid: boolean = true;
 
+    private errorSurnameMessage: string = '';
+    private isSurnameValid: boolean = true;
+
     private register(): void {
         const registerData: RegisterRequest = {
             user: {
@@ -131,6 +143,18 @@ export default class MainRegisterForm extends Vue {
         this.name.length > 0
             ? (this.errorNameMessage = '')
             : (this.errorNameMessage = `${this.$t(
+                  'components.loginInputs.inputEmpty'
+              )}`);
+    }
+
+    private checkSurname(): void {
+        this.surname.length > 0
+            ? (this.isSurnameValid = true)
+            : (this.isSurnameValid = false);
+
+        this.surname.length > 0
+            ? (this.errorSurnameMessage = '')
+            : (this.errorSurnameMessage = `${this.$t(
                   'components.loginInputs.inputEmpty'
               )}`);
     }
@@ -165,10 +189,12 @@ export default class MainRegisterForm extends Vue {
             this.isPasswordValid &&
             this.isRepeatPasswordValid &&
             this.isNameValid &&
+            this.isSurnameValid &&
             this.name.length > 0 &&
             this.email.length > 0 &&
             this.password.length > 0 &&
-            this.repeatPassword.length > 0
+            this.repeatPassword.length > 0 &&
+            this.surname.length > 0
         );
     }
 
@@ -179,6 +205,7 @@ export default class MainRegisterForm extends Vue {
     @Watch('currentLanguage')
     private onChangeLanguage(): void {
         this.checkName();
+        this.checkSurname();
     }
 }
 </script>
