@@ -121,6 +121,7 @@ const en = {
         register: 'Register',
         login: 'Login',
         language: 'Language',
+        altImage: 'Barber logo',
     },
     snackbar: {
         cancelMessage: 'Canceled: Day ',

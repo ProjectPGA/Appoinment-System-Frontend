@@ -127,6 +127,7 @@ const es = {
         register: 'Registro',
         login: 'Iniciar sesion',
         language: 'Idioma',
+        altImage: 'Logo de la barbería',
     },
     snackbar: {
         cancelMessage: 'Cancelada: Día ',

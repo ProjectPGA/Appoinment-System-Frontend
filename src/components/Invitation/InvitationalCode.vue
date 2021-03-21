@@ -4,9 +4,9 @@
         <div class="columns is-multiline">
             <div class="column is-12"><logo-app /></div>
             <div class="column is-12 invitational-code_content">
-                <p class="invitational-code_content-title title">
+                <h1 class="invitational-code_content-title title">
                     {{ $t('components.invitation.title') }}
-                </p>
+                </h1>
                 <b-field class="invitational-code_content-field">
                     <b-input
                         v-model="invitationalCode"

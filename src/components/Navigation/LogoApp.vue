@@ -4,7 +4,7 @@
             @click="toHome"
             class="logo"
             src="../../assets/img/logo.svg"
-            alt=""
+            :alt="$t('titles.altImage')"
         />
     </div>
 </template>
