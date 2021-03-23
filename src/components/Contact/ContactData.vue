@@ -9,15 +9,15 @@
                 />
             </div>
             <div class="contact-data_section">
-                <div class="contact-data_title">
+                <h2 class="contact-data_title">
                     {{ $t('components.contact.titleSchedule') }}
-                </div>
-                <h2>
+                </h2>
+                <p>
                     {{ $t('components.contact.textMondayToFriday') }}
-                </h2>
-                <h2>
+                </p>
+                <p>
                     {{ $t('components.contact.textSaturday') }}
-                </h2>
+                </p>
             </div>
         </div>
         <div class="contact-data_section-container">
@@ -29,12 +29,12 @@
                 />
             </div>
             <div class="contact-data_section">
-                <div class="contact-data_title">
+                <h2 class="contact-data_title">
                     {{ $t('components.contact.titlePhone') }}
-                </div>
-                <h2>
-                    {{ $t('components.contact.textPhone') }}
                 </h2>
+                <p>
+                    {{ $t('components.contact.textPhone') }}
+                </p>
             </div>
         </div>
         <div class="contact-data_section-container">
@@ -46,15 +46,15 @@
                 />
             </div>
             <div class="contact-data_section">
-                <div class="contact-data_title">
+                <h2 class="contact-data_title">
                     {{ $t('components.contact.titleAddress') }}
-                </div>
-                <h2>
+                </h2>
+                <p>
                     {{ $t('components.contact.textAddress') }}
-                </h2>
-                <h2>
+                </p>
+                <p>
                     {{ $t('components.contact.textCity') }}
-                </h2>
+                </p>
             </div>
         </div>
     </div>
@@ -135,6 +135,7 @@ export default class ContactData extends Vue {}
 
     &_title {
         font-size: 1.75rem;
+        font-weight: bold;
         display: flex;
         align-items: flex-start;
     }
