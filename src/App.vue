@@ -4,8 +4,8 @@
         <template v-else>
             <router-view v-if="isLogged || isRegisterProcess" />
             <login v-if="!isLogged && !isRegisterProcess" />
-            <whatsapp-button v-if="isLogged" />
-            <call-button v-if="isLogged" />
+            <!-- <whatsapp-button v-if="isLogged" />
+            <call-button v-if="isLogged" /> -->
             <loading v-if="isLoading" />
         </template>
     </div>

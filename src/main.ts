@@ -3,7 +3,6 @@ import App from './App.vue';
 import router from './router';
 import { store } from './store';
 import Router from 'vue-router';
-
 import './styles/main.scss';
 
 import VueMq from 'vue-mq';
@@ -16,11 +15,13 @@ import { Scroll } from '@/directives/Scroll';
 import { Device } from '@/models/utils/Device';
 import { WindowResize } from '@/directives/WindowResize';
 import { Autofocus } from '@/directives/AutofocusDirective';
+import VueScrollTo from 'vue-scrollto';
 
 Vue.config.productionTip = false;
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
+Vue.use(VueScrollTo);
 Vue.use(Router);
 Vue.use(Buefy, {
     defaultIconPack: 'fas',
