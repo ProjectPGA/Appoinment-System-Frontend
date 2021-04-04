@@ -1,87 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <meta charset="utf-8" />
 
     <head>
         <title>404 - Open Slot Studios</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Poppins"
+        />
     </head>
 
     <style type="text/css">
-
-        .container{
+        .container {
             text-align: center;
             font-family: 'Poppins', serif;
         }
 
-        .container_title{
+        .container_title {
             font-size: 100px;
         }
 
-        .container_text{
+        .container_text {
             font-size: 10px;
             position: relative;
             float: right;
             margin-top: 30%;
-            
         }
 
-        .scene{
+        .scene {
             z-index: 99;
             position: fixed;
         }
-
     </style>
 
     <body>
         <canvas id="canvas" class="scene"></canvas>
         <div class="container">
             <h1 class="container_title">404</h1>
-            <h2>PAGE NOT FOUND</h3>
+            <h2>PAGE NOT FOUND</h2>
             <p class="container_text">Hey! Try to touch the screen</p>
         </div>
-        
-        <script type="text/javascript">
 
+        <script type="text/javascript">
             const canvas = document.querySelector('canvas');
             canvas.width = innerWidth;
             canvas.height = innerHeight;
             const brush = canvas.getContext('2d');
 
             //funciton to construct circles
-            function createCircle(coordinateX, coordinateY, velocityX, velocityY, radius) {
+            function createCircle(
+                coordinateX,
+                coordinateY,
+                velocityX,
+                velocityY,
+                radius
+            ) {
                 this.coordinateX = coordinateX;
                 this.coordinateY = coordinateY;
                 this.velocityX = velocityX;
                 this.velocityY = velocityY;
                 this.radius = radius;
-                this.color = randomColor(),
+                (this.color = randomColor()),
+                    (this.draw = function () {
+                        brush.beginPath();
+                        brush.arc(
+                            this.coordinateX,
+                            this.coordinateY,
+                            this.radius,
+                            0,
+                            Math.PI * 2,
+                            false
+                        );
+                        brush.strokeStyle = 'black';
+                        brush.fillStyle = this.color;
+                        brush.fill();
+                        brush.stroke();
+                    }),
+                    //if the circle touch the border screen the x or y coordinates reverse
+                    (this.update = function () {
+                        if (
+                            this.coordinateX + this.radius > canvas.width ||
+                            this.coordinateX - this.radius < 0
+                        ) {
+                            this.velocityX = -this.velocityX;
+                        }
+                        if (
+                            this.coordinateY + this.radius > canvas.height ||
+                            this.coordinateY - this.radius < 0
+                        ) {
+                            this.velocityY = -this.velocityY;
+                        }
+                        this.coordinateX += this.velocityX;
+                        this.coordinateY += this.velocityY;
 
-                this.draw = function () {
-                    brush.beginPath()
-                    brush.arc(this.coordinateX, this.coordinateY, this.radius, 0, Math.PI * 2, false);
-                    brush.strokeStyle = 'black';
-                    brush.fillStyle = this.color;
-                    brush.fill();
-                    brush.stroke();
-                },
-
-                //if the circle touch the border screen the x or y coordinates reverse
-                this.update = function () {
-                    if (this.coordinateX + this.radius > canvas.width || this.coordinateX - this.radius < 0) {
-                        this.velocityX = -this.velocityX
-                    }
-                    if (this.coordinateY + this.radius > canvas.height || this.coordinateY - this.radius < 0) {
-                        this.velocityY = -this.velocityY
-                    }
-                    this.coordinateX += this.velocityX
-                    this.coordinateY += this.velocityY
-
-                    this.draw()
-                }
+                        this.draw();
+                    });
             }
 
             function randomColor() {
@@ -96,33 +110,36 @@
             const mouse = {
                 x: undefined,
                 y: undefined,
-            }
+            };
 
             $('#canvas').mousemove(function () {
                 mouse.x = event.x;
                 mouse.y = event.y;
-            })
+            });
 
             let circleArray = [];
 
             //Create circles based on how long you hold the mouse down
-            let timer = 0
-            $('#canvas').mousedown(function () {
-                timer = new Date();
-            }).mouseup(function () {
-                let timePassed = (new Date() - timer) / 10
-                if (timePassed > 100) {
-                    timePassed = 100;
-                }
-                let radius = timePassed;
-                timer = 0;
-                let x = event.x;
-                let y = event.y;
-                let velocityX = (Math.random() - 0.5) * 10;
-                let velocityY = (Math.random() - 0.5) * 10;
-                circleArray.push(new createCircle(x, y, velocityX, velocityY, radius));
-                
-            });
+            let timer = 0;
+            $('#canvas')
+                .mousedown(function () {
+                    timer = new Date();
+                })
+                .mouseup(function () {
+                    let timePassed = (new Date() - timer) / 10;
+                    if (timePassed > 100) {
+                        timePassed = 100;
+                    }
+                    let radius = timePassed;
+                    timer = 0;
+                    let x = event.x;
+                    let y = event.y;
+                    let velocityX = (Math.random() - 0.5) * 10;
+                    let velocityY = (Math.random() - 0.5) * 10;
+                    circleArray.push(
+                        new createCircle(x, y, velocityX, velocityY, radius)
+                    );
+                });
 
             function animate() {
                 requestAnimationFrame(animate);
@@ -133,9 +150,6 @@
             }
 
             animate();
-
-
         </script>
     </body>
-
 </html>
