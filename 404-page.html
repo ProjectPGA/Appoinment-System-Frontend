@@ -12,16 +12,16 @@
 
     <style type="text/css">
 
-        .first-block{
+        .container{
             text-align: center;
             font-family: 'Poppins', serif;
         }
 
-        h1{
+        .container_title{
             font-size: 100px;
         }
 
-        .first-block-text{
+        .container_text{
             font-size: 10px;
             position: relative;
             float: right;
@@ -29,7 +29,7 @@
             
         }
 
-        #canvas{
+        .scene{
             z-index: 99;
             position: fixed;
         }
@@ -37,11 +37,11 @@
     </style>
 
     <body>
-        <canvas id="canvas"></canvas>
-        <div class="first-block">
-            <h1>404</h1>
-            <h3>PAGE NOT FOUND</h3>
-            <p class="first-block-text">Hey! Try to touch the screen</p>
+        <canvas id="canvas" class="scene"></canvas>
+        <div class="container">
+            <h1 class="container_title">404</h1>
+            <h2>PAGE NOT FOUND</h3>
+            <p class="container_text">Hey! Try to touch the screen</p>
         </div>
         
         <script type="text/javascript">
@@ -52,9 +52,9 @@
             const brush = canvas.getContext('2d');
 
             //funciton to construct circles
-            function Circle(x, y, velocityX, velocityY, radius) {
-                this.x = x;
-                this.y = y;
+            function createCircle(coordinateX, coordinateY, velocityX, velocityY, radius) {
+                this.coordinateX = coordinateX;
+                this.coordinateY = coordinateY;
                 this.velocityX = velocityX;
                 this.velocityY = velocityY;
                 this.radius = radius;
@@ -62,7 +62,7 @@
 
                 this.draw = function () {
                     brush.beginPath()
-                    brush.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                    brush.arc(this.coordinateX, this.coordinateY, this.radius, 0, Math.PI * 2, false);
                     brush.strokeStyle = 'black';
                     brush.fillStyle = this.color;
                     brush.fill();
@@ -71,14 +71,14 @@
 
                 //if the circle touch the border screen the x or y coordinates reverse
                 this.update = function () {
-                    if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+                    if (this.coordinateX + this.radius > canvas.width || this.coordinateX - this.radius < 0) {
                         this.velocityX = -this.velocityX
                     }
-                    if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+                    if (this.coordinateY + this.radius > canvas.height || this.coordinateY - this.radius < 0) {
                         this.velocityY = -this.velocityY
                     }
-                    this.x += this.velocityX
-                    this.y += this.velocityY
+                    this.coordinateX += this.velocityX
+                    this.coordinateY += this.velocityY
 
                     this.draw()
                 }
@@ -120,7 +120,7 @@
                 let y = event.y;
                 let velocityX = (Math.random() - 0.5) * 10;
                 let velocityY = (Math.random() - 0.5) * 10;
-                circleArray.push(new Circle(x, y, velocityX, velocityY, radius));
+                circleArray.push(new createCircle(x, y, velocityX, velocityY, radius));
                 
             });
 
