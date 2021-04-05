@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { Actions } from 'vuex-smart-module';
 
 import AuthState from './AuthState';
@@ -25,7 +26,6 @@ import { RegisterRequest } from '@/webservices/models/auth/RegisterRequest';
 
 import router from '@/router';
 import i18n from '../../localization/localization';
-import { SnackbarProgrammatic as Snackbar } from 'buefy';
 
 export default class AuthActions extends Actions<
     AuthState,
@@ -111,12 +111,8 @@ export default class AuthActions extends Actions<
         } catch (exception) {
             this.commit('setLoginFailed', null);
 
-            Snackbar.open({
-                message: `${i18n.t('snackbar.invalidCredentials')}`,
-                type: 'is-danger',
-                position: 'is-bottom-left',
-                duration: 3600,
-                actionText: `${i18n.t('components.register.tryAgain')}`,
+            Vue.$toast.error(`${i18n.t('snackbar.invalidCredentials')}`, {
+                timeout: 4000,
             });
 
             return false;
@@ -172,6 +168,7 @@ export default class AuthActions extends Actions<
                 });
 
                 localStorage.removeItem('refreshToken');
+                localStorage.removeItem('accessToken');
 
                 this.commit('setUserNotisLogged', null);
             } else {
@@ -196,12 +193,8 @@ export default class AuthActions extends Actions<
         } catch (exception) {
             this.commit('setInvitationalCodeError', null);
 
-            Snackbar.open({
-                message: `${i18n.t('snackbar.invalidInvitationalCode')}`,
-                type: 'is-danger',
-                position: 'is-bottom-left',
-                duration: 3600,
-                actionText: `${i18n.t('components.register.tryAgain')}`,
+            Vue.$toast.error(`${i18n.t('snackbar.invalidInvitationalCode')}`, {
+                timeout: 4000,
             });
         }
     }
@@ -222,12 +215,8 @@ export default class AuthActions extends Actions<
         try {
             await checkIfEmailAlreadyExist({ email });
         } catch (exception) {
-            Snackbar.open({
-                message: `${i18n.t('components.register.emailExist')}`,
-                type: 'is-danger',
-                position: 'is-bottom-left',
-                duration: 3600,
-                actionText: `${i18n.t('components.register.tryAgain')}`,
+            Vue.$toast.error(`${i18n.t('components.register.emailExist')}`, {
+                timeout: 4000,
             });
         }
     }

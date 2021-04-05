@@ -136,8 +136,8 @@ const es = {
         assginMessageDate: ' a las ',
         oneAppoinmetPerday: 'Solo puedes asignar una cita por día',
         notLikePassword: 'Las contraseñas no coinciden',
-        invalidCredentials: 'Las informacion de login no es valida',
-        invalidInvitationalCode: 'Código de invitación invalido',
+        invalidCredentials: 'El email o la contraseña son incorrectos',
+        invalidInvitationalCode: 'El código de invitación no es válido',
     },
     week: {
         monday: 'Lunes',
