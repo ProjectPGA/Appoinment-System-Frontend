@@ -5,6 +5,7 @@
         :type="{
             'is-danger': !isValid,
         }"
+        :data-cy="`${view}-field-email`"
     >
         <b-input
             v-model="email"
