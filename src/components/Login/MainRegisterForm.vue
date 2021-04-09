@@ -23,6 +23,7 @@
                         required
                         @blur="checkName"
                         @input="checkName"
+                        data-cy="register-input-name"
                     >
                     </b-input>
                 </b-field>
@@ -41,6 +42,7 @@
                         required
                         @blur="checkSurname"
                         @input="checkSurname"
+                        data-cy="register-input-surname"
                     >
                     </b-input>
                 </b-field>
@@ -67,6 +69,7 @@
                             type="is-danger"
                             size="is-medium"
                             :disabled="!isValidForm"
+                            data-cy="register-button"
                         >
                             {{ $t('components.register.button') }}
                         </b-button>

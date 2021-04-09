@@ -42,14 +42,12 @@
                         </b-button>
                     </div>
                     <div class="column">
-                        <p
-                            class="main-login-form_invitation"
-                            data-cy="invitation"
-                        >
+                        <p class="main-login-form_invitation">
                             {{ $t('components.login.noAccount') }}
                             <span
                                 @click="enableRegisterProgress"
                                 class="main-login-form_invitation-link"
+                                data-cy="invitation-link"
                             >
                                 {{ $t('components.login.accessToInvitation') }}
                             </span>
