@@ -6,6 +6,8 @@ export const invitationalCodeButton = '[data-cy="invitational-code-button"]';
 
 // Register
 
+export const registerTitle = '[data-cy="register-title"]';
+
 export const registerSurnameInput = '[data-cy="register-input-surname"]';
 export const registerNameInput = '[data-cy="register-input-name"]';
 export const registerEmailInput = '[data-cy="register-input-email"]';

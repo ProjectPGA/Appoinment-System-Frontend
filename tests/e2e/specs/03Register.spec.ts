@@ -1,12 +1,18 @@
 import { getElem } from './utilities/utils';
 
 import { toastErrorClass } from './utilities/common.classes';
-import { toastMainSelector } from './utilities/common.selectors';
+import {
+    loading,
+    logoApp,
+    toastMainSelector,
+    translationButtonSelector,
+} from './utilities/common.selectors';
 
 import { isDangerSelector } from './utilities/buefy.selectors';
 import { helpClass } from './utilities/buefy.classes';
 
 import {
+    registerTitle,
     registerButton,
     invitationalLink,
     registerNameInput,
@@ -32,7 +38,12 @@ describe('03 Register', () => {
         getElem(invitationalCodeButton).click();
     });
     it('03 Register', () => {
-        cy.log('03.01 - Check all elements initial state');
+        cy.log('03.01 - Check all common elements initial state');
+        getElem(registerTitle).should('be.visible');
+        getElem(translationButtonSelector).should('be.visible');
+        getElem(logoApp).should('be.visible');
+
+        cy.log('03.02 - Check all register elements initial state');
         getElem(registerNameInput).should('be.visible').not(isDangerSelector);
         getElem(registerSurnameInput)
             .should('be.visible')
@@ -46,7 +57,7 @@ describe('03 Register', () => {
             .not(isDangerSelector);
         getElem(registerButton).should('be.visible').should('be.disabled');
 
-        cy.log('03.02 - Check all inputs validation');
+        cy.log('03.03 - Check all inputs validation');
         getElem(registerNameInput).type('test').clear();
         getElem(registerSurnameInput).type('test').clear();
         getElem(registerEmailInput).type('test').clear();
@@ -56,8 +67,12 @@ describe('03 Register', () => {
         getElem(registerNameField).find('p').should('have.class', helpClass);
         getElem(registerSurnameField).find('p').should('have.class', helpClass);
         getElem(registerEmailField).find('p').should('have.class', helpClass);
-        getElem(registerPasswordField).find('p').should('have.class', helpClass);
-        getElem(registerRepeatPasswordField).find('p').should('have.class', helpClass);
+        getElem(registerPasswordField)
+            .find('p')
+            .should('have.class', helpClass);
+        getElem(registerRepeatPasswordField)
+            .find('p')
+            .should('have.class', helpClass);
 
         getElem(registerNameInput).type('test');
         getElem(registerSurnameInput).type('test');
@@ -66,6 +81,8 @@ describe('03 Register', () => {
         getElem(registerRepeatPasswordInput).type('Tests.15');
 
         getElem(registerButton).should('be.enabled').click();
+
+        getElem(loading).should('be.visible');
 
         getElem(toastMainSelector).should('have.class', toastErrorClass);
 
@@ -83,15 +100,21 @@ describe('03 Register', () => {
         getElem(registerPasswordInput).clear().type('Tests115');
         getElem(registerRepeatPasswordInput).clear().type('Tests115');
 
-        getElem(registerPasswordField).find('p').should('have.class', helpClass);
-        getElem(registerRepeatPasswordField).find('p').should('have.class', helpClass);
+        getElem(registerPasswordField)
+            .find('p')
+            .should('have.class', helpClass);
+        getElem(registerRepeatPasswordField)
+            .find('p')
+            .should('have.class', helpClass);
 
         getElem(registerPasswordInput).clear().type('Tests.15');
         getElem(registerRepeatPasswordInput).clear().type('Tests1151');
 
         getElem(registerPasswordField).find('p').should('not.exist');
 
-        getElem(registerRepeatPasswordField).find('p').should('have.class', helpClass);
+        getElem(registerRepeatPasswordField)
+            .find('p')
+            .should('have.class', helpClass);
 
         getElem(registerRepeatPasswordInput).clear().type('Tests.15');
 
@@ -106,5 +129,7 @@ describe('03 Register', () => {
         });
 
         getElem(registerButton).should('be.enabled').click();
+
+        getElem(loading).should('be.visible');
     });
 });

@@ -2,7 +2,7 @@
     <b-button
         class="button-translations"
         @click="changeLanguage()"
-        data-cy="translation"
+        data-cy="translation-button"
         type="is-danger"
     >
         <b-icon pack="fas" icon="globe" class="button-translations_icon" />
