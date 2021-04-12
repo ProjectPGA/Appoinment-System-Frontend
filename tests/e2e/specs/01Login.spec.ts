@@ -55,7 +55,7 @@ describe('01 Login view', () => {
 
         cy.url().should('not.include', '/invitation');
 
-        cy.log('01-03 - Login view, required inputs erros');
+        cy.log('01-03 - Login view, required inputs errors');
 
         getElem(loginInputEmail).click();
         getElem(loginInputPassword).click();
