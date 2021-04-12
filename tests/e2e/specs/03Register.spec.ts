@@ -4,17 +4,23 @@ import { toastErrorClass } from './utilities/common.classes';
 import { toastMainSelector } from './utilities/common.selectors';
 
 import { isDangerSelector } from './utilities/buefy.selectors';
+import { helpClass } from './utilities/buefy.classes';
 
 import {
     registerButton,
     invitationalLink,
     registerNameInput,
+    registerNameField,
     registerEmailInput,
+    registerEmailField,
     registerSurnameInput,
+    registerSurnameField,
     registerPasswordInput,
+    registerPasswordField,
     invitationalCodeInput,
     invitationalCodeButton,
     registerRepeatPasswordInput,
+    registerRepeatPasswordField,
 } from './utilities/03Register.selectors';
 
 describe('03 Register', () => {
@@ -40,38 +46,18 @@ describe('03 Register', () => {
             .not(isDangerSelector);
         getElem(registerButton).should('be.visible').should('be.disabled');
 
-        cy.log('03.01 - Check all inputs validation');
+        cy.log('03.02 - Check all inputs validation');
         getElem(registerNameInput).type('test').clear();
         getElem(registerSurnameInput).type('test').clear();
         getElem(registerEmailInput).type('test').clear();
         getElem(registerPasswordInput).type('test').clear();
         getElem(registerRepeatPasswordInput).type('test').clear();
 
-        getElem(registerNameInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('have.class', 'help');
-        getElem(registerSurnameInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('have.class', 'help');
-        getElem(registerEmailInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('have.class', 'help');
-        getElem(registerPasswordInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('have.class', 'help');
-        getElem(registerRepeatPasswordInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('have.class', 'help');
+        getElem(registerNameField).find('p').should('have.class', helpClass);
+        getElem(registerSurnameField).find('p').should('have.class', helpClass);
+        getElem(registerEmailField).find('p').should('have.class', helpClass);
+        getElem(registerPasswordField).find('p').should('have.class', helpClass);
+        getElem(registerRepeatPasswordField).find('p').should('have.class', helpClass);
 
         getElem(registerNameInput).type('test');
         getElem(registerSurnameInput).type('test');
@@ -85,59 +71,31 @@ describe('03 Register', () => {
 
         getElem(registerEmailInput).clear().type('test@test');
 
-        getElem(registerEmailInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('have.class', 'help');
+        getElem(registerEmailField).find('p').should('have.class', helpClass);
         getElem(registerButton).should('be.disabled');
 
         getElem(registerEmailInput).clear().type('testtest.com');
 
-        getElem(registerEmailInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('have.class', 'help');
+        getElem(registerEmailField).find('p').should('have.class', helpClass);
         getElem(registerButton).should('be.disabled');
 
         getElem(registerEmailInput).clear().type('test@test.com');
         getElem(registerPasswordInput).clear().type('Tests115');
         getElem(registerRepeatPasswordInput).clear().type('Tests115');
 
-        getElem(registerPasswordInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('have.class', 'help');
-        getElem(registerRepeatPasswordInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('have.class', 'help');
+        getElem(registerPasswordField).find('p').should('have.class', helpClass);
+        getElem(registerRepeatPasswordField).find('p').should('have.class', helpClass);
 
         getElem(registerPasswordInput).clear().type('Tests.15');
         getElem(registerRepeatPasswordInput).clear().type('Tests1151');
 
-        getElem(registerPasswordInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('not.exist');
+        getElem(registerPasswordField).find('p').should('not.exist');
 
-        getElem(registerRepeatPasswordInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('have.class', 'help');
+        getElem(registerRepeatPasswordField).find('p').should('have.class', helpClass);
 
         getElem(registerRepeatPasswordInput).clear().type('Tests.15');
 
-        getElem(registerRepeatPasswordInput)
-            .parent()
-            .parent()
-            .find('p')
-            .should('not.exist');
+        getElem(registerRepeatPasswordField).find('p').should('not.exist');
 
         cy.intercept('POST', '/api/auth/checkmail', {
             statusCode: 200,

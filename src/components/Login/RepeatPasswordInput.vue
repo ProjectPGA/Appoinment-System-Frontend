@@ -14,6 +14,7 @@
             :type="{
                 'is-danger': !isValid,
             }"
+            :data-cy="`${view}-field-repeat-password`"
         >
             <b-input
                 v-model="repeatPassword"

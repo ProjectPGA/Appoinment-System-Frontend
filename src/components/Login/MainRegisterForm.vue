@@ -15,6 +15,7 @@
                     :type="{
                         'is-danger': !isNameValid,
                     }"
+                    data-cy="register-field-name"
                 >
                     <b-input
                         v-model="name"
@@ -34,6 +35,7 @@
                     :type="{
                         'is-danger': !isSurnameValid,
                     }"
+                    data-cy="register-field-surname"
                 >
                     <b-input
                         v-model="surname"
