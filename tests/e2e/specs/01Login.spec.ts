@@ -43,7 +43,7 @@ describe('01 Login view', () => {
 
         getElem(loginInputEmail).should('have.not.class', isDangerClass);
         getElem(loginInputPassword).should('have.not.class', isDangerClass);
-        getElem(loginSubmitButton).should('have.attr', 'disabled', 'disabled');
+        getElem(loginSubmitButton).should('be.disabled');
 
         cy.log('01-02 - Login view, check link to invitational code');
 
@@ -61,7 +61,7 @@ describe('01 Login view', () => {
         getElem(loginInputPassword).click();
 
         getElem(loginInputEmail).should('have.class', isDangerClass);
-        getElem(loginSubmitButton).should('have.attr', 'disabled', 'disabled');
+        getElem(loginSubmitButton).should('be.disabled');
         getElem(loginFieldEmail)
             .find(helpSelector)
             .should('be.visible')
@@ -70,7 +70,7 @@ describe('01 Login view', () => {
         getElem(loginInputEmail).click();
 
         getElem(loginInputPassword).should('have.class', isDangerClass);
-        getElem(loginSubmitButton).should('have.attr', 'disabled', 'disabled');
+        getElem(loginSubmitButton).should('be.disabled');
         getElem(loginFieldPassword)
             .find(helpSelector)
             .should('be.visible')
@@ -90,7 +90,7 @@ describe('01 Login view', () => {
 
         getElem(loginInputEmail).should('not.have.class', isDangerClass);
 
-        getElem(loginSubmitButton).should('have.attr', 'disabled', 'disabled');
+        getElem(loginSubmitButton).should('be.disabled');
 
         getElem(loginInputPassword).type('Test1');
 
@@ -100,17 +100,13 @@ describe('01 Login view', () => {
             .should('be.visible')
             .should('have.class', isDangerClass);
 
-        getElem(loginSubmitButton).should('have.attr', 'disabled', 'disabled');
+        getElem(loginSubmitButton).should('be.disabled');
 
         getElem(loginInputPassword).type('Test1.test');
 
         getElem(loginInputPassword).should('not.have.class', isDangerClass);
 
-        getElem(loginSubmitButton).should(
-            'not.have.attr',
-            'disabled',
-            'disabled'
-        );
+        getElem(loginSubmitButton).should('not.be.disabled');
 
         cy.log('01-05 - Login view, check login');
 

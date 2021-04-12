@@ -1,1 +1,1 @@
-export const topNavbar = '[data-cy="top-navbar"';
+export const topNavbar = '[data-cy="top-navbar"]';

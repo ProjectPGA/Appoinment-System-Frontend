@@ -1,5 +1,5 @@
-export const logoApp = '[data-cy="logo-app"';
-export const loading = '[data-cy="loading"';
+export const logoApp = '[data-cy="logo-app"]';
+export const loading = '[data-cy="loading"]';
 
 // Vue - toastification
 export const toastSelector = '.Vue-Toastification__toast';
