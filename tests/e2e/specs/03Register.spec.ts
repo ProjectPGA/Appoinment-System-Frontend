@@ -14,7 +14,6 @@ import { helpClass } from './utilities/buefy.classes';
 import {
     registerTitle,
     registerButton,
-    invitationalLink,
     registerNameInput,
     registerNameField,
     registerEmailInput,
@@ -23,11 +22,15 @@ import {
     registerSurnameField,
     registerPasswordInput,
     registerPasswordField,
-    invitationalCodeInput,
-    invitationalCodeButton,
     registerRepeatPasswordInput,
     registerRepeatPasswordField,
 } from './utilities/03Register.selectors';
+
+import {
+    invitationalLink,
+    invitationalCodeInput,
+    invitationalCodeButton,
+} from './utilities/02Invitational.selectors';
 
 describe('03 Register', () => {
     beforeEach(() => {
@@ -57,7 +60,7 @@ describe('03 Register', () => {
             .not(isDangerSelector);
         getElem(registerButton).should('be.visible').should('be.disabled');
 
-        cy.log('03.03 - Check all inputs validation');
+        cy.log('03.03 - Check all inputs on fail validation');
         getElem(registerNameInput).type('test').clear();
         getElem(registerSurnameInput).type('test').clear();
         getElem(registerEmailInput).type('test').clear();
@@ -74,18 +77,27 @@ describe('03 Register', () => {
             .find('p')
             .should('have.class', helpClass);
 
+        cy.log('03.04 - Check all inputs on success validation');
         getElem(registerNameInput).type('test');
         getElem(registerSurnameInput).type('test');
         getElem(registerEmailInput).type('test@test.com');
         getElem(registerPasswordInput).type('Tests.15');
         getElem(registerRepeatPasswordInput).type('Tests.15');
 
+        getElem(registerNameField).find('p').should('not.exist');
+        getElem(registerSurnameField).find('p').should('not.exist');
+        getElem(registerEmailField).find('p').should('not.exist');
+        getElem(registerPasswordField).find('p').should('not.exist');
+        getElem(registerRepeatPasswordField).find('p').should('not.exist');
+
+        cy.log('03.05 - Check form submit with invalid data');
         getElem(registerButton).should('be.enabled').click();
 
         getElem(loading).should('be.visible');
 
         getElem(toastMainSelector).should('have.class', toastErrorClass);
 
+        cy.log('03.06 - Form clear and correct form data check');
         getElem(registerEmailInput).clear().type('test@test');
 
         getElem(registerEmailField).find('p').should('have.class', helpClass);
@@ -96,6 +108,7 @@ describe('03 Register', () => {
         getElem(registerEmailField).find('p').should('have.class', helpClass);
         getElem(registerButton).should('be.disabled');
 
+        cy.log('03.07 - Password invalid format validation check');
         getElem(registerEmailInput).clear().type('test@test.com');
         getElem(registerPasswordInput).clear().type('Tests115');
         getElem(registerRepeatPasswordInput).clear().type('Tests115');
@@ -107,6 +120,7 @@ describe('03 Register', () => {
             .find('p')
             .should('have.class', helpClass);
 
+        cy.log('03.08 - Password not the same validation check');
         getElem(registerPasswordInput).clear().type('Tests.15');
         getElem(registerRepeatPasswordInput).clear().type('Tests1151');
 
@@ -116,6 +130,7 @@ describe('03 Register', () => {
             .find('p')
             .should('have.class', helpClass);
 
+        cy.log('03.08 - Check form submit with valid data');
         getElem(registerRepeatPasswordInput).clear().type('Tests.15');
 
         getElem(registerRepeatPasswordField).find('p').should('not.exist');
@@ -129,7 +144,5 @@ describe('03 Register', () => {
         });
 
         getElem(registerButton).should('be.enabled').click();
-
-        getElem(loading).should('be.visible');
     });
 });
