@@ -91,9 +91,13 @@ describe('03 Register', () => {
         getElem(registerRepeatPasswordField).find('p').should('not.exist');
 
         cy.log('03.05 - Check form submit with invalid data');
+        cy.intercept('/api/auth/checkmail').as('checkmail');
+
         getElem(registerButton).should('be.enabled').click();
 
         getElem(loading).should('be.visible');
+
+        cy.wait('@checkmail').its('response.statusCode').should('eq', 400);
 
         getElem(toastMainSelector).should('have.class', toastErrorClass);
 
