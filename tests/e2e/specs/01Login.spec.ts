@@ -86,7 +86,7 @@ describe('01 Login view', () => {
             .should('be.visible')
             .should('have.class', isDangerClass);
 
-        getElem(loginSubmitButton).should('be.disabled');    
+        getElem(loginSubmitButton).should('be.disabled');
 
         getElem(loginInputEmail).type('test@test.com');
 
