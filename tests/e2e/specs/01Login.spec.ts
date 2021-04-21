@@ -17,7 +17,7 @@ import { helpSelector } from './utilities/buefy.selectors';
 import {
     loading,
     logoApp,
-    toastSelector,
+    toastMainSelector,
     toastCloseButtonSelector,
 } from './utilities/common.selectors';
 import { toastErrorClass } from './utilities/common.class';
@@ -120,8 +120,8 @@ describe('01 Login view', () => {
 
         cy.wait('@login').its('response.statusCode').should('eq', 401);
 
-        getElem(toastSelector).should('be.visible');
-        getElem(toastSelector).should('have.class', toastErrorClass);
+        getElem(toastMainSelector).should('be.visible');
+        getElem(toastMainSelector).should('have.class', toastErrorClass);
 
         getElem(toastCloseButtonSelector).click();
 

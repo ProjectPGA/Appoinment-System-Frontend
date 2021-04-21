@@ -14,6 +14,7 @@
                         expanded
                         placeholder="Ej. ASJAOLHDYWIP"
                         @keypress.native.enter="onEnterInvitationalCode"
+                        data-cy="invitational-code-input"
                     >
                     </b-input>
                     <p class="control">
@@ -22,6 +23,7 @@
                             type="is-danger"
                             size="is-medium"
                             :disabled="isInvalidCode"
+                            data-cy="invitational-code-button"
                         >
                             {{ $t('components.invitation.button') }}
                         </b-button>

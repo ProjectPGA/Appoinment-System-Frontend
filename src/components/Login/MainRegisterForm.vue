@@ -6,7 +6,10 @@
         </div>
         <div class="columns is-centered is-mobile">
             <div class="column is-6-desktop is-10-mobile is-8-tablet container">
-                <h1 class="main-register-form_title title">
+                <h1
+                    class="main-register-form_title title"
+                    data-cy="register-title"
+                >
                     {{ $t('titles.register') }}
                 </h1>
                 <b-field
@@ -15,6 +18,7 @@
                     :type="{
                         'is-danger': !isNameValid,
                     }"
+                    data-cy="register-field-name"
                 >
                     <b-input
                         v-model="name"
@@ -23,6 +27,7 @@
                         required
                         @blur="checkName"
                         @input="checkName"
+                        data-cy="register-input-name"
                     >
                     </b-input>
                 </b-field>
@@ -33,6 +38,7 @@
                     :type="{
                         'is-danger': !isSurnameValid,
                     }"
+                    data-cy="register-field-surname"
                 >
                     <b-input
                         v-model="surname"
@@ -41,6 +47,7 @@
                         required
                         @blur="checkSurname"
                         @input="checkSurname"
+                        data-cy="register-input-surname"
                     >
                     </b-input>
                 </b-field>
@@ -67,6 +74,7 @@
                             type="is-danger"
                             size="is-medium"
                             :disabled="!isValidForm"
+                            data-cy="register-button"
                         >
                             {{ $t('components.register.button') }}
                         </b-button>
