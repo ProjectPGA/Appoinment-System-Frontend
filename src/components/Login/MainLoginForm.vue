@@ -1,14 +1,14 @@
 <template>
-    <form class="main-login-form">
+    <form class="main-login-form" data-cy="login-view">
         <button-translation />
         <div class="columns is-centered">
             <div class="column main-login-form_logo">
-                <logo-app data-cy="login-logo" />
+                <logo-app />
             </div>
         </div>
         <div class="columns is-centered is-mobile">
             <div class="column is-6-desktop is-10-mobile is-8-tablet container">
-                <h1 class="main-login-form_title title">
+                <h1 class="main-login-form_title title" data-cy="login-title">
                     {{ $t('titles.login') }}
                 </h1>
 
@@ -35,7 +35,7 @@
                             outlined
                             type="is-danger"
                             size="is-medium"
-                            data-cy="submit"
+                            data-cy="login-submit-button"
                             :disabled="isInvalidForm"
                         >
                             {{ $t('components.login.button') }}
@@ -47,7 +47,7 @@
                             <span
                                 @click="enableRegisterProgress"
                                 class="main-login-form_invitation-link"
-                                data-cy="invitation-link"
+                                data-cy="login-invitation-link"
                             >
                                 {{ $t('components.login.accessToInvitation') }}
                             </span>
