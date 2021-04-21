@@ -3,6 +3,7 @@
         <img
             @click="toHome"
             class="logo"
+            data-cy="logo-app"
             src="../../assets/img/logo.svg"
             :alt="$t('titles.altImage')"
         />

@@ -127,6 +127,7 @@ export default class AuthActions extends Actions<
         try {
             this.commit('setLoginInProgress', null);
 
+            // TODO. Make register request only when the mail doesn`t exits
             await this.dispatch(
                 'checkIfMailAlreadyExist',
                 registerData.user.email

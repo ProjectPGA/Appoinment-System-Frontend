@@ -5,6 +5,7 @@
         :type="{
             'is-danger': !isValid,
         }"
+        :data-cy="`${view}-field-password`"
     >
         <b-input
             v-model="password"
