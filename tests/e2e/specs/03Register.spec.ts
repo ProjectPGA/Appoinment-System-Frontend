@@ -124,6 +124,8 @@ describe('03 Register', () => {
             .find('p')
             .should('have.class', helpClass);
 
+        getElem(registerButton).should('be.disabled');
+
         cy.log('03.08 - Password not the same validation check');
         getElem(registerPasswordInput).clear().type('Tests.15');
         getElem(registerRepeatPasswordInput).clear().type('Tests1151');
@@ -133,6 +135,8 @@ describe('03 Register', () => {
         getElem(registerRepeatPasswordField)
             .find('p')
             .should('have.class', helpClass);
+
+        getElem(registerButton).should('be.disabled');
 
         cy.log('03.08 - Check form submit with valid data');
         getElem(registerRepeatPasswordInput).clear().type('Tests.15');
