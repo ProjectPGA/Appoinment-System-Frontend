@@ -148,16 +148,16 @@ a {
 }
 hr {
     background-color: $main-color-dark !important;
-    height: 1px !important;
+    height: 0.01rem !important;
 }
 .mobile-navigation-user-link {
     display: block;
-    padding: 5px 20px 15px 20px;
+    padding: 0.32rem 1.25rem 0.95em 1.25rem;
 }
 .menu-item-separator {
-    padding: 40px 25px 0px 15px;
+    padding: 2.5rem 1.56rem 0rem 0.95em;
     hr {
-        height: 0.5px !important;
+        height: 0.03rem !important;
     }
 }
 .menu-container {
@@ -170,31 +170,31 @@ hr {
     z-index: z('menu');
     background-color: $main-color-light;
     width: 80vw;
-    max-width: 430px;
-    min-width: 290px;
+    max-width: 41.88rem;
+    min-width: 18.75rem;
     z-index: 100;
 }
 .mobile-menu {
-    padding-left: 30px;
-    padding-top: 35px;
-    padding-right: 20px;
+    padding-left: 1.88rem;
+    padding-top: 2.19rem;
+    padding-right: 1.25rem;
 }
 .close-nav {
     background: transparent;
     border: none;
     outline: none !important;
     position: fixed;
-    left: 10px;
-    top: 10px;
+    left: 0.62em;
+    top: 0.62em;
     color: $main-color-dark;
-    font-size: 30px;
+    font-size: 1.88rem;
     cursor: pointer;
 }
 .mobile-logo {
-    height: 154px;
-    width: 154px;
+    height: 9.63rem;
+    width: 9.63rem;
 }
 .language-icon {
-    margin-right: 5px;
+    margin-right: 0.32rem;
 }
 </style>

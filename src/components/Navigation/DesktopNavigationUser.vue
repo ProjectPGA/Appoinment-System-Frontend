@@ -49,9 +49,9 @@ export default class DesktopNavigationUser extends Vue {
     background-color: #d4d4d4;
     display: block;
     text-align: center;
-    padding: 15px !important;
+    padding: 0.95em !important;
 }
 .navbar-dropdown {
-    padding-top: 0px;
+    padding-top: 0rem;
 }
 </style>

@@ -155,8 +155,8 @@ export default class MainLoginForm extends Vue {
         font-size: 1.25em;
     }
     &_logo {
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top: 3.12rem;
+        margin-bottom: 3.12rem;
     }
 }
 </style>

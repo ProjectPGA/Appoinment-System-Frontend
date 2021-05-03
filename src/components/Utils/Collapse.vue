@@ -84,7 +84,7 @@ export default class Collapse extends Vue {
         }
 
         .collapse-icon {
-            padding-left: 12px;
+            padding-left: 0.75em;
         }
     }
 }
@@ -94,24 +94,24 @@ export default class Collapse extends Vue {
 }
 .collapse-title {
     color: $main-color-dark;
-    padding: 0px;
+    padding: 0rem;
     font-size: 1em;
     font-weight: 400;
     line-height: 1.5;
 }
 .collapse-content {
-    padding: 5px 27px;
+    padding: 0.32rem 1.7rem;
 
     @include mobile {
-        padding: 5px 14px;
+        padding: 0.32rem 0.88rem;
     }
 }
 .card-header-icon {
-    padding-right: 13px;
+    padding-right: 0.81rem;
 }
 .collapse-icon {
     @include mobile {
-        font-size: 12px;
+        font-size: 0.75em;
     }
 
     ::before {

@@ -6,8 +6,8 @@
 
 @-webkit-keyframes slide-top {
     0% {
-        -webkit-transform: translateY(200px);
-        transform: translateY(200px);
+        -webkit-transform: translateY(12.5em);
+        transform: translateY(12.5em);
     }
     100% {
         -webkit-transform: translateY(0);
@@ -16,8 +16,8 @@
 }
 @keyframes slide-top {
     0% {
-        -webkit-transform: translateY(200px);
-        transform: translateY(200px);
+        -webkit-transform: translateY(12.5em);
+        transform: translateY(12.5em);
     }
     100% {
         -webkit-transform: translateY(0);

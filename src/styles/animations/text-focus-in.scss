@@ -10,25 +10,25 @@
  */
 @-webkit-keyframes text-focus-in {
     0% {
-        -webkit-filter: blur(12px);
-        filter: blur(12px);
+        -webkit-filter: blur(0.75em);
+        filter: blur(0.75em);
         opacity: 0;
     }
     100% {
-        -webkit-filter: blur(0px);
-        filter: blur(0px);
+        -webkit-filter: blur(0rem);
+        filter: blur(0rem);
         opacity: 1;
     }
 }
 @keyframes text-focus-in {
     0% {
-        -webkit-filter: blur(12px);
-        filter: blur(12px);
+        -webkit-filter: blur(0.75em);
+        filter: blur(0.75em);
         opacity: 0;
     }
     100% {
-        -webkit-filter: blur(0px);
-        filter: blur(0px);
+        -webkit-filter: blur(0rem);
+        filter: blur(0rem);
         opacity: 1;
     }
 }
