@@ -66,7 +66,7 @@ export default class MaintenanceLayout extends Vue {
             font-size: 3.5rem;
             font-weight: bold;
             margin: 0 1.25rem;
-            text-shadow: 1px 1px var(--gunmetal);
+            text-shadow: 0.01rem 0.01rem var(--gunmetal);
 
             @include mobile {
                 font-size: 2rem;

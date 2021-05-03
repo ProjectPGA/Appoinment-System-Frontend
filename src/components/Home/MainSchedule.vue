@@ -254,7 +254,7 @@ export default class MainSchedule extends Vue {
     cursor: pointer;
 }
 .custom-border {
-    border: 1px black;
+    border: 0.01rem black;
     border-style: solid;
 }
 .custom-padding {

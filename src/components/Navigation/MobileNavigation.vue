@@ -58,17 +58,17 @@ export default class MobileNavBar extends Vue {
     align-items: center;
 }
 .navbar-title {
-    font-size: 18px;
+    font-size: 1.12rem;
     text-transform: uppercase;
-    letter-spacing: 2.95px;
-    line-height: 21px;
+    letter-spacing: 0.2rem;
+    line-height: 2.01rem;
 
     a {
         color: $main-color-light;
     }
 }
 .left-icon {
-    margin-left: 15px;
+    margin-left: 0.95em;
 }
 .left-icon,
 .navbar-title {

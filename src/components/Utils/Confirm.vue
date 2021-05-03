@@ -48,7 +48,7 @@ export default class Confirm extends Vue {
 
 <style scoped lang="scss">
 .confirm {
-    padding: 30px 0;
+    padding: 1.88rem 0;
     text-align: center;
 }
 .confirm-disabled {
@@ -56,25 +56,26 @@ export default class Confirm extends Vue {
     opacity: 0.9;
 }
 .confirm-title {
-    font-size: 20px;
-    line-height: 23px;
-    margin-bottom: 4px;
+    font-size: 1.25rem;
+    line-height: 1.44rem;
+    margin-bottom: 0.25rem;
 }
 .confirm-sub-title {
-    font-size: 15px;
-    line-height: 17px;
+    font-size: 0.95em;
+    line-height: 1.06rem;
     color: $main-color-dark;
-    margin-bottom: 35px;
+    margin-bottom: 2.19rem;
 }
 .buttons {
     display: flex;
     justify-content: center;
 }
 .button {
-    min-width: 150px;
-    margin-right: 15px;
-    margin-left: 15px;
-    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    min-width: 13.12rem;
+    margin-right: 0.95em;
+    margin-left: 0.95em;
+    box-shadow: 0 0.12em 0.19em rgba(10, 10, 10, 0.1),
+        0 0 0 0.01rem rgba(10, 10, 10, 0.1);
     color: #4a4a4a !important;
     @include mobile {
         min-width: auto;

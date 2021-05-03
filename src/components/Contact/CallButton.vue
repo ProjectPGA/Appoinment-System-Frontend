@@ -18,20 +18,20 @@ export default class CallButton extends Vue {}
 <style lang="scss" scoped>
 .float {
     position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    left: 20px;
+    width: 3.75rem;
+    height: 3.75rem;
+    bottom: 1.25rem;
+    left: 1.25rem;
     background-color: $main-color-medium-dark;
     color: #fff;
-    border-radius: 50px;
+    border-radius: 3.12rem;
     text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
+    font-size: 1.88rem;
+    box-shadow: 0.12em 0.12em 0.19em #999;
     z-index: 29;
 }
 .my-float {
-    margin-top: 16px;
+    margin-top: 1em;
     font-family: 'FontAwesome';
 }
 .only-mobile {

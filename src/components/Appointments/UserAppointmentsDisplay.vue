@@ -125,14 +125,14 @@ export default class UserAppointmentsDisplay extends Vue {
     justify-content: center;
 }
 .card {
-    border: 0.5px solid #eee;
+    border: 0.03rem solid #eee;
     &.active {
-        -webkit-box-shadow: 8px 8px 9px 1px rgba(0, 255, 41, 0.38);
-        box-shadow: 8px 8px 9px 1px rgba(0, 255, 41, 0.38);
+        -webkit-box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(0, 255, 41, 0.38);
+        box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(0, 255, 41, 0.38);
     }
     &.inactive {
-        -webkit-box-shadow: 8px 8px 9px 1px rgba(255, 0, 0, 0.38);
-        box-shadow: 8px 8px 9px 1px rgba(255, 0, 0, 0.38);
+        -webkit-box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(255, 0, 0, 0.38);
+        box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(255, 0, 0, 0.38);
     }
 }
 </style>

@@ -213,7 +213,7 @@ export default class MainRegisterForm extends Vue {
 <style lang="scss" scoped>
 .main-register-form {
     &_button {
-        margin-top: 15px;
+        margin-top: 0.95em;
     }
 }
 </style>

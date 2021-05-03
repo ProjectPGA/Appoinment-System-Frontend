@@ -29,7 +29,7 @@ export default class DesktopNavigationLink extends Vue {
 <style lang="scss" scoped>
 .desktop-navigation-link {
     display: block;
-    padding: 23px 20px;
+    padding: 1.44rem 1.25rem;
 }
 .desktop-navigation-link:hover {
     background-color: $main-color-medium-light;
