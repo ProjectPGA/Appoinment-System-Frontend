@@ -1,19 +1,9 @@
 const es = {
     components: {
         navigation: {
-            title: 'Castillo',
-            subtitle: 'Barberia',
             index: 'Inicio',
             appointments: 'Mis Citas',
             contactUs: 'Contacto',
-            language: 'Idioma',
-        },
-        modal: {
-            title: 'Confirmación',
-            reserveMessage: '¿Deseas Reservar esta cita?',
-            CancelMessage: '¿Deseas Cancelar esta cita?',
-            accept: 'Aceptar',
-            cancel: 'Cancelar',
         },
         register: {
             name: 'Nombre',
@@ -54,8 +44,6 @@ const es = {
             textCity: 'Alhaurín el Grande, Málaga',
         },
         appointments: {
-            reserved: 'Reservado',
-            userAppointment: 'Mi cita',
             pastAppointments: 'Citas pasadas',
         },
         utils: {
@@ -67,84 +55,12 @@ const es = {
         settings: 'Configuración',
         logof: 'Cerrar sesión',
     },
-    userConfig: {
-        configText: 'Configuración',
-        userText: 'Usuario',
-        adminText: 'Administrador',
-        user: {
-            infoText: 'Información',
-            securityText: 'Seguridad',
-            adminText: 'Administrador',
-            info: {
-                infoText: 'Editar información de usuario',
-                emailText: 'Email',
-                newEmailText: 'Nuevo Email',
-                emailSaveButton: 'Guardar',
-                userNameText: 'Nombre de usuario',
-                newUserNameText: 'Nuevo nombre de usuario',
-                userNameButton: 'Guardar',
-                emailShort: 'El email es demasiado corto',
-                emailSame:
-                    'El nuevo nuevo email tiene que ser distinto al actual',
-                emailNotType: 'El valor intruducido no es un email',
-                emailEmpty: 'El campo no puede estar vacío',
-                emailChangeMessage: 'El email de usuario ha sido actualizado',
-                usernameEmpty: 'El campo no puede estar vacío',
-                usernameSame:
-                    'El nuevo nuevo nombre de usuario tiene que ser distinto al actual',
-                usernameChangeMessage:
-                    'El nombre de usuario ha sido actualizado',
-            },
-            security: {
-                passChangeTittle: 'Cambio de contraseña',
-                actualPassText: 'Contraseña Actual',
-                newPassText: 'Nueva Contraseña',
-                repeatNewPassText: 'Repetir Nueva Contraseña',
-                changePassButton: 'Guardar',
-                passChangedMessage:
-                    'La contraseña ha sido actualizada con éxito',
-            },
-        },
-        admin: {},
-    },
     titles: {
-        appointments: 'Citas',
         userAppointments: 'Mis Citas',
         contact: 'Contacto',
         register: 'Registro',
         login: 'Iniciar sesión',
         language: 'Idioma',
-    },
-    snackbar: {
-        cancelMessage: 'Cancelada: Día ',
-        cancelMessagedate: ' a las ',
-        assginMessage: 'Assignada: Día ',
-        assginMessageDate: ' a las ',
-        oneAppoinmetPerday: 'Solo puedes asignar una cita por día',
-        notLikePassword: 'Las contraseñas no coinciden',
-    },
-    week: {
-        monday: 'Lunes',
-        tuesday: 'Martes',
-        wednesday: 'Miércoles',
-        thursday: 'Jueves',
-        friday: 'Viernes',
-        saturday: 'Sábado',
-        sunday: 'Domingo',
-    },
-    month: {
-        january: 'Enero',
-        february: 'Febrero',
-        march: 'Marzo',
-        april: 'Abril',
-        may: 'Mayo',
-        june: 'Junio',
-        july: 'Julio',
-        august: 'Agosto',
-        september: 'Septiembre',
-        october: 'Octubre',
-        november: 'Noviembre',
-        december: 'Diciembre',
     },
     languages: {
         spanish: 'Español',
