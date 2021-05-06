@@ -1,6 +1,8 @@
 <template>
     <div class="container has-text-centered">
         <img
+            height="115"
+            width="340"
             @click="toHome"
             class="logo"
             src="../../assets/img/logo.svg"
@@ -26,8 +28,6 @@ export default class LogoApp extends Vue {
 
 <style lang="scss" scoped>
 .logo {
-    height: 7.188rem;
-    width: 21.25rem;
     cursor: pointer;
     @include mobile {
         width: 50%;
