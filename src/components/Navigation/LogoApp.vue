@@ -26,10 +26,12 @@ export default class LogoApp extends Vue {
 
 <style lang="scss" scoped>
 .logo {
-    width: 25%;
+    height: 7.188rem;
+    width: 21.25rem;
     cursor: pointer;
     @include mobile {
         width: 50%;
+        height: 50%;
     }
 }
 </style>
