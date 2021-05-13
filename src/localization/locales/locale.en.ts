@@ -1,5 +1,4 @@
 const en = {
-    // Restructuring
     views: {
         register: {
             emailExist: 'The email already exist!',
