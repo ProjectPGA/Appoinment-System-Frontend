@@ -14,6 +14,13 @@ import vClickOutside from 'v-click-outside';
 import Toast from 'vue-toastification';
 import i18n from '@/localization/localization';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+library.add(fab, fas, far);
+
 import { Scroll } from '@/directives/Scroll';
 import { Device } from '@/models/utils/Device';
 import { WindowResize } from '@/directives/WindowResize';
@@ -28,7 +35,8 @@ Vue.use(Toast, {
     position: 'bottom-left',
 });
 Vue.use(Buefy, {
-    defaultIconPack: 'fas',
+    defaultIconComponent: 'font-awesome-icon',
+    defaultIconPack: 'fa',
 });
 Vue.use(VueMq, {
     breakpoints: {
@@ -44,6 +52,7 @@ Vue.use(vClickOutside);
 Vue.directive('scroll', Scroll);
 Vue.directive('autofocus', Autofocus);
 Vue.directive('resize', WindowResize);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 new Vue({
     router,

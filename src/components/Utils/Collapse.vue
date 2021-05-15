@@ -13,22 +13,21 @@
             role="button"
         >
             <p class="card-header-title collapse-title">
-                <slot name="collapse_title"></slot>
-                <rotate-icon
-                    size="is-small"
-                    :rotate="props.open"
-                    :icon="'fas fa-plus'"
-                    :inverted-icon="'fas fa-minus'"
-                    class="collapse-icon"
-                    v-if="noStyle"
-                ></rotate-icon>
+                <slot name="collapse_title" />
             </p>
+            <rotate-icon
+                iconSize="xs"
+                :iconDisplay="iconNoStyle"
+                iconPack="fas"
+                class="collapse-icon"
+                v-if="noStyle"
+            ></rotate-icon>
             <a class="card-header-icon" v-if="!noStyle">
                 <rotate-icon
-                    size="is-small"
                     :rotate="props.open"
-                    :icon="icon"
-                    class="collapse-icon"
+                    :iconPack="iconPack"
+                    :iconDisplay="iconDisplay"
+                    iconSize="xs"
                 ></rotate-icon>
             </a>
         </div>
@@ -50,21 +49,30 @@ import RotateIcon from '@/components/Utils/RotateIcon.vue';
 export default class Collapse extends Vue {
     @Prop({
         type: String,
-        default: 'fas fa-chevron-down',
+        default: 'chevron-down',
     })
-    private icon: string;
+    private iconDisplay: string;
+    @Prop({
+        type: String,
+        default: 'fas',
+    })
+    private iconPack: string;
     @Prop({
         type: Boolean,
         default: false,
     })
     private noStyle: boolean;
 
+    private iconNoStyle: string = 'plus';
+
     private onOpen(): void {
         this.$emit('open');
+        this.iconNoStyle = 'minus';
     }
 
     private onClose(): void {
         this.$emit('close');
+        this.iconNoStyle = 'plus';
     }
 }
 </script>
@@ -110,6 +118,7 @@ export default class Collapse extends Vue {
     padding-right: 0.81rem;
 }
 .collapse-icon {
+    height: 1.5rem;
     @include mobile {
         font-size: 0.75em;
     }

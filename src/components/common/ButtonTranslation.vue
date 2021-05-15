@@ -4,9 +4,8 @@
         @click="changeLanguage()"
         data-cy="translation"
         type="is-danger"
-    >
-        <b-icon pack="fas" icon="globe" class="button-translations_icon" />
-        {{ currentLanguage }}
+        ><b-icon pack="fas" icon="globe" class="button-translations_icon" />
+        <span class="button-translations_language">{{ currentLanguage }}</span>
     </b-button>
 </template>
 
@@ -48,9 +47,20 @@ export default class ButtonTranslation extends Vue {
     top: 1.25rem;
     right: 1.25rem;
     z-index: 1000;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
     text-transform: uppercase;
+
+    ::v-deep > span {
+        display: flex;
+    }
+
     &_icon {
-        margin-right: 0rem !important;
+        margin-left: 0 !important;
+    }
+
+    &_language {
+        line-height: 22px;
     }
 }
 </style>
