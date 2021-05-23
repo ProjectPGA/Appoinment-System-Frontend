@@ -7,10 +7,10 @@
         <div class="columns is-centered is-mobile">
             <div class="column is-6-desktop is-10-mobile is-8-tablet container">
                 <h1 class="main-register-form_title title">
-                    {{ $t('titles.register') }}
+                    {{ $t('common.title.register') }}
                 </h1>
                 <b-field
-                    :label="$t('components.register.name')"
+                    :label="$t('views.login.mainRegisterForm.name')"
                     :message="errorNameMessage"
                     :type="{
                         'is-danger': !isNameValid,
@@ -18,7 +18,7 @@
                 >
                     <b-input
                         v-model="name"
-                        :placeholder="$t('components.register.name')"
+                        :placeholder="$t('views.login.mainRegisterForm.name')"
                         size="is-medium"
                         required
                         @blur="checkName"
@@ -28,7 +28,7 @@
                 </b-field>
 
                 <b-field
-                    :label="$t('components.register.surname')"
+                    :label="$t('views.login.mainRegisterForm.surname')"
                     :message="errorSurnameMessage"
                     :type="{
                         'is-danger': !isSurnameValid,
@@ -36,7 +36,9 @@
                 >
                     <b-input
                         v-model="surname"
-                        :placeholder="$t('components.register.surname')"
+                        :placeholder="
+                            $t('views.login.mainRegisterForm.surname')
+                        "
                         size="is-medium"
                         required
                         @blur="checkSurname"
@@ -68,7 +70,7 @@
                             size="is-medium"
                             :disabled="!isValidForm"
                         >
-                            {{ $t('components.register.button') }}
+                            {{ $t('views.login.mainRegisterForm.button') }}
                         </b-button>
                     </div>
                 </div>

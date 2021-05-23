@@ -215,7 +215,7 @@ export default class AuthActions extends Actions<
         try {
             await checkIfEmailAlreadyExist({ email });
         } catch (exception) {
-            Vue.$toast.error(`${i18n.t('components.register.emailExist')}`, {
+            Vue.$toast.error(`${i18n.t('views.register.emailExist')}`, {
                 timeout: 4000,
             });
         }

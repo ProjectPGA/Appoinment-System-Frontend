@@ -1,6 +1,6 @@
 <template>
     <b-field
-        :label="$t('components.loginInputs.email')"
+        :label="$t('common.email')"
         :message="errorMessage"
         :type="{
             'is-danger': !isValid,
@@ -8,7 +8,7 @@
     >
         <b-input
             v-model="email"
-            :placeholder="$t('components.loginInputs.email')"
+            :placeholder="$t('common.email')"
             size="is-medium"
             :data-cy="`${view}-input-email`"
             @blur="checkEmail"

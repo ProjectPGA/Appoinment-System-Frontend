@@ -5,7 +5,7 @@
             <div class="column is-12"><logo-app /></div>
             <div class="column is-12 invitational-code_content">
                 <h1 class="invitational-code_content-title title">
-                    {{ $t('components.invitation.title') }}
+                    {{ $t('common.title.invitation') }}
                 </h1>
                 <b-field class="invitational-code_content-field">
                     <b-input
@@ -23,7 +23,7 @@
                             size="is-medium"
                             :disabled="isInvalidCode"
                         >
-                            {{ $t('components.invitation.button') }}
+                            {{ $t('views.invitation.invitationalCode.button') }}
                         </b-button>
                     </p>
                 </b-field>

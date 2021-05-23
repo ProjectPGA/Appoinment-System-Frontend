@@ -10,13 +10,15 @@
             </div>
             <div class="contact-data_section">
                 <h2 class="contact-data_title">
-                    {{ $t('components.contact.titleSchedule') }}
+                    {{ $t('views.contact.componentContact.titleSchedule') }}
                 </h2>
                 <p>
-                    {{ $t('components.contact.textMondayToFriday') }}
+                    {{
+                        $t('views.contact.componentContact.textMondayToFriday')
+                    }}
                 </p>
                 <p>
-                    {{ $t('components.contact.textSaturday') }}
+                    {{ $t('views.contact.componentContact.textSaturday') }}
                 </p>
             </div>
         </div>
@@ -30,10 +32,10 @@
             </div>
             <div class="contact-data_section">
                 <h2 class="contact-data_title">
-                    {{ $t('components.contact.titlePhone') }}
+                    {{ $t('views.contact.componentContact.titlePhone') }}
                 </h2>
                 <p>
-                    {{ $t('components.contact.textPhone') }}
+                    {{ $t('views.contact.componentContact.textPhone') }}
                 </p>
             </div>
         </div>
@@ -47,13 +49,13 @@
             </div>
             <div class="contact-data_section">
                 <h2 class="contact-data_title">
-                    {{ $t('components.contact.titleAddress') }}
+                    {{ $t('views.contact.componentContact.titleAddress') }}
                 </h2>
                 <p>
-                    {{ $t('components.contact.textAddress') }}
+                    {{ $t('views.contact.componentContact.textAddress') }}
                 </p>
                 <p>
-                    {{ $t('components.contact.textCity') }}
+                    {{ $t('views.contact.componentContact.textCity') }}
                 </p>
             </div>
         </div>

@@ -9,7 +9,7 @@
 
         <div class="navbar-dropdown">
             <div class="navbar-item language-title">
-                {{ $t('titles.language') }}
+                {{ $t('common.title.language') }}
             </div>
             <a
                 :class="{
@@ -18,7 +18,7 @@
                 class="navbar-item"
                 @click="changeLanguageToSpanish"
             >
-                {{ $t('languages.spanish') }}
+                {{ $t('common.languages.spanish') }}
             </a>
             <a
                 :class="{
@@ -27,7 +27,7 @@
                 class="navbar-item"
                 @click="changeLanguageToEnglish"
             >
-                {{ $t('languages.english') }}
+                {{ $t('common.languages.english') }}
             </a>
         </div>
     </div>

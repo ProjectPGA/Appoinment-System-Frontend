@@ -1,15 +1,15 @@
 <template>
     <div class="navbar-start">
         <desktop-navigation-link
-            label="components.navigation.index"
+            label="common.components.navigation.index"
             to="/Inicio"
         ></desktop-navigation-link>
         <desktop-navigation-link
-            label="components.navigation.appointments"
+            label="common.components.navigation.appointments"
             to="/Appointments"
         ></desktop-navigation-link>
         <desktop-navigation-link
-            label="components.navigation.contactUs"
+            label="common.components.navigation.contactUs"
             to="/Contact"
         ></desktop-navigation-link>
     </div>

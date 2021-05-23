@@ -44,18 +44,18 @@
                                         class="language-icon"
                                     ></b-icon>
                                     <span>
-                                        {{ $t('titles.language') }}
+                                        {{ $t('common.title.language') }}
                                     </span>
                                     <span class="current-language">
                                         ({{ currentLanguage }})
                                     </span>
                                 </template>
                                 <mobile-navigation-link
-                                    label="languages.spanish"
+                                    label="common.languages.spanish"
                                     @click.native="changeLanguageToSpanish"
                                 />
                                 <mobile-navigation-link
-                                    label="languages.english"
+                                    label="common.languages.english"
                                     @click.native="changeLanguageToEnglish"
                                 />
                             </collapse>
@@ -77,7 +77,11 @@
                                 @click.native="logout()"
                             >
                                 <b-icon pack="fas" icon="sign-out-alt" />
-                                {{ $t('user.logof') }}
+                                {{
+                                    $t(
+                                        'common.components.navigation.userLogOff'
+                                    )
+                                }}
                             </router-link>
                         </div>
                     </div>
