@@ -17,7 +17,7 @@
             </p>
             <rotate-icon
                 iconSize="xs"
-                :iconDisplay="iconNoStyle"
+                :icon="props.open ? iconOpen : iconClose"
                 iconPack="fas"
                 class="collapse-icon"
                 v-if="noStyle"
@@ -26,7 +26,7 @@
                 <rotate-icon
                     :rotate="props.open"
                     :iconPack="iconPack"
-                    :iconDisplay="iconDisplay"
+                    :icon="iconDisplay"
                     iconSize="xs"
                 ></rotate-icon>
             </a>
@@ -63,16 +63,24 @@ export default class Collapse extends Vue {
     })
     private noStyle: boolean;
 
-    private iconNoStyle: string = 'plus';
+    @Prop({
+        type: String,
+        default: 'minus',
+    })
+    private iconOpen: string;
+
+    @Prop({
+        type: String,
+        default: 'plus',
+    })
+    private iconClose: string;
 
     private onOpen(): void {
         this.$emit('open');
-        this.iconNoStyle = 'minus';
     }
 
     private onClose(): void {
         this.$emit('close');
-        this.iconNoStyle = 'plus';
     }
 }
 </script>

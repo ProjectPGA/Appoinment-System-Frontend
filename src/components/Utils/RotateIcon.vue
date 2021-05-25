@@ -1,7 +1,7 @@
 <template>
     <font-awesome-icon
         @click="onClick"
-        :icon="[iconPack, iconDisplay]"
+        :icon="[iconPack, icon]"
         :size="iconSize"
         :class="['rotate-icon', rotate && 'rotate-icon--rotate']"
     />
@@ -18,9 +18,9 @@ const allowedSizes = ['', 'is-small', 'is-medium', 'is-large'];
 export default class RotateIcon extends Vue {
     @Prop({
         type: String,
-        default: 'spinner',
+        default: 'plus',
     })
-    private iconDisplay: string;
+    private icon: string;
     @Prop({
         type: String,
         validator: (val: string) => allowedSizes.includes(val),
