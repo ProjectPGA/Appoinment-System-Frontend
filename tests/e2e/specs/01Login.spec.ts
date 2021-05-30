@@ -11,7 +11,7 @@ import {
     loginInvitationLink,
 } from './utilities/01Login.selectors';
 
-import { isDangerClass } from './utilities/buefy.class';
+import { isDangerClass } from './utilities/buefy.classes';
 import { helpSelector } from './utilities/buefy.selectors';
 
 import {
@@ -20,7 +20,7 @@ import {
     toastMainSelector,
     toastCloseButtonSelector,
 } from './utilities/common.selectors';
-import { toastErrorClass } from './utilities/common.class';
+import { toastErrorClass } from './utilities/common.classes';
 
 describe('01 Login view', () => {
     beforeEach(() => {
