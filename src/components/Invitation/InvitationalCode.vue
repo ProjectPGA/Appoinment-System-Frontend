@@ -4,7 +4,10 @@
         <div class="columns is-multiline">
             <div class="column is-12"><logo-app /></div>
             <div class="column is-12 invitational-code_content">
-                <h1 class="invitational-code_content-title title">
+                <h1
+                    class="invitational-code_content-title title"
+                    data-cy="invitational-code-title"
+                >
                     {{ $t('components.invitation.title') }}
                 </h1>
                 <b-field class="invitational-code_content-field">
