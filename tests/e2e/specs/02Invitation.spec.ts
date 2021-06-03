@@ -51,10 +51,12 @@ describe('02 Invitational', () => {
             '02.04 Check when the invitation code has 12 characters but doesn´t exist'
         );
         getElem(invitationalCodeInput).type('1');
+        cy.intercept('/api/auth/invitation').as('invitation');
         getElem(invitationalCodeButton)
             .should('be.visible')
             .should('be.enabled')
             .click();
+        cy.wait('@invitation').its('response.statusCode').should('eq', 400);
         getElem(toastMainSelector)
             .should('be.visible')
             .should('have.class', toastErrorClass);
@@ -75,6 +77,7 @@ describe('02 Invitational', () => {
             .should('be.visible')
             .should('be.enabled')
             .click();
+        cy.wait('@invitation').its('response.statusCode').should('eq', 200);
         cy.url().should('include', '/register');
         getElem(logoApp).click();
     });
