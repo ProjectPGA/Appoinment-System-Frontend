@@ -23,7 +23,7 @@ describe('02 Invitational', () => {
     });
 
     it('02 Invitational', () => {
-        cy.log('02.01 Check all elements are visible');
+        cy.log('02.01 Check if all elements are visible');
         getElem(logoApp).should('be.visible');
         getElem(translationButtonSelector).should('be.visible');
         getElem(invitationalCodeTitle).should('be.visible');
@@ -32,13 +32,13 @@ describe('02 Invitational', () => {
             .should('be.visible')
             .should('be.disabled');
 
-        cy.log('02.02 Check logoApp is function');
+        cy.log('02.02 Check logoApp is working');
         getElem(logoApp).click();
         cy.url().should('include', '/');
         getElem(loginInvitationLink).click();
 
         cy.log(
-            '02.03 Check when the invitation code has less of 11 characters'
+            '02.03 Check when the invitation code has less than 11 characters'
         );
         getElem(invitationalCodeInput)
             .should('have.value', '')
@@ -50,7 +50,7 @@ describe('02 Invitational', () => {
         cy.log(
             '02.04 Check when the invitation code has 12 characters but doesn´t exist'
         );
-        getElem(invitationalCodeInput).type('1');
+        getElem(invitationalCodeInput).clear().type('111111111111');
         cy.intercept('/api/auth/invitation').as('invitation');
         getElem(invitationalCodeButton)
             .should('be.visible')
@@ -64,9 +64,9 @@ describe('02 Invitational', () => {
         getElem(toastMainSelector).should('not.be.visible');
 
         cy.log(
-            '02.05 Check when the invitation code has more of 11 characters'
+            '02.05 Check when the invitation code has more than 11 characters'
         );
-        getElem(invitationalCodeInput).type('1');
+        getElem(invitationalCodeInput).clear().type('1111111111111');
         getElem(invitationalCodeButton)
             .should('be.visible')
             .should('be.disabled');
@@ -79,6 +79,5 @@ describe('02 Invitational', () => {
             .click();
         cy.wait('@invitation').its('response.statusCode').should('eq', 200);
         cy.url().should('include', '/register');
-        getElem(logoApp).click();
     });
 });
