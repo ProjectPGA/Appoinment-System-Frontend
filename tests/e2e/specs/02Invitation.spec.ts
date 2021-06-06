@@ -32,7 +32,7 @@ describe('02 Invitational', () => {
             .should('be.visible')
             .should('be.disabled');
 
-        cy.log('02.02 Check logoApp is working');
+        cy.log('02.02 Check if logoApp is working');
         getElem(logoApp).click();
         cy.url().should('include', '/');
         getElem(loginInvitationLink).click();
