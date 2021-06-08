@@ -6,14 +6,13 @@ import {
     toastCloseButtonSelector,
     translationButtonSelector,
 } from './utilities/common.selectors';
-
 import {
     invitationalCodeTitle,
     invitationalCodeInput,
     invitationalCodeButton,
 } from './utilities/02Invitational.selectors';
-
 import { loginInvitationLink } from './utilities/01Login.selectors';
+
 import { toastErrorClass } from './utilities/common.classes';
 
 describe('02 Invitational', () => {
