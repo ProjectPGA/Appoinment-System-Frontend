@@ -18,20 +18,20 @@ export default class WhatsappButton extends Vue {}
 <style lang="scss" scoped>
 .float {
     position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
+    width: 3.75rem;
+    height: 3.75rem;
+    bottom: 1.25rem;
+    right: 1.25rem;
     background-color: #25d366;
     color: #fff;
-    border-radius: 50px;
+    border-radius: 3.12rem;
     text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
+    font-size: 1.88rem;
+    box-shadow: 0.12em 0.12em 0.19em #999;
     z-index: 100;
 }
 .my-float {
-    margin-top: 16px;
+    margin-top: 1em;
     font-family: 'FontAwesome';
 }
 </style>

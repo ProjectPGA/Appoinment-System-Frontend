@@ -93,7 +93,7 @@ export default class ContactData extends Vue {}
         align-items: flex-start;
         justify-content: right;
         font-size: 2rem;
-        min-height: 200px;
+        min-height: 12.5em;
         color: $main-color;
 
         @include tablet-only {
@@ -112,7 +112,7 @@ export default class ContactData extends Vue {}
     &_section-container {
         display: flex;
         width: 100%;
-        min-height: 200px;
+        min-height: 12.5em;
         justify-content: center;
         flex-direction: row;
         color: $main-color-medium-dark;

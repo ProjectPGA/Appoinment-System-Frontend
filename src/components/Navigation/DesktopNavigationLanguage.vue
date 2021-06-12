@@ -70,9 +70,9 @@ export default class DesktopNavigationLanguage extends Vue {
     background-color: $main-color-medium-light;
     display: block;
     text-align: center;
-    padding: 15px !important;
+    padding: 0.95em !important;
 }
 .navbar-dropdown {
-    padding-top: 0px;
+    padding-top: 0rem;
 }
 </style>

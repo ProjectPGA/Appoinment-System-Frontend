@@ -45,12 +45,12 @@ export default class ButtonTranslation extends Vue {
 <style lang="scss" scoped>
 .button-translations {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 1.25rem;
+    right: 1.25rem;
     z-index: 1000;
     text-transform: uppercase;
     &_icon {
-        margin-right: 0px !important;
+        margin-right: 0rem !important;
     }
 }
 </style>

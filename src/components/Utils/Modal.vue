@@ -65,10 +65,10 @@ export default class Modal extends Vue {
 .modal.is-large {
     .modal-card {
         width: 90vw;
-        max-width: 940px;
+        max-width: 58.75rem;
 
         @include mobile {
-            width: calc(100vw - 20px);
+            width: calc(100vw - 1.25rem);
         }
 
         @include widescreen {
@@ -87,7 +87,7 @@ export default class Modal extends Vue {
 }
 .modal-card {
     @include mobile {
-        width: calc(100vw - 20px);
+        width: calc(100vw - 1.25rem);
     }
 }
 .modal-card-head {
@@ -99,23 +99,23 @@ export default class Modal extends Vue {
     color: #000000;
 }
 .modal-card-body {
-    font-size: 15px;
-    line-height: 19px;
+    font-size: 0.95em;
+    line-height: 1.19rem;
     color: #000000;
 }
 .modal-card-footer {
-    box-shadow: 0 0px 25px 0 rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0rem 1.56rem 0 rgba(0, 0, 0, 0.35);
     background-color: white;
-    padding: 26px 0;
+    padding: 1.63rem 0;
 
     @include mobile {
-        padding: 13px 0 26px 0;
+        padding: 0.81rem 0 1.63rem 0;
     }
 }
 
 .close-button {
     position: absolute;
-    right: 25px;
+    right: 1.56rem;
     border: none;
     background: transparent;
     font-size: 1.2rem;
