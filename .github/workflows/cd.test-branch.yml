@@ -22,3 +22,5 @@ jobs:
     - run: npm run format:check
     - run: npm run lint
     - run: npm run build
+    - run: cp -a dist/* /var/www/html/int/appointment-system/ 
+    - run: npx cypress run
