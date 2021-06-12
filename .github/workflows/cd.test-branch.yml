@@ -22,6 +22,3 @@ jobs:
     - run: npm run format:check
     - run: npm run lint
     - run: npm run build
-    - run: npm run serve
-    - run: npx cypress run
-    - run: npm stop serve
