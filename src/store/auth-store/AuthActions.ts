@@ -35,8 +35,9 @@ export default class AuthActions extends Actions<
 > {
     public async renewToken(): Promise<void> {
         try {
-            const refreshToken: string | null =
-                localStorage.getItem('refreshToken');
+            const refreshToken: string | null = localStorage.getItem(
+                'refreshToken'
+            );
 
             if (refreshToken !== null) {
                 const response: TokenResponse = await renewToken({
@@ -61,8 +62,9 @@ export default class AuthActions extends Actions<
         try {
             this.commit('setLoginInProgress', null);
 
-            const refreshToken: string | null =
-                localStorage.getItem('refreshToken');
+            const refreshToken: string | null = localStorage.getItem(
+                'refreshToken'
+            );
 
             if (refreshToken !== null) {
                 const response: UserData = await checkUserToken({
@@ -158,8 +160,9 @@ export default class AuthActions extends Actions<
 
     public async logout(): Promise<void> {
         try {
-            const refreshToken: string | null =
-                localStorage.getItem('refreshToken');
+            const refreshToken: string | null = localStorage.getItem(
+                'refreshToken'
+            );
             if (refreshToken !== null) {
                 await logout({
                     refreshToken,

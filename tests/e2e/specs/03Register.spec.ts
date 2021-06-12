@@ -11,6 +11,8 @@ import {
 import { isDangerSelector } from './utilities/buefy.selectors';
 import { helpClass } from './utilities/buefy.classes';
 
+import { loginInvitationLink } from './utilities/01Login.selectors';
+
 import {
     registerTitle,
     registerButton,
@@ -27,7 +29,6 @@ import {
 } from './utilities/03Register.selectors';
 
 import {
-    invitationalLink,
     invitationalCodeInput,
     invitationalCodeButton,
 } from './utilities/02Invitational.selectors';
@@ -36,7 +37,7 @@ describe('03 Register', () => {
     beforeEach(() => {
         // Prepare the app to get on to Register view
         cy.visit('/');
-        getElem(invitationalLink).click();
+        getElem(loginInvitationLink).click();
         getElem(invitationalCodeInput).clear().type('MSINVITATION');
         getElem(invitationalCodeButton).click();
     });

@@ -14,12 +14,7 @@
                 </a>
             </div>
             <div
-                class="
-                    column
-                    is-one-quarter
-                    has-text-right has-no-vertical-padding
-                    is-left-paddingless
-                "
+                class="column is-one-quarter has-text-right has-no-vertical-padding is-left-paddingless"
             >
                 <router-view name="mobileNavBar" />
             </div>
