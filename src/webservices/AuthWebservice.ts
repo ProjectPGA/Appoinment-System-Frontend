@@ -13,44 +13,40 @@ import { RegisterRequest } from './models/auth/RegisterRequest';
 
 const baseUrl: string = apiPrefix('/auth');
 
-export const login: (
-    params: LoginRequest
-) => Promise<UserData> = async params => {
-    const response = await axios.post<UserData>(
-        `${baseUrl}/login`,
-        params,
-        jsonHeaders
-    );
-    return response.data;
-};
+export const login: (params: LoginRequest) => Promise<UserData> =
+    async params => {
+        const response = await axios.post<UserData>(
+            `${baseUrl}/login`,
+            params,
+            jsonHeaders
+        );
+        return response.data;
+    };
 
-export const logout: (
-    params: LogoutRequest
-) => Promise<void> = async params => {
-    await axios.post<void>(`${baseUrl}/logout`, params, jsonHeaders);
-};
+export const logout: (params: LogoutRequest) => Promise<void> =
+    async params => {
+        await axios.post<void>(`${baseUrl}/logout`, params, jsonHeaders);
+    };
 
-export const checkUserToken: (
-    params: TokenRequest
-) => Promise<UserData> = async params => {
-    const response = await axios.post<UserData>(
-        `${baseUrl}/userTokenCheck`,
-        params,
-        jsonHeaders
-    );
-    return response.data;
-};
+export const checkUserToken: (params: TokenRequest) => Promise<UserData> =
+    async params => {
+        const response = await axios.post<UserData>(
+            `${baseUrl}/userTokenCheck`,
+            params,
+            jsonHeaders
+        );
+        return response.data;
+    };
 
-export const renewToken: (
-    params: TokenRequest
-) => Promise<TokenResponse> = async params => {
-    const response = await axios.post<TokenResponse>(
-        `${baseUrl}/token`,
-        params,
-        jsonHeaders
-    );
-    return response.data;
-};
+export const renewToken: (params: TokenRequest) => Promise<TokenResponse> =
+    async params => {
+        const response = await axios.post<TokenResponse>(
+            `${baseUrl}/token`,
+            params,
+            jsonHeaders
+        );
+        return response.data;
+    };
 
 export const checkInvitationalCode: (
     params: InvitationalCodeRequest
@@ -88,13 +84,12 @@ export const checkIfEmailAlreadyExist: (
     return response.data;
 };
 
-export const register: (
-    params: RegisterRequest
-) => Promise<UserData> = async params => {
-    const response = await axios.post<UserData>(
-        `${baseUrl}/register`,
-        params,
-        jsonHeaders
-    );
-    return response.data;
-};
+export const register: (params: RegisterRequest) => Promise<UserData> =
+    async params => {
+        const response = await axios.post<UserData>(
+            `${baseUrl}/register`,
+            params,
+            jsonHeaders
+        );
+        return response.data;
+    };
