@@ -1,20 +1,20 @@
 $fallback-fonts: 'Libre Franklin', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 
 // z-index
 $z-layers: (
-    'tooltip': 3000,
-    'modal': 2000,
-    'menu': 1010,
-    'backdrop': 1000,
-    'navbar': 30,
-    'header': 20,
-    'footer': 20,
-    'floating': 15,
-    'content': 10,
-    'default': 1,
-    'below': -1,
-    'bottomless': -9000,
+  'tooltip': 3000,
+  'modal': 2000,
+  'menu': 1010,
+  'backdrop': 1000,
+  'navbar': 30,
+  'header': 20,
+  'footer': 20,
+  'floating': 15,
+  'content': 10,
+  'default': 1,
+  'below': -1,
+  'bottomless': -9000,
 );
 
 // App Colors

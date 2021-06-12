@@ -1,163 +1,163 @@
 import { Appointment, Day } from '@/models/appointment/Appointment';
 
 export const appointDateCompare = (date: number): boolean => {
-    let result: boolean = false;
-    const today: number = new Date().getTime();
-    if (today > date) {
-        result = false;
-    }
-    if (today <= date) {
-        result = true;
-    }
-    return result;
+  let result: boolean = false;
+  const today: number = new Date().getTime();
+  if (today > date) {
+    result = false;
+  }
+  if (today <= date) {
+    result = true;
+  }
+  return result;
 };
 
 export const isActive = (date: number): string => {
-    let result: string = '';
-    const today: number = new Date().getTime();
+  let result: string = '';
+  const today: number = new Date().getTime();
 
-    if (today <= date) {
-        result = 'active';
-    }
-    if (today > date) {
-        result = 'inactive';
-    }
-    return result;
+  if (today <= date) {
+    result = 'active';
+  }
+  if (today > date) {
+    result = 'inactive';
+  }
+  return result;
 };
 
 export const getDay = (arg: string, arr: Appointment | Day): boolean => {
-    return new Date(arr.date).toDateString().includes(arg);
+  return new Date(arr.date).toDateString().includes(arg);
 };
 
 export const getDayMonth = (date: number): string => {
-    const fech: Date = new Date(date);
-    let daymonth: string = '';
-    const dia: number = fech.getDate();
-    const mes: number = fech.getMonth();
+  const fech: Date = new Date(date);
+  let daymonth: string = '';
+  const dia: number = fech.getDate();
+  const mes: number = fech.getMonth();
 
-    let mesString: string = '';
-    switch (mes) {
-        case 0:
-            mesString = 'Enero';
-            break;
-        case 1:
-            mesString = 'Febrero';
-            break;
-        case 2:
-            mesString = 'Marzo';
-            break;
-        case 3:
-            mesString = 'Abril';
-            break;
-        case 4:
-            mesString = 'Mayo';
-            break;
-        case 5:
-            mesString = 'Junio';
-            break;
-        case 6:
-            mesString = 'Julio';
-            break;
-        case 7:
-            mesString = 'Agosto';
-            break;
-        case 8:
-            mesString = 'Septiembre';
-            break;
-        case 9:
-            mesString = 'Octubre';
-            break;
-        case 10:
-            mesString = 'Noviembre';
-            break;
-        case 11:
-            mesString = 'Diciembre';
-            break;
-        default:
-            break;
-    }
-    daymonth = dia + ' de ' + mesString;
-    return daymonth;
+  let mesString: string = '';
+  switch (mes) {
+    case 0:
+      mesString = 'Enero';
+      break;
+    case 1:
+      mesString = 'Febrero';
+      break;
+    case 2:
+      mesString = 'Marzo';
+      break;
+    case 3:
+      mesString = 'Abril';
+      break;
+    case 4:
+      mesString = 'Mayo';
+      break;
+    case 5:
+      mesString = 'Junio';
+      break;
+    case 6:
+      mesString = 'Julio';
+      break;
+    case 7:
+      mesString = 'Agosto';
+      break;
+    case 8:
+      mesString = 'Septiembre';
+      break;
+    case 9:
+      mesString = 'Octubre';
+      break;
+    case 10:
+      mesString = 'Noviembre';
+      break;
+    case 11:
+      mesString = 'Diciembre';
+      break;
+    default:
+      break;
+  }
+  daymonth = dia + ' de ' + mesString;
+  return daymonth;
 };
 
 export const getAppointHour = (type: number): string => {
-    let hourString = '';
-    switch (type) {
-        case 1:
-            hourString = '10:00';
-            break;
-        case 2:
-            hourString = '10:20';
-            break;
-        case 3:
-            hourString = '10:40';
-            break;
-        case 4:
-            hourString = '11:00';
-            break;
-        case 5:
-            hourString = '11:20';
-            break;
-        case 6:
-            hourString = '11:40';
-            break;
-        case 7:
-            hourString = '12:00';
-            break;
-        case 8:
-            hourString = '12:20';
-            break;
-        case 9:
-            hourString = '12:40';
-            break;
-        case 10:
-            hourString = '13:00';
-            break;
-        case 11:
-            hourString = '13:20';
-            break;
-        case 12:
-            hourString = '13:40';
-            break;
-        case 13:
-            hourString = '17:00';
-            break;
-        case 14:
-            hourString = '17:20';
-            break;
-        case 15:
-            hourString = '17:40';
-            break;
-        case 16:
-            hourString = '18:00';
-            break;
-        case 17:
-            hourString = '18:20';
-            break;
-        case 18:
-            hourString = '18:40';
-            break;
-        case 19:
-            hourString = '19:00';
-            break;
-        case 20:
-            hourString = '19:20';
-            break;
-        case 21:
-            hourString = '19:40';
-            break;
-        case 22:
-            hourString = '20:00';
-            break;
-        case 23:
-            hourString = '20:20';
-            break;
-        case 24:
-            hourString = '20:40';
-            break;
-        default:
-            break;
-    }
+  let hourString = '';
+  switch (type) {
+    case 1:
+      hourString = '10:00';
+      break;
+    case 2:
+      hourString = '10:20';
+      break;
+    case 3:
+      hourString = '10:40';
+      break;
+    case 4:
+      hourString = '11:00';
+      break;
+    case 5:
+      hourString = '11:20';
+      break;
+    case 6:
+      hourString = '11:40';
+      break;
+    case 7:
+      hourString = '12:00';
+      break;
+    case 8:
+      hourString = '12:20';
+      break;
+    case 9:
+      hourString = '12:40';
+      break;
+    case 10:
+      hourString = '13:00';
+      break;
+    case 11:
+      hourString = '13:20';
+      break;
+    case 12:
+      hourString = '13:40';
+      break;
+    case 13:
+      hourString = '17:00';
+      break;
+    case 14:
+      hourString = '17:20';
+      break;
+    case 15:
+      hourString = '17:40';
+      break;
+    case 16:
+      hourString = '18:00';
+      break;
+    case 17:
+      hourString = '18:20';
+      break;
+    case 18:
+      hourString = '18:40';
+      break;
+    case 19:
+      hourString = '19:00';
+      break;
+    case 20:
+      hourString = '19:20';
+      break;
+    case 21:
+      hourString = '19:40';
+      break;
+    case 22:
+      hourString = '20:00';
+      break;
+    case 23:
+      hourString = '20:20';
+      break;
+    case 24:
+      hourString = '20:40';
+      break;
+    default:
+      break;
+  }
 
-    return hourString;
+  return hourString;
 };

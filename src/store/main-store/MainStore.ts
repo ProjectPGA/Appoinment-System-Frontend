@@ -6,10 +6,10 @@ import MainActions from './MainActions';
 import MainMutations from './MainMutations';
 
 const mainStore = new Module({
-    state: MainState,
-    getters: MainGetters,
-    actions: MainActions,
-    mutations: MainMutations,
+  state: MainState,
+  getters: MainGetters,
+  actions: MainActions,
+  mutations: MainMutations,
 });
 
 export default mainStore;

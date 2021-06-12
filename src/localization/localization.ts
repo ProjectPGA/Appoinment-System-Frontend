@@ -9,14 +9,14 @@ import es from './locales/locale.es';
 
 // Add more languages here
 const messages = {
-    en,
-    es,
+  en,
+  es,
 };
 
 // Create VueI18n instance with options
 const i18n = new VueI18n({
-    locale: 'es', // set default
-    messages, // set locale messages
+  locale: 'es', // set default
+  messages, // set locale messages
 });
 
 export default i18n;

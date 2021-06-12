@@ -1,8 +1,8 @@
 <template>
-    <div class="columns p-4">
-        <!-- <user-config-menu />
+  <div class="columns p-4">
+    <!-- <user-config-menu />
         <content-profile /> -->
-    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -12,11 +12,11 @@ import { Component, Vue } from 'vue-property-decorator';
 // import UserConfigMenu from '@/components/User/UserConfigMenu.vue';
 
 @Component({
-    name: 'User',
-    components: {
-        // ContentProfile,
-        // UserConfigMenu,
-    },
+  name: 'User',
+  components: {
+    // ContentProfile,
+    // UserConfigMenu,
+  },
 })
 export default class User extends Vue {}
 </script>

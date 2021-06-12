@@ -1,8 +1,8 @@
 <template>
-    <div id="navbarMenuDesktop" class="navbar-menu">
-        <desktop-navigation-menu></desktop-navigation-menu>
-        <desktop-navigation-end></desktop-navigation-end>
-    </div>
+  <div id="navbarMenuDesktop" class="navbar-menu">
+    <desktop-navigation-menu></desktop-navigation-menu>
+    <desktop-navigation-end></desktop-navigation-end>
+  </div>
 </template>
 
 <script lang="ts">
@@ -12,11 +12,11 @@ import DesktopNavigationMenu from '@/components/Navigation/DesktopNavigationMenu
 import DesktopNavigationEnd from '@/components/Navigation/DesktopNavigationEnd.vue';
 
 @Component({
-    name: 'DesktopNavigation',
-    components: {
-        DesktopNavigationEnd,
-        DesktopNavigationMenu,
-    },
+  name: 'DesktopNavigation',
+  components: {
+    DesktopNavigationEnd,
+    DesktopNavigationMenu,
+  },
 })
 export default class DesktopNavigation extends Vue {}
 </script>

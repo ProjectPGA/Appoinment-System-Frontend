@@ -6,10 +6,10 @@ import NavigationActions from './NavigationActions';
 import NavigationMutations from './NavigationMutations';
 
 const navigationStore = new Module({
-    state: NavigationState,
-    getters: NavigationGetters,
-    actions: NavigationActions,
-    mutations: NavigationMutations,
+  state: NavigationState,
+  getters: NavigationGetters,
+  actions: NavigationActions,
+  mutations: NavigationMutations,
 });
 
 export default navigationStore;

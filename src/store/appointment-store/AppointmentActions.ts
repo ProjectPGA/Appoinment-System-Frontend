@@ -5,12 +5,12 @@ import AppointmentMutations from './AppointmentMutations';
 import AppointmentGetters from './AppointmentGetters';
 
 export default class AppointmentActions extends Actions<
-    AppointmentState,
-    AppointmentGetters,
-    AppointmentMutations,
-    AppointmentActions
+  AppointmentState,
+  AppointmentGetters,
+  AppointmentMutations,
+  AppointmentActions
 > {
-    public setText(): void {
-        this.commit('setText', '');
-    }
+  public setText(): void {
+    this.commit('setText', '');
+  }
 }

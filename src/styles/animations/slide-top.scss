@@ -5,22 +5,22 @@
  */
 
 @-webkit-keyframes slide-top {
-    0% {
-        -webkit-transform: translateY(12.5em);
-        transform: translateY(12.5em);
-    }
-    100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
+  0% {
+    -webkit-transform: translateY(12.5em);
+    transform: translateY(12.5em);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 }
 @keyframes slide-top {
-    0% {
-        -webkit-transform: translateY(12.5em);
-        transform: translateY(12.5em);
-    }
-    100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
+  0% {
+    -webkit-transform: translateY(12.5em);
+    transform: translateY(12.5em);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 }

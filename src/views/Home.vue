@@ -1,9 +1,9 @@
 <template>
-    <div class="Home">
-        <header-app />
-        <router-view />
-        <content-home v-if="$route.name == 'Home'" />
-    </div>
+  <div class="Home">
+    <header-app />
+    <router-view />
+    <content-home v-if="$route.name == 'Home'" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -15,27 +15,27 @@ import HeaderApp from '@/components/Navigation/Header.vue';
 import ContentHome from '@/components/Home/ContentHome.vue';
 
 @Component({
-    name: 'Home',
-    components: {
-        HeaderApp,
-        ContentHome,
-    },
+  name: 'Home',
+  components: {
+    HeaderApp,
+    ContentHome,
+  },
 })
 export default class Home extends Vue {
-    private authStore = authStore.context(this.$store);
+  private authStore = authStore.context(this.$store);
 
-    private get isLogged(): boolean {
-        return this.authStore.state.isLogged;
-    }
+  private get isLogged(): boolean {
+    return this.authStore.state.isLogged;
+  }
 
-    private renewToken(): void {
-        this.authStore.actions.renewToken();
-    }
+  private renewToken(): void {
+    this.authStore.actions.renewToken();
+  }
 
-    private mounted(): void {
-        this.authStore.actions.disableRegisterProcess();
-        setInterval(this.renewToken, 300000);
-    }
+  private mounted(): void {
+    this.authStore.actions.disableRegisterProcess();
+    setInterval(this.renewToken, 300000);
+  }
 }
 </script>
 

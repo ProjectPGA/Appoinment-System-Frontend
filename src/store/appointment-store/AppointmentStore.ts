@@ -6,10 +6,10 @@ import AppointmentActions from './AppointmentActions';
 import AppointmentMutations from './AppointmentMutations';
 
 const appointmentStore = new Module({
-    state: AppointmentState,
-    getters: AppointmentGetters,
-    actions: AppointmentActions,
-    mutations: AppointmentMutations,
+  state: AppointmentState,
+  getters: AppointmentGetters,
+  actions: AppointmentActions,
+  mutations: AppointmentMutations,
 });
 
 export default appointmentStore;

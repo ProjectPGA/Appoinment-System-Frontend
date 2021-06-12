@@ -1,3 +1,3 @@
 export interface InvitationalCodeRequest {
-    invitationCode: string;
+  invitationCode: string;
 }

@@ -1,3 +1,3 @@
 export default class NavigationState {
-    public isShowLeftMenu: boolean = true;
+  public isShowLeftMenu: boolean = true;
 }
