@@ -47,54 +47,37 @@ import RotateIcon from '@/components/Utils/RotateIcon.vue';
   },
 })
 export default class Collapse extends Vue {
-<<<<<<< HEAD
-    @Prop({
-        type: String,
-        default: 'chevron-down',
-    })
-    private iconDisplay: string;
-    @Prop({
-        type: String,
-        default: 'fas',
-    })
-    private iconPack: string;
-    @Prop({
-        type: Boolean,
-        default: false,
-    })
-    private noStyle: boolean;
-
-    @Prop({
-        type: String,
-        default: 'minus',
-    })
-    private iconOpen: string;
-
-    @Prop({
-        type: String,
-        default: 'plus',
-    })
-    private iconClose: string;
-
-    private onOpen(): void {
-        this.$emit('open');
-    }
-=======
   @Prop({
     type: String,
-    default: 'fas fa-chevron-down',
+    default: 'chevron-down',
   })
-  private icon: string;
+  private iconDisplay: string;
+  @Prop({
+    type: String,
+    default: 'fas',
+  })
+  private iconPack: string;
   @Prop({
     type: Boolean,
     default: false,
   })
   private noStyle: boolean;
 
+  @Prop({
+    type: String,
+    default: 'minus',
+  })
+  private iconOpen: string;
+
+  @Prop({
+    type: String,
+    default: 'plus',
+  })
+  private iconClose: string;
+
   private onOpen(): void {
     this.$emit('open');
   }
->>>>>>> 98a98a44a815755fbd6349a713778048f96efd04
 
   private onClose(): void {
     this.$emit('close');
@@ -143,16 +126,10 @@ export default class Collapse extends Vue {
   padding-right: 0.81rem;
 }
 .collapse-icon {
-<<<<<<< HEAD
-    height: 1.5rem;
-    @include mobile {
-        font-size: 0.75em;
-    }
-=======
+  height: 1.5rem;
   @include mobile {
     font-size: 0.75em;
   }
->>>>>>> 98a98a44a815755fbd6349a713778048f96efd04
 
   ::before {
     font-family: 'FontAwesome';
