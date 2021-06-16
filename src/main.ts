@@ -25,19 +25,19 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 Vue.use(Router);
 Vue.use(Toast, {
-    position: 'bottom-left',
+  position: 'bottom-left',
 });
 Vue.use(Buefy, {
-    defaultIconPack: 'fas',
+  defaultIconPack: 'fas',
 });
 Vue.use(VueMq, {
-    breakpoints: {
-        [Device.sm]: 769,
-        [Device.md]: 1024,
-        [Device.lg]: 1216,
-        [Device.xl]: 1408,
-    },
-    defaultBreakpoint: 'sm',
+  breakpoints: {
+    [Device.sm]: 769,
+    [Device.md]: 1024,
+    [Device.lg]: 1216,
+    [Device.xl]: 1408,
+  },
+  defaultBreakpoint: 'sm',
 });
 Vue.use(vClickOutside);
 
@@ -46,8 +46,8 @@ Vue.directive('autofocus', Autofocus);
 Vue.directive('resize', WindowResize);
 
 new Vue({
-    router,
-    store,
-    i18n,
-    render: h => h(App),
+  router,
+  store,
+  i18n,
+  render: h => h(App),
 }).$mount('#app');

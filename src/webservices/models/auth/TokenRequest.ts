@@ -1,3 +1,3 @@
 export interface TokenRequest {
-    token: string;
+  token: string;
 }

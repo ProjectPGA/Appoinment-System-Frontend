@@ -1,25 +1,26 @@
 <template>
-    <b-field
-        :label="$t('components.loginInputs.password')"
-        :message="errorMessage"
-        :type="{
-            'is-danger': !isValid,
-        }"
-    >
-        <b-input
-            v-model="password"
-            :placeholder="$t('components.loginInputs.password')"
-            size="is-medium"
-            :data-cy="`${view}-input-password`"
-            type="password"
-            password-reveal
-            required
-            @blur="checkPassword"
-            @input="onInput"
-            @keypress.native.enter="onEnterPassword"
-            class="password-input"
-        />
-    </b-field>
+  <b-field
+    :label="$t('components.loginInputs.password')"
+    :message="errorMessage"
+    :type="{
+      'is-danger': !isValid,
+    }"
+    :data-cy="`${view}-field-password`"
+  >
+    <b-input
+      v-model="password"
+      :placeholder="$t('components.loginInputs.password')"
+      size="is-medium"
+      :data-cy="`${view}-input-password`"
+      type="password"
+      password-reveal
+      required
+      @blur="checkPassword"
+      @input="onInput"
+      @keypress.native.enter="onEnterPassword"
+      class="password-input"
+    />
+  </b-field>
 </template>
 
 <script lang="ts">
@@ -28,77 +29,75 @@ import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import mainStore from '@/store/main-store/MainStore';
 
 @Component({
-    name: 'PasswordInput',
+  name: 'PasswordInput',
 })
 export default class PasswordInput extends Vue {
-    @Prop(String) private view: string;
+  @Prop(String) private view: string;
 
-    private mainStore = mainStore.context(this.$store);
+  private mainStore = mainStore.context(this.$store);
 
-    private password: string = '';
-    private isValid: boolean = true;
-    private errorMessage: string = '';
+  private password: string = '';
+  private isValid: boolean = true;
+  private errorMessage: string = '';
 
-    private onInput(): void {
-        this.$emit('input', this.password);
+  private onInput(): void {
+    this.$emit('input', this.password);
 
-        this.checkPassword();
+    this.checkPassword();
+  }
+
+  private onEnterPassword(): void {
+    this.checkPassword();
+
+    if (this.isValid) {
+      this.$emit('enter');
     }
+  }
 
-    private onEnterPassword(): void {
-        this.checkPassword();
+  private checkPassword(): void {
+    this.password === ''
+      ? this.inputEmpty()
+      : this.password.match(
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
+        )
+      ? this.inputValid()
+      : this.inputPasswordIncomplete();
 
-        if (this.isValid) {
-            this.$emit('enter');
-        }
-    }
+    this.$emit('check-password', this.isValid);
+  }
 
-    private checkPassword(): void {
-        this.password === ''
-            ? this.inputEmpty()
-            : this.password.match(
-                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
-              )
-            ? this.inputValid()
-            : this.inputPasswordIncomplete();
+  private inputEmpty(): void {
+    this.errorMessage = `${this.$t('components.loginInputs.inputEmpty')}`;
 
-        this.$emit('check-password', this.isValid);
-    }
+    this.isValid = false;
+  }
 
-    private inputEmpty(): void {
-        this.errorMessage = `${this.$t('components.loginInputs.inputEmpty')}`;
+  private inputPasswordIncomplete(): void {
+    this.errorMessage = `${this.$t('components.loginInputs.passwordInvalid')}`;
 
-        this.isValid = false;
-    }
+    this.isValid = false;
+  }
 
-    private inputPasswordIncomplete(): void {
-        this.errorMessage = `${this.$t(
-            'components.loginInputs.passwordInvalid'
-        )}`;
+  private inputValid(): void {
+    this.errorMessage = '';
+    this.isValid = true;
+  }
 
-        this.isValid = false;
-    }
+  private get currentLanguage(): string {
+    return this.mainStore.state.currentLanguage;
+  }
 
-    private inputValid(): void {
-        this.errorMessage = '';
-        this.isValid = true;
-    }
-
-    private get currentLanguage(): string {
-        return this.mainStore.state.currentLanguage;
-    }
-
-    @Watch('currentLanguage')
-    private onChangeLanguage(): void {
-        this.checkPassword();
-    }
+  @Watch('currentLanguage')
+  private onChangeLanguage(): void {
+    this.checkPassword();
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .password-input {
-    /deep/.icon {
-        color: $main-color-medium-light !important;
-    }
+  /deep/.icon {
+    color: $main-color-medium-light !important;
+  }
 }
 </style>
