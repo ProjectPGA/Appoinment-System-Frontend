@@ -32,20 +32,20 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 Vue.use(Router);
 Vue.use(Toast, {
-    position: 'bottom-left',
+  position: 'bottom-left',
 });
 Vue.use(Buefy, {
-    defaultIconComponent: 'font-awesome-icon',
-    defaultIconPack: 'fa',
+  defaultIconComponent: 'font-awesome-icon',
+  defaultIconPack: 'fa',
 });
 Vue.use(VueMq, {
-    breakpoints: {
-        [Device.sm]: 769,
-        [Device.md]: 1024,
-        [Device.lg]: 1216,
-        [Device.xl]: 1408,
-    },
-    defaultBreakpoint: 'sm',
+  breakpoints: {
+    [Device.sm]: 769,
+    [Device.md]: 1024,
+    [Device.lg]: 1216,
+    [Device.xl]: 1408,
+  },
+  defaultBreakpoint: 'sm',
 });
 Vue.use(vClickOutside);
 
@@ -55,8 +55,8 @@ Vue.directive('resize', WindowResize);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 new Vue({
-    router,
-    store,
-    i18n,
-    render: h => h(App),
+  router,
+  store,
+  i18n,
+  render: h => h(App),
 }).$mount('#app');

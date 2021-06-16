@@ -1,3 +1,3 @@
 export interface InvCode {
-    code: string;
+  code: string;
 }

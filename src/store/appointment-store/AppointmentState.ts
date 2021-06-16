@@ -1,3 +1,3 @@
 export default class AppointmentState {
-    public test: string = '';
+  public test: string = '';
 }

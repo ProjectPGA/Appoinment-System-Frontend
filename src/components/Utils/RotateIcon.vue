@@ -1,10 +1,10 @@
 <template>
-    <font-awesome-icon
-        @click="onClick"
-        :icon="[iconPack, icon]"
-        :size="iconSize"
-        :class="['rotate-icon', rotate && 'rotate-icon--rotate']"
-    />
+  <font-awesome-icon
+    @click="onClick"
+    :icon="[iconPack, icon]"
+    :size="iconSize"
+    :class="['rotate-icon', rotate && 'rotate-icon--rotate']"
+  />
 </template>
 
 <script lang="ts">
@@ -13,39 +13,39 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 const allowedSizes = ['', 'is-small', 'is-medium', 'is-large'];
 
 @Component({
-    name: 'RotateIcon',
+  name: 'RotateIcon',
 })
 export default class RotateIcon extends Vue {
-    @Prop({
-        type: String,
-        default: 'plus',
-    })
-    private icon: string;
-    @Prop({
-        type: String,
-        validator: (val: string) => allowedSizes.includes(val),
-        default: '',
-    })
-    private iconSize: string;
-    @Prop({
-        type: String,
-        default: 'fas',
-    })
-    private iconPack: string;
-    @Prop(Boolean) private rotate: boolean;
+  @Prop({
+    type: String,
+    default: 'plus',
+  })
+  private icon: string;
+  @Prop({
+    type: String,
+    validator: (val: string) => allowedSizes.includes(val),
+    default: '',
+  })
+  private iconSize: string;
+  @Prop({
+    type: String,
+    default: 'fas',
+  })
+  private iconPack: string;
+  @Prop(Boolean) private rotate: boolean;
 
-    private onClick(): void {
-        this.$emit('click');
-    }
+  private onClick(): void {
+    this.$emit('click');
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .rotate-icon {
-    transition: transform 0.4s;
-    color: $main-color-dark;
-    &--rotate {
-        transform: rotate(180deg);
-    }
+  transition: transform 0.4s;
+  color: $main-color-dark;
+  &--rotate {
+    transform: rotate(180deg);
+  }
 }
 </style>
