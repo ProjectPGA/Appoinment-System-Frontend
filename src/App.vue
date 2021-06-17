@@ -79,6 +79,7 @@ export default class App extends Vue {
 </script>
 <style lang="scss">
 .main-app {
+  // test
   min-width: 20rem;
 }
 </style>
