@@ -9,7 +9,7 @@
   >
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title"><slot name="modal_title"></slot></p>
+        <p class="modal-card-title"><slot name="modal_title" /></p>
         <button
           class="close-button"
           @click="onClose"
@@ -17,12 +17,12 @@
           data-cy="modal-close-btn"
           v-if="canCancel"
         >
-          <i class="fa fa-times"></i>
+          <i class="fa fa-times" />
         </button>
       </header>
-      <div class="modal-card-body"><slot></slot></div>
+      <div class="modal-card-body"><slot /></div>
       <div class="modal-card-footer" v-if="hasFooter">
-        <slot name="modal_footer"></slot>
+        <slot name="modal_footer" />
       </div>
     </div>
   </b-modal>

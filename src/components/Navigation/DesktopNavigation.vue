@@ -1,7 +1,7 @@
 <template>
   <div id="navbarMenuDesktop" class="navbar-menu">
-    <desktop-navigation-menu></desktop-navigation-menu>
-    <desktop-navigation-end></desktop-navigation-end>
+    <desktop-navigation-menu />
+    <desktop-navigation-end />
   </div>
 </template>
 

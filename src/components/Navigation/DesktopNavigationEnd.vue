@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-end">
-    <desktop-navigation-language></desktop-navigation-language>
-    <desktop-navigation-user></desktop-navigation-user>
+    <desktop-navigation-language />
+    <desktop-navigation-user />
   </div>
 </template>
 

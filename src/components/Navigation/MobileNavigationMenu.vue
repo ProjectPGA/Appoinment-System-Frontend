@@ -5,7 +5,7 @@
         <div class="menu-container" v-click-outside="hide">
           <div class="mobile-menu">
             <button class="close-nav" @click="hide">
-              <p-icon name="close"></p-icon>
+              <p-icon name="close" />
             </button>
             <router-link to="/Inicio" class="menu-title" @click.native="hide">
               <img class="mobile-logo" src="../../assets/img/logo.svg" />
@@ -31,11 +31,7 @@
             <div class="mobile-navigation-user-link">
               <collapse icon="fas fa-angle-down">
                 <template slot="collapse_title">
-                  <b-icon
-                    pack="fas"
-                    icon="globe"
-                    class="language-icon"
-                  ></b-icon>
+                  <b-icon pack="fas" icon="globe" class="language-icon" />
                   <span>
                     {{ $t('titles.language') }}
                   </span>
