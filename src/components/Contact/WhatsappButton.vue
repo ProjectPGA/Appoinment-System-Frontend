@@ -1,8 +1,7 @@
 <template>
   <div>
     <a href="https://wa.me/34679938186" class="float" target="_blank">
-      <b-icon pack="fab" icon="whatsapp" size="is-medium" class="my-float">
-      </b-icon>
+      <b-icon pack="fab" icon="whatsapp" size="is-medium" class="my-float" />
     </a>
   </div>
 </template>

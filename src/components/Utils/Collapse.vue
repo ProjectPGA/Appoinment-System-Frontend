@@ -21,17 +21,17 @@
         iconPack="fas"
         class="collapse-icon"
         v-if="noStyle"
-      ></rotate-icon>
+      />
       <a class="card-header-icon" v-if="!noStyle">
         <rotate-icon
           :rotate="props.open"
           :iconPack="iconPack"
           :icon="iconDisplay"
           iconSize="xs"
-        ></rotate-icon>
+        />
       </a>
     </div>
-    <div class="card-content collapse-content"><slot></slot></div>
+    <div class="card-content collapse-content"><slot /></div>
   </b-collapse>
 </template>
 

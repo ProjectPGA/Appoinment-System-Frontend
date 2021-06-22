@@ -1,8 +1,7 @@
 <template>
   <div class="only-mobile">
     <a href="tel:34679938186" class="float" target="_blank">
-      <b-icon pack="fas" icon="phone-alt" size="is-medium" class="my-float">
-      </b-icon>
+      <b-icon pack="fas" icon="phone-alt" size="is-medium" class="my-float" />
     </a>
   </div>
 </template>
