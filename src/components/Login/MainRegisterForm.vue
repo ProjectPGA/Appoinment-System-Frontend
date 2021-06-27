@@ -144,9 +144,7 @@ export default class MainRegisterForm extends Vue {
 
         this.name.length > 0
             ? (this.errorNameMessage = '')
-            : (this.errorNameMessage = `${this.$t(
-                  'components.loginInputs.inputEmpty'
-              )}`);
+            : (this.errorNameMessage = `${this.$t('views.login.inputEmpty')}`);
     }
 
     private checkSurname(): void {
@@ -157,7 +155,7 @@ export default class MainRegisterForm extends Vue {
         this.surname.length > 0
             ? (this.errorSurnameMessage = '')
             : (this.errorSurnameMessage = `${this.$t(
-                  'components.loginInputs.inputEmpty'
+                  'views.login.inputEmpty'
               )}`);
     }
 

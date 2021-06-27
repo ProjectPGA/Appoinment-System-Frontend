@@ -5,6 +5,7 @@ const es = {
         },
         maintenancePage: {},
         login: {
+            inputEmpty: 'Porfavor completa este campo.',
             mailLoginForm: {
                 button: 'Acceder',
                 noAccount: '¿No tienes cuenta?',
@@ -39,7 +40,14 @@ const es = {
     },
     common: {
         email: 'E-Mail',
+        emailInvalid: 'Email no válida. Por favor introduzca un correo valido.',
         password: 'Contraseña',
+        passwordInvalid:
+            'Contraseña no válida. Por favor introduzca una contraseña valido."',
+        repeatPassword: 'Repetir Contraseña',
+        notSamePassword: 'Las contraseñas no coinciden',
+        passwordRequirements:
+            'La contraseña debe tener un mínimo de 8 caracteres que contienen al menos una letra minúscula, una letra mayúscula, un dígito numérico y un carácter especial.',
         components: {
             appointments: {
                 pastAppointments: 'Citas pasadas',
@@ -61,7 +69,7 @@ const es = {
             userAppointments: 'Mis Citas',
             contact: 'Contacto',
             register: 'Registro',
-            login: 'Iniciar sesion',
+            login: 'Iniciar sesión',
             language: 'Idioma',
             invitation: 'Introduce tu código de invitación',
         },

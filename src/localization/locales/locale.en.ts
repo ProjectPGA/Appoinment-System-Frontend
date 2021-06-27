@@ -5,6 +5,7 @@ const en = {
         },
         maintenancePage: {},
         login: {
+            inputEmpty: 'Please fill this field',
             mailLoginForm: {
                 button: 'Login',
                 noAccount: 'You dont have an account?',
@@ -39,7 +40,13 @@ const en = {
     },
     common: {
         email: 'E-Mail',
+        emailInvalid: 'Invalid email. Please enter a valid email.',
         password: 'Password',
+        passwordInvalid: 'Invalid password. Please enter a valid password.',
+        repeatPassword: 'Repeat Password',
+        notSamePassword: 'The passwords are not the same',
+        passwordRequirements:
+            'The password must be a minimum of 8 characters containing at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.',
         components: {
             appointments: {
                 pastAppointments: 'Past appointments',

@@ -60,13 +60,13 @@ export default class EmailInput extends Vue {
     }
 
     private inputEmpty(): void {
-        this.errorMessage = `${this.$t('components.loginInputs.inputEmpty')}`;
+        this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
 
         this.isValid = false;
     }
 
     private inputEmailInvalid(): void {
-        this.errorMessage = `${this.$t('components.loginInputs.emailInvalid')}`;
+        this.errorMessage = `${this.$t('common.emailInvalid')}`;
 
         this.isValid = false;
     }
