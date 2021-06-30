@@ -19,12 +19,13 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-library.add(fab, fas, far);
 
 import { Scroll } from '@/directives/Scroll';
 import { Device } from '@/models/utils/Device';
 import { WindowResize } from '@/directives/WindowResize';
 import { Autofocus } from '@/directives/AutofocusDirective';
+
+library.add(fab, fas, far);
 
 Vue.config.productionTip = false;
 
