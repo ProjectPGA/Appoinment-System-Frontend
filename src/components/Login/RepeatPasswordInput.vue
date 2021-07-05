@@ -39,10 +39,10 @@ import mainStore from '@/store/main-store/MainStore';
 import PasswordInput from '@/components/Login/PasswordInput.vue';
 
 @Component({
-    name: 'RepeatPasswordInput',
-    components: {
-        PasswordInput,
-    },
+  name: 'RepeatPasswordInput',
+  components: {
+    PasswordInput,
+  },
 })
 export default class RepeatPasswordInput extends Vue {
     @Prop(String) private view: string;
@@ -122,16 +122,16 @@ export default class RepeatPasswordInput extends Vue {
 
 <style lang="scss" scoped>
 .repeat-password-input {
-    &_password-requeriments {
-        font-size: 0.75em;
-        color: $main-color-dark;
-        margin-bottom: 0.62em;
-        font-weight: 700;
+  &_password-requeriments {
+    font-size: 0.75em;
+    color: $main-color-dark;
+    margin-bottom: 0.62em;
+    font-weight: 700;
+  }
+  &_password-input {
+    /deep/.icon {
+      color: $main-color-medium-light !important;
     }
-    &_password-input {
-        /deep/.icon {
-            color: $main-color-medium-light !important;
-        }
-    }
+  }
 }
 </style>

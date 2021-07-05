@@ -30,6 +30,7 @@
             </div>
         </div>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -41,48 +42,48 @@ import ButtonTranslation from '@/components/common/ButtonTranslation.vue';
 import authStore from '@/store/auth-store/AuthStore';
 
 @Component({
-    name: 'InvitationalCode',
-    components: {
-        LogoApp,
-        ButtonTranslation,
-    },
+  name: 'InvitationalCode',
+  components: {
+    LogoApp,
+    ButtonTranslation,
+  },
 })
 export default class InvitationalCode extends Vue {
-    private authStore = authStore.context(this.$store);
+  private authStore = authStore.context(this.$store);
 
-    private invitationalCode: string = '';
+  private invitationalCode: string = '';
 
-    private onEnterInvitationalCode(): void {
-        if (!this.isInvalidCode) {
-            this.checkInvitationalCode();
-        }
+  private onEnterInvitationalCode(): void {
+    if (!this.isInvalidCode) {
+      this.checkInvitationalCode();
     }
+  }
 
-    private checkInvitationalCode(): void {
-        this.authStore.actions.checkInvitationalCode(this.invitationalCode);
-    }
+  private checkInvitationalCode(): void {
+    this.authStore.actions.checkInvitationalCode(this.invitationalCode);
+  }
 
-    private get isInvalidCode(): boolean {
-        return this.invitationalCode.length === 12 ? false : true;
-    }
+  private get isInvalidCode(): boolean {
+    return this.invitationalCode.length === 12 ? false : true;
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .invitational-code {
-    &_content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+  &_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &_content-field {
+    width: 75%;
+    @include touch {
+      width: 100%;
     }
-    &_content-field {
-        width: 75%;
-        @include touch {
-            width: 100%;
-        }
-    }
-    &_content-title {
-        text-align: center;
-    }
+  }
+  &_content-title {
+    text-align: center;
+  }
 }
 </style>

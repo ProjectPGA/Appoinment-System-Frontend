@@ -16,7 +16,9 @@
                 </div>
             </section>
         </div>
+      </section>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -25,10 +27,10 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import { Appointment } from '@/models/appointment/Appointment';
 
 @Component({
-    name: 'NoAppoints',
+  name: 'NoAppoints',
 })
 export default class NoAppoints extends Vue {
-    @Prop() private citas: Appointment[];
+  @Prop() private citas: Appointment[];
 }
 </script>
 

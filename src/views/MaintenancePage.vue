@@ -12,10 +12,10 @@ import { Component, Vue } from 'vue-property-decorator';
 import MaintenanceLayout from '@/components/Maintenance/MaintenanceLayout.vue';
 
 @Component({
-    name: 'MaintenancePage',
-    components: {
-        MaintenanceLayout,
-    },
+  name: 'MaintenancePage',
+  components: {
+    MaintenanceLayout,
+  },
 })
 export default class MaintenancePage extends Vue {}
 </script>

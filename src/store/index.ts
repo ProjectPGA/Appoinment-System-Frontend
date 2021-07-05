@@ -11,15 +11,15 @@ import appointmentStore from './appointment-store/AppointmentStore';
 Vue.use(Vuex);
 
 const root = new Module({
-    modules: {
-        mainStore,
-        authStore,
-        navigationStore,
-        appointmentStore,
-    },
+  modules: {
+    mainStore,
+    authStore,
+    navigationStore,
+    appointmentStore,
+  },
 });
 
 const persistedPaths = ['path'];
 export const store = createStore(root, {
-    plugins: [createPersistedState({ paths: persistedPaths })],
+  plugins: [createPersistedState({ paths: persistedPaths })],
 });

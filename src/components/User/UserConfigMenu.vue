@@ -1,6 +1,6 @@
 <template>
-    <div class="column is-3">
-        <!-- <b-menu>
+  <div class="column is-3">
+    <!-- <b-menu>
             <b-menu-list
                 class="custom-menu-title"
                 icon-pack="fas"
@@ -40,7 +40,7 @@
                 </b-menu-item>
             </b-menu-list>
         </b-menu> -->
-    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -50,20 +50,20 @@ import { Component, Vue } from 'vue-property-decorator';
 // import { GlobalState } from '@/vuex/store';
 
 @Component({
-    name: 'UserConfigMenu',
-    components: {},
+  name: 'UserConfigMenu',
+  components: {},
 })
 export default class UserConfigMenu extends Vue {
-    // @Mutation('utils/setSelectedSettingsMenu') private setSelectedSettings: (
-    //     menu: string
-    // ) => void;
-    // @State((state: GlobalState) => state.auth.user.admin)
-    // private admin: boolean;
+  // @Mutation('utils/setSelectedSettingsMenu') private setSelectedSettings: (
+  //     menu: string
+  // ) => void;
+  // @State((state: GlobalState) => state.auth.user.admin)
+  // private admin: boolean;
 }
 </script>
 
 <style lang="scss" scoped>
 .menu-label {
-    font-size: 1rem !important;
+  font-size: 1rem !important;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="main-register-form">
+  <div class="main-register-form">
         <button-translation />
         <div class="columns is-centered">
             <div class="column is-12"><logo-app /></div>
@@ -76,7 +76,8 @@
                 </div>
             </div>
         </div>
-    </div>
+      </div>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
@@ -93,13 +94,13 @@ import { RegisterRequest } from '@/webservices/models/auth/RegisterRequest';
 import { UserRoles } from '@/models/user/UserData';
 
 @Component({
-    name: 'MainRegisterForm',
-    components: {
-        LogoApp,
-        EmailInput,
-        ButtonTranslation,
-        RepeatPasswordInput,
-    },
+  name: 'MainRegisterForm',
+  components: {
+    LogoApp,
+    EmailInput,
+    ButtonTranslation,
+    RepeatPasswordInput,
+  },
 })
 export default class MainRegisterForm extends Vue {
     private authStore = authStore.context(this.$store);
@@ -212,8 +213,8 @@ export default class MainRegisterForm extends Vue {
 
 <style lang="scss" scoped>
 .main-register-form {
-    &_button {
-        margin-top: 0.95em;
-    }
+  &_button {
+    margin-top: 0.95em;
+  }
 }
 </style>

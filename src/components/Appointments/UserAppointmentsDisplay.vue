@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <!-- <no-appoints :citas="citas"></no-appoints>
+  <div>
+    <!-- <no-appoints :citas="citas"></no-appoints>
         <div class="columns is-multiline p-4">
             <div
                 v-for="(cita, index) in citas"
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div> -->
-    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -73,66 +73,66 @@ import { Component, Vue } from 'vue-property-decorator';
 // } from '@/utils/appointHelper';
 
 @Component({
-    name: 'UserAppointmentsDisplay',
-    components: {
-        // NoAppoints,
-    },
+  name: 'UserAppointmentsDisplay',
+  components: {
+    // NoAppoints,
+  },
 })
 export default class UserAppointmentsDisplay extends Vue {
-    // @State((state: GlobalState) => state.auth.user.id) private userId: number;
-    // @State((state: GlobalState) => state.utils.pastAppoints)
-    // private pastAppoints: boolean;
-    // @State((state: GlobalState) => state.appointment.Appointments)
-    // private citas: Appointment[];
-    // @Action('appointment/fetchActiveUserAppoints')
-    // private getUserAppoints: () => void;
-    // @Action('appointment/fetchPastUserAppoints')
-    // private getPastUserAppoints: () => void;
-    // @Action('appointment/appointCancel')
-    // private appointCancel: () => void;
-    // private mounted() {
-    //     this.getUserAppoints();
-    // }
-    // private _isActive(d: number): string {
-    //     return isActive(d);
-    // }
-    // private _getDay(arg: string, citas: Appointment) {
-    //     return getDay(arg, citas);
-    // }
-    // private _getDayMonth(date: number) {
-    //     return getDayMonth(date);
-    // }
-    // private _getAppointHour(type: number) {
-    //     return getAppointHour(type);
-    // }
-    // @Watch('pastAppoints')
-    // private showPastAppoints() {
-    //     if (this.pastAppoints) {
-    //         this.getPastUserAppoints();
-    //     } else {
-    //         this.getUserAppoints();
-    //     }
-    // }
+  // @State((state: GlobalState) => state.auth.user.id) private userId: number;
+  // @State((state: GlobalState) => state.utils.pastAppoints)
+  // private pastAppoints: boolean;
+  // @State((state: GlobalState) => state.appointment.Appointments)
+  // private citas: Appointment[];
+  // @Action('appointment/fetchActiveUserAppoints')
+  // private getUserAppoints: () => void;
+  // @Action('appointment/fetchPastUserAppoints')
+  // private getPastUserAppoints: () => void;
+  // @Action('appointment/appointCancel')
+  // private appointCancel: () => void;
+  // private mounted() {
+  //     this.getUserAppoints();
+  // }
+  // private _isActive(d: number): string {
+  //     return isActive(d);
+  // }
+  // private _getDay(arg: string, citas: Appointment) {
+  //     return getDay(arg, citas);
+  // }
+  // private _getDayMonth(date: number) {
+  //     return getDayMonth(date);
+  // }
+  // private _getAppointHour(type: number) {
+  //     return getAppointHour(type);
+  // }
+  // @Watch('pastAppoints')
+  // private showPastAppoints() {
+  //     if (this.pastAppoints) {
+  //         this.getPastUserAppoints();
+  //     } else {
+  //         this.getUserAppoints();
+  //     }
+  // }
 }
 </script>
 
 <style lang="scss" scoped>
 .card-footer-item {
-    cursor: pointer;
+  cursor: pointer;
 }
 .center {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .card {
-    border: 0.03rem solid #eee;
-    &.active {
-        -webkit-box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(0, 255, 41, 0.38);
-        box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(0, 255, 41, 0.38);
-    }
-    &.inactive {
-        -webkit-box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(255, 0, 0, 0.38);
-        box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(255, 0, 0, 0.38);
-    }
+  border: 0.03rem solid #eee;
+  &.active {
+    -webkit-box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(0, 255, 41, 0.38);
+    box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(0, 255, 41, 0.38);
+  }
+  &.inactive {
+    -webkit-box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(255, 0, 0, 0.38);
+    box-shadow: 0.5rem 0.5rem 0.6rem 0.01rem rgba(255, 0, 0, 0.38);
+  }
 }
 </style>

@@ -21,10 +21,10 @@ import { Component, Vue } from 'vue-property-decorator';
 import DesktopNavigationLink from '@/components/Navigation/DesktopNavigationLink.vue';
 
 @Component({
-    name: 'DesktopNavigationMenu',
-    components: {
-        DesktopNavigationLink,
-    },
+  name: 'DesktopNavigationMenu',
+  components: {
+    DesktopNavigationLink,
+  },
 })
 export default class DesktopNavigationMenu extends Vue {}
 </script>

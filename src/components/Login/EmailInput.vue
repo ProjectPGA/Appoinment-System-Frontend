@@ -24,66 +24,76 @@ import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import mainStore from '@/store/main-store/MainStore';
 
 @Component({
-    name: 'EmailInput',
+  name: 'EmailInput',
 })
 export default class EmailInput extends Vue {
-    @Prop(String) private view: string;
+  @Prop(String) private view: string;
 
-    private mainStore = mainStore.context(this.$store);
+  private mainStore = mainStore.context(this.$store);
 
-    private email: string = '';
-    private isValid: boolean = true;
-    private errorMessage: string = '';
+  private email: string = '';
+  private isValid: boolean = true;
+  private errorMessage: string = '';
 
-    private onInput(): void {
-        this.$emit('input', this.email);
+  private onInput(): void {
+    this.$emit('input', this.email);
 
-        this.checkEmail();
+    this.checkEmail();
+  }
+
+  private onEnterEmail(): void {
+    this.checkEmail();
+
+    if (this.isValid) {
+      this.$emit('enter');
     }
+  }
 
-    private onEnterEmail(): void {
-        this.checkEmail();
+  private checkEmail(): void {
+    this.email === ''
+      ? this.inputEmpty()
+      : this.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
+      ? this.inputValid()
+      : this.inputEmailInvalid();
 
-        if (this.isValid) {
-            this.$emit('enter');
-        }
-    }
+    this.$emit('check-email', this.isValid);
+  }
 
-    private checkEmail(): void {
-        this.email === ''
-            ? this.inputEmpty()
-            : this.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
-            ? this.inputValid()
-            : this.inputEmailInvalid();
-
-        this.$emit('check-email', this.isValid);
-    }
-
+<<<<<<< HEAD
     private inputEmpty(): void {
         this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
+=======
+  private inputEmpty(): void {
+    this.errorMessage = `${this.$t('components.loginInputs.inputEmpty')}`;
+>>>>>>> 1bb1d00beaf4d67bc4b41fc3620cd8ff24c544a4
 
-        this.isValid = false;
-    }
+    this.isValid = false;
+  }
 
+<<<<<<< HEAD
     private inputEmailInvalid(): void {
         this.errorMessage = `${this.$t('common.emailInvalid')}`;
+=======
+  private inputEmailInvalid(): void {
+    this.errorMessage = `${this.$t('components.loginInputs.emailInvalid')}`;
+>>>>>>> 1bb1d00beaf4d67bc4b41fc3620cd8ff24c544a4
 
-        this.isValid = false;
-    }
+    this.isValid = false;
+  }
 
-    private inputValid(): void {
-        this.errorMessage = '';
-        this.isValid = true;
-    }
+  private inputValid(): void {
+    this.errorMessage = '';
+    this.isValid = true;
+  }
 
-    private get currentLanguage(): string {
-        return this.mainStore.state.currentLanguage;
-    }
+  private get currentLanguage(): string {
+    return this.mainStore.state.currentLanguage;
+  }
 
-    @Watch('currentLanguage')
-    private onChangeLanguage(): void {
-        this.checkEmail();
-    }
+  @Watch('currentLanguage')
+  private onChangeLanguage(): void {
+    this.checkEmail();
+  }
 }
 </script>
 

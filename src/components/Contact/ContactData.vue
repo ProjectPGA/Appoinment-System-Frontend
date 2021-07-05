@@ -66,80 +66,79 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-    name: 'ContactData',
+  name: 'ContactData',
 })
 export default class ContactData extends Vue {}
 </script>
 
 <style lang="scss" scoped>
 .contact-data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 45vh;
+  background-color: $main-color-light;
+  padding: 2rem;
+  font-size: 1.15rem;
+
+  @include tablet-only {
+    flex-direction: column;
+    height: inherit;
+  }
+  @include mobile {
+    flex-direction: column;
+    height: inherit;
+  }
+
+  &_icon {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 45vh;
-    background-color: $main-color-light;
-    padding: 2rem;
-    font-size: 1.15rem;
+    align-items: flex-start;
+    justify-content: right;
+    font-size: 2rem;
+    min-height: 12.5em;
+    color: $main-color;
 
     @include tablet-only {
-        flex-direction: column;
-        height: inherit;
+      // align-items: center;
+      display: block;
     }
     @include mobile {
-        flex-direction: column;
-        height: inherit;
+      // align-items: center;
+      display: block;
     }
 
-    &_icon {
-        display: flex;
-        align-items: flex-start;
-        justify-content: right;
-        font-size: 2rem;
-        min-height: 12.5em;
-        color: $main-color;
+    @include paddingY(2rem);
+    @include paddingX(0.75rem);
+  }
 
-        @include tablet-only {
-            // align-items: center;
-            display: block;
-        }
-        @include mobile {
-            // align-items: center;
-            display: block;
-        }
+  &_section-container {
+    display: flex;
+    width: 100%;
+    min-height: 12.5em;
+    justify-content: center;
+    flex-direction: row;
+    color: $main-color-medium-dark;
 
-        @include paddingY(2rem);
-        @include paddingX(0.75rem);
+    -webkit-animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+    @include tablet-only {
+      justify-content: flex-start;
     }
-
-    &_section-container {
-        display: flex;
-        width: 100%;
-        min-height: 12.5em;
-        justify-content: center;
-        flex-direction: row;
-        color: $main-color-medium-dark;
-
-        -webkit-animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-            both;
-        animation: slide-top 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-
-        @include tablet-only {
-            justify-content: flex-start;
-        }
-        @include mobile {
-            justify-content: flex-start;
-        }
+    @include mobile {
+      justify-content: flex-start;
     }
+  }
 
-    &_section {
-        padding: 1rem;
-    }
+  &_section {
+    padding: 1rem;
+  }
 
-    &_title {
-        font-size: 1.75rem;
-        font-weight: bold;
-        display: flex;
-        align-items: flex-start;
-    }
+  &_title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-start;
+  }
 }
 </style>

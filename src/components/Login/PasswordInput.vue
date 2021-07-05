@@ -28,75 +28,75 @@ import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import mainStore from '@/store/main-store/MainStore';
 
 @Component({
-    name: 'PasswordInput',
+  name: 'PasswordInput',
 })
 export default class PasswordInput extends Vue {
-    @Prop(String) private view: string;
+  @Prop(String) private view: string;
 
-    private mainStore = mainStore.context(this.$store);
+  private mainStore = mainStore.context(this.$store);
 
-    private password: string = '';
-    private isValid: boolean = true;
-    private errorMessage: string = '';
+  private password: string = '';
+  private isValid: boolean = true;
+  private errorMessage: string = '';
 
-    private onInput(): void {
-        this.$emit('input', this.password);
+  private onInput(): void {
+    this.$emit('input', this.password);
 
-        this.checkPassword();
+    this.checkPassword();
+  }
+
+  private onEnterPassword(): void {
+    this.checkPassword();
+
+    if (this.isValid) {
+      this.$emit('enter');
     }
+  }
 
-    private onEnterPassword(): void {
-        this.checkPassword();
+  private checkPassword(): void {
+    this.password === ''
+      ? this.inputEmpty()
+      : this.password.match(
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
+        )
+      ? this.inputValid()
+      : this.inputPasswordIncomplete();
 
-        if (this.isValid) {
-            this.$emit('enter');
-        }
-    }
-
-    private checkPassword(): void {
-        this.password === ''
-            ? this.inputEmpty()
-            : this.password.match(
-                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
-              )
-            ? this.inputValid()
-            : this.inputPasswordIncomplete();
-
-        this.$emit('check-password', this.isValid);
-    }
+    this.$emit('check-password', this.isValid);
+  }
 
     private inputEmpty(): void {
         this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
 
-        this.isValid = false;
-    }
+    this.isValid = false;
+  }
 
     private inputPasswordIncomplete(): void {
         this.errorMessage = `${this.$t('common.passwordInvalid')}`;
 
-        this.isValid = false;
-    }
+    this.isValid = false;
+  }
 
-    private inputValid(): void {
-        this.errorMessage = '';
-        this.isValid = true;
-    }
+  private inputValid(): void {
+    this.errorMessage = '';
+    this.isValid = true;
+  }
 
-    private get currentLanguage(): string {
-        return this.mainStore.state.currentLanguage;
-    }
+  private get currentLanguage(): string {
+    return this.mainStore.state.currentLanguage;
+  }
 
-    @Watch('currentLanguage')
-    private onChangeLanguage(): void {
-        this.checkPassword();
-    }
+  @Watch('currentLanguage')
+  private onChangeLanguage(): void {
+    this.checkPassword();
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .password-input {
-    /deep/.icon {
-        color: $main-color-medium-light !important;
-    }
+  /deep/.icon {
+    color: $main-color-medium-light !important;
+  }
 }
 </style>
