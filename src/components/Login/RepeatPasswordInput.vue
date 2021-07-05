@@ -1,34 +1,34 @@
 <template>
-    <div class="repeat-password-input">
-        <password-input
-            @input="onPasswordInput"
-            @checkPassword="onCheckPassword"
-            :view="view"
-        />
-        <p class="repeat-password-input_password-requeriments">
-            {{ $t('common.passwordRequirements') }}
-        </p>
-        <b-field
-            :label="$t('common.repeatPassword')"
-            :message="errorMessage"
-            :type="{
-                'is-danger': !isValid,
-            }"
-        >
-            <b-input
-                v-model="repeatPassword"
-                :placeholder="$t('common.password')"
-                size="is-medium"
-                :data-cy="`${view}-input-repeat-password`"
-                type="password"
-                password-reveal
-                required
-                @blur="checkRepeatPassword"
-                @input="onInputRepeatPassword"
-                class="repeat-password-input_password-input"
-            />
-        </b-field>
-    </div>
+  <div class="repeat-password-input">
+    <password-input
+      @input="onPasswordInput"
+      @checkPassword="onCheckPassword"
+      :view="view"
+    />
+    <p class="repeat-password-input_password-requeriments">
+      {{ $t('common.passwordRequirements') }}
+    </p>
+    <b-field
+      :label="$t('common.repeatPassword')"
+      :message="errorMessage"
+      :type="{
+        'is-danger': !isValid,
+      }"
+    >
+      <b-input
+        v-model="repeatPassword"
+        :placeholder="$t('common.password')"
+        size="is-medium"
+        :data-cy="`${view}-input-repeat-password`"
+        type="password"
+        password-reveal
+        required
+        @blur="checkRepeatPassword"
+        @input="onInputRepeatPassword"
+        class="repeat-password-input_password-input"
+      />
+    </b-field>
+  </div>
 </template>
 
 <script lang="ts">
@@ -45,78 +45,78 @@ import PasswordInput from '@/components/Login/PasswordInput.vue';
   },
 })
 export default class RepeatPasswordInput extends Vue {
-    @Prop(String) private view: string;
+  @Prop(String) private view: string;
 
-    private mainStore = mainStore.context(this.$store);
+  private mainStore = mainStore.context(this.$store);
 
-    private password: string = '';
-    private isValid: boolean = true;
-    private errorMessage: string = '';
-    private repeatPassword: string = '';
+  private password: string = '';
+  private isValid: boolean = true;
+  private errorMessage: string = '';
+  private repeatPassword: string = '';
 
-    private onInputRepeatPassword(): void {
-        this.$emit('inputRepeatPassword', this.repeatPassword);
+  private onInputRepeatPassword(): void {
+    this.$emit('inputRepeatPassword', this.repeatPassword);
 
-        this.checkRepeatPassword();
-    }
+    this.checkRepeatPassword();
+  }
 
-    private checkRepeatPassword(): void {
-        this.repeatPassword === ''
-            ? this.inputEmpty()
-            : !this.repeatPassword.match(
-                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
-              )
-            ? this.inputPasswordInvalid()
-            : this.repeatPassword === this.password
-            ? this.inputRepeatPasswordValid()
-            : this.inputRepeatPasswordInvalid();
+  private checkRepeatPassword(): void {
+    this.repeatPassword === ''
+      ? this.inputEmpty()
+      : !this.repeatPassword.match(
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
+        )
+      ? this.inputPasswordInvalid()
+      : this.repeatPassword === this.password
+      ? this.inputRepeatPasswordValid()
+      : this.inputRepeatPasswordInvalid();
 
-        this.$emit('checkRepeatPassword', this.isValid);
-    }
+    this.$emit('checkRepeatPassword', this.isValid);
+  }
 
-    private inputEmpty(): void {
-        this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
-        this.isValid = false;
-    }
+  private inputEmpty(): void {
+    this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
+    this.isValid = false;
+  }
 
-    private inputPasswordInvalid(): void {
-        this.errorMessage = `${this.$t('common.passwordInvalid')}`;
-        this.isValid = false;
-    }
+  private inputPasswordInvalid(): void {
+    this.errorMessage = `${this.$t('common.passwordInvalid')}`;
+    this.isValid = false;
+  }
 
-    private inputRepeatPasswordInvalid(): void {
-        this.errorMessage = `${this.$t('common.notSamePassword')}`;
-        this.isValid = false;
-    }
+  private inputRepeatPasswordInvalid(): void {
+    this.errorMessage = `${this.$t('common.notSamePassword')}`;
+    this.isValid = false;
+  }
 
-    private inputRepeatPasswordValid(): void {
-        this.errorMessage = '';
-        this.isValid = true;
-    }
+  private inputRepeatPasswordValid(): void {
+    this.errorMessage = '';
+    this.isValid = true;
+  }
 
-    private onPasswordInput(password: string): void {
-        this.password = password;
+  private onPasswordInput(password: string): void {
+    this.password = password;
 
-        this.$emit('inputPassword', password);
-    }
+    this.$emit('inputPassword', password);
+  }
 
-    private onCheckPassword(isPasswordValid: boolean): void {
-        this.$emit('checkPassword', isPasswordValid);
-    }
+  private onCheckPassword(isPasswordValid: boolean): void {
+    this.$emit('checkPassword', isPasswordValid);
+  }
 
-    private get currentLanguage(): string {
-        return this.mainStore.state.currentLanguage;
-    }
+  private get currentLanguage(): string {
+    return this.mainStore.state.currentLanguage;
+  }
 
-    @Watch('password')
-    private onChangePassword(): void {
-        this.checkRepeatPassword();
-    }
+  @Watch('password')
+  private onChangePassword(): void {
+    this.checkRepeatPassword();
+  }
 
-    @Watch('currentLanguage')
-    private onChangeLanguage(): void {
-        this.checkRepeatPassword();
-    }
+  @Watch('currentLanguage')
+  private onChangeLanguage(): void {
+    this.checkRepeatPassword();
+  }
 }
 </script>
 

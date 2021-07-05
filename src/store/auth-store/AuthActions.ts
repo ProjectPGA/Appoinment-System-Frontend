@@ -201,15 +201,15 @@ export default class AuthActions extends Actions<
     } catch (exception) {
       // TODO: show error
     }
+  }
 
-    public async checkIfMailAlreadyExist(email: string): Promise<void> {
-        try {
-            await checkIfEmailAlreadyExist({ email });
-        } catch (exception) {
-            Vue.$toast.error(`${i18n.t('views.register.emailExist')}`, {
-                timeout: 4000,
-            });
-        }
+  public async checkIfMailAlreadyExist(email: string): Promise<void> {
+    try {
+      await checkIfEmailAlreadyExist({ email });
+    } catch (exception) {
+      Vue.$toast.error(`${i18n.t('views.register.emailExist')}`, {
+        timeout: 4000,
+      });
     }
   }
 

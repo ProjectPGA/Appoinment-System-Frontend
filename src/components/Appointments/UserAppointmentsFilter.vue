@@ -4,11 +4,7 @@
       <div class="column pb-custom">
         <div class="custom-filter">
           <p class="custom-margin-right">
-            {{
-                            $t(
-                                'common.components.appointments.pastAppointments'
-                            )
-                        }}
+            {{ $t('common.components.appointments.pastAppointments') }}
           </p>
           <b-switch
             type="is-danger"

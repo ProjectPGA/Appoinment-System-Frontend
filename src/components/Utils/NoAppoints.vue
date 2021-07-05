@@ -1,20 +1,18 @@
 <template>
-    <div>
-        <div class="column is-12" v-if="citas.length === 0">
-            <section class="hero is-danger">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title">
-                            {{ $('common.components.utils.noAppointsTitle') }}
-                        </h1>
-                        <h2 class="subtitle">
-                            <router-link to="/inicio">{{
-                                $('common.components.utils.noAppointsSubtitle')
-                            }}</router-link>
-                        </h2>
-                    </div>
-                </div>
-            </section>
+  <div>
+    <div class="column is-12" v-if="citas.length === 0">
+      <section class="hero is-danger">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              {{ $('common.components.utils.noAppointsTitle') }}
+            </h1>
+            <h2 class="subtitle">
+              <router-link to="/inicio">{{
+                $('common.components.utils.noAppointsSubtitle')
+              }}</router-link>
+            </h2>
+          </div>
         </div>
       </section>
     </div>

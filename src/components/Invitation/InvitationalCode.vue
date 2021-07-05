@@ -1,34 +1,33 @@
 <template>
-    <div class="invitational-code section">
-        <button-translation />
-        <div class="columns is-multiline">
-            <div class="column is-12"><logo-app /></div>
-            <div class="column is-12 invitational-code_content">
-                <h1 class="invitational-code_content-title title">
-                    {{ $t('common.title.invitation') }}
-                </h1>
-                <b-field class="invitational-code_content-field">
-                    <b-input
-                        v-model="invitationalCode"
-                        size="is-medium is-uppercase "
-                        expanded
-                        placeholder="Ej. ASJAOLHDYWIP"
-                        @keypress.native.enter="onEnterInvitationalCode"
-                    >
-                    </b-input>
-                    <p class="control">
-                        <b-button
-                            @click="checkInvitationalCode()"
-                            type="is-danger"
-                            size="is-medium"
-                            :disabled="isInvalidCode"
-                        >
-                            {{ $t('views.invitation.invitationalCode.button') }}
-                        </b-button>
-                    </p>
-                </b-field>
-            </div>
-        </div>
+  <div class="invitational-code section">
+    <button-translation />
+    <div class="columns is-multiline">
+      <div class="column is-12"><logo-app /></div>
+      <div class="column is-12 invitational-code_content">
+        <h1 class="invitational-code_content-title title">
+          {{ $t('common.title.invitation') }}
+        </h1>
+        <b-field class="invitational-code_content-field">
+          <b-input
+            v-model="invitationalCode"
+            size="is-medium is-uppercase "
+            expanded
+            placeholder="Ej. ASJAOLHDYWIP"
+            @keypress.native.enter="onEnterInvitationalCode"
+          >
+          </b-input>
+          <p class="control">
+            <b-button
+              @click="checkInvitationalCode()"
+              type="is-danger"
+              size="is-medium"
+              :disabled="isInvalidCode"
+            >
+              {{ $t('views.invitation.invitationalCode.button') }}
+            </b-button>
+          </p>
+        </b-field>
+      </div>
     </div>
   </div>
 </template>

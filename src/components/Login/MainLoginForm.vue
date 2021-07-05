@@ -6,63 +6,54 @@
         <logo-app />
       </div>
     </div>
-        <div class="columns is-centered is-mobile">
-            <div class="column is-6-desktop is-10-mobile is-8-tablet container">
-                <h1 class="main-login-form_title title">
-                    {{ $t('common.title.login') }}
-                </h1>
+    <div class="columns is-centered is-mobile">
+      <div class="column is-6-desktop is-10-mobile is-8-tablet container">
+        <h1 class="main-login-form_title title">
+          {{ $t('common.title.login') }}
+        </h1>
 
-                <email-input
-                    @input="onEmailInput"
-                    @check-email="onCheckEmail"
-                    @enter="onEnter"
-                    view="login"
-                />
+        <email-input
+          @input="onEmailInput"
+          @check-email="onCheckEmail"
+          @enter="onEnter"
+          view="login"
+        />
 
-                <password-input
-                    @input="onPasswordInput"
-                    @check-password="onCheckPassword"
-                    @enter="onEnter"
-                    view="login"
-                />
+        <password-input
+          @input="onPasswordInput"
+          @check-password="onCheckPassword"
+          @enter="onEnter"
+          view="login"
+        />
 
-                <div
-                    class="columns is-vcentered main-login-form_button-section"
-                >
-                    <div class="column is-3 is-2-fullhd">
-                        <b-button
-                            @click="checkLogin()"
-                            outlined
-                            type="is-danger"
-                            size="is-medium"
-                            data-cy="submit"
-                            :disabled="isInvalidForm"
-                        >
-                            {{ $t('views.login.mailLoginForm.button') }}
-                        </b-button>
-                    </div>
-                    <div class="column">
-                        <p
-                            class="main-login-form_invitation"
-                            data-cy="invitation"
-                        >
-                            {{ $t('views.login.mailLoginForm.noAccount') }}
-                            <span
-                                @click="enableRegisterProgress"
-                                class="main-login-form_invitation-link"
-                            >
-                                {{
-                                    $t(
-                                        'views.login.mailLoginForm.accessToInvitation'
-                                    )
-                                }}
-                            </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="columns is-vcentered main-login-form_button-section">
+          <div class="column is-3 is-2-fullhd">
+            <b-button
+              @click="checkLogin()"
+              outlined
+              type="is-danger"
+              size="is-medium"
+              data-cy="submit"
+              :disabled="isInvalidForm"
+            >
+              {{ $t('views.login.mailLoginForm.button') }}
+            </b-button>
+          </div>
+          <div class="column">
+            <p class="main-login-form_invitation" data-cy="invitation">
+              {{ $t('views.login.mailLoginForm.noAccount') }}
+              <span
+                @click="enableRegisterProgress"
+                class="main-login-form_invitation-link"
+              >
+                {{ $t('views.login.mailLoginForm.accessToInvitation') }}
+              </span>
+            </p>
+          </div>
         </div>
-    </form>
+      </div>
+    </div>
+  </form>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';

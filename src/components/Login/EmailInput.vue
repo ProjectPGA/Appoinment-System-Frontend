@@ -1,21 +1,21 @@
 <template>
-    <b-field
-        :label="$t('common.email')"
-        :message="errorMessage"
-        :type="{
-            'is-danger': !isValid,
-        }"
-    >
-        <b-input
-            v-model="email"
-            :placeholder="$t('common.email')"
-            size="is-medium"
-            :data-cy="`${view}-input-email`"
-            @blur="checkEmail"
-            @input="onInput"
-            @keypress.native.enter="onEnterEmail"
-        />
-    </b-field>
+  <b-field
+    :label="$t('common.email')"
+    :message="errorMessage"
+    :type="{
+      'is-danger': !isValid,
+    }"
+  >
+    <b-input
+      v-model="email"
+      :placeholder="$t('common.email')"
+      size="is-medium"
+      :data-cy="`${view}-input-email`"
+      @blur="checkEmail"
+      @input="onInput"
+      @keypress.native.enter="onEnterEmail"
+    />
+  </b-field>
 </template>
 
 <script lang="ts">
@@ -59,24 +59,14 @@ export default class EmailInput extends Vue {
     this.$emit('check-email', this.isValid);
   }
 
-<<<<<<< HEAD
-    private inputEmpty(): void {
-        this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
-=======
   private inputEmpty(): void {
-    this.errorMessage = `${this.$t('components.loginInputs.inputEmpty')}`;
->>>>>>> 1bb1d00beaf4d67bc4b41fc3620cd8ff24c544a4
+    this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
 
     this.isValid = false;
   }
 
-<<<<<<< HEAD
-    private inputEmailInvalid(): void {
-        this.errorMessage = `${this.$t('common.emailInvalid')}`;
-=======
   private inputEmailInvalid(): void {
-    this.errorMessage = `${this.$t('components.loginInputs.emailInvalid')}`;
->>>>>>> 1bb1d00beaf4d67bc4b41fc3620cd8ff24c544a4
+    this.errorMessage = `${this.$t('common.emailInvalid')}`;
 
     this.isValid = false;
   }

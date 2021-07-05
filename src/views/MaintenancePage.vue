@@ -1,9 +1,9 @@
 <template>
-    <maintenance-layout
-        :title="$t('common.title.maintenance')"
-        :subtitle="$t('common.subtitle.maintenance')"
-        urlImage="maintenance-image-1080x720.svg"
-    />
+  <maintenance-layout
+    :title="$t('common.title.maintenance')"
+    :subtitle="$t('common.subtitle.maintenance')"
+    urlImage="maintenance-image-1080x720.svg"
+  />
 </template>
 
 <script lang="ts">

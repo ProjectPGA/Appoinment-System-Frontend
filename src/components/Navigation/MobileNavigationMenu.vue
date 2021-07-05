@@ -1,98 +1,75 @@
 <template>
-    <div>
-        <transition name="slide-fade">
-            <template v-if="show">
-                <div class="menu-container" v-click-outside="hide">
-                    <div class="mobile-menu">
-                        <button class="close-nav" @click="hide">
-                            <p-icon name="close"></p-icon>
-                        </button>
-                        <router-link
-                            to="/Inicio"
-                            class="menu-title"
-                            @click.native="hide"
-                        >
-                            <img
-                                class="mobile-logo"
-                                src="../../assets/img/logo.svg"
-                            />
-                        </router-link>
-                        <mobile-navigation-link
-                            :label="$t('common.components.navigation.index')"
-                            to="/Inicio"
-                            @click.native="hide"
-                        />
-                        <mobile-navigation-link
-                            :label="
-                                $t('common.components.navigation.appointments')
-                            "
-                            to="/Appointments"
-                            @click.native="hide"
-                        />
-                        <mobile-navigation-link
-                            :label="
-                                $t('common.components.navigation.contactUs')
-                            "
-                            to="/Contact"
-                            @click.native="hide"
-                        />
-                        <div class="menu-item-separator">
-                            <hr />
-                        </div>
-                        <div class="mobile-navigation-user-link">
-                            <collapse icon="fas fa-angle-down">
-                                <template slot="collapse_title">
-                                    <b-icon
-                                        pack="fas"
-                                        icon="globe"
-                                        class="language-icon"
-                                    ></b-icon>
-                                    <span>
-                                        {{ $t('common.title.language') }}
-                                    </span>
-                                    <span class="current-language">
-                                        ({{ currentLanguage }})
-                                    </span>
-                                </template>
-                                <mobile-navigation-link
-                                    label="common.languages.spanish"
-                                    @click.native="changeLanguageToSpanish"
-                                />
-                                <mobile-navigation-link
-                                    label="common.languages.english"
-                                    @click.native="changeLanguageToEnglish"
-                                />
-                            </collapse>
-                        </div>
-                        <div class="mobile-navigation-user-link">
-                            <router-link
-                                to="/User"
-                                class="menu-title"
-                                @click.native="hide"
-                            >
-                                <b-icon pack="fas" icon="user" />
-                                {{ username }}
-                            </router-link>
-                        </div>
-                        <div class="mobile-navigation-user-link">
-                            <router-link
-                                to="/"
-                                class="menu-title"
-                                @click.native="logout()"
-                            >
-                                <b-icon pack="fas" icon="sign-out-alt" />
-                                {{
-                                    $t(
-                                        'common.components.navigation.userLogOff'
-                                    )
-                                }}
-                            </router-link>
-                        </div>
-                    </div>
-                </div>
-            </template>
-        </transition>
-    </div>
+  <div>
+    <transition name="slide-fade">
+      <template v-if="show">
+        <div class="menu-container" v-click-outside="hide">
+          <div class="mobile-menu">
+            <button class="close-nav" @click="hide">
+              <p-icon name="close"></p-icon>
+            </button>
+            <router-link to="/Inicio" class="menu-title" @click.native="hide">
+              <img class="mobile-logo" src="../../assets/img/logo.svg" />
+            </router-link>
+            <mobile-navigation-link
+              :label="$t('common.components.navigation.index')"
+              to="/Inicio"
+              @click.native="hide"
+            />
+            <mobile-navigation-link
+              :label="$t('common.components.navigation.appointments')"
+              to="/Appointments"
+              @click.native="hide"
+            />
+            <mobile-navigation-link
+              :label="$t('common.components.navigation.contactUs')"
+              to="/Contact"
+              @click.native="hide"
+            />
+            <div class="menu-item-separator">
+              <hr />
+            </div>
+            <div class="mobile-navigation-user-link">
+              <collapse icon="fas fa-angle-down">
+                <template slot="collapse_title">
+                  <b-icon
+                    pack="fas"
+                    icon="globe"
+                    class="language-icon"
+                  ></b-icon>
+                  <span>
+                    {{ $t('common.title.language') }}
+                  </span>
+                  <span class="current-language">
+                    ({{ currentLanguage }})
+                  </span>
+                </template>
+                <mobile-navigation-link
+                  label="common.languages.spanish"
+                  @click.native="changeLanguageToSpanish"
+                />
+                <mobile-navigation-link
+                  label="common.languages.english"
+                  @click.native="changeLanguageToEnglish"
+                />
+              </collapse>
+            </div>
+            <div class="mobile-navigation-user-link">
+              <router-link to="/User" class="menu-title" @click.native="hide">
+                <b-icon pack="fas" icon="user" />
+                {{ username }}
+              </router-link>
+            </div>
+            <div class="mobile-navigation-user-link">
+              <router-link to="/" class="menu-title" @click.native="logout()">
+                <b-icon pack="fas" icon="sign-out-alt" />
+                {{ $t('common.components.navigation.userLogOff') }}
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </template>
+    </transition>
+  </div>
 </template>
 
 <script lang="ts">

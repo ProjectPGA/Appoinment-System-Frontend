@@ -1,25 +1,25 @@
 <template>
-    <b-field
-        :label="$t('common.password')"
-        :message="errorMessage"
-        :type="{
-            'is-danger': !isValid,
-        }"
-    >
-        <b-input
-            v-model="password"
-            :placeholder="$t('common.password')"
-            size="is-medium"
-            :data-cy="`${view}-input-password`"
-            type="password"
-            password-reveal
-            required
-            @blur="checkPassword"
-            @input="onInput"
-            @keypress.native.enter="onEnterPassword"
-            class="password-input"
-        />
-    </b-field>
+  <b-field
+    :label="$t('common.password')"
+    :message="errorMessage"
+    :type="{
+      'is-danger': !isValid,
+    }"
+  >
+    <b-input
+      v-model="password"
+      :placeholder="$t('common.password')"
+      size="is-medium"
+      :data-cy="`${view}-input-password`"
+      type="password"
+      password-reveal
+      required
+      @blur="checkPassword"
+      @input="onInput"
+      @keypress.native.enter="onEnterPassword"
+      class="password-input"
+    />
+  </b-field>
 </template>
 
 <script lang="ts">
@@ -65,14 +65,14 @@ export default class PasswordInput extends Vue {
     this.$emit('check-password', this.isValid);
   }
 
-    private inputEmpty(): void {
-        this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
+  private inputEmpty(): void {
+    this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
 
     this.isValid = false;
   }
 
-    private inputPasswordIncomplete(): void {
-        this.errorMessage = `${this.$t('common.passwordInvalid')}`;
+  private inputPasswordIncomplete(): void {
+    this.errorMessage = `${this.$t('common.passwordInvalid')}`;
 
     this.isValid = false;
   }

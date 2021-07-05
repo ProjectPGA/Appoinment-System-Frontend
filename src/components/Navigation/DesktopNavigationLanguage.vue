@@ -7,29 +7,28 @@
       </span>
     </a>
 
-        <div class="navbar-dropdown">
-            <div class="navbar-item language-title">
-                {{ $t('common.title.language') }}
-            </div>
-            <a
-                :class="{
-                    'is-active': currentLanguage === 'es',
-                }"
-                class="navbar-item"
-                @click="changeLanguageToSpanish"
-            >
-                {{ $t('common.languages.spanish') }}
-            </a>
-            <a
-                :class="{
-                    'is-active': currentLanguage === 'en',
-                }"
-                class="navbar-item"
-                @click="changeLanguageToEnglish"
-            >
-                {{ $t('common.languages.english') }}
-            </a>
-        </div>
+    <div class="navbar-dropdown">
+      <div class="navbar-item language-title">
+        {{ $t('common.title.language') }}
+      </div>
+      <a
+        :class="{
+          'is-active': currentLanguage === 'es',
+        }"
+        class="navbar-item"
+        @click="changeLanguageToSpanish"
+      >
+        {{ $t('common.languages.spanish') }}
+      </a>
+      <a
+        :class="{
+          'is-active': currentLanguage === 'en',
+        }"
+        class="navbar-item"
+        @click="changeLanguageToEnglish"
+      >
+        {{ $t('common.languages.english') }}
+      </a>
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
-    <div class="contact-title">
-        <h1 class="title">{{ $t('common.title.contact') }}</h1>
-    </div>
+  <div class="contact-title">
+    <h1 class="title">{{ $t('common.title.contact') }}</h1>
+  </div>
 </template>
 
 <script lang="ts">

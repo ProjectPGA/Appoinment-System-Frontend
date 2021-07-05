@@ -1,82 +1,79 @@
 <template>
   <div class="main-register-form">
-        <button-translation />
-        <div class="columns is-centered">
-            <div class="column is-12"><logo-app /></div>
-        </div>
-        <div class="columns is-centered is-mobile">
-            <div class="column is-6-desktop is-10-mobile is-8-tablet container">
-                <h1 class="main-register-form_title title">
-                    {{ $t('common.title.register') }}
-                </h1>
-                <b-field
-                    :label="$t('views.login.mainRegisterForm.name')"
-                    :message="errorNameMessage"
-                    :type="{
-                        'is-danger': !isNameValid,
-                    }"
-                >
-                    <b-input
-                        v-model="name"
-                        :placeholder="$t('views.login.mainRegisterForm.name')"
-                        size="is-medium"
-                        required
-                        @blur="checkName"
-                        @input="checkName"
-                    >
-                    </b-input>
-                </b-field>
+    <button-translation />
+    <div class="columns is-centered">
+      <div class="column is-12"><logo-app /></div>
+    </div>
+    <div class="columns is-centered is-mobile">
+      <div class="column is-6-desktop is-10-mobile is-8-tablet container">
+        <h1 class="main-register-form_title title">
+          {{ $t('common.title.register') }}
+        </h1>
+        <b-field
+          :label="$t('views.login.mainRegisterForm.name')"
+          :message="errorNameMessage"
+          :type="{
+            'is-danger': !isNameValid,
+          }"
+        >
+          <b-input
+            v-model="name"
+            :placeholder="$t('views.login.mainRegisterForm.name')"
+            size="is-medium"
+            required
+            @blur="checkName"
+            @input="checkName"
+          >
+          </b-input>
+        </b-field>
 
-                <b-field
-                    :label="$t('views.login.mainRegisterForm.surname')"
-                    :message="errorSurnameMessage"
-                    :type="{
-                        'is-danger': !isSurnameValid,
-                    }"
-                >
-                    <b-input
-                        v-model="surname"
-                        :placeholder="
-                            $t('views.login.mainRegisterForm.surname')
-                        "
-                        size="is-medium"
-                        required
-                        @blur="checkSurname"
-                        @input="checkSurname"
-                    >
-                    </b-input>
-                </b-field>
+        <b-field
+          :label="$t('views.login.mainRegisterForm.surname')"
+          :message="errorSurnameMessage"
+          :type="{
+            'is-danger': !isSurnameValid,
+          }"
+        >
+          <b-input
+            v-model="surname"
+            :placeholder="$t('views.login.mainRegisterForm.surname')"
+            size="is-medium"
+            required
+            @blur="checkSurname"
+            @input="checkSurname"
+          >
+          </b-input>
+        </b-field>
 
-                <email-input
-                    @input="onEmailInput"
-                    @check-email="onCheckEmail"
-                    view="register"
-                />
+        <email-input
+          @input="onEmailInput"
+          @check-email="onCheckEmail"
+          view="register"
+        />
 
-                <repeat-password-input
-                    @inputPassword="onPasswordInput"
-                    @check-password="onCheckPassword"
-                    @inputRepeatPassword="onRepeatPasswordInput"
-                    @checkRepeatPassword="onCheckRepeatPassword"
-                    view="register"
-                />
+        <repeat-password-input
+          @inputPassword="onPasswordInput"
+          @check-password="onCheckPassword"
+          @inputRepeatPassword="onRepeatPasswordInput"
+          @checkRepeatPassword="onCheckRepeatPassword"
+          view="register"
+        />
 
-                <div class="main-register-form_button columns is-vcentered">
-                    <div class="column is-2">
-                        <b-button
-                            @click="register()"
-                            outlined
-                            type="is-danger"
-                            size="is-medium"
-                            :disabled="!isValidForm"
-                        >
-                            {{ $t('views.login.mainRegisterForm.button') }}
-                        </b-button>
-                    </div>
-                </div>
-            </div>
+        <div class="main-register-form_button columns is-vcentered">
+          <div class="column is-2">
+            <b-button
+              @click="register()"
+              outlined
+              type="is-danger"
+              size="is-medium"
+              :disabled="!isValidForm"
+            >
+              {{ $t('views.login.mainRegisterForm.button') }}
+            </b-button>
+          </div>
         </div>
       </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -103,111 +100,109 @@ import { UserRoles } from '@/models/user/UserData';
   },
 })
 export default class MainRegisterForm extends Vue {
-    private authStore = authStore.context(this.$store);
-    private mainStore = mainStore.context(this.$store);
+  private authStore = authStore.context(this.$store);
+  private mainStore = mainStore.context(this.$store);
 
-    private name: string = '';
-    private surname: string = '';
+  private name: string = '';
+  private surname: string = '';
 
-    private email: string = '';
-    private isEmailValid: boolean = true;
+  private email: string = '';
+  private isEmailValid: boolean = true;
 
-    private password: string = '';
-    private isPasswordValid: boolean = true;
+  private password: string = '';
+  private isPasswordValid: boolean = true;
 
-    private repeatPassword: string = '';
-    private isRepeatPasswordValid: boolean = true;
+  private repeatPassword: string = '';
+  private isRepeatPasswordValid: boolean = true;
 
-    private errorNameMessage: string = '';
-    private isNameValid: boolean = true;
+  private errorNameMessage: string = '';
+  private isNameValid: boolean = true;
 
-    private errorSurnameMessage: string = '';
-    private isSurnameValid: boolean = true;
+  private errorSurnameMessage: string = '';
+  private isSurnameValid: boolean = true;
 
-    private register(): void {
-        const registerData: RegisterRequest = {
-            user: {
-                email: this.email,
-                name: this.name,
-                surname: this.surname,
-                roles: [UserRoles.COMMON_USER],
-                password: this.password,
-            },
-        };
+  private register(): void {
+    const registerData: RegisterRequest = {
+      user: {
+        email: this.email,
+        name: this.name,
+        surname: this.surname,
+        roles: [UserRoles.COMMON_USER],
+        password: this.password,
+      },
+    };
 
-        this.authStore.actions.register({ registerData });
-    }
+    this.authStore.actions.register({ registerData });
+  }
 
-    private checkName(): void {
-        this.name.length > 0
-            ? (this.isNameValid = true)
-            : (this.isNameValid = false);
+  private checkName(): void {
+    this.name.length > 0
+      ? (this.isNameValid = true)
+      : (this.isNameValid = false);
 
-        this.name.length > 0
-            ? (this.errorNameMessage = '')
-            : (this.errorNameMessage = `${this.$t('views.login.inputEmpty')}`);
-    }
+    this.name.length > 0
+      ? (this.errorNameMessage = '')
+      : (this.errorNameMessage = `${this.$t('views.login.inputEmpty')}`);
+  }
 
-    private checkSurname(): void {
-        this.surname.length > 0
-            ? (this.isSurnameValid = true)
-            : (this.isSurnameValid = false);
+  private checkSurname(): void {
+    this.surname.length > 0
+      ? (this.isSurnameValid = true)
+      : (this.isSurnameValid = false);
 
-        this.surname.length > 0
-            ? (this.errorSurnameMessage = '')
-            : (this.errorSurnameMessage = `${this.$t(
-                  'views.login.inputEmpty'
-              )}`);
-    }
+    this.surname.length > 0
+      ? (this.errorSurnameMessage = '')
+      : (this.errorSurnameMessage = `${this.$t('views.login.inputEmpty')}`);
+  }
 
-    private onEmailInput(email: string): void {
-        this.email = email;
-    }
+  private onEmailInput(email: string): void {
+    this.email = email;
+  }
 
-    private onCheckEmail(isEmailValid: boolean): void {
-        this.isEmailValid = isEmailValid;
-    }
+  private onCheckEmail(isEmailValid: boolean): void {
+    this.isEmailValid = isEmailValid;
+  }
 
-    private onPasswordInput(password: string): void {
-        this.password = password;
-    }
+  private onPasswordInput(password: string): void {
+    this.password = password;
+  }
 
-    private onCheckPassword(isPasswordValid: boolean): void {
-        this.isPasswordValid = isPasswordValid;
-    }
+  private onCheckPassword(isPasswordValid: boolean): void {
+    this.isPasswordValid = isPasswordValid;
+  }
 
-    private onRepeatPasswordInput(password: string): void {
-        this.repeatPassword = password;
-    }
+  private onRepeatPasswordInput(password: string): void {
+    this.repeatPassword = password;
+  }
 
-    private onCheckRepeatPassword(isPasswordValid: boolean): void {
-        this.isRepeatPasswordValid = isPasswordValid;
-    }
+  private onCheckRepeatPassword(isPasswordValid: boolean): void {
+    this.isRepeatPasswordValid = isPasswordValid;
+  }
 
-    private get isValidForm(): boolean {
-        return (
-            this.isEmailValid &&
-            this.isPasswordValid &&
-            this.isRepeatPasswordValid &&
-            this.isNameValid &&
-            this.isSurnameValid &&
-            this.name.length > 0 &&
-            this.email.length > 0 &&
-            this.password.length > 0 &&
-            this.repeatPassword.length > 0 &&
-            this.surname.length > 0
-        );
-    }
+  private get isValidForm(): boolean {
+    return (
+      this.isEmailValid &&
+      this.isPasswordValid &&
+      this.isRepeatPasswordValid &&
+      this.isNameValid &&
+      this.isSurnameValid &&
+      this.name.length > 0 &&
+      this.email.length > 0 &&
+      this.password.length > 0 &&
+      this.repeatPassword.length > 0 &&
+      this.surname.length > 0
+    );
+  }
 
-    private get currentLanguage(): string {
-        return this.mainStore.state.currentLanguage;
-    }
+  private get currentLanguage(): string {
+    return this.mainStore.state.currentLanguage;
+  }
 
-    @Watch('currentLanguage')
-    private onChangeLanguage(): void {
-        this.checkName();
-        this.checkSurname();
-    }
+  @Watch('currentLanguage')
+  private onChangeLanguage(): void {
+    this.checkName();
+    this.checkSurname();
+  }
 }
 </script>
 

@@ -1,65 +1,59 @@
 <template>
-    <div class="contact-data">
-        <div class="contact-data_section-container">
-            <div class="contact-data_icon">
-                <b-icon
-                    pack="far"
-                    icon="calendar-alt"
-                    class="contact-data_icon-phone"
-                />
-            </div>
-            <div class="contact-data_section">
-                <h2 class="contact-data_title">
-                    {{ $t('views.contact.componentContact.titleSchedule') }}
-                </h2>
-                <p>
-                    {{
-                        $t('views.contact.componentContact.textMondayToFriday')
-                    }}
-                </p>
-                <p>
-                    {{ $t('views.contact.componentContact.textSaturday') }}
-                </p>
-            </div>
-        </div>
-        <div class="contact-data_section-container">
-            <div class="contact-data_icon">
-                <b-icon
-                    pack="fas"
-                    icon="phone"
-                    class="contact-data_icon-phone"
-                />
-            </div>
-            <div class="contact-data_section">
-                <h2 class="contact-data_title">
-                    {{ $t('views.contact.componentContact.titlePhone') }}
-                </h2>
-                <p>
-                    {{ $t('views.contact.componentContact.textPhone') }}
-                </p>
-            </div>
-        </div>
-        <div class="contact-data_section-container">
-            <div class="contact-data_icon">
-                <b-icon
-                    pack="fas"
-                    icon="map-marker-alt"
-                    class="contact-data_icon-phone"
-                />
-            </div>
-            <div class="contact-data_section">
-                <h2 class="contact-data_title">
-                    {{ $t('views.contact.componentContact.titleAddress') }}
-                </h2>
-                <p>
-                    {{ $t('views.contact.componentContact.textAddress') }}
-                </p>
-                <p>
-                    {{ $t('views.contact.componentContact.textCity') }}
-                </p>
-            </div>
-        </div>
+  <div class="contact-data">
+    <div class="contact-data_section-container">
+      <div class="contact-data_icon">
+        <b-icon
+          pack="far"
+          icon="calendar-alt"
+          class="contact-data_icon-phone"
+        />
+      </div>
+      <div class="contact-data_section">
+        <h2 class="contact-data_title">
+          {{ $t('views.contact.componentContact.titleSchedule') }}
+        </h2>
+        <p>
+          {{ $t('views.contact.componentContact.textMondayToFriday') }}
+        </p>
+        <p>
+          {{ $t('views.contact.componentContact.textSaturday') }}
+        </p>
+      </div>
     </div>
+    <div class="contact-data_section-container">
+      <div class="contact-data_icon">
+        <b-icon pack="fas" icon="phone" class="contact-data_icon-phone" />
+      </div>
+      <div class="contact-data_section">
+        <h2 class="contact-data_title">
+          {{ $t('views.contact.componentContact.titlePhone') }}
+        </h2>
+        <p>
+          {{ $t('views.contact.componentContact.textPhone') }}
+        </p>
+      </div>
+    </div>
+    <div class="contact-data_section-container">
+      <div class="contact-data_icon">
+        <b-icon
+          pack="fas"
+          icon="map-marker-alt"
+          class="contact-data_icon-phone"
+        />
+      </div>
+      <div class="contact-data_section">
+        <h2 class="contact-data_title">
+          {{ $t('views.contact.componentContact.titleAddress') }}
+        </h2>
+        <p>
+          {{ $t('views.contact.componentContact.textAddress') }}
+        </p>
+        <p>
+          {{ $t('views.contact.componentContact.textCity') }}
+        </p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

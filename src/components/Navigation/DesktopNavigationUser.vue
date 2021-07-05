@@ -4,22 +4,21 @@
       <b-icon pack="fas" icon="user" />
     </a>
 
-        <div class="navbar-dropdown">
-            <div class="navbar-item username-title">
-                {{ username }}
-            </div>
-            <a class="navbar-item">
-                <router-link to="/User" class="menu-title">
-                    {{ $t('common.components.navigation.userSettings') }}
-                </router-link>
-            </a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item">
-                <router-link to="/" class="menu-title" @click.native="logout()">
-                    {{ $t('common.components.navigation.userLogOff') }}
-                </router-link>
-            </a>
-        </div>
+    <div class="navbar-dropdown">
+      <div class="navbar-item username-title">
+        {{ username }}
+      </div>
+      <a class="navbar-item">
+        <router-link to="/User" class="menu-title">
+          {{ $t('common.components.navigation.userSettings') }}
+        </router-link>
+      </a>
+      <hr class="navbar-divider" />
+      <a class="navbar-item">
+        <router-link to="/" class="menu-title" @click.native="logout()">
+          {{ $t('common.components.navigation.userLogOff') }}
+        </router-link>
+      </a>
     </div>
   </div>
 </template>
