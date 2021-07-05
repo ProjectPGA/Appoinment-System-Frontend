@@ -1,15 +1,14 @@
 <template>
   <b-field
-    :label="$t('components.loginInputs.password')"
+    :label="$t('common.password')"
     :message="errorMessage"
     :type="{
       'is-danger': !isValid,
     }"
-    :data-cy="`${view}-field-password`"
   >
     <b-input
       v-model="password"
-      :placeholder="$t('components.loginInputs.password')"
+      :placeholder="$t('common.password')"
       size="is-medium"
       :data-cy="`${view}-input-password`"
       type="password"
@@ -67,13 +66,13 @@ export default class PasswordInput extends Vue {
   }
 
   private inputEmpty(): void {
-    this.errorMessage = `${this.$t('components.loginInputs.inputEmpty')}`;
+    this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
 
     this.isValid = false;
   }
 
   private inputPasswordIncomplete(): void {
-    this.errorMessage = `${this.$t('components.loginInputs.passwordInvalid')}`;
+    this.errorMessage = `${this.$t('common.passwordInvalid')}`;
 
     this.isValid = false;
   }

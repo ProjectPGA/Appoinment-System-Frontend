@@ -6,45 +6,43 @@
     </div>
     <div class="columns is-centered is-mobile">
       <div class="column is-6-desktop is-10-mobile is-8-tablet container">
-        <h1 class="main-register-form_title title" data-cy="register-title">
-          {{ $t('titles.register') }}
+        <h1 class="main-register-form_title title">
+          {{ $t('common.title.register') }}
         </h1>
         <b-field
-          :label="$t('components.register.name')"
+          :label="$t('views.login.mainRegisterForm.name')"
           :message="errorNameMessage"
           :type="{
             'is-danger': !isNameValid,
           }"
-          data-cy="register-field-name"
         >
           <b-input
             v-model="name"
-            :placeholder="$t('components.register.name')"
+            :placeholder="$t('views.login.mainRegisterForm.name')"
             size="is-medium"
             required
             @blur="checkName"
             @input="checkName"
-            data-cy="register-input-name"
-          />
+          >
+          </b-input>
         </b-field>
 
         <b-field
-          :label="$t('components.register.surname')"
+          :label="$t('views.login.mainRegisterForm.surname')"
           :message="errorSurnameMessage"
           :type="{
             'is-danger': !isSurnameValid,
           }"
-          data-cy="register-field-surname"
         >
           <b-input
             v-model="surname"
-            :placeholder="$t('components.register.surname')"
+            :placeholder="$t('views.login.mainRegisterForm.surname')"
             size="is-medium"
             required
             @blur="checkSurname"
             @input="checkSurname"
-            data-cy="register-input-surname"
-          />
+          >
+          </b-input>
         </b-field>
 
         <email-input
@@ -69,9 +67,8 @@
               type="is-danger"
               size="is-medium"
               :disabled="!isValidForm"
-              data-cy="register-button"
             >
-              {{ $t('components.register.button') }}
+              {{ $t('views.login.mainRegisterForm.button') }}
             </b-button>
           </div>
         </div>
@@ -145,9 +142,7 @@ export default class MainRegisterForm extends Vue {
 
     this.name.length > 0
       ? (this.errorNameMessage = '')
-      : (this.errorNameMessage = `${this.$t(
-          'components.loginInputs.inputEmpty'
-        )}`);
+      : (this.errorNameMessage = `${this.$t('views.login.inputEmpty')}`);
   }
 
   private checkSurname(): void {
@@ -157,9 +152,7 @@ export default class MainRegisterForm extends Vue {
 
     this.surname.length > 0
       ? (this.errorSurnameMessage = '')
-      : (this.errorSurnameMessage = `${this.$t(
-          'components.loginInputs.inputEmpty'
-        )}`);
+      : (this.errorSurnameMessage = `${this.$t('views.login.inputEmpty')}`);
   }
 
   private onEmailInput(email: string): void {

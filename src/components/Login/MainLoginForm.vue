@@ -8,8 +8,8 @@
     </div>
     <div class="columns is-centered is-mobile">
       <div class="column is-6-desktop is-10-mobile is-8-tablet container">
-        <h1 class="main-login-form_title title" data-cy="login-title">
-          {{ $t('titles.login') }}
+        <h1 class="main-login-form_title title">
+          {{ $t('common.title.login') }}
         </h1>
 
         <email-input
@@ -33,21 +33,20 @@
               outlined
               type="is-danger"
               size="is-medium"
-              data-cy="login-submit-button"
+              data-cy="submit"
               :disabled="isInvalidForm"
             >
-              {{ $t('components.login.button') }}
+              {{ $t('views.login.mailLoginForm.button') }}
             </b-button>
           </div>
           <div class="column">
-            <p class="main-login-form_invitation">
-              {{ $t('components.login.noAccount') }}
+            <p class="main-login-form_invitation" data-cy="invitation">
+              {{ $t('views.login.mailLoginForm.noAccount') }}
               <span
                 @click="enableRegisterProgress"
                 class="main-login-form_invitation-link"
-                data-cy="login-invitation-link"
               >
-                {{ $t('components.login.accessToInvitation') }}
+                {{ $t('views.login.mailLoginForm.accessToInvitation') }}
               </span>
             </p>
           </div>

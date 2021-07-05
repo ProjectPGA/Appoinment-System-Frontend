@@ -1,6 +1,6 @@
 <template>
   <div class="contact-title">
-    <h1 class="title">{{ $t('titles.contact') }}</h1>
+    <h1 class="title">{{ $t('common.title.contact') }}</h1>
   </div>
 </template>
 

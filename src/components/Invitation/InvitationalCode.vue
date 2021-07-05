@@ -4,11 +4,8 @@
     <div class="columns is-multiline">
       <div class="column is-12"><logo-app /></div>
       <div class="column is-12 invitational-code_content">
-        <h1
-          class="invitational-code_content-title title"
-          data-cy="invitational-code-title"
-        >
-          {{ $t('components.invitation.title') }}
+        <h1 class="invitational-code_content-title title">
+          {{ $t('common.title.invitation') }}
         </h1>
         <b-field class="invitational-code_content-field">
           <b-input
@@ -17,7 +14,6 @@
             expanded
             placeholder="Ej. ASJAOLHDYWIP"
             @keypress.native.enter="onEnterInvitationalCode"
-            data-cy="invitational-code-input"
           >
           </b-input>
           <p class="control">
@@ -26,9 +22,8 @@
               type="is-danger"
               size="is-medium"
               :disabled="isInvalidCode"
-              data-cy="invitational-code-button"
             >
-              {{ $t('components.invitation.button') }}
+              {{ $t('views.invitation.invitationalCode.button') }}
             </b-button>
           </p>
         </b-field>

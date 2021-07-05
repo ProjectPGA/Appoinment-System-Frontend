@@ -1,15 +1,14 @@
 <template>
   <b-field
-    :label="$t('components.loginInputs.email')"
+    :label="$t('common.email')"
     :message="errorMessage"
     :type="{
       'is-danger': !isValid,
     }"
-    :data-cy="`${view}-field-email`"
   >
     <b-input
       v-model="email"
-      :placeholder="$t('components.loginInputs.email')"
+      :placeholder="$t('common.email')"
       size="is-medium"
       :data-cy="`${view}-input-email`"
       @blur="checkEmail"
@@ -61,13 +60,13 @@ export default class EmailInput extends Vue {
   }
 
   private inputEmpty(): void {
-    this.errorMessage = `${this.$t('components.loginInputs.inputEmpty')}`;
+    this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
 
     this.isValid = false;
   }
 
   private inputEmailInvalid(): void {
-    this.errorMessage = `${this.$t('components.loginInputs.emailInvalid')}`;
+    this.errorMessage = `${this.$t('common.emailInvalid')}`;
 
     this.isValid = false;
   }

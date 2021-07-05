@@ -1,7 +1,7 @@
 <template>
   <maintenance-layout
-    :title="$t('maintenance.title')"
-    :subtitle="$t('maintenance.subtitle')"
+    :title="$t('common.title.maintenance')"
+    :subtitle="$t('common.subtitle.maintenance')"
     urlImage="maintenance-image-1080x720.svg"
   />
 </template>

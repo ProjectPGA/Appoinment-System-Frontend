@@ -6,19 +6,18 @@
       :view="view"
     />
     <p class="repeat-password-input_password-requeriments">
-      {{ $t('components.loginInputs.passwordRequirements') }}
+      {{ $t('common.passwordRequirements') }}
     </p>
     <b-field
-      :label="$t('components.loginInputs.repeatPassword')"
+      :label="$t('common.repeatPassword')"
       :message="errorMessage"
       :type="{
         'is-danger': !isValid,
       }"
-      :data-cy="`${view}-field-repeat-password`"
     >
       <b-input
         v-model="repeatPassword"
-        :placeholder="$t('components.loginInputs.password')"
+        :placeholder="$t('common.password')"
         size="is-medium"
         :data-cy="`${view}-input-repeat-password`"
         type="password"
@@ -76,17 +75,17 @@ export default class RepeatPasswordInput extends Vue {
   }
 
   private inputEmpty(): void {
-    this.errorMessage = `${this.$t('components.loginInputs.inputEmpty')}`;
+    this.errorMessage = `${this.$t('views.login.inputEmpty')}`;
     this.isValid = false;
   }
 
   private inputPasswordInvalid(): void {
-    this.errorMessage = `${this.$t('components.loginInputs.passwordInvalid')}`;
+    this.errorMessage = `${this.$t('common.passwordInvalid')}`;
     this.isValid = false;
   }
 
   private inputRepeatPasswordInvalid(): void {
-    this.errorMessage = `${this.$t('components.loginInputs.notSamePassword')}`;
+    this.errorMessage = `${this.$t('common.notSamePassword')}`;
     this.isValid = false;
   }
 

@@ -10,13 +10,13 @@
       </div>
       <a class="navbar-item">
         <router-link to="/User" class="menu-title">
-          {{ $t('user.settings') }}
+          {{ $t('common.components.navigation.userSettings') }}
         </router-link>
       </a>
       <hr class="navbar-divider" />
       <a class="navbar-item">
         <router-link to="/" class="menu-title" @click.native="logout()">
-          {{ $t('user.logof') }}
+          {{ $t('common.components.navigation.userLogOff') }}
         </router-link>
       </a>
     </div>

@@ -5,23 +5,23 @@
         <div class="menu-container" v-click-outside="hide">
           <div class="mobile-menu">
             <button class="close-nav" @click="hide">
-              <p-icon name="close" />
+              <p-icon name="close"></p-icon>
             </button>
             <router-link to="/Inicio" class="menu-title" @click.native="hide">
               <img class="mobile-logo" src="../../assets/img/logo.svg" />
             </router-link>
             <mobile-navigation-link
-              :label="$t('components.navigation.index')"
+              :label="$t('common.components.navigation.index')"
               to="/Inicio"
               @click.native="hide"
             />
             <mobile-navigation-link
-              :label="$t('components.navigation.appointments')"
+              :label="$t('common.components.navigation.appointments')"
               to="/Appointments"
               @click.native="hide"
             />
             <mobile-navigation-link
-              :label="$t('components.navigation.contactUs')"
+              :label="$t('common.components.navigation.contactUs')"
               to="/Contact"
               @click.native="hide"
             />
@@ -31,20 +31,24 @@
             <div class="mobile-navigation-user-link">
               <collapse icon="fas fa-angle-down">
                 <template slot="collapse_title">
-                  <b-icon pack="fas" icon="globe" class="language-icon" />
+                  <b-icon
+                    pack="fas"
+                    icon="globe"
+                    class="language-icon"
+                  ></b-icon>
                   <span>
-                    {{ $t('titles.language') }}
+                    {{ $t('common.title.language') }}
                   </span>
                   <span class="current-language">
                     ({{ currentLanguage }})
                   </span>
                 </template>
                 <mobile-navigation-link
-                  label="languages.spanish"
+                  label="common.languages.spanish"
                   @click.native="changeLanguageToSpanish"
                 />
                 <mobile-navigation-link
-                  label="languages.english"
+                  label="common.languages.english"
                   @click.native="changeLanguageToEnglish"
                 />
               </collapse>
@@ -58,7 +62,7 @@
             <div class="mobile-navigation-user-link">
               <router-link to="/" class="menu-title" @click.native="logout()">
                 <b-icon pack="fas" icon="sign-out-alt" />
-                {{ $t('user.logof') }}
+                {{ $t('common.components.navigation.userLogOff') }}
               </router-link>
             </div>
           </div>

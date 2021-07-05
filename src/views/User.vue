@@ -1,6 +1,6 @@
 <template>
   <div class="columns p-4">
-    <!-- <user-config-menu />
+    <!-- <user-config-menu  />
         <content-profile /> -->
   </div>
 </template>
