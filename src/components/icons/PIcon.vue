@@ -1,6 +1,6 @@
 <template>
   <svg :viewBox="viewBox" class="p-icon" :style="size">
-    <component v-if="name" :is="name"></component>
+    <component v-if="name" :is="name" />
   </svg>
 </template>
 <script lang="ts">

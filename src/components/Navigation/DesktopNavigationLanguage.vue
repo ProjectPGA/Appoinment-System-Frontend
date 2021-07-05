@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-item has-dropdown is-hoverable">
     <a class="navbar-link">
-      <b-icon pack="fas" icon="globe"></b-icon>
+      <b-icon pack="fas" icon="globe" />
       <span class="current-language">
         {{ currentLanguage }}
       </span>

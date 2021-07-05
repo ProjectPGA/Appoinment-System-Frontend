@@ -1,7 +1,10 @@
 <template>
-  <span :class="['icon', size]" @click="onClick">
-    <i :class="[icon, 'rotate-icon', rotate && 'rotate-icon--rotate']"></i>
-  </span>
+  <font-awesome-icon
+    @click="onClick"
+    :icon="[iconPack, icon]"
+    :size="iconSize"
+    :class="['rotate-icon', rotate && 'rotate-icon--rotate']"
+  />
 </template>
 
 <script lang="ts">
@@ -15,7 +18,7 @@ const allowedSizes = ['', 'is-small', 'is-medium', 'is-large'];
 export default class RotateIcon extends Vue {
   @Prop({
     type: String,
-    default: 'fas fa-chevron-down',
+    default: 'plus',
   })
   private icon: string;
   @Prop({
@@ -23,7 +26,12 @@ export default class RotateIcon extends Vue {
     validator: (val: string) => allowedSizes.includes(val),
     default: '',
   })
-  private size: string;
+  private iconSize: string;
+  @Prop({
+    type: String,
+    default: 'fas',
+  })
+  private iconPack: string;
   @Prop(Boolean) private rotate: boolean;
 
   private onClick(): void {
@@ -35,6 +43,7 @@ export default class RotateIcon extends Vue {
 <style lang="scss" scoped>
 .rotate-icon {
   transition: transform 0.4s;
+  color: $main-color-dark;
   &--rotate {
     transform: rotate(180deg);
   }

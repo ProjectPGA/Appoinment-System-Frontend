@@ -8,8 +8,8 @@
     <span class="desktop-navigation-label">{{ $t(label) }}</span>
   </router-link>
   <li v-else class="desktop-navigation-link">
-    <a :href="path" class="desktop-navigation-label" target="_blank"
-      >{{ $t(label) }}
+    <a :href="path" class="desktop-navigation-label" target="_blank">
+      {{ $t(label) }}
     </a>
   </li>
 </template>

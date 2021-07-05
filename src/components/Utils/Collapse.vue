@@ -13,26 +13,25 @@
       role="button"
     >
       <p class="card-header-title collapse-title">
-        <slot name="collapse_title"></slot>
-        <rotate-icon
-          size="is-small"
-          :rotate="props.open"
-          :icon="'fas fa-plus'"
-          :inverted-icon="'fas fa-minus'"
-          class="collapse-icon"
-          v-if="noStyle"
-        ></rotate-icon>
+        <slot name="collapse_title" />
       </p>
+      <rotate-icon
+        iconSize="xs"
+        :icon="props.open ? iconOpen : iconClose"
+        iconPack="fas"
+        class="collapse-icon"
+        v-if="noStyle"
+      />
       <a class="card-header-icon" v-if="!noStyle">
         <rotate-icon
-          size="is-small"
           :rotate="props.open"
-          :icon="icon"
-          class="collapse-icon"
-        ></rotate-icon>
+          :iconPack="iconPack"
+          :icon="iconDisplay"
+          iconSize="xs"
+        />
       </a>
     </div>
-    <div class="card-content collapse-content"><slot></slot></div>
+    <div class="card-content collapse-content"><slot /></div>
   </b-collapse>
 </template>
 
@@ -50,14 +49,31 @@ import RotateIcon from '@/components/Utils/RotateIcon.vue';
 export default class Collapse extends Vue {
   @Prop({
     type: String,
-    default: 'fas fa-chevron-down',
+    default: 'chevron-down',
   })
-  private icon: string;
+  private iconDisplay: string;
+  @Prop({
+    type: String,
+    default: 'fas',
+  })
+  private iconPack: string;
   @Prop({
     type: Boolean,
     default: false,
   })
   private noStyle: boolean;
+
+  @Prop({
+    type: String,
+    default: 'minus',
+  })
+  private iconOpen: string;
+
+  @Prop({
+    type: String,
+    default: 'plus',
+  })
+  private iconClose: string;
 
   private onOpen(): void {
     this.$emit('open');
@@ -110,6 +126,7 @@ export default class Collapse extends Vue {
   padding-right: 0.81rem;
 }
 .collapse-icon {
+  height: 1.5rem;
   @include mobile {
     font-size: 0.75em;
   }

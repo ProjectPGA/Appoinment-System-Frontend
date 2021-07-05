@@ -1,7 +1,7 @@
 <template>
   <div class="only-mobile">
     <a href="tel:34679938186" class="float" target="_blank">
-      <i class="fas fa-phone my-float"></i>
+      <b-icon pack="fas" icon="phone-alt" size="is-medium" class="my-float" />
     </a>
   </div>
 </template>
@@ -30,9 +30,15 @@ export default class CallButton extends Vue {}
   box-shadow: 0.12em 0.12em 0.19em #999;
   z-index: 29;
 }
+
 .my-float {
-  margin-top: 1em;
+  margin-top: 0.9rem;
+  margin-left: 0.1rem;
   font-family: 'FontAwesome';
+
+  ::v-deep .fa-lg {
+    font-size: 1.8rem;
+  }
 }
 .only-mobile {
   display: none;

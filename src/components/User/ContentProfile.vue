@@ -1,7 +1,7 @@
 <template>
   <div class="column is-9 custom-border">
-    <user-config-info></user-config-info>
-    <user-config-security></user-config-security>
+    <user-config-info />
+    <user-config-security />
   </div>
 </template>
 

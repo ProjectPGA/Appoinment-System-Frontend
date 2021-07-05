@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-item has-dropdown is-hoverable">
     <a class="navbar-link">
-      <b-icon pack="fas" icon="user"></b-icon>
+      <b-icon pack="fas" icon="user" />
     </a>
 
     <div class="navbar-dropdown">

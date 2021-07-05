@@ -25,8 +25,7 @@
             @blur="checkName"
             @input="checkName"
             data-cy="register-input-name"
-          >
-          </b-input>
+          />
         </b-field>
 
         <b-field
@@ -45,8 +44,7 @@
             @blur="checkSurname"
             @input="checkSurname"
             data-cy="register-input-surname"
-          >
-          </b-input>
+          />
         </b-field>
 
         <email-input

@@ -4,8 +4,8 @@
             class="user-appointments-title"
             title="titles.userAppointments"
         ></titles-app> -->
-    <user-appointments-filter></user-appointments-filter>
-    <user-appointments-display></user-appointments-display>
+    <user-appointments-filter />
+    <user-appointments-display />
   </div>
 </template>
 

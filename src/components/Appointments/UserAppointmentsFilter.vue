@@ -12,8 +12,7 @@
             name=""
             v-model="pastAppoints"
             @input="showPastAppoints()"
-          >
-          </b-switch>
+          />
         </div>
       </div>
     </div>

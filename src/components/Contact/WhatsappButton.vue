@@ -1,7 +1,7 @@
 <template>
   <div>
     <a href="https://wa.me/34679938186" class="float" target="_blank">
-      <i class="fa fa-whatsapp my-float"></i>
+      <b-icon pack="fab" icon="whatsapp" size="is-medium" class="my-float" />
     </a>
   </div>
 </template>
@@ -31,7 +31,8 @@ export default class WhatsappButton extends Vue {}
   z-index: 100;
 }
 .my-float {
-  margin-top: 1em;
+  margin-top: 0.9rem;
+  margin-left: 0.1rem;
   font-family: 'FontAwesome';
 }
 </style>
